@@ -9,12 +9,15 @@
 #import <Foundation/Foundation.h>
 #import "CDASyncError.h"
 
-
+@protocol CDASyncServiceDelegate;
 @protocol CDASyncServiceProtocol <NSObject>
+
+@property (nonatomic, weak) id<CDASyncServiceDelegate> delegate;
 @property (nonatomic, getter = isRunning, readonly) BOOL running;
 @property (nonatomic, strong, readonly) NSString *uid;
-
+- (instancetype) initWithUid:(NSString *)uid;
 - (void)start;
+- (void)tearDown;
 - (double)progress;
 @end
 

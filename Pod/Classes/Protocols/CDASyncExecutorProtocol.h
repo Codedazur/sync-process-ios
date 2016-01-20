@@ -7,17 +7,21 @@
 //
 
 #import <Foundation/Foundation.h>
-@protocol CDASyncServicesExecutorDelegate;
+#import "CDASyncErrors.h"
+#import "CDASyncModel.h"
+
+@protocol CDASyncExecutorDelegate;
 
 @protocol CDASyncExecutorProtocol <NSObject>
-@property(nonatomic, weak) id<CDASyncServicesExecutorDelegate> delegate;
-- (void)runcSyncWithIds:(NSArray *)ids;
+@property(nonatomic, weak) id<CDASyncExecutorDelegate> delegate;
+- (instancetype)initWithSyncModels:(NSArray<CDASyncModel> *)syncs;
+- (void)runSyncWithIds:(NSArray *)ids;
 - (double)progress;
 @end
 
-@protocol CDASyncServicesExecutorDelegate <NSObject>
+@protocol CDASyncExecutorDelegate <NSObject>
 
-- (void) CDASyncServicesExecutor:(id<CDASyncExecutorProtocol>)executor failedSyncWithId:(NSString *)serviceId AndErrorId:(CDASyncError)errorId;
-- (void) CDASyncServicesExecutor:(id<CDASyncExecutorProtocol>)executor succeededSyncWithId:(NSString *)serviceId;
-- (void) CDASyncServicesExecutorDidFinishAllSyncServices:(id<CDASyncExecutorProtocol>)executor;
+- (void) CDASyncExecutor:(id<CDASyncExecutorProtocol>)executor failedSyncWithId:(NSString *)serviceId AndErrorId:(CDASyncError)errorId;
+- (void) CDASyncExecutor:(id<CDASyncExecutorProtocol>)executor succeededSyncWithId:(NSString *)serviceId;
+- (void) CDASyncExecutorDidFinishAllSyncServices:(id<CDASyncExecutorProtocol>)executor;
 @end
