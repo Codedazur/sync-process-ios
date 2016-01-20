@@ -1,4 +1,5 @@
 source 'https://github.com/CocoaPods/Specs.git'
+source 'git@bitbucket.org:codedazur/cda-ios-pods.git'
 use_frameworks!
 
 target 'CDASyncService_Example', :exclusive => true do

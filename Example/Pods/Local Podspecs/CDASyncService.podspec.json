@@ -1,0 +1,25 @@
+{
+  "name": "CDASyncService",
+  "version": "0.1.0",
+  "summary": "A short description of CDASyncService.",
+  "description": "An optional longer description of CDASyncService\n\n* Markdown format.\n* Don't worry about the indent, we strip it!",
+  "homepage": "https://github.com/<GITHUB_USERNAME>/CDASyncService",
+  "license": "MIT",
+  "authors": {
+    "tamarabernad": "tamara@codedazur.es"
+  },
+  "source": {
+    "git": "https://github.com/<GITHUB_USERNAME>/CDASyncService.git",
+    "tag": "0.1.0"
+  },
+  "platforms": {
+    "ios": "7.0"
+  },
+  "requires_arc": true,
+  "source_files": "Pod/Classes/**/*",
+  "resource_bundles": {
+    "CDASyncService": [
+      "Pod/Assets/*.png"
+    ]
+  }
+}

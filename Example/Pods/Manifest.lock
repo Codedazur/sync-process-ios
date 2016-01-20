@@ -1,0 +1,17 @@
+PODS:
+  - CDASyncService (0.1.0)
+  - Kiwi (2.3.1)
+
+DEPENDENCIES:
+  - CDASyncService (from `../`)
+  - Kiwi
+
+EXTERNAL SOURCES:
+  CDASyncService:
+    :path: ../
+
+SPEC CHECKSUMS:
+  CDASyncService: 61d2635e1580b22b3529019fbc7e62c84e2106c6
+  Kiwi: f038a6c61f7a9e4d7766bff5717aa3b3fdb75f55
+
+COCOAPODS: 0.39.0
