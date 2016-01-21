@@ -7,7 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "CDASyncError.h"
+#import "CDASyncErrors.h"
 
 @protocol CDASyncServiceDelegate;
 @protocol CDASyncServiceProtocol <NSObject>

@@ -11,17 +11,23 @@
 #import "CDASyncExecutor.h"
 #import "CDANSUserDefaultsSyncScheduleManager.h"
 #import "CDASyncNotifications.h"
+#import "CDAReachabilityManagerProtocol.h"
 
-@interface CDASyncManager()<CDASyncSchedulerDelegate, CDASyncExecutorDelegate>
+@interface CDASyncManager()<CDASyncSchedulerDelegate, CDASyncExecutorDelegate, CDAReachabilityManagerDelegate>
 @property (nonatomic, strong) id<CDASyncSchedulerProtocol> scheduler;
 @property (nonatomic, strong) id<CDASyncExecutorProtocol> executor;
 @property (nonatomic, copy) NSArray<CDASyncModel> *syncModels;
+@property (nonatomic, strong) id<CDAReachabilityManagerProtocol> reachability;
 @property (nonatomic, strong) NSTimer *timer;
+@property (nonatomic, strong) Class<CDAReachabilityManagerProtocol> reachabilityClass;
+@property (nonatomic, strong) Class<CDASyncScheduleMangerProtocol> schedulerManagerClass;
 @end
 @implementation CDASyncManager
 
 #pragma mark - initializers
-- (instancetype)initWithSyncModels:(NSArray<CDASyncModel> *)syncs{
+- (instancetype)initWithSyncModels:(NSArray<CDASyncModel> *)syncs
+                    SchedulerClass:(Class<CDASyncScheduleMangerProtocol>)schedulerClass
+                 ReachabilityClass:(Class<CDAReachabilityManagerProtocol>)reachabilityClass{
     if(!(self = [super init]))return nil;
     self.syncModels = syncs;
     //TODO ADD REACHABILITY
@@ -38,10 +44,17 @@
 }
 
 #pragma mark - Lazy getters
+- (id<CDAReachabilityManagerProtocol>)reachability{
+    if(!_reachability){
+        _reachability = [[(Class)self.reachabilityClass alloc] init];
+        _reachability.delegate = self;
+    }
+    return _reachability;
+}
 - (id<CDASyncSchedulerProtocol>)scheduler{
     if(!_scheduler){
         _scheduler = [[CDASyncScheduler alloc] initWithSyncModels:self.syncModels
-                                           AndSyncScheduleManager:[CDANSUserDefaultsSyncScheduleManager new]];
+                                           AndSyncScheduleManager:[[(Class)self.schedulerManagerClass alloc] init]];
         _scheduler.delegate = self;
     }
     return _scheduler;
@@ -78,6 +91,13 @@
 - (void)CDASyncExecutorDidFinishAllSyncServices:(id<CDASyncExecutorProtocol>)executor{
     [self stopProgress];
     [self postNotificationOnMainThreadWithName:kSyncNotificationAllServicesFinished Object:self AndUserInfo:nil];
+}
+
+#pragma mark - CDAReachabilityManagerDelegate
+- (void)CDAReachabilityManager:(id<CDAReachabilityManagerProtocol>)manager didChangeReachabilityTo:(CDAReachabilityStatus)status{
+    if([self.reachability isReachable]){
+        [self sync];
+    }
 }
 
 #pragma mark - helpers
