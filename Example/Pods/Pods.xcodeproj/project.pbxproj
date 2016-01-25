@@ -105,6 +105,8 @@
 		630C03CF1C4FE5B100CA6B77 /* CDANSUserDefaultsSyncScheduleManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 630C03CD1C4FE5B100CA6B77 /* CDANSUserDefaultsSyncScheduleManager.m */; };
 		630C03D21C4FEFD600CA6B77 /* CDASyncNotifications.h in Headers */ = {isa = PBXBuildFile; fileRef = 630C03D01C4FEFD600CA6B77 /* CDASyncNotifications.h */; };
 		630C03D31C4FEFD600CA6B77 /* CDASyncNotifications.m in Sources */ = {isa = PBXBuildFile; fileRef = 630C03D11C4FEFD600CA6B77 /* CDASyncNotifications.m */; };
+		6358B61F1C56479B002DBF4A /* CDAAbstractSyncService.h in Headers */ = {isa = PBXBuildFile; fileRef = 6358B61D1C56479B002DBF4A /* CDAAbstractSyncService.h */; };
+		6358B6201C56479B002DBF4A /* CDAAbstractSyncService.m in Sources */ = {isa = PBXBuildFile; fileRef = 6358B61E1C56479B002DBF4A /* CDAAbstractSyncService.m */; };
 		6360830D1C50BFD800C7601F /* CDAReachabilityManagerProtocol.h in Headers */ = {isa = PBXBuildFile; fileRef = 6360830C1C50BFD800C7601F /* CDAReachabilityManagerProtocol.h */; };
 		643D2A47D444CF32F7C147A5E34F5543 /* KWIntercept.h in Headers */ = {isa = PBXBuildFile; fileRef = 2F673BB49E92455497F8ABE9F765223C /* KWIntercept.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		6497DC1734E9979523E0A467D370B4FE /* KWPendingNode.m in Sources */ = {isa = PBXBuildFile; fileRef = 25DD80AA4FDD9F33F8D757FC29BC9D45 /* KWPendingNode.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
@@ -357,6 +359,8 @@
 		630C03CD1C4FE5B100CA6B77 /* CDANSUserDefaultsSyncScheduleManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CDANSUserDefaultsSyncScheduleManager.m; sourceTree = "<group>"; };
 		630C03D01C4FEFD600CA6B77 /* CDASyncNotifications.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CDASyncNotifications.h; sourceTree = "<group>"; };
 		630C03D11C4FEFD600CA6B77 /* CDASyncNotifications.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CDASyncNotifications.m; sourceTree = "<group>"; };
+		6358B61D1C56479B002DBF4A /* CDAAbstractSyncService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CDAAbstractSyncService.h; sourceTree = "<group>"; };
+		6358B61E1C56479B002DBF4A /* CDAAbstractSyncService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CDAAbstractSyncService.m; sourceTree = "<group>"; };
 		6360830C1C50BFD800C7601F /* CDAReachabilityManagerProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CDAReachabilityManagerProtocol.h; sourceTree = "<group>"; };
 		63AA707AD4A912DCDB1C9F4752A4AB0A /* KWBeZeroMatcher.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = KWBeZeroMatcher.m; path = Classes/Matchers/KWBeZeroMatcher.m; sourceTree = "<group>"; };
 		63FC9B3B408EBB140F9A3EEAA00F93DF /* CDASyncService.bundle */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CDASyncService.bundle; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -715,6 +719,8 @@
 		630C03B11C4FD44A00CA6B77 /* Abstract */ = {
 			isa = PBXGroup;
 			children = (
+				6358B61D1C56479B002DBF4A /* CDAAbstractSyncService.h */,
+				6358B61E1C56479B002DBF4A /* CDAAbstractSyncService.m */,
 			);
 			path = Abstract;
 			sourceTree = "<group>";
@@ -970,6 +976,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				630C03BE1C4FDD2200CA6B77 /* CDASyncExecutor.h in Headers */,
+				6358B61F1C56479B002DBF4A /* CDAAbstractSyncService.h in Headers */,
 				630C03CE1C4FE5B100CA6B77 /* CDANSUserDefaultsSyncScheduleManager.h in Headers */,
 				630C038D1C4FBBFD00CA6B77 /* CDASyncManagerProtocol.h in Headers */,
 				630C03BA1C4FDC5700CA6B77 /* CDASyncScheduler.h in Headers */,
@@ -1307,6 +1314,7 @@
 				630C03D31C4FEFD600CA6B77 /* CDASyncNotifications.m in Sources */,
 				630C03C31C4FDD9A00CA6B77 /* CDASyncErrors.m in Sources */,
 				630C03BB1C4FDC5700CA6B77 /* CDASyncScheduler.m in Sources */,
+				6358B6201C56479B002DBF4A /* CDAAbstractSyncService.m in Sources */,
 				630C03CF1C4FE5B100CA6B77 /* CDANSUserDefaultsSyncScheduleManager.m in Sources */,
 				41B1B02927CF5BEDA76EC68F11F36611 /* CDASyncService-dummy.m in Sources */,
 			);

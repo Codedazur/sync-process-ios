@@ -30,7 +30,6 @@
                  ReachabilityClass:(Class<CDAReachabilityManagerProtocol>)reachabilityClass{
     if(!(self = [super init]))return nil;
     self.syncModels = syncs;
-    //TODO ADD REACHABILITY
     [self setupNotifications];
     return self;
 }
