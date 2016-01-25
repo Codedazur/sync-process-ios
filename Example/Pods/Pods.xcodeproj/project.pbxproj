@@ -107,6 +107,8 @@
 		630C03D31C4FEFD600CA6B77 /* CDASyncNotifications.m in Sources */ = {isa = PBXBuildFile; fileRef = 630C03D11C4FEFD600CA6B77 /* CDASyncNotifications.m */; };
 		6358B61F1C56479B002DBF4A /* CDAAbstractSyncService.h in Headers */ = {isa = PBXBuildFile; fileRef = 6358B61D1C56479B002DBF4A /* CDAAbstractSyncService.h */; };
 		6358B6201C56479B002DBF4A /* CDAAbstractSyncService.m in Sources */ = {isa = PBXBuildFile; fileRef = 6358B61E1C56479B002DBF4A /* CDAAbstractSyncService.m */; };
+		6358B6241C56505B002DBF4A /* CDAAbstractMultipleSyncService.h in Headers */ = {isa = PBXBuildFile; fileRef = 6358B6221C56505B002DBF4A /* CDAAbstractMultipleSyncService.h */; };
+		6358B6251C56505B002DBF4A /* CDAAbstractMultipleSyncService.m in Sources */ = {isa = PBXBuildFile; fileRef = 6358B6231C56505B002DBF4A /* CDAAbstractMultipleSyncService.m */; };
 		6360830D1C50BFD800C7601F /* CDAReachabilityManagerProtocol.h in Headers */ = {isa = PBXBuildFile; fileRef = 6360830C1C50BFD800C7601F /* CDAReachabilityManagerProtocol.h */; };
 		643D2A47D444CF32F7C147A5E34F5543 /* KWIntercept.h in Headers */ = {isa = PBXBuildFile; fileRef = 2F673BB49E92455497F8ABE9F765223C /* KWIntercept.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		6497DC1734E9979523E0A467D370B4FE /* KWPendingNode.m in Sources */ = {isa = PBXBuildFile; fileRef = 25DD80AA4FDD9F33F8D757FC29BC9D45 /* KWPendingNode.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
@@ -361,6 +363,8 @@
 		630C03D11C4FEFD600CA6B77 /* CDASyncNotifications.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CDASyncNotifications.m; sourceTree = "<group>"; };
 		6358B61D1C56479B002DBF4A /* CDAAbstractSyncService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CDAAbstractSyncService.h; sourceTree = "<group>"; };
 		6358B61E1C56479B002DBF4A /* CDAAbstractSyncService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CDAAbstractSyncService.m; sourceTree = "<group>"; };
+		6358B6221C56505B002DBF4A /* CDAAbstractMultipleSyncService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CDAAbstractMultipleSyncService.h; sourceTree = "<group>"; };
+		6358B6231C56505B002DBF4A /* CDAAbstractMultipleSyncService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CDAAbstractMultipleSyncService.m; sourceTree = "<group>"; };
 		6360830C1C50BFD800C7601F /* CDAReachabilityManagerProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CDAReachabilityManagerProtocol.h; sourceTree = "<group>"; };
 		63AA707AD4A912DCDB1C9F4752A4AB0A /* KWBeZeroMatcher.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = KWBeZeroMatcher.m; path = Classes/Matchers/KWBeZeroMatcher.m; sourceTree = "<group>"; };
 		63FC9B3B408EBB140F9A3EEAA00F93DF /* CDASyncService.bundle */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CDASyncService.bundle; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -721,6 +725,8 @@
 			children = (
 				6358B61D1C56479B002DBF4A /* CDAAbstractSyncService.h */,
 				6358B61E1C56479B002DBF4A /* CDAAbstractSyncService.m */,
+				6358B6221C56505B002DBF4A /* CDAAbstractMultipleSyncService.h */,
+				6358B6231C56505B002DBF4A /* CDAAbstractMultipleSyncService.m */,
 			);
 			path = Abstract;
 			sourceTree = "<group>";
@@ -991,6 +997,7 @@
 				630C03931C4FBC5800CA6B77 /* CDASyncServiceProtocol.h in Headers */,
 				5ABE0FC89ED79133753BC1E0410DB5DE /* CDASyncService-umbrella.h in Headers */,
 				630C039B1C4FBCA000CA6B77 /* CDASyncChronProtocol.h in Headers */,
+				6358B6241C56505B002DBF4A /* CDAAbstractMultipleSyncService.h in Headers */,
 				630C038F1C4FBC1C00CA6B77 /* CDASyncSchedulerProtocol.h in Headers */,
 				630C03991C4FBC9000CA6B77 /* CDASyncDownloaderProtocol.h in Headers */,
 				630C03C21C4FDD9A00CA6B77 /* CDASyncErrors.h in Headers */,
@@ -1309,6 +1316,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6358B6251C56505B002DBF4A /* CDAAbstractMultipleSyncService.m in Sources */,
 				630C03B71C4FDB4000CA6B77 /* CDASyncManager.m in Sources */,
 				630C03BF1C4FDD2200CA6B77 /* CDASyncExecutor.m in Sources */,
 				630C03D31C4FEFD600CA6B77 /* CDASyncNotifications.m in Sources */,
