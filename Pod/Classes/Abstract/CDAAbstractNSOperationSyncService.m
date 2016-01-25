@@ -13,6 +13,7 @@
 @end
 @implementation CDAAbstractNSOperationSyncService
 @synthesize running = _running, uid = _uid, delegate = _delegate;
+
 - (instancetype)initWithUid:(NSString *)uid
                   Connector:(id<CDASyncConnectorProtocol>)connector
                   AndParser:(id<CDASyncParserProtocol>)parser{

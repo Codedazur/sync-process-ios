@@ -83,7 +83,7 @@
 }
 - (void)stopSyncService:(NSObject<CDASyncServiceProtocol> *)syncService{
     [syncService tearDown];
-    [self.runningSyncServices removeObjectForKey:[syncService uid]];
+    if([self isSyncServiceRunningWithId:[syncService uid]])[self.runningSyncServices removeObjectForKey:[syncService uid]];
 }
 #pragma mark - CDASyncServiceDelegate
 - (void)CDASyncService:(NSObject<CDASyncServiceProtocol> *)syncService DidFinishWithErrorId:(CDASyncError)syncErrorId{
