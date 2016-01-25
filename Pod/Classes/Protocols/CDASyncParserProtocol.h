@@ -10,6 +10,8 @@
 
 @protocol CDASyncParserProtocol <NSObject>
 - (void)parseData:(id)data AndCompletion:(void (^)(id result))completion;
-- (void)decodeData:(id)data AndCompletion:(void (^)(id result))completion;
 - (double)progress;
+
+@optional
+- (void)decodeData:(id)data AndCompletion:(void (^)(id result))completion;
 @end
