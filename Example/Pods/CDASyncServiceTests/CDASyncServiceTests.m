@@ -7,6 +7,7 @@
 //
 
 #import <XCTest/XCTest.h>
+#import "CDASyncManager.h"
 
 @interface CDASyncServiceTests : XCTestCase
 
@@ -24,7 +25,7 @@
     [super tearDown];
 }
 
-- (void)testExample {
+- (void)testManager {
     // This is an example of a functional test case.
     // Use XCTAssert and related functions to verify your tests produce the correct results.
 }
