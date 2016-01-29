@@ -9,19 +9,16 @@
 
 Pod::Spec.new do |s|
   s.name             = "CDASyncService"
-  s.version          = "0.1.0"
-  s.summary          = "A short description of CDASyncService."
+  s.version          = "0.0.1"
+  s.summary          = "Framework for Sync Processes"
   s.description      = <<-DESC
-                       An optional longer description of CDASyncService
-
-                       * Markdown format.
-                       * Don't worry about the indent, we strip it!
+                       Base Framework to use for syncing a large amount of data into an app
                        DESC
-  s.homepage         = "https://github.com/<GITHUB_USERNAME>/CDASyncService"
+  s.homepage         = "https://github.com/Codedazur/sync-process-ios"
   # s.screenshots     = "www.example.com/screenshots_1", "www.example.com/screenshots_2"
   s.license          = 'MIT'
   s.author           = { "tamarabernad" => "tamara@codedazur.es" }
-  s.source           = { :git => "https://github.com/<GITHUB_USERNAME>/CDASyncService.git", :tag => s.version.to_s }
+  s.source           = { :git => "https://github.com/Codedazur/sync-process-ios.git", :tag => s.version.to_s }
   # s.social_media_url = 'https://twitter.com/<TWITTER_USERNAME>'
 
   s.platform     = :ios, '7.0'
