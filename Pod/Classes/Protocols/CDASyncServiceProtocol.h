@@ -8,6 +8,7 @@
 
 #import <Foundation/Foundation.h>
 #import "CDASyncErrors.h"
+#import "CDASyncModel.h"
 
 @protocol CDASyncServiceDelegate;
 @protocol CDASyncServiceProtocol <NSObject>
@@ -15,7 +16,7 @@
 @property (nonatomic, weak) id<CDASyncServiceDelegate> delegate;
 @property (nonatomic, getter = isRunning, readonly) BOOL running;
 @property (nonatomic, strong, readonly) NSString *uid;
-- (instancetype) initWithUid:(NSString *)uid;
+- (instancetype) initWithUid:(NSString *)uid AndSyncModel:(NSObject<CDASyncModel> *)syncModel;
 - (void)start;
 - (void)tearDown;
 - (double)progress;

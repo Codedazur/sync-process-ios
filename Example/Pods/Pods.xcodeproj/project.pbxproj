@@ -105,6 +105,8 @@
 		630C03CF1C4FE5B100CA6B77 /* CDANSUserDefaultsSyncScheduleManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 630C03CD1C4FE5B100CA6B77 /* CDANSUserDefaultsSyncScheduleManager.m */; };
 		630C03D21C4FEFD600CA6B77 /* CDASyncNotifications.h in Headers */ = {isa = PBXBuildFile; fileRef = 630C03D01C4FEFD600CA6B77 /* CDASyncNotifications.h */; };
 		630C03D31C4FEFD600CA6B77 /* CDASyncNotifications.m in Sources */ = {isa = PBXBuildFile; fileRef = 630C03D11C4FEFD600CA6B77 /* CDASyncNotifications.m */; };
+		632F6B151CB3F74800C73090 /* CDAAbstractParser.h in Headers */ = {isa = PBXBuildFile; fileRef = 632F6B131CB3F74800C73090 /* CDAAbstractParser.h */; };
+		632F6B161CB3F74800C73090 /* CDAAbstractParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 632F6B141CB3F74800C73090 /* CDAAbstractParser.m */; };
 		6358B6371C56646D002DBF4A /* CDAAbstractMultipleSyncService.h in Headers */ = {isa = PBXBuildFile; fileRef = 6358B62F1C56646D002DBF4A /* CDAAbstractMultipleSyncService.h */; };
 		6358B6381C56646D002DBF4A /* CDAAbstractMultipleSyncService.m in Sources */ = {isa = PBXBuildFile; fileRef = 6358B6301C56646D002DBF4A /* CDAAbstractMultipleSyncService.m */; };
 		6358B6391C56646D002DBF4A /* CDAAbstractMutilpleNSOperationSyncService.h in Headers */ = {isa = PBXBuildFile; fileRef = 6358B6311C56646D002DBF4A /* CDAAbstractMutilpleNSOperationSyncService.h */; };
@@ -365,6 +367,8 @@
 		630C03CD1C4FE5B100CA6B77 /* CDANSUserDefaultsSyncScheduleManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CDANSUserDefaultsSyncScheduleManager.m; sourceTree = "<group>"; };
 		630C03D01C4FEFD600CA6B77 /* CDASyncNotifications.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CDASyncNotifications.h; sourceTree = "<group>"; };
 		630C03D11C4FEFD600CA6B77 /* CDASyncNotifications.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CDASyncNotifications.m; sourceTree = "<group>"; };
+		632F6B131CB3F74800C73090 /* CDAAbstractParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CDAAbstractParser.h; sourceTree = "<group>"; };
+		632F6B141CB3F74800C73090 /* CDAAbstractParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CDAAbstractParser.m; sourceTree = "<group>"; };
 		6358B62F1C56646D002DBF4A /* CDAAbstractMultipleSyncService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CDAAbstractMultipleSyncService.h; sourceTree = "<group>"; };
 		6358B6301C56646D002DBF4A /* CDAAbstractMultipleSyncService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CDAAbstractMultipleSyncService.m; sourceTree = "<group>"; };
 		6358B6311C56646D002DBF4A /* CDAAbstractMutilpleNSOperationSyncService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CDAAbstractMutilpleNSOperationSyncService.h; sourceTree = "<group>"; };
@@ -755,6 +759,8 @@
 		6358B63F1C56647F002DBF4A /* Parsers */ = {
 			isa = PBXGroup;
 			children = (
+				632F6B131CB3F74800C73090 /* CDAAbstractParser.h */,
+				632F6B141CB3F74800C73090 /* CDAAbstractParser.m */,
 			);
 			path = Parsers;
 			sourceTree = "<group>";
@@ -1017,6 +1023,7 @@
 				630C03BA1C4FDC5700CA6B77 /* CDASyncScheduler.h in Headers */,
 				630C03C91C4FE3BE00CA6B77 /* CDASyncScheduleMangerProtocol.h in Headers */,
 				6358B63B1C56646D002DBF4A /* CDAAbstractNSOperationSyncService.h in Headers */,
+				632F6B151CB3F74800C73090 /* CDAAbstractParser.h in Headers */,
 				630C03D21C4FEFD600CA6B77 /* CDASyncNotifications.h in Headers */,
 				630C03B61C4FDB4000CA6B77 /* CDASyncManager.h in Headers */,
 				630C03911C4FBC4700CA6B77 /* CDASyncExecutorProtocol.h in Headers */,
@@ -1353,6 +1360,7 @@
 				630C03D31C4FEFD600CA6B77 /* CDASyncNotifications.m in Sources */,
 				630C03C31C4FDD9A00CA6B77 /* CDASyncErrors.m in Sources */,
 				630C03BB1C4FDC5700CA6B77 /* CDASyncScheduler.m in Sources */,
+				632F6B161CB3F74800C73090 /* CDAAbstractParser.m in Sources */,
 				630C03CF1C4FE5B100CA6B77 /* CDANSUserDefaultsSyncScheduleManager.m in Sources */,
 				6358B63E1C56646D002DBF4A /* CDAAbstractSyncService.m in Sources */,
 				41B1B02927CF5BEDA76EC68F11F36611 /* CDASyncService-dummy.m in Sources */,

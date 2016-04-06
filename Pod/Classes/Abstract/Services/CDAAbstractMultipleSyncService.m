@@ -15,16 +15,12 @@
 @implementation CDAAbstractMultipleSyncService
 @synthesize delegate = _delegate, running = _running, uid = _uid;
 
-- (instancetype)initWithUid:(NSString *)uid Connectors:(NSArray<CDASyncConnectorProtocol> *)connectors AndParsers:(NSArray<CDASyncParserProtocol> *)parsers{
-    if(!(self = [self initWithUid:uid]))return self;
-    self.connectors = [connectors copy];
-    self.parsers = [parsers copy];
-    return self;
-}
 #pragma mark - CDASyncServiceProtocol
-- (instancetype)initWithUid:(NSString *)uid{
+- (instancetype)initWithUid:(NSString *)uid AndSyncModel:(NSObject<CDASyncModel> *)syncModel{
     if(!(self = [super init]))return self;
     _uid = uid;
+    self.connectors = [syncModel getConnectors];
+    self.parsers = [syncModel getParsers];
     return self;
 }
 - (void)start{

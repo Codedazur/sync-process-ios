@@ -12,7 +12,4 @@
 #import "CDASyncParserProtocol.h"
 
 @interface CDAAbstractSyncService : NSObject<CDASyncServiceProtocol>
-- (instancetype)initWithUid:(NSString *)uid
-                  Connector:(id<CDASyncConnectorProtocol>)connector
-                  AndParser:(id<CDASyncParserProtocol>)parser;
 @end
