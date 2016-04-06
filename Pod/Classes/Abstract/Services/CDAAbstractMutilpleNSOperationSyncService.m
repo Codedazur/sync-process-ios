@@ -59,8 +59,8 @@
 - (void)tearDown{
 }
 #pragma mark - CDASyncServiceDelegate
-- (void)CDASyncServiceDidFinishWithSuccess:(id<CDASyncServiceProtocol>)syncService{
-    [self.delegate CDASyncServiceDidFinishWithSuccess:syncService];
+- (void)CDASyncServiceDidFinishWithSuccess:(id<CDASyncServiceProtocol>)syncService AndResult:(id)result{
+    [self.delegate CDASyncServiceDidFinishWithSuccess:syncService AndResult:result];
 }
 - (void)CDASyncService:(id<CDASyncServiceProtocol>)syncService DidFinishWithErrorId:(CDASyncError)syncErrorId{
     

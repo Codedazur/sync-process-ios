@@ -20,7 +20,13 @@
 		6003F5B1195388D20070C39A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6003F58D195388D20070C39A /* Foundation.framework */; };
 		6003F5B2195388D20070C39A /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6003F591195388D20070C39A /* UIKit.framework */; };
 		6003F5BA195388D20070C39A /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 6003F5B8195388D20070C39A /* InfoPlist.strings */; };
-		6003F5BC195388D20070C39A /* Tests.m in Sources */ = {isa = PBXBuildFile; fileRef = 6003F5BB195388D20070C39A /* Tests.m */; };
+		632F6B371CB53A3400C73090 /* CDASyncTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 632F6B361CB53A3400C73090 /* CDASyncTests.m */; };
+		632F6B3A1CB53AF400C73090 /* test.json in Resources */ = {isa = PBXBuildFile; fileRef = 632F6B391CB53AF400C73090 /* test.json */; };
+		632F6B3B1CB53AF400C73090 /* test.json in Resources */ = {isa = PBXBuildFile; fileRef = 632F6B391CB53AF400C73090 /* test.json */; };
+		632F6B3E1CB53E3000C73090 /* CDAReachabilityMock.m in Sources */ = {isa = PBXBuildFile; fileRef = 632F6B3D1CB53E3000C73090 /* CDAReachabilityMock.m */; };
+		632F6B3F1CB53E3000C73090 /* CDAReachabilityMock.m in Sources */ = {isa = PBXBuildFile; fileRef = 632F6B3D1CB53E3000C73090 /* CDAReachabilityMock.m */; };
+		632F6B421CB53F7F00C73090 /* CDASyncModelMock.m in Sources */ = {isa = PBXBuildFile; fileRef = 632F6B411CB53F7F00C73090 /* CDASyncModelMock.m */; };
+		632F6B431CB53F7F00C73090 /* CDASyncModelMock.m in Sources */ = {isa = PBXBuildFile; fileRef = 632F6B411CB53F7F00C73090 /* CDASyncModelMock.m */; };
 		873B8AEB1B1F5CCA007FD442 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 873B8AEA1B1F5CCA007FD442 /* Main.storyboard */; };
 		C2EA343BF732BFACF1ADA0A4 /* Pods_CDASyncService_Example.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0370F47B6EBB746669275A0F /* Pods_CDASyncService_Example.framework */; };
 /* End PBXBuildFile section */
@@ -58,8 +64,13 @@
 		6003F5AF195388D20070C39A /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
 		6003F5B7195388D20070C39A /* Tests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Tests-Info.plist"; sourceTree = "<group>"; };
 		6003F5B9195388D20070C39A /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		6003F5BB195388D20070C39A /* Tests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Tests.m; sourceTree = "<group>"; };
 		606FC2411953D9B200FFA9A0 /* Tests-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Tests-Prefix.pch"; sourceTree = "<group>"; };
+		632F6B361CB53A3400C73090 /* CDASyncTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CDASyncTests.m; sourceTree = "<group>"; };
+		632F6B391CB53AF400C73090 /* test.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = test.json; path = ../../../../../Desktop/test.json; sourceTree = "<group>"; };
+		632F6B3C1CB53E3000C73090 /* CDAReachabilityMock.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CDAReachabilityMock.h; sourceTree = "<group>"; };
+		632F6B3D1CB53E3000C73090 /* CDAReachabilityMock.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CDAReachabilityMock.m; sourceTree = "<group>"; };
+		632F6B401CB53F7F00C73090 /* CDASyncModelMock.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CDASyncModelMock.h; sourceTree = "<group>"; };
+		632F6B411CB53F7F00C73090 /* CDASyncModelMock.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CDASyncModelMock.m; sourceTree = "<group>"; };
 		6CB6AF08FD9ED86410AFE30C /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = LICENSE; path = ../LICENSE; sourceTree = "<group>"; };
 		77E961AAD9DCFF376EFEA485 /* CDASyncService.podspec */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = CDASyncService.podspec; path = ../CDASyncService.podspec; sourceTree = "<group>"; };
 		873B8AEA1B1F5CCA007FD442 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
@@ -167,8 +178,13 @@
 		6003F5B5195388D20070C39A /* Tests */ = {
 			isa = PBXGroup;
 			children = (
-				6003F5BB195388D20070C39A /* Tests.m */,
+				632F6B391CB53AF400C73090 /* test.json */,
 				6003F5B6195388D20070C39A /* Supporting Files */,
+				632F6B361CB53A3400C73090 /* CDASyncTests.m */,
+				632F6B3C1CB53E3000C73090 /* CDAReachabilityMock.h */,
+				632F6B3D1CB53E3000C73090 /* CDAReachabilityMock.m */,
+				632F6B401CB53F7F00C73090 /* CDASyncModelMock.h */,
+				632F6B411CB53F7F00C73090 /* CDASyncModelMock.m */,
 			);
 			path = Tests;
 			sourceTree = "<group>";
@@ -277,6 +293,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				873B8AEB1B1F5CCA007FD442 /* Main.storyboard in Resources */,
+				632F6B3A1CB53AF400C73090 /* test.json in Resources */,
 				6003F5A9195388D20070C39A /* Images.xcassets in Resources */,
 				6003F598195388D20070C39A /* InfoPlist.strings in Resources */,
 			);
@@ -287,6 +304,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				6003F5BA195388D20070C39A /* InfoPlist.strings in Resources */,
+				632F6B3B1CB53AF400C73090 /* test.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -391,8 +409,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				6003F59E195388D20070C39A /* CDAAppDelegate.m in Sources */,
+				632F6B421CB53F7F00C73090 /* CDASyncModelMock.m in Sources */,
 				6003F5A7195388D20070C39A /* CDAViewController.m in Sources */,
 				6003F59A195388D20070C39A /* main.m in Sources */,
+				632F6B3E1CB53E3000C73090 /* CDAReachabilityMock.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -400,7 +420,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				6003F5BC195388D20070C39A /* Tests.m in Sources */,
+				632F6B431CB53F7F00C73090 /* CDASyncModelMock.m in Sources */,
+				632F6B3F1CB53E3000C73090 /* CDAReachabilityMock.m in Sources */,
+				632F6B371CB53A3400C73090 /* CDASyncTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

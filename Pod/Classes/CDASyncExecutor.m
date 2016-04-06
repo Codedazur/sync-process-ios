@@ -69,7 +69,7 @@
 - (NSObject<CDASyncServiceProtocol> *)getServiceById:(NSString *)syncId{
     
     id<CDASyncModel> model = [[self.syncModels filteredArrayUsingPredicate:[NSPredicate predicateWithFormat:@"uid = %@",syncId]] firstObject];
-    NSObject<CDASyncServiceProtocol> *syncService = [[(Class)model.syncServiceClass alloc] initWithUid:syncId AndSyncModel:model];
+    NSObject<CDASyncServiceProtocol> *syncService = [[(Class)model.syncServiceClass alloc] initWithSyncModel:model];
     syncService.delegate = self;
     return syncService;
 }

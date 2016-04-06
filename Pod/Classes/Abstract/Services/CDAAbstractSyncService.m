@@ -10,18 +10,14 @@
 #import "CDASyncParserProtocol.h"
 
 @interface CDAAbstractSyncService()
-@property (nonatomic, strong)id<CDASyncConnectorProtocol> connector;
-@property (nonatomic, strong)id<CDASyncParserProtocol> parser;
 @end
 @implementation CDAAbstractSyncService
 @synthesize delegate = _delegate, running = _running, uid = _uid;
 
 #pragma mark - CDASyncServiceProtocol
-- (instancetype)initWithUid:(NSString *)uid AndSyncModel:(NSObject<CDASyncModel> *)syncModel{
+- (instancetype)initWithSyncModel:(NSObject<CDASyncModel> *)syncModel{
     if(!(self = [super init]))return self;
-    _uid = uid;
-    self.connector = [syncModel getConnector];
-    self.parser = [syncModel getParser];
+    _uid = syncModel.uid;
     return self;
 }
 - (void)start{
@@ -43,14 +39,14 @@
     [self finish];
     [self.delegate CDASyncService:self DidFinishWithErrorId:errorId];
 }
-- (void) finishWithSuccess{
+- (void) finishWithSuccessAndResult:(id)result{
     [self finish];
-    [self.delegate CDASyncServiceDidFinishWithSuccess:self];
+    [self.delegate CDASyncServiceDidFinishWithSuccess:self AndResult:result];
 }
 - (void)retrieveData{
     [self.connector getObjectsWithSuccess:^(id responseObject) {
         [self.parser parseData:responseObject AndCompletion:^(id result) {
-            [self finishWithSuccess];
+            [self finishWithSuccessAndResult:result];
         }];
     } failure:^(NSError *error) {
         [self finishWithErrorId:(CDASyncError)error.code];

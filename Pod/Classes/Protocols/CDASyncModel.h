@@ -13,10 +13,13 @@
 @protocol CDASyncModel <NSObject>
 
 @property (nonatomic, strong, readonly) NSString *uid;
+@property (nonatomic, strong, readonly) NSString *baseUrl;
+@property (nonatomic, strong, readonly) NSString *resource;
 @property (nonatomic, strong, readonly) Class syncServiceClass;
 @property (nonatomic, readonly) NSTimeInterval timeInterval;
-- (NSArray<CDASyncParserProtocol> *)getParsers;
-- (NSArray<CDASyncConnectorProtocol> *)getConnectors;
-- (id<CDASyncParserProtocol> )getParser;
-- (id<CDASyncConnectorProtocol> )getConnector;
+- (instancetype)initWithUid:(NSString *)uid
+                    BaseUrl:(NSString *)baseUrl
+                   Resource:(NSString *)resource
+                  SyncClass:(Class)syncServiceClass
+               timeInterval:(NSTimeInterval)timeInterval;
 @end

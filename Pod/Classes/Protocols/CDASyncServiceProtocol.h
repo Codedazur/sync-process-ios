@@ -16,7 +16,7 @@
 @property (nonatomic, weak) id<CDASyncServiceDelegate> delegate;
 @property (nonatomic, getter = isRunning, readonly) BOOL running;
 @property (nonatomic, strong, readonly) NSString *uid;
-- (instancetype) initWithUid:(NSString *)uid AndSyncModel:(NSObject<CDASyncModel> *)syncModel;
+- (instancetype) initWithSyncModel:(NSObject<CDASyncModel> *)syncModel;
 - (void)start;
 - (void)tearDown;
 - (double)progress;
@@ -24,6 +24,6 @@
 
 @protocol CDASyncServiceDelegate <NSObject>
 
-- (void) CDASyncServiceDidFinishWithSuccess:(id<CDASyncServiceProtocol>)syncService;
+- (void) CDASyncServiceDidFinishWithSuccess:(id<CDASyncServiceProtocol>)syncService AndResult:(id)result;
 - (void) CDASyncService:(id<CDASyncServiceProtocol>)syncService DidFinishWithErrorId:(CDASyncError)syncErrorId;
 @end

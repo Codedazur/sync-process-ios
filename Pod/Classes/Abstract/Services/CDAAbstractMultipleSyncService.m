@@ -19,8 +19,6 @@
 - (instancetype)initWithUid:(NSString *)uid AndSyncModel:(NSObject<CDASyncModel> *)syncModel{
     if(!(self = [super init]))return self;
     _uid = uid;
-    self.connectors = [syncModel getConnectors];
-    self.parsers = [syncModel getParsers];
     return self;
 }
 - (void)start{
@@ -50,7 +48,7 @@
 }
 - (void) finishWithSuccess{
     [self finish];
-    [self.delegate CDASyncServiceDidFinishWithSuccess:self];
+    [self.delegate CDASyncServiceDidFinishWithSuccess:self AndResult:nil];
 }
 - (void)retrieveData{
     [[self currentConnector] getObjectsWithSuccess:^(id responseObject) {
