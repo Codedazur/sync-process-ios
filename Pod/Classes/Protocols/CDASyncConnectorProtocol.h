@@ -9,6 +9,8 @@
 #import <Foundation/Foundation.h>
 
 @protocol CDASyncConnectorProtocol <NSObject>
+@property (nonatomic, strong) NSString *baseUrl;
+@property (nonatomic, strong) NSString *resource;
 @optional
 - (double)progress;
 - (void) getObjectsWithSuccess:(void (^)(id responseObject))success failure:(void (^)(NSError *error))failure;
