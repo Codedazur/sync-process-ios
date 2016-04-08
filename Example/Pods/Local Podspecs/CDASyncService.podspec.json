@@ -21,5 +21,10 @@
     "CDASyncService": [
       "Pod/Assets/*.png"
     ]
+  },
+  "dependencies": {
+    "RestKit": [
+      "~> 0.26"
+    ]
   }
 }

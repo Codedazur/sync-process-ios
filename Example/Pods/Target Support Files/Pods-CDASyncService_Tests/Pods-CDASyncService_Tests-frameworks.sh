@@ -84,10 +84,22 @@ strip_invalid_archs() {
 
 
 if [[ "$CONFIGURATION" == "Debug" ]]; then
+  install_framework "Pods-CDASyncService_Tests/AFNetworking.framework"
   install_framework "Pods-CDASyncService_Tests/CDASyncService.framework"
+  install_framework "Pods-CDASyncService_Tests/ISO8601DateFormatterValueTransformer.framework"
+  install_framework "Pods-CDASyncService_Tests/RKValueTransformers.framework"
+  install_framework "Pods-CDASyncService_Tests/RestKit.framework"
+  install_framework "Pods-CDASyncService_Tests/SOCKit.framework"
+  install_framework "Pods-CDASyncService_Tests/TransitionKit.framework"
   install_framework "Pods-CDASyncService_Tests/Kiwi.framework"
 fi
 if [[ "$CONFIGURATION" == "Release" ]]; then
+  install_framework "Pods-CDASyncService_Tests/AFNetworking.framework"
   install_framework "Pods-CDASyncService_Tests/CDASyncService.framework"
+  install_framework "Pods-CDASyncService_Tests/ISO8601DateFormatterValueTransformer.framework"
+  install_framework "Pods-CDASyncService_Tests/RKValueTransformers.framework"
+  install_framework "Pods-CDASyncService_Tests/RestKit.framework"
+  install_framework "Pods-CDASyncService_Tests/SOCKit.framework"
+  install_framework "Pods-CDASyncService_Tests/TransitionKit.framework"
   install_framework "Pods-CDASyncService_Tests/Kiwi.framework"
 fi
