@@ -69,7 +69,7 @@
 - (NSObject<CDASyncServiceProtocol> *)getServiceById:(NSString *)syncId{
     
     id<CDASyncModel> model = [[self.syncModels filteredArrayUsingPredicate:[NSPredicate predicateWithFormat:@"uid = %@",syncId]] firstObject];
-    NSObject<CDASyncServiceProtocol> *syncService = [[(Class)model.syncServiceClass alloc] initWithSyncModel:model];
+    NSObject<CDASyncServiceProtocol> *syncService = [[(Class)model.moduleClass alloc] initWithSyncModel:model];
     syncService.delegate = self;
     return syncService;
 }
@@ -82,7 +82,6 @@
     }
 }
 - (void)stopSyncService:(NSObject<CDASyncServiceProtocol> *)syncService{
-    [syncService tearDown];
     if([self isSyncServiceRunningWithId:[syncService uid]])[self.runningSyncServices removeObjectForKey:[syncService uid]];
 }
 #pragma mark - CDASyncServiceDelegate

@@ -21,6 +21,7 @@
     {
         NSLog(@"Error reading file: %@",error.localizedDescription);
         failure([error copy]);
+        return;
     }
     
     

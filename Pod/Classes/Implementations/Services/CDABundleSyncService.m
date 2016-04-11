@@ -11,12 +11,10 @@
 #import "CDANoConversionParser.h"
 
 @implementation CDABundleSyncService
-@synthesize connector = _connector, parser = _parser;
 - (instancetype)initWithSyncModel:(NSObject<CDASyncModel> *)syncModel{
+    NSMutableArray *arr = [NSMutableArray new];
+    
     if(!(self = [super initWithSyncModel:syncModel]))return self;
-    _connector = [CDABundleConnector new];
-    [_connector setResource:syncModel.resource];
-    _parser = [CDANoConversionParser new];
     return self;
 }
 @end

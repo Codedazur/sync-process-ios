@@ -11,7 +11,5 @@
 #import "CDASyncConnectorProtocol.h"
 #import "CDASyncParserProtocol.h"
 
-@interface CDAAbstractSyncService : NSObject<CDASyncServiceProtocol>
-@property (nonatomic, readonly)id<CDASyncConnectorProtocol> connector;
-@property (nonatomic, readonly)id<CDASyncParserProtocol> parser;
+@interface CDAAbstractSyncService : NSOperation<CDASyncServiceProtocol>
 @end
