@@ -20,10 +20,10 @@
 		6003F5B1195388D20070C39A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6003F58D195388D20070C39A /* Foundation.framework */; };
 		6003F5B2195388D20070C39A /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6003F591195388D20070C39A /* UIKit.framework */; };
 		6003F5BA195388D20070C39A /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 6003F5B8195388D20070C39A /* InfoPlist.strings */; };
-		632F6B371CB53A3400C73090 /* CDASyncTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 632F6B361CB53A3400C73090 /* CDASyncTests.m */; };
 		632F6B3A1CB53AF400C73090 /* test.json in Resources */ = {isa = PBXBuildFile; fileRef = 632F6B391CB53AF400C73090 /* test.json */; };
 		632F6B3B1CB53AF400C73090 /* test.json in Resources */ = {isa = PBXBuildFile; fileRef = 632F6B391CB53AF400C73090 /* test.json */; };
 		63FDB4AE1CBBB10A006FE466 /* CDABundleSyncModuleTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 63FDB4AD1CBBB10A006FE466 /* CDABundleSyncModuleTest.m */; };
+		63FDB5091CBBC15B006FE466 /* CDAParserSyncModuleTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 63FDB5081CBBC15B006FE466 /* CDAParserSyncModuleTest.m */; };
 		873B8AEB1B1F5CCA007FD442 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 873B8AEA1B1F5CCA007FD442 /* Main.storyboard */; };
 		C2EA343BF732BFACF1ADA0A4 /* Pods_CDASyncService_Example.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0370F47B6EBB746669275A0F /* Pods_CDASyncService_Example.framework */; };
 /* End PBXBuildFile section */
@@ -62,9 +62,9 @@
 		6003F5B7195388D20070C39A /* Tests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Tests-Info.plist"; sourceTree = "<group>"; };
 		6003F5B9195388D20070C39A /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		606FC2411953D9B200FFA9A0 /* Tests-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Tests-Prefix.pch"; sourceTree = "<group>"; };
-		632F6B361CB53A3400C73090 /* CDASyncTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CDASyncTests.m; sourceTree = "<group>"; };
 		632F6B391CB53AF400C73090 /* test.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = test.json; path = ../../../../../Desktop/test.json; sourceTree = "<group>"; };
 		63FDB4AD1CBBB10A006FE466 /* CDABundleSyncModuleTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CDABundleSyncModuleTest.m; sourceTree = "<group>"; };
+		63FDB5081CBBC15B006FE466 /* CDAParserSyncModuleTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CDAParserSyncModuleTest.m; sourceTree = "<group>"; };
 		6CB6AF08FD9ED86410AFE30C /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = LICENSE; path = ../LICENSE; sourceTree = "<group>"; };
 		77E961AAD9DCFF376EFEA485 /* CDASyncService.podspec */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = CDASyncService.podspec; path = ../CDASyncService.podspec; sourceTree = "<group>"; };
 		873B8AEA1B1F5CCA007FD442 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
@@ -174,8 +174,8 @@
 			children = (
 				632F6B391CB53AF400C73090 /* test.json */,
 				6003F5B6195388D20070C39A /* Supporting Files */,
-				632F6B361CB53A3400C73090 /* CDASyncTests.m */,
 				63FDB4AD1CBBB10A006FE466 /* CDABundleSyncModuleTest.m */,
+				63FDB5081CBBC15B006FE466 /* CDAParserSyncModuleTest.m */,
 			);
 			path = Tests;
 			sourceTree = "<group>";
@@ -410,7 +410,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				63FDB4AE1CBBB10A006FE466 /* CDABundleSyncModuleTest.m in Sources */,
-				632F6B371CB53A3400C73090 /* CDASyncTests.m in Sources */,
+				63FDB5091CBBC15B006FE466 /* CDAParserSyncModuleTest.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

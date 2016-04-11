@@ -7,6 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
+#define kSyncServiceDomain @"com.codedazur.syncService"
 typedef enum
 {
     CDASyncErrorNoError,

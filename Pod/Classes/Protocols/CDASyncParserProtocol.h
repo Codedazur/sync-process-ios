@@ -7,9 +7,9 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "CDASyncModule.h"
-@protocol CDASyncParserProtocol <CDASyncModule>
+@protocol CDASyncParserProtocol
 @property (nonatomic, strong) NSString *uid;
 
+- (double)progress;
 - (void)parseData:(id)data AndCompletion:(void (^)(id result))completion;
 @end
