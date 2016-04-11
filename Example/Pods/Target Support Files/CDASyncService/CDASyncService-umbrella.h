@@ -13,7 +13,6 @@
 #import "CDAParserSyncModule.h"
 #import "CDANoConversionParser.h"
 #import "CDARestKitCoreDataParser.h"
-#import "CDABundleSyncService.h"
 #import "CDAMapper.h"
 #import "CDARelationMapping.h"
 #import "CDAReachabilityManagerProtocol.h"

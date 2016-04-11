@@ -11,7 +11,6 @@
 		012033F9EB87298140D3B575C313B71B /* KWFutureObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 3258DA4BD48D8D5FCDE632E4C4DDEADD /* KWFutureObject.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
 		01817FEE4791482069F7BC78ABC1B33B /* RKMapperOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 622D60124F87C177B6D91F3611DE51F5 /* RKMapperOperation.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
 		01C389CF02AB079F04FBED0DE5479E0B /* KWBeforeEachNode.h in Headers */ = {isa = PBXBuildFile; fileRef = CE32AFE4E5F67AEF01E981A4C130C79B /* KWBeforeEachNode.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		02C1F53EDF8F357864CBBF6957E1F6E0 /* CDABundleSyncService.h in Headers */ = {isa = PBXBuildFile; fileRef = BD7B657915B7722B7C533C0AC05B2395 /* CDABundleSyncService.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		02D226B3747A6A9FC5ACEBC3406ADA07 /* KWExampleSuiteBuilder.m in Sources */ = {isa = PBXBuildFile; fileRef = D395EB25E4C6887E2D5CCA044CD97C9C /* KWExampleSuiteBuilder.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
 		035DEBB21841BF3F206E94F0BA49D978 /* KWProbePoller.h in Headers */ = {isa = PBXBuildFile; fileRef = EDE2D6844F73DB7BF0EBD7D7206DB669 /* KWProbePoller.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		03C311D85D2F95BA8430CAAB99356C86 /* KWGenericMatchEvaluator.m in Sources */ = {isa = PBXBuildFile; fileRef = AAF07FD4E08D9888E3B9BECFE75D5E69 /* KWGenericMatchEvaluator.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
@@ -25,7 +24,6 @@
 		095F6E79CAF80A256AF083A6EA7B962D /* KWBeWithinMatcher.m in Sources */ = {isa = PBXBuildFile; fileRef = 59F78308A9E9A26B09FA0A1EAEFD2A47 /* KWBeWithinMatcher.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
 		0A313D903C29D4597A27C4DD2D34722D /* CDASyncScheduler.h in Headers */ = {isa = PBXBuildFile; fileRef = 5DCEB41D181F20CB673ADB389BDA3C9D /* CDASyncScheduler.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		0A48AF779AC0B672507DCD9A5C866442 /* KWReporting.h in Headers */ = {isa = PBXBuildFile; fileRef = 3D4C0900B2BB37AB500E922B22C8202F /* KWReporting.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		0A48B8CC5DDA6B10EA15DE0357BAB614 /* CDABundleSyncService.m in Sources */ = {isa = PBXBuildFile; fileRef = 9770299ECE7176FB203E5B68496FE8E4 /* CDABundleSyncService.m */; };
 		0A65B1E80E2D3C1E744FFE5D1379C253 /* KWExpectationType.h in Headers */ = {isa = PBXBuildFile; fileRef = E999D0E2D4CC4209ECE0E22488797E7C /* KWExpectationType.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		0B36FD50D4F6C793A76DA0ADA9A4BAC3 /* KWCaptureSpy.h in Headers */ = {isa = PBXBuildFile; fileRef = D43180F5923EB6EAFA27F768A0440BA6 /* KWCaptureSpy.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		0BB927972A4B78BE805DE85B9EB7DA89 /* UIImageView+AFNetworking.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DB4BF0F20909FCAE04B21573CF4D1CE /* UIImageView+AFNetworking.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
@@ -888,7 +886,6 @@
 		9641C859F0C34B5D98C7BA95D570866C /* RKMappingOperation.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = RKMappingOperation.m; path = Code/ObjectMapping/RKMappingOperation.m; sourceTree = "<group>"; };
 		96C300776A5AF79BC62C7620A10DD567 /* Kiwi-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Kiwi-dummy.m"; sourceTree = "<group>"; };
 		9707B4525481B3EA7E4C262D641BC69D /* KWAfterAllNode.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = KWAfterAllNode.m; path = Classes/Nodes/KWAfterAllNode.m; sourceTree = "<group>"; };
-		9770299ECE7176FB203E5B68496FE8E4 /* CDABundleSyncService.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = CDABundleSyncService.m; sourceTree = "<group>"; };
 		97DC056AA34A4FA3E40BB53BE29FDB30 /* KWBlockRaiseMatcher.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = KWBlockRaiseMatcher.h; path = Classes/Matchers/KWBlockRaiseMatcher.h; sourceTree = "<group>"; };
 		98572192F7CA79D72C53F455D8E2ACE4 /* RKValueTransformers.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = RKValueTransformers.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		9902FDE0D8CA6E064472BE9817143191 /* RKMapping.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = RKMapping.m; path = Code/ObjectMapping/RKMapping.m; sourceTree = "<group>"; };
@@ -961,7 +958,6 @@
 		BC935A56717CFA28A4C9E9147BC6F695 /* CDASyncDownloaderProtocol.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = CDASyncDownloaderProtocol.h; sourceTree = "<group>"; };
 		BCDED5398298257FC03C909361B301E2 /* CDAReachabilityManagerProtocol.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = CDAReachabilityManagerProtocol.h; sourceTree = "<group>"; };
 		BD3AE2907DCB842906B51ED0D5BE94B1 /* ISO8601DateFormatterValueTransformer.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = ISO8601DateFormatterValueTransformer.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		BD7B657915B7722B7C533C0AC05B2395 /* CDABundleSyncService.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = CDABundleSyncService.h; sourceTree = "<group>"; };
 		BDFAC546530472CC6B8AF5F3A2B2C4E2 /* RKHTTPUtilities.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = RKHTTPUtilities.h; path = Code/ObjectMapping/RKHTTPUtilities.h; sourceTree = "<group>"; };
 		BFC01698EEDC0ACD3A84B55C0195EB7C /* CDANSUserDefaultsSyncScheduleManager.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = CDANSUserDefaultsSyncScheduleManager.h; sourceTree = "<group>"; };
 		C018676866D4FB67BC7AAEE573A937A3 /* CoreData.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = CoreData.h; path = Code/CoreData.h; sourceTree = "<group>"; };
@@ -1914,15 +1910,6 @@
 			path = Abstract;
 			sourceTree = "<group>";
 		};
-		CBB9E466E6D0C3D01D80C031A111CA1F /* Services */ = {
-			isa = PBXGroup;
-			children = (
-				BD7B657915B7722B7C533C0AC05B2395 /* CDABundleSyncService.h */,
-				9770299ECE7176FB203E5B68496FE8E4 /* CDABundleSyncService.m */,
-			);
-			path = Services;
-			sourceTree = "<group>";
-		};
 		D0F67C0C93C4E0F4C2301EBEC74B5839 /* Implementations */ = {
 			isa = PBXGroup;
 			children = (
@@ -1930,7 +1917,6 @@
 				8A89A0168DD45167EEF114660F08C3AE /* Models */,
 				47002BA3945293EC2EB7A149EEDF8286 /* Modules */,
 				ACC2BC22FF3765B829C4335C457F790D /* Parser */,
-				CBB9E466E6D0C3D01D80C031A111CA1F /* Services */,
 			);
 			path = Implementations;
 			sourceTree = "<group>";
@@ -2061,7 +2047,6 @@
 				E3FA95D2B6B95ACF2177A062AB273E13 /* CDAAbstractSyncService.h in Headers */,
 				10EE0CBA2188063AF8E872488AD6663C /* CDABundleConnector.h in Headers */,
 				879466AFE33D0235D862CED25965C76B /* CDABundleSyncModule.h in Headers */,
-				02C1F53EDF8F357864CBBF6957E1F6E0 /* CDABundleSyncService.h in Headers */,
 				277397BF67CD176671E1D487F35616AF /* CDACoreDataStackProtocol.h in Headers */,
 				BA31A7C6E5BB6401565D13742B11CEB1 /* CDAMapper.h in Headers */,
 				5BB12BE1B01A10C35FC7DD6716618297 /* CDANoConversionParser.h in Headers */,
@@ -2613,7 +2598,6 @@
 				ABCB6165C2D1EFCB8C2C44C91A7E2DD4 /* CDAAbstractSyncService.m in Sources */,
 				FC28356CDFED1A84C668AADB0FB79A26 /* CDABundleConnector.m in Sources */,
 				21F54C7EB557CD720538B90EBE8BB848 /* CDABundleSyncModule.m in Sources */,
-				0A48B8CC5DDA6B10EA15DE0357BAB614 /* CDABundleSyncService.m in Sources */,
 				DDAE27E898EC0A6C20402A9F3CAF9CD3 /* CDAMapper.m in Sources */,
 				EA0DE624FE8D5683CE268C7BE93DBEA4 /* CDANoConversionParser.m in Sources */,
 				D5EAE738F01F2165D93AE4F3D95E4FCE /* CDANSUserDefaultsSyncScheduleManager.m in Sources */,
