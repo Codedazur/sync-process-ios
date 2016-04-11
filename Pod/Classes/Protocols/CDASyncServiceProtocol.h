@@ -23,5 +23,5 @@
 @protocol CDASyncServiceDelegate <NSObject>
 
 - (void) CDASyncServiceDidFinishWithSuccess:(id<CDASyncServiceProtocol>)syncService AndResult:(id)result;
-- (void) CDASyncService:(id<CDASyncServiceProtocol>)syncService DidFinishWithErrorId:(CDASyncError)syncErrorId;
+- (void) CDASyncService:(id<CDASyncServiceProtocol>)syncService DidFinishWithError:(NSError *)error;
 @end

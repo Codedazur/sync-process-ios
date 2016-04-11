@@ -18,4 +18,9 @@
     _timeInterval = timeInterval;
     return self;
 }
+- (instancetype)initWithUid:(NSString *)uid moduleClass:(Class)moduleClass userInfo:(NSDictionary *)userInfo subModuleModels:(NSArray<CDASyncModel> *)subModuleModels timeInterval:(NSTimeInterval)timeInterval{
+    if(!(self = [self initWithUid:uid moduleClass:moduleClass userInfo:userInfo timeInterval:timeInterval]))return self;
+    _subModuleModels = subModuleModels;
+    return self;
+}
 @end

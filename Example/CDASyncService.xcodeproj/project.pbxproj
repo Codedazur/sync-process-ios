@@ -24,6 +24,7 @@
 		632F6B3B1CB53AF400C73090 /* test.json in Resources */ = {isa = PBXBuildFile; fileRef = 632F6B391CB53AF400C73090 /* test.json */; };
 		63FDB4AE1CBBB10A006FE466 /* CDABundleSyncModuleTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 63FDB4AD1CBBB10A006FE466 /* CDABundleSyncModuleTest.m */; };
 		63FDB5091CBBC15B006FE466 /* CDAParserSyncModuleTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 63FDB5081CBBC15B006FE466 /* CDAParserSyncModuleTest.m */; };
+		63FDB5121CBBCCD7006FE466 /* CDAAbstractSyncServiceTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 63FDB5111CBBCCD6006FE466 /* CDAAbstractSyncServiceTest.m */; };
 		873B8AEB1B1F5CCA007FD442 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 873B8AEA1B1F5CCA007FD442 /* Main.storyboard */; };
 		C2EA343BF732BFACF1ADA0A4 /* Pods_CDASyncService_Example.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0370F47B6EBB746669275A0F /* Pods_CDASyncService_Example.framework */; };
 /* End PBXBuildFile section */
@@ -65,6 +66,7 @@
 		632F6B391CB53AF400C73090 /* test.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = test.json; path = ../../../../../Desktop/test.json; sourceTree = "<group>"; };
 		63FDB4AD1CBBB10A006FE466 /* CDABundleSyncModuleTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CDABundleSyncModuleTest.m; sourceTree = "<group>"; };
 		63FDB5081CBBC15B006FE466 /* CDAParserSyncModuleTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CDAParserSyncModuleTest.m; sourceTree = "<group>"; };
+		63FDB5111CBBCCD6006FE466 /* CDAAbstractSyncServiceTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CDAAbstractSyncServiceTest.m; sourceTree = "<group>"; };
 		6CB6AF08FD9ED86410AFE30C /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = LICENSE; path = ../LICENSE; sourceTree = "<group>"; };
 		77E961AAD9DCFF376EFEA485 /* CDASyncService.podspec */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = CDASyncService.podspec; path = ../CDASyncService.podspec; sourceTree = "<group>"; };
 		873B8AEA1B1F5CCA007FD442 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
@@ -176,6 +178,7 @@
 				6003F5B6195388D20070C39A /* Supporting Files */,
 				63FDB4AD1CBBB10A006FE466 /* CDABundleSyncModuleTest.m */,
 				63FDB5081CBBC15B006FE466 /* CDAParserSyncModuleTest.m */,
+				63FDB5111CBBCCD6006FE466 /* CDAAbstractSyncServiceTest.m */,
 			);
 			path = Tests;
 			sourceTree = "<group>";
@@ -410,6 +413,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				63FDB4AE1CBBB10A006FE466 /* CDABundleSyncModuleTest.m in Sources */,
+				63FDB5121CBBCCD7006FE466 /* CDAAbstractSyncServiceTest.m in Sources */,
 				63FDB5091CBBC15B006FE466 /* CDAParserSyncModuleTest.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

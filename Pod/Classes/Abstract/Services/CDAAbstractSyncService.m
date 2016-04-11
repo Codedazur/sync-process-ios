@@ -14,6 +14,7 @@
 @property (nonatomic, strong)NSArray<CDASyncModule> *modules;
 @property (nonatomic, strong)NSObject<CDASyncModel> *syncModel;
 @property (nonatomic, strong) NSOperationQueue *queue;
+@property (nonatomic, strong) NSInvocationOperation *finishOperation;
 
 @property (nonatomic) NSInteger currentStep;
 @property (atomic, assign) BOOL _executing;
@@ -54,9 +55,14 @@
     self.currentStep = 0;
     self.queue = [NSOperationQueue new];
     self.queue.maxConcurrentOperationCount = 1;
+    self.queue.suspended = YES;
+    
+    self.finishOperation = [[NSInvocationOperation alloc] initWithTarget:self selector:@selector(finishedQueue:) object:nil];
     
     NSObject<CDASyncModule> *previous;
     NSObject<CDASyncModule> *current;
+    int index = 0;
+    CDAAbstractSyncService __weak *weakSelf = self;
     for(id<CDASyncModel> model in self.syncModel.subModuleModels){
         
         current = [[model.moduleClass alloc] initWithSyncModel:model];
@@ -66,7 +72,26 @@
         
         [self.queue addOperation:(NSOperation *)current];
         previous = current;
+
+        [self.finishOperation addDependency:(NSOperation *)current];
+        
+        id<CDASyncModule> __weak weakCurrent = current;
+        [((NSOperation *)current) setCompletionBlock:^{
+            
+            if (weakSelf.queue.operationCount == 1) {
+                [weakSelf _setResult:weakCurrent.result];
+                [weakSelf _setError:weakCurrent.error];
+            }else if (weakCurrent.error != nil) {
+                [weakSelf _setError:weakCurrent.error];
+                [weakSelf.queue cancelAllOperations];
+                [self finish];
+            }
+        }];
+        
+        index++;
     }
+    [self.queue addOperation:self.finishOperation];
+    self.queue.suspended = NO;
 }
 - (double)progress{
     double total = 0;
@@ -77,6 +102,23 @@
 }
 
 #pragma mark - helpers
+- (void)_setResult:(id)result{
+    _result =result;
+}
+- (void)_setError:(id)error{
+    _error = error;
+}
+- (void)finish{
+    [self completeOperation];
+    if(self.error != nil){
+        [self.delegate CDASyncService:self DidFinishWithError:self.error];
+    }else{
+        [self.delegate CDASyncServiceDidFinishWithSuccess:self AndResult:self.result];
+    }
+}
+- (void)finishedQueue:(NSOperation *)operation{
+    [self finish];
+}
 - (NSInteger)nSteps{
     return self.modules.count;
 }
@@ -84,14 +126,6 @@
     if(self.modules.count == 0)return nil;
     return [self.modules objectAtIndex:self.currentStep];
 }
-//- (void) finishWithErrorId:(CDASyncError)errorId{
-//    [self completeOperation];
-//    [self.delegate CDASyncService:self DidFinishWithErrorId:errorId];
-//}
-//- (void) finishWithSuccessAndResult:(id)result{
-//    [self completeOperation];
-//    [self.delegate CDASyncServiceDidFinishWithSuccess:self AndResult:result];
-//}
 
 #pragma mark - NSOperation
 - (BOOL)isConcurrent{

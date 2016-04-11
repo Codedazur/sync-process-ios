@@ -20,4 +20,10 @@
                   moduleClass:(Class)moduleClass
                    userInfo:(NSDictionary *)userInfo
                timeInterval:(NSTimeInterval)timeInterval;
+
+- (instancetype)initWithUid:(NSString *)uid
+                moduleClass:(Class)moduleClass
+                   userInfo:(NSDictionary *)userInfo
+            subModuleModels:(NSArray<CDASyncModel> *)subModuleModels
+               timeInterval:(NSTimeInterval)timeInterval;
 @end
