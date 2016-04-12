@@ -7,6 +7,8 @@
 //
 
 #import "CDABackgroundDownloadManager.h"
+#import "CDACoreDataStack.h"
+#import "CDABGDFile.h"
 
 @interface CDABackgroundDownloadManager()<NSURLSessionDownloadDelegate>
 @property (nonatomic, strong)NSURLSession *backgroundSession;
@@ -40,7 +42,7 @@
         handler();
     }
 }
-+ (instancetype)sharedManager
++ (instancetype)sharedInstance
 {
     static id sharedMyManager = nil;
     static dispatch_once_t onceToken;
@@ -56,6 +58,7 @@
 
     self = [super init];
     if (self) {
+        [CDACoreDataStack initSharedInstanceWithModelName:@"background-download"];
         self.completionHandlerDictionary = [NSMutableDictionary dictionaryWithCapacity:0];
         
         NSURLSessionConfiguration *backgroundConfigObject = [NSURLSessionConfiguration backgroundSessionConfiguration: kBackgroundSessionIdentifier];
@@ -67,7 +70,17 @@
 
 #pragma mark - Delegate methods for download tasks
 - (void)URLSession:(NSURLSession *)session downloadTask:(NSURLSessionDownloadTask *)downloadTask didFinishDownloadingToURL:(NSURL *)location{
-    
+    if(session.configuration.identifier){
+        CDABGDFile *file = (CDABGDFile *)[CDACoreDataStack fetchEntity:NSStringFromClass([CDABGDFile class]) WithPredicate:[NSPredicate predicateWithFormat:@"sessionId=%@ && taskId=%@",session.configuration.identifier, downloadTask.taskIdentifier] InContext:[CDACoreDataStack mainManagedObjectContext]];
+        if(location.path){
+            NSError *error;
+            [[NSFileManager defaultManager] moveItemAtPath:location.path toPath:file.destinationPath error:&error];
+            if(error){
+                NSLog(@"Error moving file from temp %@ to destination %@", location.path, file.destinationPath);
+            }
+        }
+        
+    }
 }
 -(void)URLSession:(NSURLSession *)session downloadTask:(NSURLSessionDownloadTask *)downloadTask didWriteData:(int64_t)bytesWritten totalBytesWritten:(int64_t)totalBytesWritten totalBytesExpectedToWrite:(int64_t)totalBytesExpectedToWrite
 {

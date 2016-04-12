@@ -12,7 +12,7 @@ typedef void (^CompletionHandlerType)();
 
 @interface CDABackgroundDownloadManager : NSObject
 
-+ (instancetype)sharedManager;
++ (instancetype)sharedInstance;
 
 - (void) addCompletionHandler: (CompletionHandlerType) handler forSession: (NSString *)identifier;
 - (void) callCompletionHandlerForSession: (NSString *)identifier;

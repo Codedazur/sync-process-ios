@@ -178,6 +178,27 @@
 		63FDB12B1CBD5A4E00CEF0D0 /* CDABackgroundDownloadManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 63FDB1271CBD5A4E00CEF0D0 /* CDABackgroundDownloadManager.m */; };
 		63FDB12C1CBD5A4E00CEF0D0 /* CDABackgroundDownloadManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 63FDB1271CBD5A4E00CEF0D0 /* CDABackgroundDownloadManager.m */; };
 		63FDB12D1CBD5A4E00CEF0D0 /* CDABackgroundDownloadManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 63FDB1271CBD5A4E00CEF0D0 /* CDABackgroundDownloadManager.m */; };
+		63FDB1361CBD5EDC00CEF0D0 /* background-download.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 63FDB1341CBD5EDC00CEF0D0 /* background-download.xcdatamodeld */; };
+		63FDB1371CBD5EDC00CEF0D0 /* background-download.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 63FDB1341CBD5EDC00CEF0D0 /* background-download.xcdatamodeld */; };
+		63FDB1381CBD5EDC00CEF0D0 /* background-download.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 63FDB1341CBD5EDC00CEF0D0 /* background-download.xcdatamodeld */; };
+		63FDB13B1CBD618B00CEF0D0 /* CDACoreDataStack.h in Headers */ = {isa = PBXBuildFile; fileRef = 63FDB1391CBD618B00CEF0D0 /* CDACoreDataStack.h */; };
+		63FDB13C1CBD618B00CEF0D0 /* CDACoreDataStack.h in Headers */ = {isa = PBXBuildFile; fileRef = 63FDB1391CBD618B00CEF0D0 /* CDACoreDataStack.h */; };
+		63FDB13D1CBD618B00CEF0D0 /* CDACoreDataStack.h in Headers */ = {isa = PBXBuildFile; fileRef = 63FDB1391CBD618B00CEF0D0 /* CDACoreDataStack.h */; };
+		63FDB13E1CBD618B00CEF0D0 /* CDACoreDataStack.m in Sources */ = {isa = PBXBuildFile; fileRef = 63FDB13A1CBD618B00CEF0D0 /* CDACoreDataStack.m */; };
+		63FDB13F1CBD618B00CEF0D0 /* CDACoreDataStack.m in Sources */ = {isa = PBXBuildFile; fileRef = 63FDB13A1CBD618B00CEF0D0 /* CDACoreDataStack.m */; };
+		63FDB1401CBD618B00CEF0D0 /* CDACoreDataStack.m in Sources */ = {isa = PBXBuildFile; fileRef = 63FDB13A1CBD618B00CEF0D0 /* CDACoreDataStack.m */; };
+		63FDB1461CBD6C2D00CEF0D0 /* CDABGDFile+CoreDataProperties.h in Headers */ = {isa = PBXBuildFile; fileRef = 63FDB1421CBD6C2D00CEF0D0 /* CDABGDFile+CoreDataProperties.h */; };
+		63FDB1471CBD6C2D00CEF0D0 /* CDABGDFile+CoreDataProperties.h in Headers */ = {isa = PBXBuildFile; fileRef = 63FDB1421CBD6C2D00CEF0D0 /* CDABGDFile+CoreDataProperties.h */; };
+		63FDB1481CBD6C2D00CEF0D0 /* CDABGDFile+CoreDataProperties.h in Headers */ = {isa = PBXBuildFile; fileRef = 63FDB1421CBD6C2D00CEF0D0 /* CDABGDFile+CoreDataProperties.h */; };
+		63FDB1491CBD6C2D00CEF0D0 /* CDABGDFile+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = 63FDB1431CBD6C2D00CEF0D0 /* CDABGDFile+CoreDataProperties.m */; };
+		63FDB14A1CBD6C2D00CEF0D0 /* CDABGDFile+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = 63FDB1431CBD6C2D00CEF0D0 /* CDABGDFile+CoreDataProperties.m */; };
+		63FDB14B1CBD6C2D00CEF0D0 /* CDABGDFile+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = 63FDB1431CBD6C2D00CEF0D0 /* CDABGDFile+CoreDataProperties.m */; };
+		63FDB14C1CBD6C2D00CEF0D0 /* CDABGDFile.h in Headers */ = {isa = PBXBuildFile; fileRef = 63FDB1441CBD6C2D00CEF0D0 /* CDABGDFile.h */; };
+		63FDB14D1CBD6C2D00CEF0D0 /* CDABGDFile.h in Headers */ = {isa = PBXBuildFile; fileRef = 63FDB1441CBD6C2D00CEF0D0 /* CDABGDFile.h */; };
+		63FDB14E1CBD6C2D00CEF0D0 /* CDABGDFile.h in Headers */ = {isa = PBXBuildFile; fileRef = 63FDB1441CBD6C2D00CEF0D0 /* CDABGDFile.h */; };
+		63FDB14F1CBD6C2D00CEF0D0 /* CDABGDFile.m in Sources */ = {isa = PBXBuildFile; fileRef = 63FDB1451CBD6C2D00CEF0D0 /* CDABGDFile.m */; };
+		63FDB1501CBD6C2D00CEF0D0 /* CDABGDFile.m in Sources */ = {isa = PBXBuildFile; fileRef = 63FDB1451CBD6C2D00CEF0D0 /* CDABGDFile.m */; };
+		63FDB1511CBD6C2D00CEF0D0 /* CDABGDFile.m in Sources */ = {isa = PBXBuildFile; fileRef = 63FDB1451CBD6C2D00CEF0D0 /* CDABGDFile.m */; };
 		643D2A47D444CF32F7C147A5E34F5543 /* KWIntercept.h in Headers */ = {isa = PBXBuildFile; fileRef = 6D2B8EBEC6237EB71F42C7E97A2FBD1B /* KWIntercept.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		6497DC1734E9979523E0A467D370B4FE /* KWPendingNode.m in Sources */ = {isa = PBXBuildFile; fileRef = 9FC9829682EE3CB5CAB32AF191EFBC0B /* KWPendingNode.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
 		64F19D2699D911BA662A78447C266780 /* KWBeBetweenMatcher.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D6CCCD5B501A5964AA8E11A3231CDD4 /* KWBeBetweenMatcher.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
@@ -786,6 +807,13 @@
 		6370F2378D14D2178C3EC2E12981C368 /* KWHaveMatcher.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = KWHaveMatcher.h; path = Classes/Matchers/KWHaveMatcher.h; sourceTree = "<group>"; };
 		63FDB1261CBD5A4E00CEF0D0 /* CDABackgroundDownloadManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CDABackgroundDownloadManager.h; sourceTree = "<group>"; };
 		63FDB1271CBD5A4E00CEF0D0 /* CDABackgroundDownloadManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CDABackgroundDownloadManager.m; sourceTree = "<group>"; };
+		63FDB1351CBD5EDC00CEF0D0 /* background-download.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "background-download.xcdatamodel"; sourceTree = "<group>"; };
+		63FDB1391CBD618B00CEF0D0 /* CDACoreDataStack.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CDACoreDataStack.h; sourceTree = "<group>"; };
+		63FDB13A1CBD618B00CEF0D0 /* CDACoreDataStack.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CDACoreDataStack.m; sourceTree = "<group>"; };
+		63FDB1421CBD6C2D00CEF0D0 /* CDABGDFile+CoreDataProperties.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "CDABGDFile+CoreDataProperties.h"; sourceTree = "<group>"; };
+		63FDB1431CBD6C2D00CEF0D0 /* CDABGDFile+CoreDataProperties.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "CDABGDFile+CoreDataProperties.m"; sourceTree = "<group>"; };
+		63FDB1441CBD6C2D00CEF0D0 /* CDABGDFile.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CDABGDFile.h; sourceTree = "<group>"; };
+		63FDB1451CBD6C2D00CEF0D0 /* CDABGDFile.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CDABGDFile.m; sourceTree = "<group>"; };
 		6442115991095CB23B5A5EE8BEA0075A /* RKObjectManager.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = RKObjectManager.h; path = Code/Network/RKObjectManager.h; sourceTree = "<group>"; };
 		6497D883A5C07C8A34FA411DC20AFFF1 /* RKISO8601DateFormatter.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = RKISO8601DateFormatter.h; path = Code/RKISO8601DateFormatter.h; sourceTree = "<group>"; };
 		6503B0EC47ACBAB07950CD8AF698D026 /* RKValueTransformers-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "RKValueTransformers-dummy.m"; sourceTree = "<group>"; };
@@ -1570,10 +1598,23 @@
 		63FDB1251CBD5A4E00CEF0D0 /* BackgroundTransfer */ = {
 			isa = PBXGroup;
 			children = (
+				63FDB1331CBD5EC400CEF0D0 /* Model */,
 				63FDB1261CBD5A4E00CEF0D0 /* CDABackgroundDownloadManager.h */,
 				63FDB1271CBD5A4E00CEF0D0 /* CDABackgroundDownloadManager.m */,
 			);
 			path = BackgroundTransfer;
+			sourceTree = "<group>";
+		};
+		63FDB1331CBD5EC400CEF0D0 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				63FDB1421CBD6C2D00CEF0D0 /* CDABGDFile+CoreDataProperties.h */,
+				63FDB1431CBD6C2D00CEF0D0 /* CDABGDFile+CoreDataProperties.m */,
+				63FDB1441CBD6C2D00CEF0D0 /* CDABGDFile.h */,
+				63FDB1451CBD6C2D00CEF0D0 /* CDABGDFile.m */,
+				63FDB1341CBD5EDC00CEF0D0 /* background-download.xcdatamodeld */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 		65A14C3B23BFE2D1A9C6FDCA842BABE4 /* Support Files */ = {
@@ -1955,6 +1996,8 @@
 			children = (
 				63FDB1251CBD5A4E00CEF0D0 /* BackgroundTransfer */,
 				D53B9DA81162B063EEEB848284DAAA95 /* CDACoreDataStackProtocol.h */,
+				63FDB1391CBD618B00CEF0D0 /* CDACoreDataStack.h */,
+				63FDB13A1CBD618B00CEF0D0 /* CDACoreDataStack.m */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -2068,6 +2111,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				E3ED17469897BFA6EC79B1CF89F01F47 /* Pods-CDASyncService_Tests-umbrella.h in Headers */,
+				63FDB14E1CBD6C2D00CEF0D0 /* CDABGDFile.h in Headers */,
+				63FDB1481CBD6C2D00CEF0D0 /* CDABGDFile+CoreDataProperties.h in Headers */,
+				63FDB13D1CBD618B00CEF0D0 /* CDACoreDataStack.h in Headers */,
 				63FDB12A1CBD5A4E00CEF0D0 /* CDABackgroundDownloadManager.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -2083,6 +2129,7 @@
 				E5C18E6F723E96FF4B0588665C146292 /* CDACoreDataStackProtocol.h in Headers */,
 				6F8A3A656652FA721AAFB5B576B311C4 /* CDAMapper.h in Headers */,
 				58EF5BFC9A684CD835EF15ABBC8FA03C /* CDANoConversionParser.h in Headers */,
+				63FDB1461CBD6C2D00CEF0D0 /* CDABGDFile+CoreDataProperties.h in Headers */,
 				BD575FA2654882418F4E6CEC9B91EE88 /* CDANSUserDefaultsSyncScheduleManager.h in Headers */,
 				86E60631FDDC706AD6C8FF4DC5502F14 /* CDAParserSyncModule.h in Headers */,
 				41092EC02F77A4E14F6DF8DD1025D808 /* CDAReachabilityManagerProtocol.h in Headers */,
@@ -2096,6 +2143,7 @@
 				D26142E32C32AF4C24CA8EBD7F2A305A /* CDASyncDownloaderProtocol.h in Headers */,
 				4BFEB255E276EC5E198408C126F32977 /* CDASyncErrors.h in Headers */,
 				D64C2F340C2B151CBF1B499CC76C4A6F /* CDASyncExecutor.h in Headers */,
+				63FDB14C1CBD6C2D00CEF0D0 /* CDABGDFile.h in Headers */,
 				C2B5F502657AEE0CC6DDA3746465B926 /* CDASyncExecutorProtocol.h in Headers */,
 				2E88A3BBF869D61BD2F0BA848A4D046D /* CDASyncManager.h in Headers */,
 				E123BF26705A16D242FB8574F64FB914 /* CDASyncManagerProtocol.h in Headers */,
@@ -2107,6 +2155,7 @@
 				5B2A005C67060D92A493F2A2482CF94F /* CDASyncScheduler.h in Headers */,
 				31C41502C2B14BFEEF733E5556BD4949 /* CDASyncSchedulerProtocol.h in Headers */,
 				48BC4BDE0FD8E5581B1A3589668CB27D /* CDASyncService-umbrella.h in Headers */,
+				63FDB13B1CBD618B00CEF0D0 /* CDACoreDataStack.h in Headers */,
 				18AC0E988C7B5C3F8F074BF4A2905F50 /* CDASyncServiceProtocol.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -2325,6 +2374,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				C3F4390ED0AE80574C57CCF52065BDB3 /* Pods-CDASyncService_Example-umbrella.h in Headers */,
+				63FDB14D1CBD6C2D00CEF0D0 /* CDABGDFile.h in Headers */,
+				63FDB1471CBD6C2D00CEF0D0 /* CDABGDFile+CoreDataProperties.h in Headers */,
+				63FDB13C1CBD618B00CEF0D0 /* CDACoreDataStack.h in Headers */,
 				63FDB1291CBD5A4E00CEF0D0 /* CDABackgroundDownloadManager.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -2635,6 +2687,7 @@
 			files = (
 				777286377D018012C80315B1C8171510 /* CDAAbstractSyncService.m in Sources */,
 				E121A5AC5375650A222AF1387101CEA2 /* CDABundleConnector.m in Sources */,
+				63FDB13E1CBD618B00CEF0D0 /* CDACoreDataStack.m in Sources */,
 				F8F21EA48FA2071424E8E21FBA7FB260 /* CDABundleSyncModule.m in Sources */,
 				D4A295CBF9AD9C93F5AFAE53D8FE9CA5 /* CDACoreDataParserSyncModule.m in Sources */,
 				33B5A19B792577094302ED37D2A92377 /* CDAMapper.m in Sources */,
@@ -2645,8 +2698,11 @@
 				47085F3A2060E2AA6A708D191C6109D5 /* CDARestKitCoreDataParser.m in Sources */,
 				43F402D1758B8A14263C4183ACB37DBE /* CDASimpleSyncModel.m in Sources */,
 				236F43ACE4C5BF5DA4E488583FDCAAE8 /* CDASyncErrors.m in Sources */,
+				63FDB1361CBD5EDC00CEF0D0 /* background-download.xcdatamodeld in Sources */,
 				F661A2E11CB30321FFED7BB612BE26FE /* CDASyncExecutor.m in Sources */,
 				06B493E64107B349EE6474C11022C8CA /* CDASyncManager.m in Sources */,
+				63FDB14F1CBD6C2D00CEF0D0 /* CDABGDFile.m in Sources */,
+				63FDB1491CBD6C2D00CEF0D0 /* CDABGDFile+CoreDataProperties.m in Sources */,
 				63FDB12B1CBD5A4E00CEF0D0 /* CDABackgroundDownloadManager.m in Sources */,
 				4B5C157775BCB4F14343908A4FDBB583 /* CDASyncNotifications.m in Sources */,
 				F212BA5766E4220249BA421AE2D31953 /* CDASyncScheduler.m in Sources */,
@@ -2658,7 +2714,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				63FDB1381CBD5EDC00CEF0D0 /* background-download.xcdatamodeld in Sources */,
+				63FDB14B1CBD6C2D00CEF0D0 /* CDABGDFile+CoreDataProperties.m in Sources */,
 				63FDB12D1CBD5A4E00CEF0D0 /* CDABackgroundDownloadManager.m in Sources */,
+				63FDB1401CBD618B00CEF0D0 /* CDACoreDataStack.m in Sources */,
+				63FDB1511CBD6C2D00CEF0D0 /* CDABGDFile.m in Sources */,
 				88911C7C1BD86DB754E78EB48386EFD2 /* Pods-CDASyncService_Tests-dummy.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -2774,7 +2834,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				63FDB1371CBD5EDC00CEF0D0 /* background-download.xcdatamodeld in Sources */,
+				63FDB14A1CBD6C2D00CEF0D0 /* CDABGDFile+CoreDataProperties.m in Sources */,
 				63FDB12C1CBD5A4E00CEF0D0 /* CDABackgroundDownloadManager.m in Sources */,
+				63FDB13F1CBD618B00CEF0D0 /* CDACoreDataStack.m in Sources */,
+				63FDB1501CBD6C2D00CEF0D0 /* CDABGDFile.m in Sources */,
 				E14A593B04348F1D3D98EC3DFBA59730 /* Pods-CDASyncService_Example-dummy.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -3761,6 +3825,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		63FDB1341CBD5EDC00CEF0D0 /* background-download.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				63FDB1351CBD5EDC00CEF0D0 /* background-download.xcdatamodel */,
+			);
+			currentVersion = 63FDB1351CBD5EDC00CEF0D0 /* background-download.xcdatamodel */;
+			path = "background-download.xcdatamodeld";
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
 }
