@@ -17,6 +17,8 @@
 #import "Color.h"
 #import "Textile.h"
 #import "CDARestKitCoreDataParser.h"
+#import "CDABundleSyncModule.h"
+#import "CDAAbstractSyncService.h"
 
 @interface CDACoreDataSyncModuleTest : XCTestCase
 @property (nonatomic, strong)CDACoreDataParserSyncModule *sut;
@@ -95,6 +97,7 @@
     [self waitExpectation];
     
 }
+
 - (CDAMapper *)mapping{
     CDAMapper *m = [CDAMapper new];
     m.destinationClass = [Textile class];
