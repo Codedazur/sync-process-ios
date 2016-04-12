@@ -26,6 +26,7 @@
 
 - (void)setUp {
     self.expectation = [self expectationWithDescription:NSStringFromClass(self.class)];
+    [self deleteAllDataContent];
     [super setUp];
     // Put setup code here. This method is called before the invocation of each test method in the class.
 }
@@ -38,9 +39,7 @@
 }
 
 - (void)testMapping{
-    
-    [self deleteAllDataContent];
-    
+
     CDAMapper *m = [self mapping];
     NSArray *dataList = [self loadData];
     CDARestKitCoreDataParser  *parser = [[CDARestKitCoreDataParser alloc] initWithMapping:m AndCoreDataStack:[CoreDataStack coreDataStack]];
@@ -51,15 +50,9 @@
         XCTAssert(textiles.count == dataList.count);
         [weakSelf.expectation fulfill];
     }];
-    [self waitForExpectationsWithTimeout:5.0 handler:^(NSError *error) {
-        if (error) {
-            NSLog(@"Timeout Error: %@", error);
-        }
-    }];
+    [self waitExpectation];
 }
 - (void)testMappingTwice{
-    
-    [self deleteAllDataContent];
     
     CDAMapper *m = [self mapping];
     NSArray *dataList = [self loadData];
@@ -78,18 +71,11 @@
             [weakSelf.expectation fulfill];
         }];
     }];
-    [self waitForExpectationsWithTimeout:5.0 handler:^(NSError *error) {
-        if (error) {
-            NSLog(@"Timeout Error: %@", error);
-        }
-    }];
+    [self waitExpectation];
 }
 - (void)testSyncModuleCorrect {
-     [self deleteAllDataContent];
     NSArray *dataList = [self loadData];
     CDAMapper *m = [self mapping];
-    
-    [CoreDataStack coreDataStack];
     
     CDASimpleSyncModel *model = [[CDASimpleSyncModel alloc] initWithUid:@"teste" moduleClass:[CDAParserSyncModule class] userInfo:@{@"parserClass":[CDARestKitCoreDataParser class],@"data":dataList, @"coreDataStack":[CoreDataStack coreDataStack], @"mapping":m} timeInterval:0];
     
@@ -100,19 +86,13 @@
         id result = [weakSelf.sut result];
         NSError *error = [weakSelf.sut error];
 
-
         XCTAssert(result != nil);
         XCTAssert(((NSArray *)result).count == dataList.count);
         XCTAssert(error == nil);
         [weakSelf.expectation fulfill];
     }];
     [self.sut start];
-    
-    [self waitForExpectationsWithTimeout:5.0 handler:^(NSError *error) {
-        if (error) {
-            NSLog(@"Timeout Error: %@", error);
-        }
-    }];
+    [self waitExpectation];
     
 }
 - (CDAMapper *)mapping{
@@ -169,6 +149,12 @@
                                     options:0 error:NULL] valueForKey:@"response"];
     return dataList;
 }
-
+- (void)waitExpectation{
+    [self waitForExpectationsWithTimeout:10.0 handler:^(NSError *error) {
+        if (error) {
+            NSLog(@"Timeout Error: %@", error);
+        }
+    }];
+}
 @end
 
