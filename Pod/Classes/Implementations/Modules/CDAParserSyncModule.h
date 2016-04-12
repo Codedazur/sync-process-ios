@@ -10,5 +10,5 @@
 
 #import "CDASyncModule.h"
 @interface CDAParserSyncModule : NSOperation<CDASyncModule>
-
+@property (nonatomic, strong, readonly)id<CDASyncModel> model;
 @end

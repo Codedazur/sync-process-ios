@@ -9,9 +9,9 @@
 #import "CDARestKitCoreDataParser.h"
 #import <RestKit/RestKit.h>
 #import <RestKit/CoreData.h>
-#import "CDAMapper.h"
+
 #import "CDARelationMapping.h"
-#import "CDACoreDataStackProtocol.h"
+
 typedef void(^ParseCompletionBlock)(id result);
 
 @interface CDARestKitCoreDataParser()<RKMapperOperationDelegate>
@@ -29,7 +29,7 @@ typedef void(^ParseCompletionBlock)(id result);
 {
     if(!_queue){
         _queue = [NSOperationQueue new];
-        _queue.name = [@"Restkit Parser " stringByAppendingString:self.uid];
+        _queue.name = @"Restkit Parser";
     }
     return _queue;
 }
@@ -37,6 +37,7 @@ typedef void(^ParseCompletionBlock)(id result);
     if(!(self = [super init]))return self;
     self.store = [[RKManagedObjectStore alloc] initWithManagedObjectModel:[coreDataStack managedObjectModel]];
     self.mapping = [self extractMapping:mapping];
+    self.context = [coreDataStack independentManagedObjectContext];
     return self;
 }
 - (double)progress{
@@ -58,7 +59,7 @@ typedef void(^ParseCompletionBlock)(id result);
         [self.context save:nil];
     }];
     
-    self.completion(mapper.mappingResult);
+    self.completion(mapper.mappingResult.array);
 }
 #pragma mark - helpers
 - (RKEntityMapping *)extractMapping:(CDAMapper *)pMapping{

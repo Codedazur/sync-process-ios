@@ -14,7 +14,6 @@
 @property (atomic, assign) BOOL _executing;
 @property (atomic, assign) BOOL _finished;
 @property (nonatomic, strong)id<CDASyncParserProtocol> parser;
-@property (nonatomic, strong)id<CDASyncModel> model;
 @end
 @implementation CDAParserSyncModule
 @synthesize result = _result, error = _error;
@@ -27,7 +26,7 @@
     if(!(self = [super init]))return self;
     self._executing = NO;
     self._finished = NO;
-    self.model = syncModel;
+    _model = syncModel;
     return self;
 }
 - (BOOL)isConcurrent{
@@ -59,7 +58,7 @@
     if ([self isCancelled]) {
         return;
     }
-    self.parser = [[((Class)[[self.model userInfo] valueForKey:@"parserClass"]) alloc] init];
+    self.parser = [self instanciateParser];
     
     id dataToParse = [[self.model userInfo] valueForKey:@"data"] ? [[self.model userInfo] valueForKey:@"data"]: [((id<CDASyncModule>)[self.dependencies lastObject]) result];
     if(!dataToParse){
@@ -83,6 +82,9 @@
     
     [self didChangeValueForKey:@"isExecuting"];
     [self didChangeValueForKey:@"isFinished"];
+}
+- (id<CDASyncParserProtocol>)instanciateParser{
+    return [[((Class)[[self.model userInfo] valueForKey:@"parserClass"]) alloc] init];
 }
 
 @end

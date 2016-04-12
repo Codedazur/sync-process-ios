@@ -25,6 +25,19 @@
 		63FDB4AE1CBBB10A006FE466 /* CDABundleSyncModuleTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 63FDB4AD1CBBB10A006FE466 /* CDABundleSyncModuleTest.m */; };
 		63FDB5091CBBC15B006FE466 /* CDAParserSyncModuleTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 63FDB5081CBBC15B006FE466 /* CDAParserSyncModuleTest.m */; };
 		63FDB5121CBBCCD7006FE466 /* CDAAbstractSyncServiceTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 63FDB5111CBBCCD6006FE466 /* CDAAbstractSyncServiceTest.m */; };
+		63FDB5211CBBF83B006FE466 /* CDACoreDataSyncModuleTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 63FDB5201CBBF83B006FE466 /* CDACoreDataSyncModuleTest.m */; };
+		63FDB5271CBC0058006FE466 /* CoreDataStack.m in Sources */ = {isa = PBXBuildFile; fileRef = 63FDB5261CBC0058006FE466 /* CoreDataStack.m */; };
+		63FDB5281CBC0058006FE466 /* CoreDataStack.m in Sources */ = {isa = PBXBuildFile; fileRef = 63FDB5261CBC0058006FE466 /* CoreDataStack.m */; };
+		63FDB52B1CBC0121006FE466 /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 63FDB5291CBC0121006FE466 /* Model.xcdatamodeld */; };
+		63FDB52C1CBC0121006FE466 /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 63FDB5291CBC0121006FE466 /* Model.xcdatamodeld */; };
+		63FDB5351CBC017F006FE466 /* Color+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = 63FDB52E1CBC017F006FE466 /* Color+CoreDataProperties.m */; };
+		63FDB5361CBC017F006FE466 /* Color+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = 63FDB52E1CBC017F006FE466 /* Color+CoreDataProperties.m */; };
+		63FDB5371CBC017F006FE466 /* Color.m in Sources */ = {isa = PBXBuildFile; fileRef = 63FDB5301CBC017F006FE466 /* Color.m */; };
+		63FDB5381CBC017F006FE466 /* Color.m in Sources */ = {isa = PBXBuildFile; fileRef = 63FDB5301CBC017F006FE466 /* Color.m */; };
+		63FDB5391CBC017F006FE466 /* Textile+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = 63FDB5321CBC017F006FE466 /* Textile+CoreDataProperties.m */; };
+		63FDB53A1CBC017F006FE466 /* Textile+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = 63FDB5321CBC017F006FE466 /* Textile+CoreDataProperties.m */; };
+		63FDB53B1CBC017F006FE466 /* Textile.m in Sources */ = {isa = PBXBuildFile; fileRef = 63FDB5341CBC017F006FE466 /* Textile.m */; };
+		63FDB53C1CBC017F006FE466 /* Textile.m in Sources */ = {isa = PBXBuildFile; fileRef = 63FDB5341CBC017F006FE466 /* Textile.m */; };
 		873B8AEB1B1F5CCA007FD442 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 873B8AEA1B1F5CCA007FD442 /* Main.storyboard */; };
 		C2EA343BF732BFACF1ADA0A4 /* Pods_CDASyncService_Example.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0370F47B6EBB746669275A0F /* Pods_CDASyncService_Example.framework */; };
 /* End PBXBuildFile section */
@@ -67,6 +80,18 @@
 		63FDB4AD1CBBB10A006FE466 /* CDABundleSyncModuleTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CDABundleSyncModuleTest.m; sourceTree = "<group>"; };
 		63FDB5081CBBC15B006FE466 /* CDAParserSyncModuleTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CDAParserSyncModuleTest.m; sourceTree = "<group>"; };
 		63FDB5111CBBCCD6006FE466 /* CDAAbstractSyncServiceTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CDAAbstractSyncServiceTest.m; sourceTree = "<group>"; };
+		63FDB5201CBBF83B006FE466 /* CDACoreDataSyncModuleTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CDACoreDataSyncModuleTest.m; sourceTree = "<group>"; };
+		63FDB5251CBC0058006FE466 /* CoreDataStack.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CoreDataStack.h; sourceTree = "<group>"; };
+		63FDB5261CBC0058006FE466 /* CoreDataStack.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CoreDataStack.m; sourceTree = "<group>"; };
+		63FDB52A1CBC0121006FE466 /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
+		63FDB52D1CBC017F006FE466 /* Color+CoreDataProperties.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "Color+CoreDataProperties.h"; path = "Model/Color+CoreDataProperties.h"; sourceTree = "<group>"; };
+		63FDB52E1CBC017F006FE466 /* Color+CoreDataProperties.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "Color+CoreDataProperties.m"; path = "Model/Color+CoreDataProperties.m"; sourceTree = "<group>"; };
+		63FDB52F1CBC017F006FE466 /* Color.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Color.h; path = Model/Color.h; sourceTree = "<group>"; };
+		63FDB5301CBC017F006FE466 /* Color.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Color.m; path = Model/Color.m; sourceTree = "<group>"; };
+		63FDB5311CBC017F006FE466 /* Textile+CoreDataProperties.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "Textile+CoreDataProperties.h"; path = "Model/Textile+CoreDataProperties.h"; sourceTree = "<group>"; };
+		63FDB5321CBC017F006FE466 /* Textile+CoreDataProperties.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "Textile+CoreDataProperties.m"; path = "Model/Textile+CoreDataProperties.m"; sourceTree = "<group>"; };
+		63FDB5331CBC017F006FE466 /* Textile.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Textile.h; path = Model/Textile.h; sourceTree = "<group>"; };
+		63FDB5341CBC017F006FE466 /* Textile.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Textile.m; path = Model/Textile.m; sourceTree = "<group>"; };
 		6CB6AF08FD9ED86410AFE30C /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = LICENSE; path = ../LICENSE; sourceTree = "<group>"; };
 		77E961AAD9DCFF376EFEA485 /* CDASyncService.podspec */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = CDASyncService.podspec; path = ../CDASyncService.podspec; sourceTree = "<group>"; };
 		873B8AEA1B1F5CCA007FD442 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
@@ -174,11 +199,23 @@
 		6003F5B5195388D20070C39A /* Tests */ = {
 			isa = PBXGroup;
 			children = (
+				63FDB52D1CBC017F006FE466 /* Color+CoreDataProperties.h */,
+				63FDB52E1CBC017F006FE466 /* Color+CoreDataProperties.m */,
+				63FDB52F1CBC017F006FE466 /* Color.h */,
+				63FDB5301CBC017F006FE466 /* Color.m */,
+				63FDB5311CBC017F006FE466 /* Textile+CoreDataProperties.h */,
+				63FDB5321CBC017F006FE466 /* Textile+CoreDataProperties.m */,
+				63FDB5331CBC017F006FE466 /* Textile.h */,
+				63FDB5341CBC017F006FE466 /* Textile.m */,
+				63FDB5251CBC0058006FE466 /* CoreDataStack.h */,
+				63FDB5261CBC0058006FE466 /* CoreDataStack.m */,
 				632F6B391CB53AF400C73090 /* test.json */,
 				6003F5B6195388D20070C39A /* Supporting Files */,
 				63FDB4AD1CBBB10A006FE466 /* CDABundleSyncModuleTest.m */,
 				63FDB5081CBBC15B006FE466 /* CDAParserSyncModuleTest.m */,
 				63FDB5111CBBCCD6006FE466 /* CDAAbstractSyncServiceTest.m */,
+				63FDB5201CBBF83B006FE466 /* CDACoreDataSyncModuleTest.m */,
+				63FDB5291CBC0121006FE466 /* Model.xcdatamodeld */,
 			);
 			path = Tests;
 			sourceTree = "<group>";
@@ -403,8 +440,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				6003F59E195388D20070C39A /* CDAAppDelegate.m in Sources */,
+				63FDB5391CBC017F006FE466 /* Textile+CoreDataProperties.m in Sources */,
+				63FDB5371CBC017F006FE466 /* Color.m in Sources */,
+				63FDB5351CBC017F006FE466 /* Color+CoreDataProperties.m in Sources */,
 				6003F5A7195388D20070C39A /* CDAViewController.m in Sources */,
+				63FDB52B1CBC0121006FE466 /* Model.xcdatamodeld in Sources */,
+				63FDB53B1CBC017F006FE466 /* Textile.m in Sources */,
 				6003F59A195388D20070C39A /* main.m in Sources */,
+				63FDB5271CBC0058006FE466 /* CoreDataStack.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -412,9 +455,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				63FDB5281CBC0058006FE466 /* CoreDataStack.m in Sources */,
+				63FDB5381CBC017F006FE466 /* Color.m in Sources */,
+				63FDB5211CBBF83B006FE466 /* CDACoreDataSyncModuleTest.m in Sources */,
+				63FDB53C1CBC017F006FE466 /* Textile.m in Sources */,
 				63FDB4AE1CBBB10A006FE466 /* CDABundleSyncModuleTest.m in Sources */,
 				63FDB5121CBBCCD7006FE466 /* CDAAbstractSyncServiceTest.m in Sources */,
 				63FDB5091CBBC15B006FE466 /* CDAParserSyncModuleTest.m in Sources */,
+				63FDB53A1CBC017F006FE466 /* Textile+CoreDataProperties.m in Sources */,
+				63FDB52C1CBC0121006FE466 /* Model.xcdatamodeld in Sources */,
+				63FDB5361CBC017F006FE466 /* Color+CoreDataProperties.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -623,6 +673,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		63FDB5291CBC0121006FE466 /* Model.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				63FDB52A1CBC0121006FE466 /* Model.xcdatamodel */,
+			);
+			currentVersion = 63FDB52A1CBC0121006FE466 /* Model.xcdatamodel */;
+			path = Model.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 6003F582195388D10070C39A /* Project object */;
 }

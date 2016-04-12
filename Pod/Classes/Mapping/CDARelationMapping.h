@@ -8,6 +8,7 @@
 
 #import <Foundation/Foundation.h>
 #import "CDAMapper.h"
+#import "CDARelationMapping.h"
 
 @interface CDARelationMapping : NSObject
 @property (nonatomic, strong) CDAMapper *mapper;
