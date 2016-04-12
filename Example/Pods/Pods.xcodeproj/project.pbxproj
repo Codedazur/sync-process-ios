@@ -172,6 +172,12 @@
 		61B72E40C8607C41200391BD8A838E9A /* KWBeIdenticalToMatcher.h in Headers */ = {isa = PBXBuildFile; fileRef = 03BF8FE3DF60B4D9DAF70BEEB59809A9 /* KWBeIdenticalToMatcher.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		62003BEC6F5755FBA7E0743F98CC392A /* RKPropertyInspector.m in Sources */ = {isa = PBXBuildFile; fileRef = 172BF91CF26CF60EAB5AC25D54DB1D7E /* RKPropertyInspector.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
 		625EA407087A3A1F2492377B9320FE8E /* AFNetworking.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3913EFF4EAC4AC23F0B8E6038ADD1852 /* AFNetworking.framework */; };
+		63FDB1281CBD5A4E00CEF0D0 /* CDABackgroundDownloadManager.h in Headers */ = {isa = PBXBuildFile; fileRef = 63FDB1261CBD5A4E00CEF0D0 /* CDABackgroundDownloadManager.h */; };
+		63FDB1291CBD5A4E00CEF0D0 /* CDABackgroundDownloadManager.h in Headers */ = {isa = PBXBuildFile; fileRef = 63FDB1261CBD5A4E00CEF0D0 /* CDABackgroundDownloadManager.h */; };
+		63FDB12A1CBD5A4E00CEF0D0 /* CDABackgroundDownloadManager.h in Headers */ = {isa = PBXBuildFile; fileRef = 63FDB1261CBD5A4E00CEF0D0 /* CDABackgroundDownloadManager.h */; };
+		63FDB12B1CBD5A4E00CEF0D0 /* CDABackgroundDownloadManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 63FDB1271CBD5A4E00CEF0D0 /* CDABackgroundDownloadManager.m */; };
+		63FDB12C1CBD5A4E00CEF0D0 /* CDABackgroundDownloadManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 63FDB1271CBD5A4E00CEF0D0 /* CDABackgroundDownloadManager.m */; };
+		63FDB12D1CBD5A4E00CEF0D0 /* CDABackgroundDownloadManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 63FDB1271CBD5A4E00CEF0D0 /* CDABackgroundDownloadManager.m */; };
 		643D2A47D444CF32F7C147A5E34F5543 /* KWIntercept.h in Headers */ = {isa = PBXBuildFile; fileRef = 6D2B8EBEC6237EB71F42C7E97A2FBD1B /* KWIntercept.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		6497DC1734E9979523E0A467D370B4FE /* KWPendingNode.m in Sources */ = {isa = PBXBuildFile; fileRef = 9FC9829682EE3CB5CAB32AF191EFBC0B /* KWPendingNode.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
 		64F19D2699D911BA662A78447C266780 /* KWBeBetweenMatcher.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D6CCCD5B501A5964AA8E11A3231CDD4 /* KWBeBetweenMatcher.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
@@ -778,6 +784,8 @@
 		622D60124F87C177B6D91F3611DE51F5 /* RKMapperOperation.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = RKMapperOperation.m; path = Code/ObjectMapping/RKMapperOperation.m; sourceTree = "<group>"; };
 		62A885B17533E37A6C3455C59D600AB4 /* RKRouteSet.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = RKRouteSet.m; path = Code/Network/RKRouteSet.m; sourceTree = "<group>"; };
 		6370F2378D14D2178C3EC2E12981C368 /* KWHaveMatcher.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = KWHaveMatcher.h; path = Classes/Matchers/KWHaveMatcher.h; sourceTree = "<group>"; };
+		63FDB1261CBD5A4E00CEF0D0 /* CDABackgroundDownloadManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CDABackgroundDownloadManager.h; sourceTree = "<group>"; };
+		63FDB1271CBD5A4E00CEF0D0 /* CDABackgroundDownloadManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CDABackgroundDownloadManager.m; sourceTree = "<group>"; };
 		6442115991095CB23B5A5EE8BEA0075A /* RKObjectManager.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = RKObjectManager.h; path = Code/Network/RKObjectManager.h; sourceTree = "<group>"; };
 		6497D883A5C07C8A34FA411DC20AFFF1 /* RKISO8601DateFormatter.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = RKISO8601DateFormatter.h; path = Code/RKISO8601DateFormatter.h; sourceTree = "<group>"; };
 		6503B0EC47ACBAB07950CD8AF698D026 /* RKValueTransformers-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "RKValueTransformers-dummy.m"; sourceTree = "<group>"; };
@@ -1559,6 +1567,15 @@
 			path = "../Target Support Files/Kiwi";
 			sourceTree = "<group>";
 		};
+		63FDB1251CBD5A4E00CEF0D0 /* BackgroundTransfer */ = {
+			isa = PBXGroup;
+			children = (
+				63FDB1261CBD5A4E00CEF0D0 /* CDABackgroundDownloadManager.h */,
+				63FDB1271CBD5A4E00CEF0D0 /* CDABackgroundDownloadManager.m */,
+			);
+			path = BackgroundTransfer;
+			sourceTree = "<group>";
+		};
 		65A14C3B23BFE2D1A9C6FDCA842BABE4 /* Support Files */ = {
 			isa = PBXGroup;
 			children = (
@@ -1936,6 +1953,7 @@
 		CB1AF2F5CF844C5384878D1C677F2153 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
+				63FDB1251CBD5A4E00CEF0D0 /* BackgroundTransfer */,
 				D53B9DA81162B063EEEB848284DAAA95 /* CDACoreDataStackProtocol.h */,
 			);
 			path = Utils;
@@ -2050,6 +2068,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				E3ED17469897BFA6EC79B1CF89F01F47 /* Pods-CDASyncService_Tests-umbrella.h in Headers */,
+				63FDB12A1CBD5A4E00CEF0D0 /* CDABackgroundDownloadManager.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2072,6 +2091,7 @@
 				91E8E5623FAD9BA36CC1EF17B290E257 /* CDASimpleSyncModel.h in Headers */,
 				583BC3C9DCF2C03689B172B482046E0C /* CDASyncChronProtocol.h in Headers */,
 				27D169916152448860CC5E15548955D0 /* CDASyncConnectorProtocol.h in Headers */,
+				63FDB1281CBD5A4E00CEF0D0 /* CDABackgroundDownloadManager.h in Headers */,
 				957F557C75DDA99AF223A08751DE8B20 /* CDASyncCoreDataParserProtocol.h in Headers */,
 				D26142E32C32AF4C24CA8EBD7F2A305A /* CDASyncDownloaderProtocol.h in Headers */,
 				4BFEB255E276EC5E198408C126F32977 /* CDASyncErrors.h in Headers */,
@@ -2305,6 +2325,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				C3F4390ED0AE80574C57CCF52065BDB3 /* Pods-CDASyncService_Example-umbrella.h in Headers */,
+				63FDB1291CBD5A4E00CEF0D0 /* CDABackgroundDownloadManager.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2626,6 +2647,7 @@
 				236F43ACE4C5BF5DA4E488583FDCAAE8 /* CDASyncErrors.m in Sources */,
 				F661A2E11CB30321FFED7BB612BE26FE /* CDASyncExecutor.m in Sources */,
 				06B493E64107B349EE6474C11022C8CA /* CDASyncManager.m in Sources */,
+				63FDB12B1CBD5A4E00CEF0D0 /* CDABackgroundDownloadManager.m in Sources */,
 				4B5C157775BCB4F14343908A4FDBB583 /* CDASyncNotifications.m in Sources */,
 				F212BA5766E4220249BA421AE2D31953 /* CDASyncScheduler.m in Sources */,
 				A1AB1AB1783F08EAC1684A03D6C3518A /* CDASyncService-dummy.m in Sources */,
@@ -2636,6 +2658,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				63FDB12D1CBD5A4E00CEF0D0 /* CDABackgroundDownloadManager.m in Sources */,
 				88911C7C1BD86DB754E78EB48386EFD2 /* Pods-CDASyncService_Tests-dummy.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -2751,6 +2774,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				63FDB12C1CBD5A4E00CEF0D0 /* CDABackgroundDownloadManager.m in Sources */,
 				E14A593B04348F1D3D98EC3DFBA59730 /* Pods-CDASyncService_Example-dummy.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
