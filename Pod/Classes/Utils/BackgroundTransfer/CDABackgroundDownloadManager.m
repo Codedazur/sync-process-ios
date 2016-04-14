@@ -9,13 +9,31 @@
 #import "CDABackgroundDownloadManager.h"
 #import "CDACoreDataStack.h"
 #import "CDABGDFile.h"
+#import "CDADownloadableEntityProtocol.h"
 
+
+static id sharedInstance = nil;
 @interface CDABackgroundDownloadManager()<NSURLSessionDownloadDelegate>
 @property (nonatomic, strong)NSURLSession *backgroundSession;
 @property (nonatomic, strong)NSMutableDictionary *completionHandlerDictionary;
+@property (nonatomic, strong)id<CDACoreDataStackProtocol> destinationCoreDataStack;
 @end
 @implementation CDABackgroundDownloadManager
 
+#pragma mark - public
+- (void)addDownloadTaskWithUrlString:(NSString *)urlString AndDestinationFilePath:(NSString *)destinationFilePath{
+    NSURL *url = [NSURL URLWithString:urlString];
+    NSURLSessionDownloadTask *task = [self.backgroundSession downloadTaskWithURL:url];
+    if(self.backgroundSession.configuration.identifier){
+        CDABGDFile *file = (CDABGDFile *)[CDACoreDataStack createNewEntity:NSStringFromClass([CDABGDFile class]) inContext:[CDACoreDataStack mainManagedObjectContext]];
+        file.sessionId = self.backgroundSession.configuration.identifier;
+        file.taskId = [NSString stringWithFormat:@"%i",task.taskIdentifier];
+        file.destinationPath = destinationFilePath;
+
+        [CDACoreDataStack saveMainContext];
+    }
+}
+#pragma mark - NSURLSessionDownloadDelegate
 -(void)URLSessionDidFinishEventsForBackgroundURLSession:(NSURLSession *)session
 {
     NSLog(@"Background URL session %@ finished events.\n", session);
@@ -42,15 +60,31 @@
         handler();
     }
 }
-+ (instancetype)sharedInstance
-{
-    static id sharedMyManager = nil;
+
+#pragma mark - initializers
++ (instancetype)initSharedInstanceWithCoreDataStack:(id<CDACoreDataStackProtocol>)coreDataStack{
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
-        sharedMyManager = [[self alloc] init];
+        sharedInstance = [[self alloc] init];
+        ((CDABackgroundDownloadManager *)sharedInstance).destinationCoreDataStack = coreDataStack;
     });
-    return sharedMyManager;
+    return sharedInstance;
 }
++ (instancetype)sharedInstance
+{
+    NSAssert(sharedInstance != nil, @"Initialize the shared instance with initSharedInstanceWithModelName");
+    return sharedInstance;
+}
+
+//+ (instancetype)sharedInstance
+//{
+//    static id sharedMyManager = nil;
+//    static dispatch_once_t onceToken;
+//    dispatch_once(&onceToken, ^{
+//        sharedMyManager = [[self alloc] init];
+//    });
+//    return sharedMyManager;
+//}
 
 
 - (instancetype)init
@@ -77,6 +111,8 @@
             [[NSFileManager defaultManager] moveItemAtPath:location.path toPath:file.destinationPath error:&error];
             if(error){
                 NSLog(@"Error moving file from temp %@ to destination %@", location.path, file.destinationPath);
+            }else{
+                
             }
         }
         

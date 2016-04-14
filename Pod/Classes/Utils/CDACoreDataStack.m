@@ -75,6 +75,14 @@ static id sharedInstance = nil;
     return [[[NSFileManager defaultManager] URLsForDirectory:NSDocumentDirectory inDomains:NSUserDomainMask] lastObject];
 }
 #pragma mark - protocol
++ (NSManagedObject *) createNewEntity:(NSString *)entity inContext:(NSManagedObjectContext *)context {
+    if (context == nil) context = [[CDACoreDataStack sharedInstance] managedObjectContext];
+    
+    NSManagedObject *object = [NSEntityDescription insertNewObjectForEntityForName:entity
+                                                            inManagedObjectContext:context];
+    
+    return object;
+}
 + (NSManagedObjectContext *)independentManagedObjectContext{
     return [[CDACoreDataStack sharedInstance] independentManagedObjectContext];
 }

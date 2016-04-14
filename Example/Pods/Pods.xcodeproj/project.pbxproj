@@ -172,6 +172,9 @@
 		61B72E40C8607C41200391BD8A838E9A /* KWBeIdenticalToMatcher.h in Headers */ = {isa = PBXBuildFile; fileRef = 03BF8FE3DF60B4D9DAF70BEEB59809A9 /* KWBeIdenticalToMatcher.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		62003BEC6F5755FBA7E0743F98CC392A /* RKPropertyInspector.m in Sources */ = {isa = PBXBuildFile; fileRef = 172BF91CF26CF60EAB5AC25D54DB1D7E /* RKPropertyInspector.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
 		625EA407087A3A1F2492377B9320FE8E /* AFNetworking.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3913EFF4EAC4AC23F0B8E6038ADD1852 /* AFNetworking.framework */; };
+		639ED4721CBE736500CB6885 /* CDADownloadableEntityProtocol.h in Headers */ = {isa = PBXBuildFile; fileRef = 639ED4711CBE736500CB6885 /* CDADownloadableEntityProtocol.h */; };
+		639ED4731CBE736500CB6885 /* CDADownloadableEntityProtocol.h in Headers */ = {isa = PBXBuildFile; fileRef = 639ED4711CBE736500CB6885 /* CDADownloadableEntityProtocol.h */; };
+		639ED4741CBE736500CB6885 /* CDADownloadableEntityProtocol.h in Headers */ = {isa = PBXBuildFile; fileRef = 639ED4711CBE736500CB6885 /* CDADownloadableEntityProtocol.h */; };
 		63FDB1281CBD5A4E00CEF0D0 /* CDABackgroundDownloadManager.h in Headers */ = {isa = PBXBuildFile; fileRef = 63FDB1261CBD5A4E00CEF0D0 /* CDABackgroundDownloadManager.h */; };
 		63FDB1291CBD5A4E00CEF0D0 /* CDABackgroundDownloadManager.h in Headers */ = {isa = PBXBuildFile; fileRef = 63FDB1261CBD5A4E00CEF0D0 /* CDABackgroundDownloadManager.h */; };
 		63FDB12A1CBD5A4E00CEF0D0 /* CDABackgroundDownloadManager.h in Headers */ = {isa = PBXBuildFile; fileRef = 63FDB1261CBD5A4E00CEF0D0 /* CDABackgroundDownloadManager.h */; };
@@ -805,6 +808,7 @@
 		622D60124F87C177B6D91F3611DE51F5 /* RKMapperOperation.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = RKMapperOperation.m; path = Code/ObjectMapping/RKMapperOperation.m; sourceTree = "<group>"; };
 		62A885B17533E37A6C3455C59D600AB4 /* RKRouteSet.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = RKRouteSet.m; path = Code/Network/RKRouteSet.m; sourceTree = "<group>"; };
 		6370F2378D14D2178C3EC2E12981C368 /* KWHaveMatcher.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = KWHaveMatcher.h; path = Classes/Matchers/KWHaveMatcher.h; sourceTree = "<group>"; };
+		639ED4711CBE736500CB6885 /* CDADownloadableEntityProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CDADownloadableEntityProtocol.h; sourceTree = "<group>"; };
 		63FDB1261CBD5A4E00CEF0D0 /* CDABackgroundDownloadManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CDABackgroundDownloadManager.h; sourceTree = "<group>"; };
 		63FDB1271CBD5A4E00CEF0D0 /* CDABackgroundDownloadManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CDABackgroundDownloadManager.m; sourceTree = "<group>"; };
 		63FDB1351CBD5EDC00CEF0D0 /* background-download.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "background-download.xcdatamodel"; sourceTree = "<group>"; };
@@ -1613,6 +1617,7 @@
 				63FDB1441CBD6C2D00CEF0D0 /* CDABGDFile.h */,
 				63FDB1451CBD6C2D00CEF0D0 /* CDABGDFile.m */,
 				63FDB1341CBD5EDC00CEF0D0 /* background-download.xcdatamodeld */,
+				639ED4711CBE736500CB6885 /* CDADownloadableEntityProtocol.h */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -2110,6 +2115,7 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				639ED4741CBE736500CB6885 /* CDADownloadableEntityProtocol.h in Headers */,
 				E3ED17469897BFA6EC79B1CF89F01F47 /* Pods-CDASyncService_Tests-umbrella.h in Headers */,
 				63FDB14E1CBD6C2D00CEF0D0 /* CDABGDFile.h in Headers */,
 				63FDB1481CBD6C2D00CEF0D0 /* CDABGDFile+CoreDataProperties.h in Headers */,
@@ -2122,6 +2128,7 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				639ED4721CBE736500CB6885 /* CDADownloadableEntityProtocol.h in Headers */,
 				4E18C7E3B501B9FFB44660051643D220 /* CDAAbstractSyncService.h in Headers */,
 				1D09C14C734BE7C34292568008B916AC /* CDABundleConnector.h in Headers */,
 				EE670537696CAE984D4DCDA26E3B344B /* CDABundleSyncModule.h in Headers */,
@@ -2373,6 +2380,7 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				639ED4731CBE736500CB6885 /* CDADownloadableEntityProtocol.h in Headers */,
 				C3F4390ED0AE80574C57CCF52065BDB3 /* Pods-CDASyncService_Example-umbrella.h in Headers */,
 				63FDB14D1CBD6C2D00CEF0D0 /* CDABGDFile.h in Headers */,
 				63FDB1471CBD6C2D00CEF0D0 /* CDABGDFile+CoreDataProperties.h in Headers */,
