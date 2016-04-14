@@ -20,8 +20,8 @@
 		6003F5B1195388D20070C39A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6003F58D195388D20070C39A /* Foundation.framework */; };
 		6003F5B2195388D20070C39A /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6003F591195388D20070C39A /* UIKit.framework */; };
 		6003F5BA195388D20070C39A /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 6003F5B8195388D20070C39A /* InfoPlist.strings */; };
-		632F6B3A1CB53AF400C73090 /* test.json in Resources */ = {isa = PBXBuildFile; fileRef = 632F6B391CB53AF400C73090 /* test.json */; };
-		632F6B3B1CB53AF400C73090 /* test.json in Resources */ = {isa = PBXBuildFile; fileRef = 632F6B391CB53AF400C73090 /* test.json */; };
+		6380F0031CBFC0980080015E /* test.json in Resources */ = {isa = PBXBuildFile; fileRef = 6380F0021CBFC0980080015E /* test.json */; };
+		6380F0041CBFC0980080015E /* test.json in Resources */ = {isa = PBXBuildFile; fileRef = 6380F0021CBFC0980080015E /* test.json */; };
 		63FDB4AE1CBBB10A006FE466 /* CDABundleSyncModuleTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 63FDB4AD1CBBB10A006FE466 /* CDABundleSyncModuleTest.m */; };
 		63FDB5091CBBC15B006FE466 /* CDAParserSyncModuleTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 63FDB5081CBBC15B006FE466 /* CDAParserSyncModuleTest.m */; };
 		63FDB5121CBBCCD7006FE466 /* CDAAbstractSyncServiceTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 63FDB5111CBBCCD6006FE466 /* CDAAbstractSyncServiceTest.m */; };
@@ -76,7 +76,7 @@
 		6003F5B7195388D20070C39A /* Tests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Tests-Info.plist"; sourceTree = "<group>"; };
 		6003F5B9195388D20070C39A /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		606FC2411953D9B200FFA9A0 /* Tests-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Tests-Prefix.pch"; sourceTree = "<group>"; };
-		632F6B391CB53AF400C73090 /* test.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = test.json; path = ../../../../../Desktop/test.json; sourceTree = "<group>"; };
+		6380F0021CBFC0980080015E /* test.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = test.json; sourceTree = "<group>"; };
 		63FDB4AD1CBBB10A006FE466 /* CDABundleSyncModuleTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CDABundleSyncModuleTest.m; sourceTree = "<group>"; };
 		63FDB5081CBBC15B006FE466 /* CDAParserSyncModuleTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CDAParserSyncModuleTest.m; sourceTree = "<group>"; };
 		63FDB5111CBBCCD6006FE466 /* CDAAbstractSyncServiceTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CDAAbstractSyncServiceTest.m; sourceTree = "<group>"; };
@@ -209,10 +209,10 @@
 				63FDB5341CBC017F006FE466 /* Textile.m */,
 				63FDB5251CBC0058006FE466 /* CoreDataStack.h */,
 				63FDB5261CBC0058006FE466 /* CoreDataStack.m */,
-				632F6B391CB53AF400C73090 /* test.json */,
 				6003F5B6195388D20070C39A /* Supporting Files */,
 				63FDB4AD1CBBB10A006FE466 /* CDABundleSyncModuleTest.m */,
 				63FDB5081CBBC15B006FE466 /* CDAParserSyncModuleTest.m */,
+				6380F0021CBFC0980080015E /* test.json */,
 				63FDB5111CBBCCD6006FE466 /* CDAAbstractSyncServiceTest.m */,
 				63FDB5201CBBF83B006FE466 /* CDACoreDataSyncModuleTest.m */,
 				63FDB5291CBC0121006FE466 /* Model.xcdatamodeld */,
@@ -324,7 +324,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				873B8AEB1B1F5CCA007FD442 /* Main.storyboard in Resources */,
-				632F6B3A1CB53AF400C73090 /* test.json in Resources */,
+				6380F0031CBFC0980080015E /* test.json in Resources */,
 				6003F5A9195388D20070C39A /* Images.xcassets in Resources */,
 				6003F598195388D20070C39A /* InfoPlist.strings in Resources */,
 			);
@@ -335,7 +335,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				6003F5BA195388D20070C39A /* InfoPlist.strings in Resources */,
-				632F6B3B1CB53AF400C73090 /* test.json in Resources */,
+				6380F0041CBFC0980080015E /* test.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
