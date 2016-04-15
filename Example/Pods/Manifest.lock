@@ -34,7 +34,7 @@ DEPENDENCIES:
 
 EXTERNAL SOURCES:
   CDASyncService:
-    :path: "../"
+    :path: ../
 
 SPEC CHECKSUMS:
   AFNetworking: cf8e418e16f0c9c7e5c3150d019a3c679d015018

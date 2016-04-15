@@ -22,7 +22,7 @@ static id sharedInstance = nil;
 @implementation CDABackgroundDownloadManager
 
 #pragma mark - public
-- (void)addDownloadTaskWithUrlString:(NSString *)urlString AndDestinationFilePath:(NSString *)destinationFilePath{
+- (void)addDownloadTaskWithUrlString:(NSString *)urlString AndDestinationFilePath:(NSString *)destinationFilePath AndFileClass:(NSString *)fileClass{
     NSURL *url = [NSURL URLWithString:urlString];
     NSURLSessionDownloadTask *task = [self.backgroundSession downloadTaskWithURL:url];
     if(self.backgroundSession.configuration.identifier){
@@ -30,6 +30,7 @@ static id sharedInstance = nil;
         file.sessionId = self.backgroundSession.configuration.identifier;
         file.taskId = [NSString stringWithFormat:@"%i",task.taskIdentifier];
         file.destinationPath = destinationFilePath;
+        file.entityClass = fileClass;
 
         [self.downloadCoreDataStack saveMainContext];
     }
@@ -86,7 +87,7 @@ static id sharedInstance = nil;
         self.downloadCoreDataStack = [CDACoreDataStack initSharedInstanceWithModelName:@"background-download"];
         self.completionHandlerDictionary = [NSMutableDictionary dictionaryWithCapacity:0];
         
-        NSURLSessionConfiguration *backgroundConfigObject = [NSURLSessionConfiguration backgroundSessionConfiguration: kBackgroundSessionIdentifier];
+        NSURLSessionConfiguration *backgroundConfigObject = [NSURLSessionConfiguration backgroundSessionConfigurationWithIdentifier: kBackgroundSessionIdentifier];
         backgroundConfigObject.allowsCellularAccess = NO;
         self.backgroundSession = [NSURLSession sessionWithConfiguration: backgroundConfigObject delegate: self delegateQueue: [NSOperationQueue mainQueue]];
     }

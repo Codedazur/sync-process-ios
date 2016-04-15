@@ -29,6 +29,11 @@
 #import "CDASyncScheduleMangerProtocol.h"
 #import "CDASyncSchedulerProtocol.h"
 #import "CDASyncServiceProtocol.h"
+#import "CDABackgroundDownloadManager.h"
+#import "CDABGDFile+CoreDataProperties.h"
+#import "CDABGDFile.h"
+#import "CDADownloadableEntityProtocol.h"
+#import "CDACoreDataStack.h"
 #import "CDACoreDataStackProtocol.h"
 
 FOUNDATION_EXPORT double CDASyncServiceVersionNumber;
