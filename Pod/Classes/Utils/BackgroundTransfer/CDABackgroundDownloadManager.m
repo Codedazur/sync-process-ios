@@ -17,6 +17,7 @@ static id sharedInstance = nil;
 @property (nonatomic, strong)NSURLSession *backgroundSession;
 @property (nonatomic, strong)NSMutableDictionary *completionHandlerDictionary;
 @property (nonatomic, strong)id<CDACoreDataStackProtocol> destinationCoreDataStack;
+@property (nonatomic, strong)id<CDACoreDataStackProtocol> downloadCoreDataStack;
 @end
 @implementation CDABackgroundDownloadManager
 
@@ -25,12 +26,12 @@ static id sharedInstance = nil;
     NSURL *url = [NSURL URLWithString:urlString];
     NSURLSessionDownloadTask *task = [self.backgroundSession downloadTaskWithURL:url];
     if(self.backgroundSession.configuration.identifier){
-        CDABGDFile *file = (CDABGDFile *)[CDACoreDataStack createNewEntity:NSStringFromClass([CDABGDFile class]) inContext:[CDACoreDataStack mainManagedObjectContext]];
+        CDABGDFile *file = (CDABGDFile *)[self.downloadCoreDataStack createNewEntity:NSStringFromClass([CDABGDFile class]) inContext:[self.downloadCoreDataStack managedObjectContext]];
         file.sessionId = self.backgroundSession.configuration.identifier;
         file.taskId = [NSString stringWithFormat:@"%i",task.taskIdentifier];
         file.destinationPath = destinationFilePath;
 
-        [CDACoreDataStack saveMainContext];
+        [self.downloadCoreDataStack saveMainContext];
     }
 }
 #pragma mark - NSURLSessionDownloadDelegate
@@ -76,23 +77,13 @@ static id sharedInstance = nil;
     return sharedInstance;
 }
 
-//+ (instancetype)sharedInstance
-//{
-//    static id sharedMyManager = nil;
-//    static dispatch_once_t onceToken;
-//    dispatch_once(&onceToken, ^{
-//        sharedMyManager = [[self alloc] init];
-//    });
-//    return sharedMyManager;
-//}
-
-
 - (instancetype)init
 {
 
     self = [super init];
     if (self) {
-        [CDACoreDataStack initSharedInstanceWithModelName:@"background-download"];
+        
+        self.downloadCoreDataStack = [CDACoreDataStack initSharedInstanceWithModelName:@"background-download"];
         self.completionHandlerDictionary = [NSMutableDictionary dictionaryWithCapacity:0];
         
         NSURLSessionConfiguration *backgroundConfigObject = [NSURLSessionConfiguration backgroundSessionConfiguration: kBackgroundSessionIdentifier];
@@ -105,15 +96,19 @@ static id sharedInstance = nil;
 #pragma mark - Delegate methods for download tasks
 - (void)URLSession:(NSURLSession *)session downloadTask:(NSURLSessionDownloadTask *)downloadTask didFinishDownloadingToURL:(NSURL *)location{
     if(session.configuration.identifier){
-        CDABGDFile *file = (CDABGDFile *)[CDACoreDataStack fetchEntity:NSStringFromClass([CDABGDFile class]) WithPredicate:[NSPredicate predicateWithFormat:@"sessionId=%@ && taskId=%@",session.configuration.identifier, downloadTask.taskIdentifier] InContext:[CDACoreDataStack mainManagedObjectContext]];
+
         if(location.path){
+            CDABGDFile *file = [self getFileWithSession:session AndTask:downloadTask];
+            NSManagedObject<CDADownloadableEntityProtocol> *downloadable = [self getEntityWithFile:file];
             NSError *error;
             [[NSFileManager defaultManager] moveItemAtPath:location.path toPath:file.destinationPath error:&error];
             if(error){
                 NSLog(@"Error moving file from temp %@ to destination %@", location.path, file.destinationPath);
+               downloadable.state = @(CDADownloadableEntityStateIncorrect);
             }else{
-                
+                downloadable.state = @(CDADownloadableEntityStateCorrect);
             }
+            [self.destinationCoreDataStack saveMainContext];
         }
         
     }
@@ -130,5 +125,11 @@ static id sharedInstance = nil;
           session, downloadTask, fileOffset, expectedTotalBytes);
 }
 
-
+- (CDABGDFile *) getFileWithSession:(NSURLSession *)session AndTask:(NSURLSessionDownloadTask *)task{
+    CDABGDFile *file = (CDABGDFile *)[self.downloadCoreDataStack fetchEntity:NSStringFromClass([CDABGDFile class]) WithPredicate:[NSPredicate predicateWithFormat:@"sessionId=%@ && taskId=%@",session.configuration.identifier, task.taskIdentifier] InContext:[self.downloadCoreDataStack managedObjectContext]];
+    return file;
+}
+- (NSManagedObject<CDADownloadableEntityProtocol> *)getEntityWithFile:(CDABGDFile *)file{
+    return (NSManagedObject<CDADownloadableEntityProtocol> *)[self.downloadCoreDataStack fetchEntity:file.entityClass WithPredicate:[NSPredicate predicateWithFormat:file.entityIdKey,file.entityId] InContext:[self.downloadCoreDataStack managedObjectContext]];
+}
 @end

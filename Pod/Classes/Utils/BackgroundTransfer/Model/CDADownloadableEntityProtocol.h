@@ -8,6 +8,11 @@
 
 #import <Foundation/Foundation.h>
 
+typedef enum{
+ CDADownloadableEntityStateCorrect,
+ CDADownloadableEntityStateIncorrect
+}CDADownloadableEntityState;
+
 @protocol CDADownloadableEntityProtocol <NSObject>
 @property (nullable, nonatomic, strong) NSString *uid;
 @property (nullable, nonatomic, strong) NSNumber *state;

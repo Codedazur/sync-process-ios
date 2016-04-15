@@ -4,11 +4,12 @@
         <attribute name="destinationPath" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="entityClass" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="entityId" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="entityIdKey" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="entityType" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="sessionId" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="taskId" optional="YES" attributeType="String" syncable="YES"/>
     </entity>
     <elements>
-        <element name="CDABGDFile" positionX="-63" positionY="-18" width="128" height="135"/>
+        <element name="CDABGDFile" positionX="-63" positionY="-18" width="128" height="150"/>
     </elements>
 </model>
