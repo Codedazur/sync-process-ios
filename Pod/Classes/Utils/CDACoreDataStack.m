@@ -79,6 +79,9 @@
     return [[[NSFileManager defaultManager] URLsForDirectory:NSDocumentDirectory inDomains:NSUserDomainMask] lastObject];
 }
 #pragma mark - protocol
+- (void)saveMainContext{
+    [[self managedObjectContext] save:nil];
+}
 - (NSManagedObject *) createNewEntity:(NSString *)entity inContext:(NSManagedObjectContext *)context {
     if (context == nil) context = [self managedObjectContext];
     

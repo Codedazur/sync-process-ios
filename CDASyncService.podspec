@@ -28,6 +28,7 @@ Pod::Spec.new do |s|
   s.resource_bundles = {
     'CDASyncService' => 'Pod/Classes/Utils/BackgroundTransfer/Model/background-download.xcdatamodeld'
   }
+  s.resources = 'Pod/Classes/Utils/BackgroundTransfer/Model/background-download.xcdatamodeld'
 
   # s.public_header_files = 'Pod/Classes/**/*.h'
   # s.frameworks = 'UIKit', 'MapKit'

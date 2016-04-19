@@ -17,7 +17,7 @@
 - (IBAction)onClickDownload:(id)sender {
     NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
     
-    [[CDABackgroundDownloadManager sharedInstance] addDownloadTaskWithUrlString:@"http://training-binder.kvadrat.com:8888/test.zip" AndDestinationFilePath:[paths firstObject] AndFileClass:nil AndEntityId:nil];
+    [[CDABackgroundDownloadManager sharedInstance] addDownloadTaskWithUrlString:@"http://tamarabernad.com/test/test2.zip" AndDestinationFilePath:[paths firstObject]];
 }
 
 - (void)viewDidLoad

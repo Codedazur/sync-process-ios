@@ -20,6 +20,7 @@
   "resource_bundles": {
     "CDASyncService": "Pod/Classes/Utils/BackgroundTransfer/Model/background-download.xcdatamodeld"
   },
+  "resources": "Pod/Classes/Utils/BackgroundTransfer/Model/background-download.xcdatamodeld",
   "dependencies": {
     "RestKit": [
       "~> 0.26"

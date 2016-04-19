@@ -11,11 +11,11 @@
 static NSString * const kBackgroundSessionIdentifier = @"com.kvadrat.training-binder.download-session";
 typedef void (^CompletionHandlerType)();
 
-@interface CDABackgroundDownloadManager : NSObject<NSURLSessionDownloadDelegate>
+@interface CDABackgroundDownloadManager : NSObject
 
 + (instancetype)sharedInstance;
 
-- (void)addDownloadTaskWithUrlString:(NSString *)urlString AndDestinationFilePath:(NSString *)destinationFilePath AndFileClass:(NSString *)fileClass AndEntityId:(NSString *)entityId;
+- (void)addDownloadTaskWithUrlString:(NSString *)urlString AndDestinationFilePath:(NSString *)destinationFilePath;
 - (void) addCompletionHandler: (CompletionHandlerType) handler forSession: (NSString *)identifier;
 - (void) callCompletionHandlerForSession: (NSString *)identifier;
 
