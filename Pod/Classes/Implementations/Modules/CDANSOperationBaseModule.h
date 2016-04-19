@@ -10,6 +10,8 @@
 #import "CDASyncModule.h"
 #import "CDASyncModel.h"
 @interface CDANSOperationBaseModule : NSOperation<CDASyncModule>
+
+#pragma mark - protected
 - (void)completeOperation;
 - (id<CDASyncModel>)model;
 @end

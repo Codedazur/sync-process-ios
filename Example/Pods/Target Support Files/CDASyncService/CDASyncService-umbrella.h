@@ -7,6 +7,7 @@
 #import "CDASyncScheduler.h"
 #import "CDASyncErrors.h"
 #import "CDASyncNotifications.h"
+#import "CDAAFNetworkingConnector.h"
 #import "CDABundleConnector.h"
 #import "CDASimpleSyncModel.h"
 #import "CDABundleSyncModule.h"

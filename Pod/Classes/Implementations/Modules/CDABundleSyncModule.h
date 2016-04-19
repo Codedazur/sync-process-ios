@@ -7,9 +7,8 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "CDASyncModule.h"
 #import "CDANSOperationBaseModule.h"
 
-@interface CDABundleSyncModule : CDANSOperationBaseModule<CDASyncModule>
+@interface CDABundleSyncModule : CDANSOperationBaseModule
 
 @end
