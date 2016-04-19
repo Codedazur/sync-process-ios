@@ -8,6 +8,8 @@
 
 #import <Foundation/Foundation.h>
 #import "CDASyncModule.h"
-@interface CDABundleSyncModule : NSOperation<CDASyncModule>
+#import "CDANSOperationBaseModule.h"
+
+@interface CDABundleSyncModule : CDANSOperationBaseModule<CDASyncModule>
 
 @end
