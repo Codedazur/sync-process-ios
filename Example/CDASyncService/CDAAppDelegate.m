@@ -7,12 +7,19 @@
 //
 
 #import "CDAAppDelegate.h"
+#import "CDABackgroundDownloadManager.h"
+#import "CDACoreDataStack.h"
 
+@interface CDAAppDelegate()
+@property (nonatomic, strong)CDACoreDataStack *coreDataStack;
+@end
 @implementation CDAAppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     // Override point for customization after application launch.
+    self.coreDataStack = [[CDACoreDataStack alloc] initWithModelName:@"Model"];
+    [CDABackgroundDownloadManager sharedInstance] ;
     return YES;
 }
 
@@ -44,12 +51,13 @@
 }
 - (void)application:(UIApplication *)application handleEventsForBackgroundURLSession:(NSString *)identifier completionHandler:(void (^)())completionHandler
 {
-//    NSURLSessionConfiguration *backgroundConfigObject = [NSURLSessionConfiguration backgroundSessionConfiguration: identifier];
-//    
-//    NSURLSession *backgroundSession = [NSURLSession sessionWithConfiguration: backgroundConfigObject delegate: self.mySessionDelegate delegateQueue: [NSOperationQueue mainQueue]];
-//    
-//    NSLog(@"Rejoining session %@\n", identifier);
-//    
-//    [ self.mySessionDelegate addCompletionHandler: completionHandler forSession: identifier];
+    NSURLSessionConfiguration *backgroundConfigObject = [NSURLSessionConfiguration backgroundSessionConfiguration: identifier];
+    
+    
+    NSURLSession *backgroundSession = [NSURLSession sessionWithConfiguration: backgroundConfigObject delegate: [CDABackgroundDownloadManager sharedInstance] delegateQueue: [NSOperationQueue mainQueue]];
+    
+    NSLog(@"Rejoining session %@\n", identifier);
+    
+    [[CDABackgroundDownloadManager sharedInstance] addCompletionHandler: completionHandler forSession: identifier];
 }
 @end

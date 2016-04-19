@@ -7,25 +7,29 @@
 //
 
 #import "CDACoreDataStack.h"
-static id sharedInstance = nil;
 @interface CDACoreDataStack()
 @property (nonatomic, strong)NSString *modelName;
+@property (nonatomic, strong)NSBundle *bundle;
 @end
 @implementation CDACoreDataStack
 @synthesize managedObjectContext = _managedObjectContext, managedObjectModel = _managedObjectModel, persistentStoreCoordinator = _persistentStoreCoordinator;
 
-+ (instancetype)initSharedInstanceWithModelName:(NSString *)modelName{
-    static dispatch_once_t onceToken;
-    dispatch_once(&onceToken, ^{
-        sharedInstance = [[self alloc] init];
-        ((CDACoreDataStack *)sharedInstance).modelName = modelName;
-    });
-    return sharedInstance;
+- (NSBundle *)bundle{
+    if(!_bundle){
+        _bundle = [NSBundle mainBundle];
+    }
+    return _bundle;
 }
-+ (instancetype)sharedInstance
-{
-    NSAssert(sharedInstance != nil, @"Initialize the shared instance with initSharedInstanceWithModelName");
-    return sharedInstance;
+- (instancetype)initWithModelName:(NSString *)modelName AndBundle:(NSBundle *)bundle{
+    if(!(self = [self initWithModelName:modelName]))return self;
+    self.bundle = bundle;
+    return self;
+}
+- (instancetype)initWithModelName:(NSString *)modelName{
+    if(!(self = [super init]))return self;
+    
+    self.modelName = modelName;
+    return self;
 }
 #pragma mark - lazy getters
 - (NSManagedObjectContext *)managedObjectContext
@@ -47,7 +51,7 @@ static id sharedInstance = nil;
 {
     if (_managedObjectModel == nil)
     {
-        NSURL *modelURL = [[NSBundle mainBundle] URLForResource:self.modelName withExtension:@"momd"];
+        NSURL *modelURL = [self.bundle URLForResource:self.modelName withExtension:@"momd"];
         _managedObjectModel = [[NSManagedObjectModel alloc] initWithContentsOfURL:modelURL];
     }
     return _managedObjectModel;
@@ -75,19 +79,13 @@ static id sharedInstance = nil;
     return [[[NSFileManager defaultManager] URLsForDirectory:NSDocumentDirectory inDomains:NSUserDomainMask] lastObject];
 }
 #pragma mark - protocol
-+ (NSManagedObject *) createNewEntity:(NSString *)entity inContext:(NSManagedObjectContext *)context {
-    if (context == nil) context = [[CDACoreDataStack sharedInstance] managedObjectContext];
+- (NSManagedObject *) createNewEntity:(NSString *)entity inContext:(NSManagedObjectContext *)context {
+    if (context == nil) context = [self managedObjectContext];
     
     NSManagedObject *object = [NSEntityDescription insertNewObjectForEntityForName:entity
                                                             inManagedObjectContext:context];
     
     return object;
-}
-+ (NSManagedObjectContext *)independentManagedObjectContext{
-    return [[CDACoreDataStack sharedInstance] independentManagedObjectContext];
-}
-+ (NSManagedObjectContext *)mainManagedObjectContext{
-    return [[CDACoreDataStack sharedInstance] managedObjectContext];
 }
 - (NSManagedObjectContext *)independentManagedObjectContext
 {
@@ -103,27 +101,11 @@ static id sharedInstance = nil;
     }
     return managedObjectContext;
 }
-- (NSArray *)fetchEntities:(NSString *)entity WithSortKey:(NSString *)sortKey Ascending:(BOOL)ascending WithPredicate:(NSPredicate *)predicate InContext:(NSManagedObjectContext *)context{
-    return [CDACoreDataStack fetchEntities:entity WithSortKey:sortKey Ascending:ascending WithPredicate:predicate InContext:context];
-}
+//- (NSArray *)fetchEntities:(NSString *)entity WithSortKey:(NSString *)sortKey Ascending:(BOOL)ascending WithPredicate:(NSPredicate *)predicate InContext:(NSManagedObjectContext *)context{
+//    return [CDACoreDataStack fetchEntities:entity WithSortKey:sortKey Ascending:ascending WithPredicate:predicate InContext:context];
+//}
 - (NSManagedObject *)fetchEntity:(NSString *)entity WithPredicate:(NSPredicate *)predicate InContext:(NSManagedObjectContext *)context{
-    return [CDACoreDataStack fetchEntity:entity WithPredicate:predicate InContext:context];
-}
-#pragma mark - public
-+ (void)saveMainContext
-{
-    NSError *error = nil;
-    NSManagedObjectContext *managedObjectContext = [CDACoreDataStack sharedInstance].managedObjectContext;
-    if (managedObjectContext != nil)
-    {
-        if ([managedObjectContext hasChanges] && ![managedObjectContext save:&error])
-        {
-            NSLog(@"Unresolved error %@, %@", error, [error userInfo]);
-        }
-    }
-}
-+ (NSManagedObject *)fetchEntity:(NSString *)entity WithPredicate:(NSPredicate *)predicate InContext:(NSManagedObjectContext *)context {
-    if (context == nil) context = [[CDACoreDataStack sharedInstance] managedObjectContext];
+    if (context == nil) context = [self managedObjectContext];
     
     NSEntityDescription *entityDescription = [NSEntityDescription
                                               entityForName:entity inManagedObjectContext:context];
@@ -142,7 +124,31 @@ static id sharedInstance = nil;
     }
     return [array firstObject];
 }
-+ (NSArray *)fetchEntities:(NSString *)entity WithSortKey:(NSString *)sortKey Ascending:(BOOL)ascending WithPredicate:(NSPredicate *)predicate InContext:(NSManagedObjectContext *)context {
+#pragma mark - public
+
+//+ (NSManagedObject *)fetchEntity:(NSString *)entity WithPredicate:(NSPredicate *)predicate InContext:(NSManagedObjectContext *)context {
+//    if (context == nil) context = [[CDACoreDataStack sharedInstance] managedObjectContext];
+//    
+//    NSEntityDescription *entityDescription = [NSEntityDescription
+//                                              entityForName:entity inManagedObjectContext:context];
+//    NSFetchRequest *request = [[NSFetchRequest alloc] init];
+//    [request setEntity:entityDescription];
+//    [request setFetchLimit:1];
+//    
+//    if(predicate){
+//        [request setPredicate:predicate];
+//    }
+//    NSError *error;
+//    NSArray *array = [context executeFetchRequest:request error:&error];
+//    if (array == nil)
+//    {
+//        
+//    }
+//    return [array firstObject];
+//}
+
+- (NSArray *)fetchEntities:(NSString *)entity WithSortKey:(NSString *)sortKey Ascending:(BOOL)ascending WithPredicate:(NSPredicate *)predicate InContext:(NSManagedObjectContext *)context {
+    
     NSArray *sortDescriptors = nil;
     if(sortKey){
         NSSortDescriptor *sortDescriptor = [[NSSortDescriptor alloc]
@@ -150,12 +156,12 @@ static id sharedInstance = nil;
         sortDescriptors = @[sortDescriptor];
     }
     
-    return [CDACoreDataStack fetchEntities:entity WithSortDescriptors:sortDescriptors WithPredicate:predicate InContext:context];
+    return [self fetchEntities:entity WithSortDescriptors:sortDescriptors WithPredicate:predicate InContext:context];
     
 }
 
-+ (NSArray *)fetchEntities:(NSString *)entity WithSortDescriptors:(NSArray *)sortDescriptors WithPredicate:(NSPredicate *)predicate InContext:(NSManagedObjectContext *)context {
-    if (context == nil) context = [[CDACoreDataStack sharedInstance] managedObjectContext];
+- (NSArray *)fetchEntities:(NSString *)entity WithSortDescriptors:(NSArray *)sortDescriptors WithPredicate:(NSPredicate *)predicate InContext:(NSManagedObjectContext *)context {
+    if (context == nil) context = [self managedObjectContext];
     
     NSEntityDescription *entityDescription = [NSEntityDescription
                                               entityForName:entity inManagedObjectContext:context];

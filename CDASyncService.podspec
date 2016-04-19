@@ -26,7 +26,7 @@ Pod::Spec.new do |s|
 
   s.source_files = 'Pod/Classes/**/*'
   s.resource_bundles = {
-    'CDASyncService' => ['Pod/Assets/*.png']
+    'CDASyncService' => 'Pod/Classes/Utils/BackgroundTransfer/Model/background-download.xcdatamodeld'
   }
 
   # s.public_header_files = 'Pod/Classes/**/*.h'

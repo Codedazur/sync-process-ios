@@ -18,9 +18,7 @@
   "requires_arc": true,
   "source_files": "Pod/Classes/**/*",
   "resource_bundles": {
-    "CDASyncService": [
-      "Pod/Assets/*.png"
-    ]
+    "CDASyncService": "Pod/Classes/Utils/BackgroundTransfer/Model/background-download.xcdatamodeld"
   },
   "dependencies": {
     "RestKit": [

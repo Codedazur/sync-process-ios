@@ -7,12 +7,18 @@
 //
 
 #import "CDAViewController.h"
+#import "CDABackgroundDownloadManager.h"
 
 @interface CDAViewController ()
 
 @end
 
 @implementation CDAViewController
+- (IBAction)onClickDownload:(id)sender {
+    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+    
+    [[CDABackgroundDownloadManager sharedInstance] addDownloadTaskWithUrlString:@"http://training-binder.kvadrat.com:8888/test.zip" AndDestinationFilePath:[paths firstObject] AndFileClass:nil AndEntityId:nil];
+}
 
 - (void)viewDidLoad
 {

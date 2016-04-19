@@ -14,10 +14,11 @@
 @property (readonly, strong, nonatomic) NSManagedObjectModel *managedObjectModel;
 @property (readonly, strong, nonatomic) NSPersistentStoreCoordinator *persistentStoreCoordinator;
 
+- (instancetype)initWithModelName:(NSString *)modelName;
 - (void)saveMainContext;
 - (NSManagedObject *) createNewEntity:(NSString *)entity inContext:(NSManagedObjectContext *)context;
+
 - (NSManagedObjectContext *)independentManagedObjectContext;
 - (NSManagedObject *)fetchEntity:(NSString *)entity WithPredicate:(NSPredicate *)predicate InContext:(NSManagedObjectContext *)context;
 - (NSArray *)fetchEntities:(NSString *)entity WithSortKey:(NSString *)sortKey Ascending:(BOOL)ascending WithPredicate:(NSPredicate *)predicate InContext:(NSManagedObjectContext *)context;
-+ (instancetype)initSharedInstanceWithModelName:(NSString *)modelName;
 @end
