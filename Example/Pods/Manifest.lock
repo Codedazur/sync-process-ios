@@ -1,23 +1,26 @@
 PODS:
-  - AFNetworking (1.3.4)
+  - AFNetworking (3.1.0):
+    - AFNetworking/NSURLSession (= 3.1.0)
+    - AFNetworking/Reachability (= 3.1.0)
+    - AFNetworking/Security (= 3.1.0)
+    - AFNetworking/Serialization (= 3.1.0)
+    - AFNetworking/UIKit (= 3.1.0)
+  - AFNetworking/NSURLSession (3.1.0):
+    - AFNetworking/Reachability
+    - AFNetworking/Security
+    - AFNetworking/Serialization
+  - AFNetworking/Reachability (3.1.0)
+  - AFNetworking/Security (3.1.0)
+  - AFNetworking/Serialization (3.1.0)
+  - AFNetworking/UIKit (3.1.0):
+    - AFNetworking/NSURLSession
   - CDASyncService (0.0.1):
-    - RestKit (~> 0.26)
+    - AFNetworking (~> 3.1)
+    - RestKit/CoreData
   - ISO8601DateFormatterValueTransformer (0.6.1):
     - RKValueTransformers (~> 1.1.0)
-  - Kiwi (2.4.0)
-  - RestKit (0.26.0):
-    - RestKit/Core (= 0.26.0)
-  - RestKit/Core (0.26.0):
-    - RestKit/CoreData
-    - RestKit/Network
-    - RestKit/ObjectMapping
   - RestKit/CoreData (0.26.0):
     - RestKit/ObjectMapping
-  - RestKit/Network (0.26.0):
-    - AFNetworking (~> 1.3.0)
-    - RestKit/ObjectMapping
-    - RestKit/Support
-    - SOCKit
   - RestKit/ObjectMapping (0.26.0):
     - ISO8601DateFormatterValueTransformer (~> 0.6.1)
     - RestKit/Support
@@ -25,25 +28,21 @@ PODS:
   - RestKit/Support (0.26.0):
     - TransitionKit (~> 2.2)
   - RKValueTransformers (1.1.3)
-  - SOCKit (1.1)
   - TransitionKit (2.2.1)
 
 DEPENDENCIES:
   - CDASyncService (from `../`)
-  - Kiwi
 
 EXTERNAL SOURCES:
   CDASyncService:
     :path: ../
 
 SPEC CHECKSUMS:
-  AFNetworking: cf8e418e16f0c9c7e5c3150d019a3c679d015018
-  CDASyncService: f2451b35b31e809d8fdb1feefb559b0579c89d75
+  AFNetworking: 5e0e199f73d8626b11e79750991f5d173d1f8b67
+  CDASyncService: a33098bd4cb4381f75e57930583b4072645509cb
   ISO8601DateFormatterValueTransformer: 52da467d6ec899d6aedda8e48280ac92e8ee97e6
-  Kiwi: f49c9d54b28917df5928fe44968a39ed198cb8a8
   RestKit: 112fba5bd1f97598aac0db7981863d5fdc0263a2
   RKValueTransformers: e5ed67e3811229b616fe01bddeeafe3bb337b1b9
-  SOCKit: c7376ac262bea9115b8f749358f762522a47d392
   TransitionKit: 9ceccda4cd0cdc0a05ef85eb235e5a3292c3c250
 
 COCOAPODS: 0.39.0

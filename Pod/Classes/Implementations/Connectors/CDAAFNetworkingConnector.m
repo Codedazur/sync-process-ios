@@ -7,16 +7,17 @@
 //
 
 #import "CDAAFNetworkingConnector.h"
-#import "AFHTTPRequestOperation.h"
+@import AFNetworking;
 
 @implementation CDAAFNetworkingConnector
+@synthesize baseUrl = _baseUrl, resource = _resource;
 - (void)getObjectsWithSuccess:(void (^)(id))success failure:(void (^)(NSError *))failure{
     
-    NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString:[self baseUrl]]];
-    AFHTTPRequestOperation *operation = [[AFHTTPRequestOperation alloc] initWithRequest:request];
-    [operation setCompletionBlockWithSuccess:^(AFHTTPRequestOperation *operation, id responseObject) {
+    NSString *url = [[self baseUrl] stringByAppendingPathComponent:self.resource];
+    AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
+    [manager GET:url parameters:nil progress:nil success:^(NSURLSessionTask *task, id responseObject) {
         success(responseObject);
-    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+    } failure:^(NSURLSessionTask *operation, NSError *error) {
         failure(error);
     }];
 }

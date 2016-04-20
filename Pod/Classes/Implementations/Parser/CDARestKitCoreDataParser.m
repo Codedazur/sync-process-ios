@@ -7,7 +7,6 @@
 //
 
 #import "CDARestKitCoreDataParser.h"
-#import <RestKit/RestKit.h>
 #import <RestKit/CoreData.h>
 
 #import "CDARelationMapping.h"

@@ -89,7 +89,6 @@ if [[ "$CONFIGURATION" == "Debug" ]]; then
   install_framework "Pods-CDASyncService_Example/ISO8601DateFormatterValueTransformer.framework"
   install_framework "Pods-CDASyncService_Example/RKValueTransformers.framework"
   install_framework "Pods-CDASyncService_Example/RestKit.framework"
-  install_framework "Pods-CDASyncService_Example/SOCKit.framework"
   install_framework "Pods-CDASyncService_Example/TransitionKit.framework"
 fi
 if [[ "$CONFIGURATION" == "Release" ]]; then
@@ -98,6 +97,5 @@ if [[ "$CONFIGURATION" == "Release" ]]; then
   install_framework "Pods-CDASyncService_Example/ISO8601DateFormatterValueTransformer.framework"
   install_framework "Pods-CDASyncService_Example/RKValueTransformers.framework"
   install_framework "Pods-CDASyncService_Example/RestKit.framework"
-  install_framework "Pods-CDASyncService_Example/SOCKit.framework"
   install_framework "Pods-CDASyncService_Example/TransitionKit.framework"
 fi

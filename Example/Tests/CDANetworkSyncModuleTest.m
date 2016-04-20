@@ -9,6 +9,7 @@
 #import <XCTest/XCTest.h>
 #import "CDARestModule.h"
 #import "CDASimpleSyncModel.h"
+#import "CDAAFNetworkingConnector.h"
 
 @interface CDANetworkSyncModuleTest : XCTestCase
 @property (nonatomic, strong)CDARestModule *sut;
@@ -32,7 +33,7 @@
 
 - (void)testCorrectJSON {
     
-    CDASimpleSyncModel *m = [[CDASimpleSyncModel alloc] initWithUid:@"teste" moduleClass:nil userInfo:@{@"baseUrl":@"", @"resource":@"test"} timeInterval:0];
+    CDASimpleSyncModel *m = [[CDASimpleSyncModel alloc] initWithUid:@"teste" moduleClass:nil userInfo:@{@"baseUrl":@"http://data.soft-cells.com/api/v1", @"resource":@"product-performance/ipad/textiles",@"connectorClass":[CDAAFNetworkingConnector class]} timeInterval:0];
     
     self.sut = [[CDARestModule alloc] initWithSyncModel:m];
     
