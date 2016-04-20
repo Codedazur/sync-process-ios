@@ -1,0 +1,1 @@
+../../../../../Pod/Classes/Utils/BackgroundTransfer/Model/CDADownloadableEntityProtocol.h

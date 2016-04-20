@@ -8,6 +8,4 @@ end
 
 target 'CDASyncService_Tests', :exclusive => true do
   pod "CDASyncService", :path => "../"
-
-  pod 'Kiwi'
 end

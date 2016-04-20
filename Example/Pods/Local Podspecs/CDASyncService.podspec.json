@@ -22,8 +22,11 @@
   },
   "resources": "Pod/Classes/Utils/BackgroundTransfer/Model/background-download.xcdatamodeld",
   "dependencies": {
-    "RestKit": [
-      "~> 0.26"
+    "AFNetworking": [
+      "~> 3.1"
+    ],
+    "RestKit/CoreData": [
+
     ]
   }
 }

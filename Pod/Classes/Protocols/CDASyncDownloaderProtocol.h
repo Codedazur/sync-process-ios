@@ -9,7 +9,7 @@
 #import <Foundation/Foundation.h>
 
 @protocol CDASyncDownloaderProtocol <NSObject>
-@property (nonatomic, weak)id<CDAMediaDownloaderDelegate> delegate;
+//@property (nonatomic, weak)id<CDAMediaDownloaderDelegate> delegate;
 - (void)downloadItems:(NSArray *)items;
 @end
 

@@ -7,7 +7,6 @@
 //
 
 #import "CDARestKitCoreDataParser.h"
-#import <RestKit/RestKit.h>
 #import <RestKit/CoreData.h>
 
 #import "CDARelationMapping.h"
@@ -21,6 +20,7 @@ typedef void(^ParseCompletionBlock)(id result);
 @property (nonatomic, strong) RKManagedObjectStore *store;
 @property (nonatomic, strong) NSOperationQueue *queue;
 @property (nonatomic, strong) id data;
+@property (nonnull, strong) NSString *rootKey;
 @end
 
 @implementation CDARestKitCoreDataParser
@@ -37,6 +37,7 @@ typedef void(^ParseCompletionBlock)(id result);
     if(!(self = [super init]))return self;
     self.store = [[RKManagedObjectStore alloc] initWithManagedObjectModel:[coreDataStack managedObjectModel]];
     self.mapping = [self extractMapping:mapping];
+    self.rootKey = mapping.rootKey;
     self.context = [coreDataStack independentManagedObjectContext];
     return self;
 }
@@ -47,7 +48,8 @@ typedef void(^ParseCompletionBlock)(id result);
     self.completion = completion;
     self.data = data;
     RKManagedObjectMappingOperationDataSource *mappingDataSource = [[RKManagedObjectMappingOperationDataSource alloc] initWithManagedObjectContext:self.context cache:self.store.managedObjectCache];
-    RKMapperOperation *mappingOP = [[RKMapperOperation alloc] initWithRepresentation:self.data mappingsDictionary:@{[NSNull null]:self.mapping}];
+    RKMapperOperation *mappingOP = [[RKMapperOperation alloc] initWithRepresentation:self.data
+                                                                  mappingsDictionary:@{(self.rootKey == nil ? [NSNull null] : self.rootKey) :self.mapping}];
     mappingOP.delegate = self;
     mappingOP.mappingOperationDataSource = mappingDataSource;
     
