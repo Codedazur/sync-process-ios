@@ -54,4 +54,27 @@
     }];
 }
 
+- (void)testWrongJSON {
+    
+    CDASimpleSyncModel *m = [[CDASimpleSyncModel alloc] initWithUid:@"teste" moduleClass:nil userInfo:@{@"baseUrl":@"http://data.soft-cells.com/api/v1", @"resource":@"product-performance",@"connectorClass":[CDAAFNetworkingConnector class]} timeInterval:0];
+    
+    self.sut = [[CDARestModule alloc] initWithSyncModel:m];
+    
+    CDANetworkSyncModuleTest __weak *weakSelf = self;
+    [self.sut setCompletionBlock:^{
+        id result = [weakSelf.sut result];
+        NSError *error = [weakSelf.sut error];
+        XCTAssert(result == nil);
+        XCTAssert(error != nil);
+        [weakSelf.expectation fulfill];
+    }];
+    [self.sut start];
+    
+    [self waitForExpectationsWithTimeout:5.0 handler:^(NSError *error) {
+        if (error) {
+            NSLog(@"Timeout Error: %@", error);
+        }
+    }];
+}
+
 @end

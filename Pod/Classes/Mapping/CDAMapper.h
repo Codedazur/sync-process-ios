@@ -12,4 +12,5 @@
 @property (nonatomic, strong) Class destinationClass;
 @property (nonatomic, strong) NSDictionary *attributesMapping;
 @property (nonatomic, strong) NSArray *relationsMapping;
+@property (nonatomic, strong) NSString *rootKey;
 @end

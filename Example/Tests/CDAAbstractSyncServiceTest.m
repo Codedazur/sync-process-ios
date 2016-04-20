@@ -20,6 +20,8 @@
 #import "CDACoreDataParserSyncModule.h"
 #import "CDARestKitCoreDataParser.h"
 #import "CoreDataStack.h"
+#import "CDAAFNetworkingConnector.h"
+#import "CDARestModule.h"
 
 @interface CDAAbstractSyncServiceTest : XCTestCase
 @property (nonatomic, strong)CDAAbstractSyncService *sut;
@@ -114,6 +116,42 @@
             NSLog(@"Timeout Error: %@", error);
         }
     }];
+}
+- (void)testAbstractCorrectWithNetworkAndRestKit {
+    [self deleteAllDataContent];
+    
+    CDAMapper *mapping = [self mappingSimple];
+    
+    CDASimpleSyncModel *m1 = [[CDASimpleSyncModel alloc] initWithUid:@"teste" moduleClass:[CDARestModule class] userInfo:@{@"baseUrl":@"http://data.soft-cells.com/api/v1", @"resource":@"product-performance/ipad/textiles",@"connectorClass":[CDAAFNetworkingConnector class]} timeInterval:0];
+    
+    CDASimpleSyncModel *m2 = [[CDASimpleSyncModel alloc] initWithUid:@"teste" moduleClass:[CDACoreDataParserSyncModule class] userInfo:@{@"parserClass":[CDARestKitCoreDataParser class], @"coreDataStack":[CoreDataStack coreDataStack], @"mapping":mapping} timeInterval:0];
+    
+    CDASimpleSyncModel *m = [[CDASimpleSyncModel alloc] initWithUid:@"CDAAbstractSyncService" moduleClass:[CDAAbstractSyncService class] userInfo:@{} subModuleModels:[NSArray<CDASyncModel> arrayWithObjects:m1,m2, nil] timeInterval:0];
+    
+    self.sut = [[CDAAbstractSyncService alloc] initWithSyncModel:m];
+    
+    CDAAbstractSyncServiceTest __weak *weakSelf = self;
+    [self.sut setCompletionBlock:^{
+        XCTAssert((NSArray *)weakSelf.sut.result != nil);
+        [weakSelf.expectation fulfill];
+    }];
+    [self.sut start];
+    
+    [self waitForExpectationsWithTimeout:10.0 handler:^(NSError *error) {
+        if (error) {
+            NSLog(@"Timeout Error: %@", error);
+        }
+    }];
+}
+- (CDAMapper *)mappingSimple{
+    CDAMapper *m = [CDAMapper new];
+    m.rootKey = @"response";
+    m.destinationClass = [Textile class];
+    m.attributesMapping = @{
+                            @"uid":     @"uid",
+                            @"name":     @"name"
+                            };
+    return m;
 }
 - (CDAMapper *)mapping{
     CDAMapper *m = [CDAMapper new];
