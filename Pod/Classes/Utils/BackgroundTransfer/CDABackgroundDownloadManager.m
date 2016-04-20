@@ -97,15 +97,21 @@
     if(session.configuration.identifier){
 
         if(location.path){
-            NSLog(@"did finish downloading to pat%@", location.path);
+            NSLog(@"did finish downloading task %i on session %@ to path %@", downloadTask.taskIdentifier, session.configuration.identifier,  location.path);
+            
             CDABGDFile *file = [self getFileWithSession:session AndTask:downloadTask];
+            NSLog(@"moving to path %@", file.destinationPath);
+            
             NSError *error;
-            [[NSFileManager defaultManager] moveItemAtPath:location.path toPath:file.destinationPath error:&error];
+            NSURL *dest = [NSURL fileURLWithPath:file.destinationPath];
+            NSURL *orig = [NSURL fileURLWithPath:location.path];
+            [[NSFileManager defaultManager] replaceItemAtURL:dest withItemAtURL:orig backupItemName:nil options:0 resultingItemURL:nil error:&error];
             
             if(error){
                 NSLog(@"Error moving file from temp %@ to destination %@, %@", location.path, file.destinationPath, error);
             }
             [[self.downloadCoreDataStack managedObjectContext] deleteObject:file];
+            [self.downloadCoreDataStack saveMainContext];
         }
         
     }

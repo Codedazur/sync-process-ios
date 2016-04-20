@@ -56,7 +56,7 @@
     
     NSURLSession *backgroundSession = [NSURLSession sessionWithConfiguration: backgroundConfigObject delegate: [CDABackgroundDownloadManager sharedInstance] delegateQueue: [NSOperationQueue mainQueue]];
     
-    NSLog(@"Rejoining session %@\n", identifier);
+    NSLog(@"AppDelegate Background session did download %@\n", identifier);
     
     [[CDABackgroundDownloadManager sharedInstance] addCompletionHandler: completionHandler forSession: identifier];
 }
