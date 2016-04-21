@@ -2,7 +2,7 @@
 //  CDABGDFile+CoreDataProperties.m
 //  Pods
 //
-//  Created by Tamara Bernad on 19/04/16.
+//  Created by Tamara Bernad on 21/04/16.
 //
 //
 //  Choose "Create NSManagedObject Subclass…" from the Core Data editor menu
@@ -16,5 +16,6 @@
 @dynamic destinationPath;
 @dynamic sessionId;
 @dynamic taskId;
+@dynamic realationFiles;
 
 @end

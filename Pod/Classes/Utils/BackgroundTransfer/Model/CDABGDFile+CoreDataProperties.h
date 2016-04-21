@@ -2,7 +2,7 @@
 //  CDABGDFile+CoreDataProperties.h
 //  Pods
 //
-//  Created by Tamara Bernad on 19/04/16.
+//  Created by Tamara Bernad on 21/04/16.
 //
 //
 //  Choose "Create NSManagedObject Subclass…" from the Core Data editor menu
@@ -18,6 +18,16 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nullable, nonatomic, retain) NSString *destinationPath;
 @property (nullable, nonatomic, retain) NSString *sessionId;
 @property (nullable, nonatomic, retain) NSString *taskId;
+@property (nullable, nonatomic, retain) NSSet<NSManagedObject *> *realationFiles;
+
+@end
+
+@interface CDABGDFile (CoreDataGeneratedAccessors)
+
+- (void)addRealationFilesObject:(NSManagedObject *)value;
+- (void)removeRealationFilesObject:(NSManagedObject *)value;
+- (void)addRealationFiles:(NSSet<NSManagedObject *> *)values;
+- (void)removeRealationFiles:(NSSet<NSManagedObject *> *)values;
 
 @end
 
