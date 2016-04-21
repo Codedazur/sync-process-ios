@@ -15,10 +15,12 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface CDABGDRelationFile (CoreDataProperties)
 
-@property (nullable, nonatomic, retain) NSString *fileHash;
-@property (nullable, nonatomic, retain) NSString *entityId;
+@property (nullable, nonatomic, retain) NSString *destinationFolder;
 @property (nullable, nonatomic, retain) NSString *entityClass;
 @property (nullable, nonatomic, retain) NSString *entityHashKey;
+@property (nullable, nonatomic, retain) NSString *entityId;
+@property (nullable, nonatomic, retain) NSString *fileHash;
+@property (nullable, nonatomic, retain) NSString *fileName;
 @property (nullable, nonatomic, retain) CDABGDFile *archive;
 
 @end

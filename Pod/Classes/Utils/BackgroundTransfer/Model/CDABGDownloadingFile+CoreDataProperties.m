@@ -1,5 +1,5 @@
 //
-//  CDABGDFile+CoreDataProperties.m
+//  CDABGDownloadingFile+CoreDataProperties.m
 //  Pods
 //
 //  Created by Tamara Bernad on 21/04/16.
@@ -9,12 +9,13 @@
 //  to delete and recreate this implementation file for your updated model.
 //
 
-#import "CDABGDFile+CoreDataProperties.h"
+#import "CDABGDownloadingFile+CoreDataProperties.h"
 
-@implementation CDABGDFile (CoreDataProperties)
+@implementation CDABGDownloadingFile (CoreDataProperties)
 
-@dynamic path;
+@dynamic destinationPath;
 @dynamic fileName;
-@dynamic relationFiles;
+@dynamic sessionId;
+@dynamic taskId;
 
 @end

@@ -34,4 +34,5 @@ Pod::Spec.new do |s|
   # s.frameworks = 'UIKit', 'MapKit'
   s.dependency 'AFNetworking', '~> 3.1'
   s.dependency 'RestKit/CoreData'
+  s.dependency 'SSZipArchive', '~> 1.1'
 end

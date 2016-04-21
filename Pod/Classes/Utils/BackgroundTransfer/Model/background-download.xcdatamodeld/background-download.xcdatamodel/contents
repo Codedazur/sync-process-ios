@@ -1,20 +1,28 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="10171" systemVersion="15E65" minimumToolsVersion="Xcode 7.0">
     <entity name="CDABGDFile" representedClassName="CDABGDFile" syncable="YES">
+        <attribute name="fileName" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="path" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="relationFiles" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="CDABGDRelationFile" inverseName="archive" inverseEntity="CDABGDRelationFile" syncable="YES"/>
+    </entity>
+    <entity name="CDABGDownloadingFile" representedClassName="CDABGDownloadingFile" syncable="YES">
         <attribute name="destinationPath" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="fileName" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="sessionId" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="taskId" optional="YES" attributeType="String" syncable="YES"/>
-        <relationship name="realationFiles" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="CDABGDRelationFile" inverseName="archive" inverseEntity="CDABGDRelationFile" syncable="YES"/>
     </entity>
     <entity name="CDABGDRelationFile" representedClassName="CDABGDRelationFile" syncable="YES">
+        <attribute name="destinationFolder" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="entityClass" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="entityHashKey" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="entityId" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="fileHash" optional="YES" attributeType="String" syncable="YES"/>
-        <relationship name="archive" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="CDABGDFile" inverseName="realationFiles" inverseEntity="CDABGDFile" syncable="YES"/>
+        <attribute name="fileName" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="archive" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="CDABGDFile" inverseName="relationFiles" inverseEntity="CDABGDFile" syncable="YES"/>
     </entity>
     <elements>
-        <element name="CDABGDFile" positionX="-54" positionY="-9" width="128" height="105"/>
-        <element name="CDABGDRelationFile" positionX="-54" positionY="18" width="128" height="120"/>
+        <element name="CDABGDFile" positionX="-54" positionY="-9" width="128" height="90"/>
+        <element name="CDABGDRelationFile" positionX="-54" positionY="18" width="128" height="150"/>
+        <element name="CDABGDownloadingFile" positionX="-45" positionY="63" width="128" height="105"/>
     </elements>
 </model>

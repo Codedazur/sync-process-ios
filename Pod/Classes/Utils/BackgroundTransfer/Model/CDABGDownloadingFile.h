@@ -1,17 +1,17 @@
 //
-//  CDABGDFile.h
+//  CDABGDownloadingFile.h
 //  Pods
 //
-//  Created by Tamara Bernad on 12/04/16.
+//  Created by Tamara Bernad on 21/04/16.
 //
 //
 
 #import <Foundation/Foundation.h>
 #import <CoreData/CoreData.h>
-#import "CDABGDRelationFile.h"
+
 NS_ASSUME_NONNULL_BEGIN
 
-@interface CDABGDFile : NSManagedObject
+@interface CDABGDownloadingFile : NSManagedObject
 
 // Insert code here to declare functionality of your managed object subclass
 
@@ -19,4 +19,4 @@ NS_ASSUME_NONNULL_BEGIN
 
 NS_ASSUME_NONNULL_END
 
-#import "CDABGDFile+CoreDataProperties.h"
+#import "CDABGDownloadingFile+CoreDataProperties.h"

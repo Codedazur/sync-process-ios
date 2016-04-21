@@ -13,10 +13,12 @@
 
 @implementation CDABGDRelationFile (CoreDataProperties)
 
-@dynamic fileHash;
-@dynamic entityId;
+@dynamic destinationFolder;
 @dynamic entityClass;
 @dynamic entityHashKey;
+@dynamic entityId;
+@dynamic fileHash;
+@dynamic fileName;
 @dynamic archive;
 
 @end

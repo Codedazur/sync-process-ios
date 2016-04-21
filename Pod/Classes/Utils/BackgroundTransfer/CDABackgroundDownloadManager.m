@@ -8,9 +8,9 @@
 
 #import "CDABackgroundDownloadManager.h"
 #import "CDACoreDataStack.h"
-#import "CDABGDFile.h"
+#import "CDABGDownloadingFile.h"
 #import "CDADownloadableEntityProtocol.h"
-
+#import "CDASynConstants.h"
 
 
 @interface CDABackgroundDownloadManager()<NSURLSessionDownloadDelegate>
@@ -25,10 +25,11 @@
     NSURL *url = [NSURL URLWithString:urlString];
     NSURLSessionDownloadTask *task = [self.backgroundSession downloadTaskWithURL:url];
     if(self.backgroundSession.configuration.identifier){
-        CDABGDFile *file = (CDABGDFile *)[self.downloadCoreDataStack createNewEntity:NSStringFromClass([CDABGDFile class]) inContext:[self.downloadCoreDataStack managedObjectContext]];
+        CDABGDownloadingFile *file = (CDABGDownloadingFile *)[self.downloadCoreDataStack createNewEntity:NSStringFromClass([CDABGDownloadingFile class]) inContext:[self.downloadCoreDataStack managedObjectContext]];
         file.sessionId = self.backgroundSession.configuration.identifier;
         file.taskId = [NSString stringWithFormat:@"%i",task.taskIdentifier];
         file.destinationPath = destinationFilePath;
+        file.fileName = [destinationFilePath lastPathComponent];
         
         [self.downloadCoreDataStack saveMainContext];
     }
@@ -80,7 +81,7 @@
     if (self) {
         NSBundle *bundle = [NSBundle bundleForClass:[self class]];
         
-        self.downloadCoreDataStack = [[CDACoreDataStack alloc] initWithModelName:@"background-download" AndBundle:bundle];
+        self.downloadCoreDataStack = [[CDACoreDataStack alloc] initWithModelName:kSyncConstantBGDownloadDatabaseName AndBundle:bundle];
     
         self.completionHandlerDictionary = [NSMutableDictionary dictionaryWithCapacity:0];
         
@@ -99,7 +100,7 @@
         if(location.path){
             NSLog(@"did finish downloading task %i on session %@ to path %@", downloadTask.taskIdentifier, session.configuration.identifier,  location.path);
             
-            CDABGDFile *file = [self getFileWithSession:session AndTask:downloadTask];
+            CDABGDownloadingFile *file = [self getFileWithSession:session AndTask:downloadTask];
             NSLog(@"moving to path %@", file.destinationPath);
             
             NSError *error;
@@ -127,10 +128,10 @@
     NSLog(@"Session %@ download task %@ resumed at offset %lld bytes out of an expected %lld bytes.\n",
           session, downloadTask, fileOffset, expectedTotalBytes);
 }
-- (CDABGDFile *) getFileWithSession:(NSURLSession *)session AndTask:(NSURLSessionDownloadTask *)task{
+- (CDABGDownloadingFile *) getFileWithSession:(NSURLSession *)session AndTask:(NSURLSessionDownloadTask *)task{
     NSString *sessionId = [session.configuration.identifier copy];
     NSString *taskId = [NSString stringWithFormat:@"%i",task.taskIdentifier];
-    CDABGDFile *file = (CDABGDFile *)[self.downloadCoreDataStack fetchEntity:NSStringFromClass([CDABGDFile class]) WithPredicate:[NSPredicate predicateWithFormat:@"sessionId=%@ && taskId=%@",sessionId, taskId] InContext:[self.downloadCoreDataStack managedObjectContext]];
+    CDABGDownloadingFile *file = (CDABGDownloadingFile *)[self.downloadCoreDataStack fetchEntity:NSStringFromClass([CDABGDownloadingFile class]) WithPredicate:[NSPredicate predicateWithFormat:@"sessionId=%@ && taskId=%@",sessionId, taskId] InContext:[self.downloadCoreDataStack managedObjectContext]];
     return file;
 }
 @end

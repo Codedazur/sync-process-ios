@@ -15,19 +15,18 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface CDABGDFile (CoreDataProperties)
 
-@property (nullable, nonatomic, retain) NSString *destinationPath;
-@property (nullable, nonatomic, retain) NSString *sessionId;
-@property (nullable, nonatomic, retain) NSString *taskId;
-@property (nullable, nonatomic, retain) NSSet<NSManagedObject *> *realationFiles;
+@property (nullable, nonatomic, retain) NSString *path;
+@property (nullable, nonatomic, retain) NSString *fileName;
+@property (nullable, nonatomic, retain) NSSet<CDABGDRelationFile *> *relationFiles;
 
 @end
 
 @interface CDABGDFile (CoreDataGeneratedAccessors)
 
-- (void)addRealationFilesObject:(NSManagedObject *)value;
-- (void)removeRealationFilesObject:(NSManagedObject *)value;
-- (void)addRealationFiles:(NSSet<NSManagedObject *> *)values;
-- (void)removeRealationFiles:(NSSet<NSManagedObject *> *)values;
+- (void)addRelationFilesObject:(CDABGDRelationFile *)value;
+- (void)removeRelationFilesObject:(CDABGDRelationFile *)value;
+- (void)addRelationFiles:(NSSet<CDABGDRelationFile *> *)values;
+- (void)removeRelationFiles:(NSSet<CDABGDRelationFile *> *)values;
 
 @end
 
