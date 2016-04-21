@@ -17,6 +17,7 @@ typedef enum
     CDASyncErrorDownloadingFile,
     CDASyncErrorHttp,
     CDASyncErrorUnknown,
-    CDASyncErrorSuspended
+    CDASyncErrorSuspended,
+    CDASyncErrorReadingDownloadArchive
     
 }CDASyncError;

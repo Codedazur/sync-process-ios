@@ -2,7 +2,7 @@
 //  Textile+CoreDataProperties.m
 //  CDASyncService
 //
-//  Created by Tamara Bernad on 11/04/16.
+//  Created by Tamara Bernad on 21/04/16.
 //  Copyright © 2016 tamarabernad. All rights reserved.
 //
 //  Choose "Create NSManagedObject Subclass…" from the Core Data editor menu

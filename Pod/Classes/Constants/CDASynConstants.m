@@ -10,3 +10,4 @@
 
 NSString *const kSyncConstantBGDownloadDatabaseName = @"background-download";
 NSString *const kSyncConstantArchiveProcessing = @"file-processing/archive-contents";
+NSString *const kSyncConstantArchivePath = @"file-processing/archives";

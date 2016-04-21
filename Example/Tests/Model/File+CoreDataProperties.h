@@ -2,7 +2,7 @@
 //  File+CoreDataProperties.h
 //  CDASyncService
 //
-//  Created by Tamara Bernad on 15/04/16.
+//  Created by Tamara Bernad on 21/04/16.
 //  Copyright © 2016 tamarabernad. All rights reserved.
 //
 //  Choose "Create NSManagedObject Subclass…" from the Core Data editor menu
@@ -15,8 +15,9 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface File (CoreDataProperties)
 
-@property (nullable, nonatomic, retain) NSString *uid;
 @property (nullable, nonatomic, retain) NSNumber *state;
+@property (nullable, nonatomic, retain) NSString *uid;
+@property (nullable, nonatomic, retain) NSString *fileHash;
 
 @end
 

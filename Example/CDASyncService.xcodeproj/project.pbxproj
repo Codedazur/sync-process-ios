@@ -20,12 +20,21 @@
 		6003F5B1195388D20070C39A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6003F58D195388D20070C39A /* Foundation.framework */; };
 		6003F5B2195388D20070C39A /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6003F591195388D20070C39A /* UIKit.framework */; };
 		6003F5BA195388D20070C39A /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 6003F5B8195388D20070C39A /* InfoPlist.strings */; };
-		6380F0031CBFC0980080015E /* test.json in Resources */ = {isa = PBXBuildFile; fileRef = 6380F0021CBFC0980080015E /* test.json */; };
-		6380F0041CBFC0980080015E /* test.json in Resources */ = {isa = PBXBuildFile; fileRef = 6380F0021CBFC0980080015E /* test.json */; };
-		63B17EEE1CC11039002A6C13 /* File+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = 63B17EEB1CC11039002A6C13 /* File+CoreDataProperties.m */; };
-		63B17EEF1CC11039002A6C13 /* File+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = 63B17EEB1CC11039002A6C13 /* File+CoreDataProperties.m */; };
-		63B17EF01CC11039002A6C13 /* File.m in Sources */ = {isa = PBXBuildFile; fileRef = 63B17EED1CC11039002A6C13 /* File.m */; };
-		63B17EF11CC11039002A6C13 /* File.m in Sources */ = {isa = PBXBuildFile; fileRef = 63B17EED1CC11039002A6C13 /* File.m */; };
+		63418F261CC906F10046AAD4 /* archive-test.zip in Resources */ = {isa = PBXBuildFile; fileRef = 63418F251CC906F10046AAD4 /* archive-test.zip */; };
+		63418F271CC906F10046AAD4 /* archive-test.zip in Resources */ = {isa = PBXBuildFile; fileRef = 63418F251CC906F10046AAD4 /* archive-test.zip */; };
+		63418F291CC9070D0046AAD4 /* CDAArchiveProcessorTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 63418F281CC9070D0046AAD4 /* CDAArchiveProcessorTest.m */; };
+		63418F3F1CC90B7E0046AAD4 /* Color+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = 63418F341CC90B7E0046AAD4 /* Color+CoreDataProperties.m */; };
+		63418F401CC90B7E0046AAD4 /* Color+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = 63418F341CC90B7E0046AAD4 /* Color+CoreDataProperties.m */; };
+		63418F411CC90B7E0046AAD4 /* Color.m in Sources */ = {isa = PBXBuildFile; fileRef = 63418F361CC90B7E0046AAD4 /* Color.m */; };
+		63418F421CC90B7E0046AAD4 /* Color.m in Sources */ = {isa = PBXBuildFile; fileRef = 63418F361CC90B7E0046AAD4 /* Color.m */; };
+		63418F431CC90B7E0046AAD4 /* File+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = 63418F381CC90B7E0046AAD4 /* File+CoreDataProperties.m */; };
+		63418F441CC90B7E0046AAD4 /* File+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = 63418F381CC90B7E0046AAD4 /* File+CoreDataProperties.m */; };
+		63418F451CC90B7E0046AAD4 /* File.m in Sources */ = {isa = PBXBuildFile; fileRef = 63418F3A1CC90B7E0046AAD4 /* File.m */; };
+		63418F461CC90B7E0046AAD4 /* File.m in Sources */ = {isa = PBXBuildFile; fileRef = 63418F3A1CC90B7E0046AAD4 /* File.m */; };
+		63418F471CC90B7E0046AAD4 /* Textile+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = 63418F3C1CC90B7E0046AAD4 /* Textile+CoreDataProperties.m */; };
+		63418F481CC90B7E0046AAD4 /* Textile+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = 63418F3C1CC90B7E0046AAD4 /* Textile+CoreDataProperties.m */; };
+		63418F4D1CC9116F0046AAD4 /* Textile.m in Sources */ = {isa = PBXBuildFile; fileRef = 63418F4C1CC9116F0046AAD4 /* Textile.m */; };
+		63418F4E1CC9116F0046AAD4 /* Textile.m in Sources */ = {isa = PBXBuildFile; fileRef = 63418F4C1CC9116F0046AAD4 /* Textile.m */; };
 		63C53FAB1CC6595F0099E562 /* CDANetworkSyncModuleTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 63C53FAA1CC6595F0099E562 /* CDANetworkSyncModuleTest.m */; };
 		63CDC1531CC654000070E38D /* test.json in Resources */ = {isa = PBXBuildFile; fileRef = 63CDC1521CC654000070E38D /* test.json */; };
 		63CDC1541CC654000070E38D /* test.json in Resources */ = {isa = PBXBuildFile; fileRef = 63CDC1521CC654000070E38D /* test.json */; };
@@ -37,14 +46,6 @@
 		63FDB5281CBC0058006FE466 /* CoreDataStack.m in Sources */ = {isa = PBXBuildFile; fileRef = 63FDB5261CBC0058006FE466 /* CoreDataStack.m */; };
 		63FDB52B1CBC0121006FE466 /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 63FDB5291CBC0121006FE466 /* Model.xcdatamodeld */; };
 		63FDB52C1CBC0121006FE466 /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 63FDB5291CBC0121006FE466 /* Model.xcdatamodeld */; };
-		63FDB5351CBC017F006FE466 /* Color+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = 63FDB52E1CBC017F006FE466 /* Color+CoreDataProperties.m */; };
-		63FDB5361CBC017F006FE466 /* Color+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = 63FDB52E1CBC017F006FE466 /* Color+CoreDataProperties.m */; };
-		63FDB5371CBC017F006FE466 /* Color.m in Sources */ = {isa = PBXBuildFile; fileRef = 63FDB5301CBC017F006FE466 /* Color.m */; };
-		63FDB5381CBC017F006FE466 /* Color.m in Sources */ = {isa = PBXBuildFile; fileRef = 63FDB5301CBC017F006FE466 /* Color.m */; };
-		63FDB5391CBC017F006FE466 /* Textile+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = 63FDB5321CBC017F006FE466 /* Textile+CoreDataProperties.m */; };
-		63FDB53A1CBC017F006FE466 /* Textile+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = 63FDB5321CBC017F006FE466 /* Textile+CoreDataProperties.m */; };
-		63FDB53B1CBC017F006FE466 /* Textile.m in Sources */ = {isa = PBXBuildFile; fileRef = 63FDB5341CBC017F006FE466 /* Textile.m */; };
-		63FDB53C1CBC017F006FE466 /* Textile.m in Sources */ = {isa = PBXBuildFile; fileRef = 63FDB5341CBC017F006FE466 /* Textile.m */; };
 		873B8AEB1B1F5CCA007FD442 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 873B8AEA1B1F5CCA007FD442 /* Main.storyboard */; };
 		C2EA343BF732BFACF1ADA0A4 /* Pods_CDASyncService_Example.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0370F47B6EBB746669275A0F /* Pods_CDASyncService_Example.framework */; };
 /* End PBXBuildFile section */
@@ -83,11 +84,21 @@
 		6003F5B7195388D20070C39A /* Tests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Tests-Info.plist"; sourceTree = "<group>"; };
 		6003F5B9195388D20070C39A /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		606FC2411953D9B200FFA9A0 /* Tests-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Tests-Prefix.pch"; sourceTree = "<group>"; };
+		63418F251CC906F10046AAD4 /* archive-test.zip */ = {isa = PBXFileReference; lastKnownFileType = archive.zip; path = "archive-test.zip"; sourceTree = "<group>"; };
+		63418F281CC9070D0046AAD4 /* CDAArchiveProcessorTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CDAArchiveProcessorTest.m; sourceTree = "<group>"; };
+		63418F331CC90B7E0046AAD4 /* Color+CoreDataProperties.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Color+CoreDataProperties.h"; sourceTree = "<group>"; };
+		63418F341CC90B7E0046AAD4 /* Color+CoreDataProperties.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Color+CoreDataProperties.m"; sourceTree = "<group>"; };
+		63418F351CC90B7E0046AAD4 /* Color.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Color.h; sourceTree = "<group>"; };
+		63418F361CC90B7E0046AAD4 /* Color.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Color.m; sourceTree = "<group>"; };
+		63418F371CC90B7E0046AAD4 /* File+CoreDataProperties.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "File+CoreDataProperties.h"; sourceTree = "<group>"; };
+		63418F381CC90B7E0046AAD4 /* File+CoreDataProperties.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "File+CoreDataProperties.m"; sourceTree = "<group>"; };
+		63418F391CC90B7E0046AAD4 /* File.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = File.h; sourceTree = "<group>"; };
+		63418F3A1CC90B7E0046AAD4 /* File.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = File.m; sourceTree = "<group>"; };
+		63418F3B1CC90B7E0046AAD4 /* Textile+CoreDataProperties.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Textile+CoreDataProperties.h"; sourceTree = "<group>"; };
+		63418F3C1CC90B7E0046AAD4 /* Textile+CoreDataProperties.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Textile+CoreDataProperties.m"; sourceTree = "<group>"; };
+		63418F4B1CC9116F0046AAD4 /* Textile.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Textile.h; sourceTree = "<group>"; };
+		63418F4C1CC9116F0046AAD4 /* Textile.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Textile.m; sourceTree = "<group>"; };
 		6380F0021CBFC0980080015E /* test.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = test.json; sourceTree = "<group>"; };
-		63B17EEA1CC11039002A6C13 /* File+CoreDataProperties.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "File+CoreDataProperties.h"; sourceTree = "<group>"; };
-		63B17EEB1CC11039002A6C13 /* File+CoreDataProperties.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "File+CoreDataProperties.m"; sourceTree = "<group>"; };
-		63B17EEC1CC11039002A6C13 /* File.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = File.h; sourceTree = "<group>"; };
-		63B17EED1CC11039002A6C13 /* File.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = File.m; sourceTree = "<group>"; };
 		63C53FAA1CC6595F0099E562 /* CDANetworkSyncModuleTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CDANetworkSyncModuleTest.m; sourceTree = "<group>"; };
 		63CDC1521CC654000070E38D /* test.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = test.json; sourceTree = "<group>"; };
 		63FDB4AD1CBBB10A006FE466 /* CDABundleSyncModuleTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CDABundleSyncModuleTest.m; sourceTree = "<group>"; };
@@ -97,14 +108,6 @@
 		63FDB5251CBC0058006FE466 /* CoreDataStack.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CoreDataStack.h; sourceTree = "<group>"; };
 		63FDB5261CBC0058006FE466 /* CoreDataStack.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CoreDataStack.m; sourceTree = "<group>"; };
 		63FDB52A1CBC0121006FE466 /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
-		63FDB52D1CBC017F006FE466 /* Color+CoreDataProperties.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "Color+CoreDataProperties.h"; path = "Model/Color+CoreDataProperties.h"; sourceTree = "<group>"; };
-		63FDB52E1CBC017F006FE466 /* Color+CoreDataProperties.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "Color+CoreDataProperties.m"; path = "Model/Color+CoreDataProperties.m"; sourceTree = "<group>"; };
-		63FDB52F1CBC017F006FE466 /* Color.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Color.h; path = Model/Color.h; sourceTree = "<group>"; };
-		63FDB5301CBC017F006FE466 /* Color.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Color.m; path = Model/Color.m; sourceTree = "<group>"; };
-		63FDB5311CBC017F006FE466 /* Textile+CoreDataProperties.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "Textile+CoreDataProperties.h"; path = "Model/Textile+CoreDataProperties.h"; sourceTree = "<group>"; };
-		63FDB5321CBC017F006FE466 /* Textile+CoreDataProperties.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "Textile+CoreDataProperties.m"; path = "Model/Textile+CoreDataProperties.m"; sourceTree = "<group>"; };
-		63FDB5331CBC017F006FE466 /* Textile.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Textile.h; path = Model/Textile.h; sourceTree = "<group>"; };
-		63FDB5341CBC017F006FE466 /* Textile.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Textile.m; path = Model/Textile.m; sourceTree = "<group>"; };
 		6CB6AF08FD9ED86410AFE30C /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = LICENSE; path = ../LICENSE; sourceTree = "<group>"; };
 		77E961AAD9DCFF376EFEA485 /* CDASyncService.podspec */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = CDASyncService.podspec; path = ../CDASyncService.podspec; sourceTree = "<group>"; };
 		873B8AEA1B1F5CCA007FD442 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
@@ -186,6 +189,7 @@
 		6003F593195388D20070C39A /* Example for CDASyncService */ = {
 			isa = PBXGroup;
 			children = (
+				63418F241CC906F10046AAD4 /* Resources */,
 				6003F59C195388D20070C39A /* CDAAppDelegate.h */,
 				6003F59D195388D20070C39A /* CDAAppDelegate.m */,
 				873B8AEA1B1F5CCA007FD442 /* Main.storyboard */,
@@ -212,19 +216,8 @@
 		6003F5B5195388D20070C39A /* Tests */ = {
 			isa = PBXGroup;
 			children = (
-				63B17EEA1CC11039002A6C13 /* File+CoreDataProperties.h */,
-				63B17EEB1CC11039002A6C13 /* File+CoreDataProperties.m */,
-				63B17EEC1CC11039002A6C13 /* File.h */,
-				63B17EED1CC11039002A6C13 /* File.m */,
-				63FDB52D1CBC017F006FE466 /* Color+CoreDataProperties.h */,
-				63FDB52E1CBC017F006FE466 /* Color+CoreDataProperties.m */,
-				63FDB52F1CBC017F006FE466 /* Color.h */,
-				63FDB5301CBC017F006FE466 /* Color.m */,
-				63FDB5311CBC017F006FE466 /* Textile+CoreDataProperties.h */,
-				63FDB5321CBC017F006FE466 /* Textile+CoreDataProperties.m */,
+				63418F321CC90B7E0046AAD4 /* Model */,
 				63CDC1521CC654000070E38D /* test.json */,
-				63FDB5331CBC017F006FE466 /* Textile.h */,
-				63FDB5341CBC017F006FE466 /* Textile.m */,
 				63FDB5251CBC0058006FE466 /* CoreDataStack.h */,
 				63FDB5261CBC0058006FE466 /* CoreDataStack.m */,
 				6003F5B6195388D20070C39A /* Supporting Files */,
@@ -235,6 +228,7 @@
 				63FDB5201CBBF83B006FE466 /* CDACoreDataSyncModuleTest.m */,
 				63FDB5291CBC0121006FE466 /* Model.xcdatamodeld */,
 				63C53FAA1CC6595F0099E562 /* CDANetworkSyncModuleTest.m */,
+				63418F281CC9070D0046AAD4 /* CDAArchiveProcessorTest.m */,
 			);
 			path = Tests;
 			sourceTree = "<group>";
@@ -257,6 +251,33 @@
 				6CB6AF08FD9ED86410AFE30C /* LICENSE */,
 			);
 			name = "Podspec Metadata";
+			sourceTree = "<group>";
+		};
+		63418F241CC906F10046AAD4 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				63418F251CC906F10046AAD4 /* archive-test.zip */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		63418F321CC90B7E0046AAD4 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				63418F4B1CC9116F0046AAD4 /* Textile.h */,
+				63418F4C1CC9116F0046AAD4 /* Textile.m */,
+				63418F331CC90B7E0046AAD4 /* Color+CoreDataProperties.h */,
+				63418F341CC90B7E0046AAD4 /* Color+CoreDataProperties.m */,
+				63418F351CC90B7E0046AAD4 /* Color.h */,
+				63418F361CC90B7E0046AAD4 /* Color.m */,
+				63418F371CC90B7E0046AAD4 /* File+CoreDataProperties.h */,
+				63418F381CC90B7E0046AAD4 /* File+CoreDataProperties.m */,
+				63418F391CC90B7E0046AAD4 /* File.h */,
+				63418F3A1CC90B7E0046AAD4 /* File.m */,
+				63418F3B1CC90B7E0046AAD4 /* Textile+CoreDataProperties.h */,
+				63418F3C1CC90B7E0046AAD4 /* Textile+CoreDataProperties.m */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -353,6 +374,7 @@
 				63CDC1531CC654000070E38D /* test.json in Resources */,
 				6003F5A9195388D20070C39A /* Images.xcassets in Resources */,
 				6003F598195388D20070C39A /* InfoPlist.strings in Resources */,
+				63418F261CC906F10046AAD4 /* archive-test.zip in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -360,6 +382,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				63418F271CC906F10046AAD4 /* archive-test.zip in Resources */,
 				6003F5BA195388D20070C39A /* InfoPlist.strings in Resources */,
 				63CDC1541CC654000070E38D /* test.json in Resources */,
 			);
@@ -466,16 +489,16 @@
 			buildActionMask = 2147483647;
 			files = (
 				6003F59E195388D20070C39A /* CDAAppDelegate.m in Sources */,
-				63B17EEE1CC11039002A6C13 /* File+CoreDataProperties.m in Sources */,
-				63FDB5391CBC017F006FE466 /* Textile+CoreDataProperties.m in Sources */,
-				63FDB5371CBC017F006FE466 /* Color.m in Sources */,
-				63FDB5351CBC017F006FE466 /* Color+CoreDataProperties.m in Sources */,
+				63418F411CC90B7E0046AAD4 /* Color.m in Sources */,
 				6003F5A7195388D20070C39A /* CDAViewController.m in Sources */,
+				63418F431CC90B7E0046AAD4 /* File+CoreDataProperties.m in Sources */,
 				63FDB52B1CBC0121006FE466 /* Model.xcdatamodeld in Sources */,
-				63FDB53B1CBC017F006FE466 /* Textile.m in Sources */,
+				63418F451CC90B7E0046AAD4 /* File.m in Sources */,
+				63418F4D1CC9116F0046AAD4 /* Textile.m in Sources */,
+				63418F471CC90B7E0046AAD4 /* Textile+CoreDataProperties.m in Sources */,
 				6003F59A195388D20070C39A /* main.m in Sources */,
-				63B17EF01CC11039002A6C13 /* File.m in Sources */,
 				63FDB5271CBC0058006FE466 /* CoreDataStack.m in Sources */,
+				63418F3F1CC90B7E0046AAD4 /* Color+CoreDataProperties.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -483,19 +506,20 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				63B17EF11CC11039002A6C13 /* File.m in Sources */,
+				63418F461CC90B7E0046AAD4 /* File.m in Sources */,
 				63FDB5281CBC0058006FE466 /* CoreDataStack.m in Sources */,
-				63FDB5381CBC017F006FE466 /* Color.m in Sources */,
 				63FDB5211CBBF83B006FE466 /* CDACoreDataSyncModuleTest.m in Sources */,
-				63B17EEF1CC11039002A6C13 /* File+CoreDataProperties.m in Sources */,
-				63FDB53C1CBC017F006FE466 /* Textile.m in Sources */,
+				63418F441CC90B7E0046AAD4 /* File+CoreDataProperties.m in Sources */,
 				63FDB4AE1CBBB10A006FE466 /* CDABundleSyncModuleTest.m in Sources */,
+				63418F4E1CC9116F0046AAD4 /* Textile.m in Sources */,
 				63C53FAB1CC6595F0099E562 /* CDANetworkSyncModuleTest.m in Sources */,
+				63418F401CC90B7E0046AAD4 /* Color+CoreDataProperties.m in Sources */,
+				63418F291CC9070D0046AAD4 /* CDAArchiveProcessorTest.m in Sources */,
+				63418F421CC90B7E0046AAD4 /* Color.m in Sources */,
 				63FDB5121CBBCCD7006FE466 /* CDAAbstractSyncServiceTest.m in Sources */,
+				63418F481CC90B7E0046AAD4 /* Textile+CoreDataProperties.m in Sources */,
 				63FDB5091CBBC15B006FE466 /* CDAParserSyncModuleTest.m in Sources */,
-				63FDB53A1CBC017F006FE466 /* Textile+CoreDataProperties.m in Sources */,
 				63FDB52C1CBC0121006FE466 /* Model.xcdatamodeld in Sources */,
-				63FDB5361CBC017F006FE466 /* Color+CoreDataProperties.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
