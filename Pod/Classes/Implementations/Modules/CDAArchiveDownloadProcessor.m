@@ -95,7 +95,7 @@
         if(error){
             continue;
         }
-        
+        //TODO use extract uid from here to a instance variable
         NSManagedObject *obj = [self.appCoreDataStack fetchEntity:relationFile.entityClass WithPredicate:[NSPredicate predicateWithFormat:@"uid == %@", relationFile.entityId] InContext:[self.appCoreDataStack managedObjectContext]];
         
         [obj setValue:relationFile.fileHash forKey:relationFile.entityHashKey];
