@@ -19,16 +19,20 @@
 
 @interface CDAArchiveDownloadProcessor()
 
+@property (nonatomic, strong)id<CDASyncModel> model;
 @property (nonatomic, strong)id<CDACoreDataStackProtocol> archiveCoreDataStack;
 @property (nonatomic, weak)id<CDACoreDataStackProtocol> appCoreDataStack;
 @end
 @implementation CDAArchiveDownloadProcessor
 @synthesize result = _result, error = _error;
-- (instancetype)initWithSyncModel:(id<CDASyncModel>)syncModel{
+
+- (id)initWithSyncModel:(id<CDASyncModel>)syncModel{
+    if(!(self = [super init]))return self;
     NSAssert([[syncModel userInfo] valueForKey:@"archivesFolder"] != nil, @"CDAArchiveDownloadProcessor archivesFolder must be specified");
     NSAssert([[syncModel userInfo] valueForKey:@"archivesProcessingFolder"] != nil, @"CDAArchiveDownloadProcessor archivesProcessingFolder must be specified");
     NSAssert([[syncModel userInfo] valueForKey:@"appCoreDataStack"] != nil, @"CDAArchiveDownloadProcessor appCoreDataStack must be specified");
-    return [super initWithSyncModel:syncModel];
+    self.model = syncModel;
+    return self;
 }
 #pragma mark - CDASyncModule
 - (double)progress{
@@ -43,7 +47,6 @@
     
     NSArray *archives = [self getArchivesFilesToProcess];
     if(archives.count == 0){
-        [self completeOperation];
         return;
     }
     
@@ -76,7 +79,6 @@
         [[NSFileManager defaultManager] removeItemAtPath:mArchive.path error:&error];
         [[NSFileManager defaultManager] removeItemAtPath:extractFolderPath error:&error];
     }
-    [self completeOperation];
 }
 - (void)processArchiveContentsWithArchiveContentFiles:(NSArray *)archiveContentFiles AndArchiveModel:(CDABGDFile *)mArchive AndExtractFolderPath:(NSString *)extractFolderPath{
     

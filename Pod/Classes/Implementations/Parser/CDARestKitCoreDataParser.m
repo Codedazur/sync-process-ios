@@ -67,6 +67,7 @@ typedef void(^ParseCompletionBlock)(id result);
 - (RKEntityMapping *)extractMapping:(CDAMapper *)pMapping{
     RKEntityMapping *mapping =[RKEntityMapping mappingForEntityForName:NSStringFromClass(pMapping.destinationClass) inManagedObjectStore:self.store];
     [mapping addAttributeMappingsFromDictionary:pMapping.attributesMapping];
+    //TODO extract identification
     mapping.identificationAttributes = @[@"uid"];
     
     if ([pMapping.relationsMapping count] > 0) {
