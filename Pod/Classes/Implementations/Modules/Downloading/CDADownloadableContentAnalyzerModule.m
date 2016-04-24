@@ -6,17 +6,17 @@
 //
 //
 
-#import "CDADownloadableContentModule.h"
+#import "CDADownloadableContentAnalyzerModule.h"
 #import "CDASyncConnectorProtocol.h"
 #import "CDASyncErrors.h"
 #import "CDADownloadableContentMapper.h"
 #import "CDACoreDataStackProtocol.h"
 
-@interface CDADownloadableContentModule()
+@interface CDADownloadableContentAnalyzerModule()
 @property (nonatomic, strong)id<CDASyncConnectorProtocol> connector;
 @end
 
-@implementation CDADownloadableContentModule
+@implementation CDADownloadableContentAnalyzerModule
 @synthesize result = _result, error = _error;
 
 #pragma mark - lazy getters
@@ -46,8 +46,8 @@
     }
     self.connector.baseUrl = [[self.model userInfo] valueForKey:@"baseUrl"];
     self.connector.resource = [[self.model userInfo] valueForKey:@"resource"];
-    
-    CDADownloadableContentModule __weak *weakSelf = self;
+
+    CDADownloadableContentAnalyzerModule __weak *weakSelf = self;
     [self.connector getObjectsWithSuccess:^(id responseObject) {
         if(!responseObject){
             _error = [NSError errorWithDomain:kSyncServiceDomain code:CDASyncErrorParsingResponse userInfo:@{@"message":@"No data available to be parsed"}];
@@ -58,6 +58,8 @@
                 [weakSelf completeOperation];
                 return;
             }
+            _result = idsToDownload;
+            [weakSelf completeOperation];
         }
         
     } failure:^(NSError *error) {

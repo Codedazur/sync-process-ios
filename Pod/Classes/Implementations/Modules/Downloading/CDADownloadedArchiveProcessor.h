@@ -8,6 +8,6 @@
 
 #import <Foundation/Foundation.h>
 #import "CDASyncModule.h"
-@interface CDAArchiveDownloadProcessor : NSOperation<CDASyncModule>
+@interface CDADownloadedArchiveProcessor : NSOperation<CDASyncModule>
 
 @end

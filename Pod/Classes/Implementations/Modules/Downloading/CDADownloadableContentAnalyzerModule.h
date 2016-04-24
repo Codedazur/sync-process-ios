@@ -10,6 +10,6 @@
 #import "CDASyncModule.h"
 #import "CDANSOperationBaseModule.h"
 
-@interface CDADownloadableContentModule : CDANSOperationBaseModule
+@interface CDADownloadableContentAnalyzerModule : CDANSOperationBaseModule
 
 @end

@@ -11,7 +11,7 @@
 #import "CDAAFNetworkingConnector.h"
 #import "CDABundleConnector.h"
 #import "CDASimpleSyncModel.h"
-#import "CDAArchiveDownloadProcessor.h"
+#import "CDADownloadedArchiveProcessor.h"
 #import "CDABundleSyncModule.h"
 #import "CDACoreDataParserSyncModule.h"
 #import "CDANSOperationBaseModule.h"

@@ -111,18 +111,30 @@
 		61CFAA7E7F961D866D783A648C281290 /* CDAParserSyncModule.h in Headers */ = {isa = PBXBuildFile; fileRef = 4231EEDA0A51E4104C9435759D305904 /* CDAParserSyncModule.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		62AEF0586BFAEAB217225A9E7B72CA89 /* RKDynamicMapping.h in Headers */ = {isa = PBXBuildFile; fileRef = 174219422947AC92A04E0998DC52FDFC /* RKDynamicMapping.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		639184DF9D8227A16DF0024F9729EECE /* prng.h in Headers */ = {isa = PBXBuildFile; fileRef = 84513013D2FAC0413216B66AC419786B /* prng.h */; settings = {ATTRIBUTES = (Project, ); }; };
-		63BD22D21CCD16A5007C02E2 /* CDADownloadableContentModule.h in Headers */ = {isa = PBXBuildFile; fileRef = 63BD22D01CCD16A5007C02E2 /* CDADownloadableContentModule.h */; };
-		63BD22D31CCD16A5007C02E2 /* CDADownloadableContentModule.h in Headers */ = {isa = PBXBuildFile; fileRef = 63BD22D01CCD16A5007C02E2 /* CDADownloadableContentModule.h */; };
-		63BD22D41CCD16A5007C02E2 /* CDADownloadableContentModule.h in Headers */ = {isa = PBXBuildFile; fileRef = 63BD22D01CCD16A5007C02E2 /* CDADownloadableContentModule.h */; };
-		63BD22D51CCD16A5007C02E2 /* CDADownloadableContentModule.m in Sources */ = {isa = PBXBuildFile; fileRef = 63BD22D11CCD16A5007C02E2 /* CDADownloadableContentModule.m */; };
-		63BD22D61CCD16A5007C02E2 /* CDADownloadableContentModule.m in Sources */ = {isa = PBXBuildFile; fileRef = 63BD22D11CCD16A5007C02E2 /* CDADownloadableContentModule.m */; };
-		63BD22D71CCD16A5007C02E2 /* CDADownloadableContentModule.m in Sources */ = {isa = PBXBuildFile; fileRef = 63BD22D11CCD16A5007C02E2 /* CDADownloadableContentModule.m */; };
 		63BD22DA1CCD1A65007C02E2 /* CDADownloadableContentMapper.h in Headers */ = {isa = PBXBuildFile; fileRef = 63BD22D81CCD1A65007C02E2 /* CDADownloadableContentMapper.h */; };
 		63BD22DB1CCD1A65007C02E2 /* CDADownloadableContentMapper.h in Headers */ = {isa = PBXBuildFile; fileRef = 63BD22D81CCD1A65007C02E2 /* CDADownloadableContentMapper.h */; };
 		63BD22DC1CCD1A65007C02E2 /* CDADownloadableContentMapper.h in Headers */ = {isa = PBXBuildFile; fileRef = 63BD22D81CCD1A65007C02E2 /* CDADownloadableContentMapper.h */; };
 		63BD22DD1CCD1A65007C02E2 /* CDADownloadableContentMapper.m in Sources */ = {isa = PBXBuildFile; fileRef = 63BD22D91CCD1A65007C02E2 /* CDADownloadableContentMapper.m */; };
 		63BD22DE1CCD1A65007C02E2 /* CDADownloadableContentMapper.m in Sources */ = {isa = PBXBuildFile; fileRef = 63BD22D91CCD1A65007C02E2 /* CDADownloadableContentMapper.m */; };
 		63BD22DF1CCD1A65007C02E2 /* CDADownloadableContentMapper.m in Sources */ = {isa = PBXBuildFile; fileRef = 63BD22D91CCD1A65007C02E2 /* CDADownloadableContentMapper.m */; };
+		63BD22E51CCD230F007C02E2 /* CDADownloadableContentAnalyzerModule.h in Headers */ = {isa = PBXBuildFile; fileRef = 63BD22E11CCD230F007C02E2 /* CDADownloadableContentAnalyzerModule.h */; };
+		63BD22E61CCD230F007C02E2 /* CDADownloadableContentAnalyzerModule.h in Headers */ = {isa = PBXBuildFile; fileRef = 63BD22E11CCD230F007C02E2 /* CDADownloadableContentAnalyzerModule.h */; };
+		63BD22E71CCD230F007C02E2 /* CDADownloadableContentAnalyzerModule.h in Headers */ = {isa = PBXBuildFile; fileRef = 63BD22E11CCD230F007C02E2 /* CDADownloadableContentAnalyzerModule.h */; };
+		63BD22E81CCD230F007C02E2 /* CDADownloadableContentAnalyzerModule.m in Sources */ = {isa = PBXBuildFile; fileRef = 63BD22E21CCD230F007C02E2 /* CDADownloadableContentAnalyzerModule.m */; };
+		63BD22E91CCD230F007C02E2 /* CDADownloadableContentAnalyzerModule.m in Sources */ = {isa = PBXBuildFile; fileRef = 63BD22E21CCD230F007C02E2 /* CDADownloadableContentAnalyzerModule.m */; };
+		63BD22EA1CCD230F007C02E2 /* CDADownloadableContentAnalyzerModule.m in Sources */ = {isa = PBXBuildFile; fileRef = 63BD22E21CCD230F007C02E2 /* CDADownloadableContentAnalyzerModule.m */; };
+		63BD22EB1CCD230F007C02E2 /* CDADownloadedArchiveProcessor.h in Headers */ = {isa = PBXBuildFile; fileRef = 63BD22E31CCD230F007C02E2 /* CDADownloadedArchiveProcessor.h */; };
+		63BD22EC1CCD230F007C02E2 /* CDADownloadedArchiveProcessor.h in Headers */ = {isa = PBXBuildFile; fileRef = 63BD22E31CCD230F007C02E2 /* CDADownloadedArchiveProcessor.h */; };
+		63BD22ED1CCD230F007C02E2 /* CDADownloadedArchiveProcessor.h in Headers */ = {isa = PBXBuildFile; fileRef = 63BD22E31CCD230F007C02E2 /* CDADownloadedArchiveProcessor.h */; };
+		63BD22EE1CCD230F007C02E2 /* CDADownloadedArchiveProcessor.m in Sources */ = {isa = PBXBuildFile; fileRef = 63BD22E41CCD230F007C02E2 /* CDADownloadedArchiveProcessor.m */; };
+		63BD22EF1CCD230F007C02E2 /* CDADownloadedArchiveProcessor.m in Sources */ = {isa = PBXBuildFile; fileRef = 63BD22E41CCD230F007C02E2 /* CDADownloadedArchiveProcessor.m */; };
+		63BD22F01CCD230F007C02E2 /* CDADownloadedArchiveProcessor.m in Sources */ = {isa = PBXBuildFile; fileRef = 63BD22E41CCD230F007C02E2 /* CDADownloadedArchiveProcessor.m */; };
+		63BD22F31CCD2430007C02E2 /* CDADownloadableContentRetrieverModule.h in Headers */ = {isa = PBXBuildFile; fileRef = 63BD22F11CCD2430007C02E2 /* CDADownloadableContentRetrieverModule.h */; };
+		63BD22F41CCD2430007C02E2 /* CDADownloadableContentRetrieverModule.h in Headers */ = {isa = PBXBuildFile; fileRef = 63BD22F11CCD2430007C02E2 /* CDADownloadableContentRetrieverModule.h */; };
+		63BD22F51CCD2430007C02E2 /* CDADownloadableContentRetrieverModule.h in Headers */ = {isa = PBXBuildFile; fileRef = 63BD22F11CCD2430007C02E2 /* CDADownloadableContentRetrieverModule.h */; };
+		63BD22F61CCD2430007C02E2 /* CDADownloadableContentRetrieverModule.m in Sources */ = {isa = PBXBuildFile; fileRef = 63BD22F21CCD2430007C02E2 /* CDADownloadableContentRetrieverModule.m */; };
+		63BD22F71CCD2430007C02E2 /* CDADownloadableContentRetrieverModule.m in Sources */ = {isa = PBXBuildFile; fileRef = 63BD22F21CCD2430007C02E2 /* CDADownloadableContentRetrieverModule.m */; };
+		63BD22F81CCD2430007C02E2 /* CDADownloadableContentRetrieverModule.m in Sources */ = {isa = PBXBuildFile; fileRef = 63BD22F21CCD2430007C02E2 /* CDADownloadableContentRetrieverModule.m */; };
 		659960F7E28E993E08CCC1E8A383E710 /* UIKit+AFNetworking.h in Headers */ = {isa = PBXBuildFile; fileRef = 86BD129DB61601975CF1E8FE66251DCE /* UIKit+AFNetworking.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		671D57ADB9AB7FF748B7C0E8DA88F465 /* RKRelationshipConnectionOperation.h in Headers */ = {isa = PBXBuildFile; fileRef = 6C50C7EB699B91BE5C97BE83AA416F56 /* RKRelationshipConnectionOperation.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		67E57438BF54F506F88F94B123791BD4 /* lcl_config_extensions_RK.h in Headers */ = {isa = PBXBuildFile; fileRef = CFC4F142D3F6074645FAF8D977BF6466 /* lcl_config_extensions_RK.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -183,7 +195,6 @@
 		93E05DE42BC698872263023374F1CE8E /* RKValueTransformers.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A459DBA207157C6B090BBEC0CE2E31F2 /* RKValueTransformers.framework */; };
 		94046E6BD64D3DBEB7404FD1C9DF50F8 /* CDASynConstants.m in Sources */ = {isa = PBXBuildFile; fileRef = D0E7C1EB174B22B83F50016C5B4A7BB5 /* CDASynConstants.m */; };
 		9520BBED608D166256B0CD5FE873508C /* TKTransition.m in Sources */ = {isa = PBXBuildFile; fileRef = 8DE3ABC391C9C8B9D17ED27C261B1A4A /* TKTransition.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
-		957605050F40C7A2CC8D95141F66416F /* CDAArchiveDownloadProcessor.m in Sources */ = {isa = PBXBuildFile; fileRef = B1C9063DF1179FAEDF584E3DB5F9DDBD /* CDAArchiveDownloadProcessor.m */; };
 		96EBBD856D9429B5D0BB796D0C42C95C /* CDARelationMapping.m in Sources */ = {isa = PBXBuildFile; fileRef = 896F40D2827E7A3923E85415CFBBFF17 /* CDARelationMapping.m */; };
 		97CFD3F2550EB8CABCCCB44F09ECCE26 /* ISO8601DateFormatterValueTransformer-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 3AE88535FC8089095CF1DFC5C18ABBCC /* ISO8601DateFormatterValueTransformer-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		995434A47FCFE8EFDA9419453396523F /* RKErrorMessage.h in Headers */ = {isa = PBXBuildFile; fileRef = A53C2B05A9C9566FCEAF328A54873F20 /* RKErrorMessage.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -217,7 +228,6 @@
 		AE8B82E0AA10BC4C7E3002463FF2136A /* RKHTTPUtilities.m in Sources */ = {isa = PBXBuildFile; fileRef = D7E5D2B95A8CB650ABCC88B454695F8A /* RKHTTPUtilities.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
 		AEB8DBB195B8AFB5CFF5BAB3185A5377 /* RKDynamicMapping.m in Sources */ = {isa = PBXBuildFile; fileRef = 361445968A96F2DD2DAC677330DFBF49 /* RKDynamicMapping.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
 		AF03C11A1FAC8132AD3749D8F541701A /* UIButton+AFNetworking.m in Sources */ = {isa = PBXBuildFile; fileRef = C3763044107444A311CEFD8C204DF6F6 /* UIButton+AFNetworking.m */; };
-		AF966FAF8E785C47A86780B290576F2B /* CDAArchiveDownloadProcessor.h in Headers */ = {isa = PBXBuildFile; fileRef = 2731D6E1FCB56061552492FA7E8B88D1 /* CDAArchiveDownloadProcessor.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		AF979E4232BFCC691D944D69E44AB45E /* RKManagedObjectCaching.h in Headers */ = {isa = PBXBuildFile; fileRef = 7CC9CF60281AA31C5FEBB7183F2AB205 /* RKManagedObjectCaching.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		B1AB035A13D7ACC19ECF13EF30D06318 /* RKValueTransformers-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 19FD9E72B909E056F035C1D0955C72DE /* RKValueTransformers-dummy.m */; };
 		B267D014203AA111F5D2B01899EDE20A /* CDABGDFile+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = 8087FEA8021AEBC37D5D9DCF12F5A30B /* CDABGDFile+CoreDataProperties.m */; };
@@ -519,7 +529,6 @@
 		24F705B79614C65805C347D896CEB070 /* entropy.c */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.c; name = entropy.c; path = SSZipArchive/aes/entropy.c; sourceTree = "<group>"; };
 		2613C5285EE73A9E22A530F47A98C16F /* Common.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = Common.h; path = SSZipArchive/Common.h; sourceTree = "<group>"; };
 		2625A6644402BF02B36E125660B701B4 /* UIImageView+AFNetworking.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "UIImageView+AFNetworking.m"; path = "UIKit+AFNetworking/UIImageView+AFNetworking.m"; sourceTree = "<group>"; };
-		2731D6E1FCB56061552492FA7E8B88D1 /* CDAArchiveDownloadProcessor.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = CDAArchiveDownloadProcessor.h; sourceTree = "<group>"; };
 		27CAF95C54E25D6BC04BA30DA37619AA /* AFURLRequestSerialization.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = AFURLRequestSerialization.h; path = AFNetworking/AFURLRequestSerialization.h; sourceTree = "<group>"; };
 		27FB2E184988BAEA1DCF5F11526A8DD8 /* AFNetworkReachabilityManager.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = AFNetworkReachabilityManager.h; path = AFNetworking/AFNetworkReachabilityManager.h; sourceTree = "<group>"; };
 		2932E5FE0EB8A5AF4F6C19E8232E9772 /* CDABGDownloadingFile+CoreDataProperties.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "CDABGDownloadingFile+CoreDataProperties.m"; sourceTree = "<group>"; };
@@ -611,10 +620,14 @@
 		61B8A6C66078B65AE6CFB5A7ACC5E5E5 /* RKNSJSONSerialization.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = RKNSJSONSerialization.m; path = Code/Support/RKNSJSONSerialization.m; sourceTree = "<group>"; };
 		624065F2C08D96D313239D8035BBB2E9 /* RKAttributeMapping.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = RKAttributeMapping.m; path = Code/ObjectMapping/RKAttributeMapping.m; sourceTree = "<group>"; };
 		636F1CBF2EE8222B060564FAF6D80B39 /* CDAMapper.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = CDAMapper.h; sourceTree = "<group>"; };
-		63BD22D01CCD16A5007C02E2 /* CDADownloadableContentModule.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CDADownloadableContentModule.h; sourceTree = "<group>"; };
-		63BD22D11CCD16A5007C02E2 /* CDADownloadableContentModule.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CDADownloadableContentModule.m; sourceTree = "<group>"; };
 		63BD22D81CCD1A65007C02E2 /* CDADownloadableContentMapper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CDADownloadableContentMapper.h; sourceTree = "<group>"; };
 		63BD22D91CCD1A65007C02E2 /* CDADownloadableContentMapper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CDADownloadableContentMapper.m; sourceTree = "<group>"; };
+		63BD22E11CCD230F007C02E2 /* CDADownloadableContentAnalyzerModule.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CDADownloadableContentAnalyzerModule.h; sourceTree = "<group>"; };
+		63BD22E21CCD230F007C02E2 /* CDADownloadableContentAnalyzerModule.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CDADownloadableContentAnalyzerModule.m; sourceTree = "<group>"; };
+		63BD22E31CCD230F007C02E2 /* CDADownloadedArchiveProcessor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CDADownloadedArchiveProcessor.h; sourceTree = "<group>"; };
+		63BD22E41CCD230F007C02E2 /* CDADownloadedArchiveProcessor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CDADownloadedArchiveProcessor.m; sourceTree = "<group>"; };
+		63BD22F11CCD2430007C02E2 /* CDADownloadableContentRetrieverModule.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CDADownloadableContentRetrieverModule.h; sourceTree = "<group>"; };
+		63BD22F21CCD2430007C02E2 /* CDADownloadableContentRetrieverModule.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CDADownloadableContentRetrieverModule.m; sourceTree = "<group>"; };
 		645731EB7C110074FE7172713084B9DC /* RestKit.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = RestKit.xcconfig; sourceTree = "<group>"; };
 		65D7DC1FBD2B11C6FA56C42A80272842 /* RKValueTransformers.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = RKValueTransformers.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		6623412A288B462AE88C125A3BAA0B10 /* RKMIMETypeSerialization.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = RKMIMETypeSerialization.h; path = Code/Support/RKMIMETypeSerialization.h; sourceTree = "<group>"; };
@@ -714,7 +727,6 @@
 		AE4B83DF7DA29B027BB9FEE80E83FE54 /* aesopt.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = aesopt.h; path = SSZipArchive/aes/aesopt.h; sourceTree = "<group>"; };
 		AEEAF81E4142190AB1F23541F523C95E /* aestab.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = aestab.h; path = SSZipArchive/aes/aestab.h; sourceTree = "<group>"; };
 		B14832E2483BDE7E2228FC8910BCAF23 /* AFNetworking-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "AFNetworking-umbrella.h"; sourceTree = "<group>"; };
-		B1C9063DF1179FAEDF584E3DB5F9DDBD /* CDAArchiveDownloadProcessor.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = CDAArchiveDownloadProcessor.m; sourceTree = "<group>"; };
 		B20A9F3AC6C05517A0ECE7FB8A3CC4CF /* Pods-CDASyncService_Example-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-CDASyncService_Example-dummy.m"; sourceTree = "<group>"; };
 		B39BF6DDDAD7364E637910B585E82FF6 /* UIActivityIndicatorView+AFNetworking.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "UIActivityIndicatorView+AFNetworking.m"; path = "UIKit+AFNetworking/UIActivityIndicatorView+AFNetworking.m"; sourceTree = "<group>"; };
 		B529F1E29B5005A2E6FBED3222228102 /* AFNetworking-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "AFNetworking-prefix.pch"; sourceTree = "<group>"; };
@@ -1291,6 +1303,19 @@
 			name = Support;
 			sourceTree = "<group>";
 		};
+		63BD22E01CCD230F007C02E2 /* Downloading */ = {
+			isa = PBXGroup;
+			children = (
+				63BD22E11CCD230F007C02E2 /* CDADownloadableContentAnalyzerModule.h */,
+				63BD22E21CCD230F007C02E2 /* CDADownloadableContentAnalyzerModule.m */,
+				63BD22E31CCD230F007C02E2 /* CDADownloadedArchiveProcessor.h */,
+				63BD22E41CCD230F007C02E2 /* CDADownloadedArchiveProcessor.m */,
+				63BD22F11CCD2430007C02E2 /* CDADownloadableContentRetrieverModule.h */,
+				63BD22F21CCD2430007C02E2 /* CDADownloadableContentRetrieverModule.m */,
+			);
+			path = Downloading;
+			sourceTree = "<group>";
+		};
 		78D3F8EDCDB57138AB20A54724B1AE26 /* Protocols */ = {
 			isa = PBXGroup;
 			children = (
@@ -1542,8 +1567,7 @@
 		CA9F3EAB34A72B11FE6E2D6C42566BF7 /* Modules */ = {
 			isa = PBXGroup;
 			children = (
-				2731D6E1FCB56061552492FA7E8B88D1 /* CDAArchiveDownloadProcessor.h */,
-				B1C9063DF1179FAEDF584E3DB5F9DDBD /* CDAArchiveDownloadProcessor.m */,
+				63BD22E01CCD230F007C02E2 /* Downloading */,
 				2352A0EA987892C68AA8C0D5FAE270E9 /* CDABundleSyncModule.h */,
 				50526F48DF078B13DD7ADEB43D20B14E /* CDABundleSyncModule.m */,
 				5DFF19EB13580C30117F6D9DE566F5B1 /* CDACoreDataParserSyncModule.h */,
@@ -1554,8 +1578,6 @@
 				8428928467844547FCBE011954FF6E08 /* CDAParserSyncModule.m */,
 				F766A81B719185654C628E75F39CD781 /* CDARestModule.h */,
 				4CE5D49AFC15BA1445AE9D7D44DCA8F7 /* CDARestModule.m */,
-				63BD22D01CCD16A5007C02E2 /* CDADownloadableContentModule.h */,
-				63BD22D11CCD16A5007C02E2 /* CDADownloadableContentModule.m */,
 			);
 			path = Modules;
 			sourceTree = "<group>";
@@ -1729,10 +1751,8 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				63BD22D21CCD16A5007C02E2 /* CDADownloadableContentModule.h in Headers */,
 				CAE099551455B25A7424D0DB90AAC191 /* CDAAbstractSyncService.h in Headers */,
 				42538DB894BE104734463F6DE88BFEAF /* CDAAFNetworkingConnector.h in Headers */,
-				AF966FAF8E785C47A86780B290576F2B /* CDAArchiveDownloadProcessor.h in Headers */,
 				E4F97331E94B994D90C7211D9B66729F /* CDABackgroundDownloadManager.h in Headers */,
 				C339D1335801C8469BEF4EB09E047ED6 /* CDABGDFile+CoreDataProperties.h in Headers */,
 				0B0D59C082D010394EF93F50B0B3E782 /* CDABGDFile.h in Headers */,
@@ -1744,6 +1764,7 @@
 				EA50BC968B8E5041BA68A1A78F935AE6 /* CDABundleSyncModule.h in Headers */,
 				FE2BA816063DF35CAC0D1D5F5E842DF3 /* CDACoreDataParserSyncModule.h in Headers */,
 				BBACA63802C78D45950B9844411A002D /* CDACoreDataStack.h in Headers */,
+				63BD22E51CCD230F007C02E2 /* CDADownloadableContentAnalyzerModule.h in Headers */,
 				85C0DC3280E5B61520EBE3687AC7A441 /* CDACoreDataStackProtocol.h in Headers */,
 				B47DA1387093A4460CBC4D07FAA3F922 /* CDADownloadableEntityProtocol.h in Headers */,
 				DADA95B241EDE2C270FC672C19B2ACA8 /* CDAMapper.h in Headers */,
@@ -1752,6 +1773,7 @@
 				8CF8814E7D99BEB61F576A1E33571B4B /* CDANSUserDefaultsSyncScheduleManager.h in Headers */,
 				61CFAA7E7F961D866D783A648C281290 /* CDAParserSyncModule.h in Headers */,
 				A0501A6229BF3DF009085336DDDC30AC /* CDAReachabilityManagerProtocol.h in Headers */,
+				63BD22EB1CCD230F007C02E2 /* CDADownloadedArchiveProcessor.h in Headers */,
 				B32C716CA0F4F8CFD7C712AE8BDA2621 /* CDARelationMapping.h in Headers */,
 				99F13E02174DEB3C98F33B2C12A81524 /* CDARestKitCoreDataParser.h in Headers */,
 				473A7A325B6ECFCC89EAF0BAA9315E94 /* CDARestModule.h in Headers */,
@@ -1759,6 +1781,7 @@
 				1303DC1CD7BBB00C55C9A60ECA7040C5 /* CDASyncChronProtocol.h in Headers */,
 				F5C1A5736BCC6374331B5AF737079CC3 /* CDASyncConnectorProtocol.h in Headers */,
 				9BD5FF4A50BC50CBBE5D6615FCE9EE86 /* CDASyncCoreDataParserProtocol.h in Headers */,
+				63BD22F31CCD2430007C02E2 /* CDADownloadableContentRetrieverModule.h in Headers */,
 				E38A9C32B0E571F8EAB3A64BE3AEC1B0 /* CDASyncErrors.h in Headers */,
 				546098B7A350F9F1A185A021B2F3EF54 /* CDASyncExecutor.h in Headers */,
 				F925D7FF3274545E43C823CA6839FF0B /* CDASyncExecutorProtocol.h in Headers */,
@@ -1782,8 +1805,10 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				63BD22EC1CCD230F007C02E2 /* CDADownloadedArchiveProcessor.h in Headers */,
+				63BD22F41CCD2430007C02E2 /* CDADownloadableContentRetrieverModule.h in Headers */,
 				1FEA5318FB5DF91AF88789A4D16A509E /* Pods-CDASyncService_Example-umbrella.h in Headers */,
-				63BD22D31CCD16A5007C02E2 /* CDADownloadableContentModule.h in Headers */,
+				63BD22E61CCD230F007C02E2 /* CDADownloadableContentAnalyzerModule.h in Headers */,
 				63BD22DB1CCD1A65007C02E2 /* CDADownloadableContentMapper.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1903,8 +1928,10 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				63BD22ED1CCD230F007C02E2 /* CDADownloadedArchiveProcessor.h in Headers */,
+				63BD22F51CCD2430007C02E2 /* CDADownloadableContentRetrieverModule.h in Headers */,
 				60C4A1D39A258738985602767F4D5719 /* Pods-CDASyncService_Tests-umbrella.h in Headers */,
-				63BD22D41CCD16A5007C02E2 /* CDADownloadableContentModule.h in Headers */,
+				63BD22E71CCD230F007C02E2 /* CDADownloadableContentAnalyzerModule.h in Headers */,
 				63BD22DC1CCD1A65007C02E2 /* CDADownloadableContentMapper.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -2198,8 +2225,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				63BD22DF1CCD1A65007C02E2 /* CDADownloadableContentMapper.m in Sources */,
-				63BD22D71CCD16A5007C02E2 /* CDADownloadableContentModule.m in Sources */,
+				63BD22F81CCD2430007C02E2 /* CDADownloadableContentRetrieverModule.m in Sources */,
+				63BD22F01CCD230F007C02E2 /* CDADownloadedArchiveProcessor.m in Sources */,
 				093FCBA63F1BEF208F428E722E6295BC /* Pods-CDASyncService_Tests-dummy.m in Sources */,
+				63BD22EA1CCD230F007C02E2 /* CDADownloadableContentAnalyzerModule.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2230,8 +2259,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				63BD22DE1CCD1A65007C02E2 /* CDADownloadableContentMapper.m in Sources */,
-				63BD22D61CCD16A5007C02E2 /* CDADownloadableContentModule.m in Sources */,
+				63BD22F71CCD2430007C02E2 /* CDADownloadableContentRetrieverModule.m in Sources */,
+				63BD22EF1CCD230F007C02E2 /* CDADownloadedArchiveProcessor.m in Sources */,
 				D9A4B5DDC6E32C124C523017CE7311C4 /* Pods-CDASyncService_Example-dummy.m in Sources */,
+				63BD22E91CCD230F007C02E2 /* CDADownloadableContentAnalyzerModule.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2240,8 +2271,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				68E1D3E8F782EF394979DD8B1038B3EF /* CDAAbstractSyncService.m in Sources */,
+				63BD22F61CCD2430007C02E2 /* CDADownloadableContentRetrieverModule.m in Sources */,
 				38040D5EE268AF9046DA000F4B4C4B3A /* CDAAFNetworkingConnector.m in Sources */,
-				957605050F40C7A2CC8D95141F66416F /* CDAArchiveDownloadProcessor.m in Sources */,
 				A9DB5B9255B663734CAEAA3D75B31E71 /* CDABackgroundDownloadManager.m in Sources */,
 				B267D014203AA111F5D2B01899EDE20A /* CDABGDFile+CoreDataProperties.m in Sources */,
 				FB9455E13F93C1568B7B0D101508C67F /* CDABGDFile.m in Sources */,
@@ -2249,11 +2280,11 @@
 				D9E523997ABC546D5B9A49D15B08EC63 /* CDABGDownloadingFile.m in Sources */,
 				DE18DB49DF158EBEC5D812DE279A31CA /* CDABGDRelationFile+CoreDataProperties.m in Sources */,
 				F3E3B701FB21D403D3B313A8F9F15081 /* CDABGDRelationFile.m in Sources */,
+				63BD22EE1CCD230F007C02E2 /* CDADownloadedArchiveProcessor.m in Sources */,
 				823337C6A19F66360F8704234A36E38D /* CDABundleConnector.m in Sources */,
 				464AAF7CDA84E3B2635A9D55A8C03DE9 /* CDABundleSyncModule.m in Sources */,
 				0D9C9D02B6C0661D060A3E6FF12ACFCB /* CDACoreDataParserSyncModule.m in Sources */,
 				CC3D87AC17893D1F198465C4E9919A57 /* CDACoreDataStack.m in Sources */,
-				63BD22D51CCD16A5007C02E2 /* CDADownloadableContentModule.m in Sources */,
 				0D7C159C4F52350793C216B545F2F731 /* CDAMapper.m in Sources */,
 				A8B4E5EFC9A1411FAC31F6CBB0BD9F50 /* CDANoConversionParser.m in Sources */,
 				8CB3709D9587D9DA475C2945A746CD00 /* CDANSOperationBaseModule.m in Sources */,
@@ -2269,6 +2300,7 @@
 				C9CFF8CB7134B9229882191DC1A3DAAA /* CDASyncNotifications.m in Sources */,
 				94046E6BD64D3DBEB7404FD1C9DF50F8 /* CDASynConstants.m in Sources */,
 				8EB98D8102109EB5F44B65C2FB0A2AF9 /* CDASyncScheduler.m in Sources */,
+				63BD22E81CCD230F007C02E2 /* CDADownloadableContentAnalyzerModule.m in Sources */,
 				63BD22DD1CCD1A65007C02E2 /* CDADownloadableContentMapper.m in Sources */,
 				8D7D5C656BDE8EA81BA03ACD14F1C9C8 /* CDASyncService-dummy.m in Sources */,
 				429C0B3AE5DC181B289762DB87F5FECF /* contents in Sources */,

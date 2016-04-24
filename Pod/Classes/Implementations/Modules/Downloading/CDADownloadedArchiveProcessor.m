@@ -6,7 +6,7 @@
 //
 //
 
-#import "CDAArchiveDownloadProcessor.h"
+#import "CDADownloadedArchiveProcessor.h"
 #import "CDASyncModel.h"
 #import "CDASyncModule.h"
 #import <SSZipArchive/SSZipArchive.h>
@@ -17,13 +17,13 @@
 #import "CDABGDRelationFile.h"
 #import "CDASyncErrors.h"
 
-@interface CDAArchiveDownloadProcessor()
+@interface CDADownloadedArchiveProcessor()
 
 @property (nonatomic, strong)id<CDASyncModel> model;
 @property (nonatomic, strong)id<CDACoreDataStackProtocol> archiveCoreDataStack;
 @property (nonatomic, weak)id<CDACoreDataStackProtocol> appCoreDataStack;
 @end
-@implementation CDAArchiveDownloadProcessor
+@implementation CDADownloadedArchiveProcessor
 @synthesize result = _result, error = _error;
 
 - (id)initWithSyncModel:(id<CDASyncModel>)syncModel{
@@ -115,6 +115,7 @@
     if(!error){
         archives = [[NSFileManager defaultManager] contentsOfDirectoryAtPath:archivesFolder error:&error];
         archives = [archives filteredArrayUsingPredicate:[NSPredicate predicateWithFormat:@"self CONTAINS[cd] %@", @".zip"]];
+        archives = [archives sortedArrayUsingDescriptors:@[[NSSortDescriptor sortDescriptorWithKey:@"self" ascending:YES]]];
     }else{
         NSLog(@"Error:getArchivesFilesToProcess: %@",error);
     }
