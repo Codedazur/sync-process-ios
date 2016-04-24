@@ -13,4 +13,6 @@
 @property (nonatomic, strong) NSDictionary *attributesMapping;
 @property (nonatomic, strong) NSArray *relationsMapping;
 @property (nonatomic, strong) NSString *rootKey;
+@property (nonatomic, strong) NSString *localIdentifierKey;
+@property (nonatomic, strong) NSString *remoteIdentifierKey;
 @end

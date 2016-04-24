@@ -14,6 +14,8 @@
 @optional
 - (double)progress;
 - (void) getObjectsWithSuccess:(void (^)(id responseObject))success failure:(void (^)(NSError *error))failure;
+- (void)getObjectsWithParameters:(NSDictionary *)parameters
+                     WithSuccess:(void (^)(id))success failure:(void (^)(NSError *))failure;
 - (void) getObjectWithSuccess:(void (^)(id responseObject))success failure:(void (^)(NSError *error))failure;
 - (void) createObject:(id)object WithSuccess:(void (^)(id responseObject))success failure:(void (^)(NSError *error))failure;
 - (void) updateObject:(id)object WithSuccess:(void (^)(id responseObject))success failure:(void (^)(NSError *error))failure;
