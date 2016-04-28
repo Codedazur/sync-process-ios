@@ -14,6 +14,15 @@
 @synthesize managedObjectModel = __managedObjectModel;
 @synthesize persistentStoreCoordinator = __persistentStoreCoordinator;
 
+- (NSManagedObject *) createNewEntity:(NSString *)entity inContext:(NSManagedObjectContext *)context{
+    return nil;
+}
+- (void)saveMainContext{
+    
+}
+- (instancetype)initWithModelName:(NSString *)modelName{
+    return nil;
+}
 + (NSManagedObjectContext *)mainManagedObjectContext{
     return [[CoreDataStack coreDataStack] managedObjectContext];
 }

@@ -27,7 +27,6 @@
 - (NSManagedObjectContext *)independentManagedObjectContext;
 + (CoreDataStack *)coreDataStack;
 #pragma mark - main context
-+ (NSManagedObject *)createdEntityWithName:(NSString *)entityName;
 + (NSArray *)fetchMainContextEntities:(NSString *)entity WithSortKey:(NSString *)sortKey Ascending:(BOOL)ascending WithPredicate:(NSPredicate *)predicate;
 
 #pragma mark - specific context
