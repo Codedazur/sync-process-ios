@@ -66,7 +66,7 @@
     }];
 }
 
-- (void)testAbstractErrorOnFirstStep {
+- (void)testAbstractErrorOnFirstStepResourceDoesNotExist {
     CDASimpleSyncModel *m1 = [[CDASimpleSyncModel alloc] initWithUid:@"teste" moduleClass:[CDABundleSyncModule class] userInfo:@{@"baseUrl":@"", @"resource":@"test2"} timeInterval:0];
     
     CDASimpleSyncModel *m2 = [[CDASimpleSyncModel alloc] initWithUid:@"teste" moduleClass:[CDAParserSyncModule class] userInfo:@{@"parserClass":[CDANoConversionParser class]} timeInterval:0];
