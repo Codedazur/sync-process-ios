@@ -7,7 +7,7 @@
 //
 
 #import <XCTest/XCTest.h>
-#import "CDAArchiveDownloadProcessor.h"
+#import "CDADownloadedArchiveProcessor.h"
 #import "CDASynConstants.h"
 #import "CDACoreDataStack.h"
 
@@ -20,7 +20,7 @@
 @interface CDAArchiveProcessorTest : XCTestCase
 @property(nonatomic, strong)CDACoreDataStack *appstack;
 @property(nonatomic, strong)CDACoreDataStack *archiveStack;
-@property(nonatomic, strong)CDAArchiveDownloadProcessor *sut;
+@property(nonatomic, strong)CDADownloadedArchiveProcessor *sut;
 @property (nonatomic, strong)XCTestExpectation *expectation;
 @end
 
@@ -32,13 +32,13 @@
      self.expectation = [self expectationWithDescription:NSStringFromClass(self.class)];
     self.appstack = [[CDACoreDataStack alloc] initWithModelName:@"Model" AndBundle:nil];
     
-    NSBundle *bundle = [NSBundle bundleForClass:[CDAArchiveDownloadProcessor class]];
+    NSBundle *bundle = [NSBundle bundleForClass:[CDADownloadedArchiveProcessor class]];
     self.archiveStack = [[CDACoreDataStack alloc] initWithModelName:kSyncConstantBGDownloadDatabaseName
                                                           AndBundle:bundle];
     NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
     CDASimpleSyncModel *model = [[CDASimpleSyncModel alloc] initWithUid:@"teste" moduleClass:nil userInfo:@{@"archivesFolder":[[paths firstObject] stringByAppendingPathComponent:kSyncConstantArchivePath], @"archivesProcessingFolder":[[paths firstObject] stringByAppendingPathComponent:kSyncConstantArchiveProcessing], @"appCoreDataStack":self.appstack} timeInterval:0];
     
-    self.sut = [[CDAArchiveDownloadProcessor alloc] initWithSyncModel:model];
+    self.sut = [[CDADownloadedArchiveProcessor alloc] initWithSyncModel:model];
     // Put setup code here. This method is called before the invocation of each test method in the class.
 }
 

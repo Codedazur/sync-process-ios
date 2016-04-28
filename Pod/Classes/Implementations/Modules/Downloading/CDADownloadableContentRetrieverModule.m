@@ -54,7 +54,7 @@
     
     NSString *downloadPath = [[self.model userInfo] valueForKey:@"downloadPath"];
     NSArray *idsToDownload = [[self.model userInfo] valueForKey:@"data"] ? [[self.model userInfo] valueForKey:@"data"]: [((id<CDASyncModule>)[self.dependencies lastObject]) result];
-    [self createDownloadFilesObjects];
+    
 
     NSString *paramKey = [[self.model userInfo] valueForKey:@"paramKey"];
     NSDictionary *parameters = @{paramKey : idsToDownload};
@@ -63,9 +63,9 @@
         NSString *downloadUrl = (NSString *)responseObject;
         NSString *fileName = [downloadUrl lastPathComponent];
         
-        CDABGDFile *file = [self.downloadCoreDataStack createNewEntity:NSStringFromClass([CDABGDFile class]) inContext:[self.downloadCoreDataStack managedObjectContext]];
-        [file addRelationFiles:[self createDownloadFilesObjectsForIds:idsToDownload]];
-        [self.downloadCoreDataStack saveMainContext];
+        CDABGDFile *file = [weakSelf.downloadCoreDataStack createNewEntity:NSStringFromClass([CDABGDFile class]) inContext:[weakSelf.downloadCoreDataStack managedObjectContext]];
+        [file addRelationFiles:[weakSelf createDownloadFilesObjectsForIds:idsToDownload]];
+        [weakSelf.downloadCoreDataStack saveMainContext];
         
         [[CDABackgroundDownloadManager sharedInstance] addDownloadTaskWithUrlString:downloadUrl AndDestinationFilePath:[downloadPath stringByAppendingPathComponent:fileName]];
         _result = responseObject;
