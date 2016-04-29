@@ -77,7 +77,7 @@
     NSManagedObjectContext *cdContext = [cdStack independentManagedObjectContext];
     NSArray __block *entities;
     [cdContext performBlockAndWait:^{
-        entities = [cdStack fetchEntities:NSStringFromClass([mapping destinationClass]) WithSortKey:mapping.localIdentifierKey Ascending:YES WithPredicate:nil InContext:cdContext];
+        entities = [cdStack fetchEntities:[mapping destinationClassName] WithSortKey:mapping.localIdentifierKey Ascending:YES WithPredicate:nil InContext:cdContext];
     }];
     
     NSSet *localHashes =[NSSet setWithArray:[entities valueForKeyPath:mapping.localFileHashKey]];

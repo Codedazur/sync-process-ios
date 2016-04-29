@@ -146,7 +146,7 @@
 - (CDAMapper *)mappingSimple{
     CDAMapper *m = [CDAMapper new];
     m.rootKey = @"response";
-    m.destinationClass = [Textile class];
+    m.destinationClassName = NSStringFromClass([Textile class]);
     m.attributesMapping = @{
                             @"uid":     @"uid",
                             @"name":     @"name"
@@ -155,14 +155,14 @@
 }
 - (CDAMapper *)mapping{
     CDAMapper *m = [CDAMapper new];
-    m.destinationClass = [Textile class];
+    m.destinationClassName = NSStringFromClass([Textile class]);
     m.attributesMapping = @{
                             @"uid":     @"uid",
                             @"name":     @"name"
                             };
     
     CDAMapper *mC = [CDAMapper new];
-    mC.destinationClass = [Color class];
+    mC.destinationClassName = NSStringFromClass([Color class]);
     mC.attributesMapping = @{
                              @"colorway":     @"uid",
                              @"colorName":     @"colorName"
