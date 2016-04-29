@@ -1,6 +1,6 @@
 {
   "name": "CDASyncService",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "summary": "Framework for Sync Processes",
   "description": "Base Framework to use for syncing a large amount of data into an app",
   "homepage": "https://github.com/Codedazur/sync-process-ios",
@@ -10,16 +10,13 @@
   },
   "source": {
     "git": "https://github.com/Codedazur/sync-process-ios.git",
-    "tag": "0.0.1"
+    "tag": "0.0.2"
   },
   "platforms": {
     "ios": "7.0"
   },
   "requires_arc": true,
   "source_files": "Pod/Classes/**/*",
-  "resource_bundles": {
-    "CDASyncService": "Pod/Classes/Utils/BackgroundTransfer/Model/background-download.xcdatamodeld"
-  },
   "resources": "Pod/Classes/Utils/BackgroundTransfer/Model/background-download.xcdatamodeld",
   "dependencies": {
     "AFNetworking": [

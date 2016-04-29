@@ -9,7 +9,7 @@
 
 Pod::Spec.new do |s|
   s.name             = "CDASyncService"
-  s.version          = "0.0.2"
+  s.version          = "0.0.3"
   s.summary          = "Framework for Sync Processes"
   s.description      = <<-DESC
                        Base Framework to use for syncing a large amount of data into an app
@@ -25,9 +25,9 @@ Pod::Spec.new do |s|
   s.requires_arc = true
 
   s.source_files = 'Pod/Classes/**/*'
-  s.resource_bundles = {
-    'CDASyncService' => 'Pod/Classes/Utils/BackgroundTransfer/Model/background-download.xcdatamodeld'
-  }
+ # s.resource_bundles = {
+  #  'CDASyncService' => 'Pod/Classes/Utils/BackgroundTransfer/Model/background-download.xcdatamodeld'
+  #}
   s.resources = 'Pod/Classes/Utils/BackgroundTransfer/Model/background-download.xcdatamodeld'
 
   # s.public_header_files = 'Pod/Classes/**/*.h'

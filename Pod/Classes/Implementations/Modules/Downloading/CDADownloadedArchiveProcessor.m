@@ -106,8 +106,8 @@
 
 }
 - (NSArray *)getArchivesFilesToProcess{
-    NSBundle *bundle = [NSBundle bundleForClass:[self class]];
-    self.archiveCoreDataStack = [[CDACoreDataStack alloc] initWithModelName:kSyncConstantBGDownloadDatabaseName AndBundle:bundle];
+    
+    self.archiveCoreDataStack = [[CDACoreDataStack alloc] initWithModelName:kSyncConstantBGDownloadDatabaseName AndBundle:[NSBundle mainBundle]];
     
     NSString *archivesFolder = [[self.model userInfo] valueForKey:@"archivesFolder"];
     NSError *error;

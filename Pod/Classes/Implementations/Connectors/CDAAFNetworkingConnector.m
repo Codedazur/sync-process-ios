@@ -7,7 +7,7 @@
 //
 
 #import "CDAAFNetworkingConnector.h"
-@import AFNetworking;
+#import <AFNetworking/AFNetworking.h>
 
 @implementation CDAAFNetworkingConnector
 @synthesize baseUrl = _baseUrl, resource = _resource;

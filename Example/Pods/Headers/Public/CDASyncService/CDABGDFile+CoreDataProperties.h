@@ -1,0 +1,1 @@
+../../../../../Pod/Classes/Utils/BackgroundTransfer/Model/CDABGDFile+CoreDataProperties.h

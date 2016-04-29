@@ -32,9 +32,8 @@
      self.expectation = [self expectationWithDescription:NSStringFromClass(self.class)];
     self.appstack = [[CDACoreDataStack alloc] initWithModelName:@"Model" AndBundle:nil];
     
-    NSBundle *bundle = [NSBundle bundleForClass:[CDADownloadedArchiveProcessor class]];
     self.archiveStack = [[CDACoreDataStack alloc] initWithModelName:kSyncConstantBGDownloadDatabaseName
-                                                          AndBundle:bundle];
+                                                          AndBundle:nil];
     NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
     CDASimpleSyncModel *model = [[CDASimpleSyncModel alloc] initWithUid:@"teste" moduleClass:nil userInfo:@{@"archivesFolder":[[paths firstObject] stringByAppendingPathComponent:kSyncConstantArchivePath], @"archivesProcessingFolder":[[paths firstObject] stringByAppendingPathComponent:kSyncConstantArchiveProcessing], @"appCoreDataStack":self.appstack} timeInterval:0];
     

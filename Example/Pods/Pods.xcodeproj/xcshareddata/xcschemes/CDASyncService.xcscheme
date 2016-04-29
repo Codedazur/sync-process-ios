@@ -14,10 +14,10 @@
             buildForArchiving = "YES">
             <BuildableReference
                BuildableIdentifier = 'primary'
-               BlueprintIdentifier = '28CA925900161B2DEF5B3E73'
+               BlueprintIdentifier = 'A418E3ECE9E5539AD3711AF6'
                BlueprintName = 'CDASyncService'
                ReferencedContainer = 'container:Pods.xcodeproj'
-               BuildableName = 'CDASyncService.framework'>
+               BuildableName = 'libCDASyncService.a'>
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
