@@ -151,6 +151,7 @@
                             @"uid":     @"uid",
                             @"name":     @"name"
                             };
+    m.localIdentifierKey = @"uid";
     return m;
 }
 - (CDAMapper *)mapping{
@@ -160,6 +161,7 @@
                             @"uid":     @"uid",
                             @"name":     @"name"
                             };
+    m.localIdentifierKey = @"uid";
     
     CDAMapper *mC = [CDAMapper new];
     mC.destinationClassName = NSStringFromClass([Color class]);
@@ -167,6 +169,7 @@
                              @"colorway":     @"uid",
                              @"colorName":     @"colorName"
                              };
+    mC.localIdentifierKey = @"uid";
     
     CDARelationMapping *rm = [CDARelationMapping new];
     rm.mapper = mC;
