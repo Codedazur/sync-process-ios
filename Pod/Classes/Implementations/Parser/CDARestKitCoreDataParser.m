@@ -57,11 +57,16 @@ typedef void(^ParseCompletionBlock)(id result);
     [self.queue waitUntilAllOperationsAreFinished];
 }
 - (void)mapperDidFinishMapping:(RKMapperOperation *)mapper{
+    NSError __block *error=nil;
     [self.context performBlockAndWait:^{
-        [self.context save:nil];
+        
+        if(![self.context save:&error]){
+            NSLog(@"error saving %@", error);
+        }
     }];
     
-    self.completion(mapper.mappingResult.array);
+    if(error)self.completion(error);
+    else self.completion(mapper.mappingResult.array);
 }
 #pragma mark - helpers
 - (RKEntityMapping *)extractMapping:(CDAMapper *)pMapping{

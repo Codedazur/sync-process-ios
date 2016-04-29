@@ -69,7 +69,8 @@
     
     CDAParserSyncModule __weak *weakSelf = self;
     [self.parser parseData:dataToParse AndCompletion:^(id result) {
-        _result = result;
+        if([result isKindOfClass:[NSError class]])_error = (NSError *)result;
+        else _result = result;
         [weakSelf completeOperation];
     }];
 }

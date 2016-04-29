@@ -143,6 +143,41 @@
         }
     }];
 }
+- (void)testTrainingBinderAbstractCorrectWithNetworkAndRestKit {
+    [self deleteAllDataContent];
+    
+    CDAMapper *mapping = [self mappingSimpleTrainingBinder];
+    
+    CDASimpleSyncModel *m1 = [[CDASimpleSyncModel alloc] initWithUid:@"teste" moduleClass:[CDARestModule class] userInfo:@{@"baseUrl":@"http://staging.trainingbinder.kvadrat.dk/api", @"resource":@"items",@"connectorClass":[CDAAFNetworkingConnector class]} timeInterval:0];
+    
+    CDASimpleSyncModel *m2 = [[CDASimpleSyncModel alloc] initWithUid:@"teste" moduleClass:[CDACoreDataParserSyncModule class] userInfo:@{@"parserClass":[CDARestKitCoreDataParser class], @"coreDataStack":[CoreDataStack coreDataStack], @"mapping":mapping} timeInterval:0];
+    
+    CDASimpleSyncModel *m = [[CDASimpleSyncModel alloc] initWithUid:@"CDAAbstractSyncService" moduleClass:[CDAAbstractSyncService class] userInfo:@{} subModuleModels:[NSArray<CDASyncModel> arrayWithObjects:m1,m2, nil] timeInterval:0];
+    
+    self.sut = [[CDAAbstractSyncService alloc] initWithSyncModel:m];
+    
+    CDAAbstractSyncServiceTest __weak *weakSelf = self;
+    [self.sut setCompletionBlock:^{
+        XCTAssert((NSArray *)weakSelf.sut.result != nil);
+        [weakSelf.expectation fulfill];
+    }];
+    [self.sut start];
+    
+    [self waitForExpectationsWithTimeout:10.0 handler:^(NSError *error) {
+        if (error) {
+            NSLog(@"Timeout Error: %@", error);
+        }
+    }];
+}
+- (CDAMapper *)mappingSimpleTrainingBinder{
+    CDAMapper *m = [CDAMapper new];
+    m.destinationClassName = NSStringFromClass([Textile class]);
+    m.attributesMapping = @{
+                            @"name":     @"name"
+                            };
+    m.localIdentifierKey = @"uid";
+    return m;
+}
 - (CDAMapper *)mappingSimple{
     CDAMapper *m = [CDAMapper new];
     m.rootKey = @"response";
