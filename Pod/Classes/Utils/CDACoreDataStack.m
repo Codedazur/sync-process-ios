@@ -29,6 +29,7 @@
     if(!(self = [super init]))return self;
     
     self.modelName = modelName;
+    [self managedObjectContext];
     return self;
 }
 #pragma mark - lazy getters

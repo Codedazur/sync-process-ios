@@ -35,10 +35,10 @@ typedef void(^ParseCompletionBlock)(id result);
 }
 - (instancetype)initWithMapping:(CDAMapper *)mapping AndCoreDataStack:(id<CDACoreDataStackProtocol>)coreDataStack{
     if(!(self = [super init]))return self;
+    self.context = [coreDataStack independentManagedObjectContext];
     self.store = [[RKManagedObjectStore alloc] initWithManagedObjectModel:[coreDataStack managedObjectModel]];
     self.mapping = [self extractMapping:mapping];
     self.rootKey = mapping.rootKey;
-    self.context = [coreDataStack independentManagedObjectContext];
     return self;
 }
 - (double)progress{

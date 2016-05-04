@@ -52,6 +52,7 @@
 		6360906B1CDA404A002E678B /* ContentItem+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = 6360905B1CDA404A002E678B /* ContentItem+CoreDataProperties.m */; };
 		6360906C1CDA404A002E678B /* ContentItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 6360905D1CDA404A002E678B /* ContentItem.m */; };
 		6360906D1CDA404A002E678B /* ContentItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 6360905D1CDA404A002E678B /* ContentItem.m */; };
+		636090731CDA4134002E678B /* CDASyncConfiguration.m in Sources */ = {isa = PBXBuildFile; fileRef = 636090721CDA4134002E678B /* CDASyncConfiguration.m */; };
 		63C53FAB1CC6595F0099E562 /* CDANetworkSyncModuleTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 63C53FAA1CC6595F0099E562 /* CDANetworkSyncModuleTest.m */; };
 		63CDC1531CC654000070E38D /* test.json in Resources */ = {isa = PBXBuildFile; fileRef = 63CDC1521CC654000070E38D /* test.json */; };
 		63CDC1541CC654000070E38D /* test.json in Resources */ = {isa = PBXBuildFile; fileRef = 63CDC1521CC654000070E38D /* test.json */; };
@@ -131,6 +132,9 @@
 		6360905B1CDA404A002E678B /* ContentItem+CoreDataProperties.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "ContentItem+CoreDataProperties.m"; sourceTree = "<group>"; };
 		6360905C1CDA404A002E678B /* ContentItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ContentItem.h; sourceTree = "<group>"; };
 		6360905D1CDA404A002E678B /* ContentItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ContentItem.m; sourceTree = "<group>"; };
+		6360906E1CDA4095002E678B /* CDASyncService_Tests-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "CDASyncService_Tests-Bridging-Header.h"; sourceTree = "<group>"; };
+		636090711CDA4134002E678B /* CDASyncConfiguration.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CDASyncConfiguration.h; sourceTree = "<group>"; };
+		636090721CDA4134002E678B /* CDASyncConfiguration.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CDASyncConfiguration.m; sourceTree = "<group>"; };
 		6380F0021CBFC0980080015E /* test.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = test.json; sourceTree = "<group>"; };
 		63C53FAA1CC6595F0099E562 /* CDANetworkSyncModuleTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CDANetworkSyncModuleTest.m; sourceTree = "<group>"; };
 		63CDC1521CC654000070E38D /* test.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = test.json; sourceTree = "<group>"; };
@@ -264,6 +268,9 @@
 				63C53FAA1CC6595F0099E562 /* CDANetworkSyncModuleTest.m */,
 				63418F281CC9070D0046AAD4 /* CDAArchiveProcessorTest.m */,
 				636090461CDA3577002E678B /* CDASyncServiceMangerTest.m */,
+				6360906E1CDA4095002E678B /* CDASyncService_Tests-Bridging-Header.h */,
+				636090711CDA4134002E678B /* CDASyncConfiguration.h */,
+				636090721CDA4134002E678B /* CDASyncConfiguration.m */,
 			);
 			path = Tests;
 			sourceTree = "<group>";
@@ -571,6 +578,7 @@
 				636090471CDA3577002E678B /* CDASyncServiceMangerTest.m in Sources */,
 				6360906B1CDA404A002E678B /* ContentItem+CoreDataProperties.m in Sources */,
 				63FDB5211CBBF83B006FE466 /* CDACoreDataSyncModuleTest.m in Sources */,
+				636090731CDA4134002E678B /* CDASyncConfiguration.m in Sources */,
 				63418F441CC90B7E0046AAD4 /* File+CoreDataProperties.m in Sources */,
 				63FDB4AE1CBBB10A006FE466 /* CDABundleSyncModuleTest.m in Sources */,
 				63418F4E1CC9116F0046AAD4 /* Textile.m in Sources */,
@@ -735,6 +743,7 @@
 			baseConfigurationReference = A4E7180D4EBC95A7732815C0 /* Pods-CDASyncService_Tests.debug.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ENABLE_MODULES = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(inherited)",
@@ -747,8 +756,11 @@
 					"$(inherited)",
 				);
 				INFOPLIST_FILE = "Tests/Tests-Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.demo.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "Tests/CDASyncService_Tests-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/CDASyncService_Example.app/CDASyncService_Example";
 				WRAPPER_EXTENSION = xctest;
 			};
@@ -759,6 +771,7 @@
 			baseConfigurationReference = 2EE4AD65DBA649812BA09280 /* Pods-CDASyncService_Tests.release.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ENABLE_MODULES = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(inherited)",
@@ -767,8 +780,10 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Tests/Tests-Prefix.pch";
 				INFOPLIST_FILE = "Tests/Tests-Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.demo.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "Tests/CDASyncService_Tests-Bridging-Header.h";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/CDASyncService_Example.app/CDASyncService_Example";
 				WRAPPER_EXTENSION = xctest;
 			};
