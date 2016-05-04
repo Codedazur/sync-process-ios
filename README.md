@@ -22,7 +22,7 @@ pod "CDASyncService"
 
 ## Dev
 ```unix
-git add -A && git commit -m "Release 0.0.1."
+git add -A && git commit -m "Release 0.0.1"
 git tag '0.0.1'
 git push --tags
 pod repo push bitbucket-cda-ios-pods CDASyncService.podspec --allow-warnings
