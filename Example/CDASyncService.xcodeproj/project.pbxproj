@@ -36,6 +36,22 @@
 		63418F4D1CC9116F0046AAD4 /* Textile.m in Sources */ = {isa = PBXBuildFile; fileRef = 63418F4C1CC9116F0046AAD4 /* Textile.m */; };
 		63418F4E1CC9116F0046AAD4 /* Textile.m in Sources */ = {isa = PBXBuildFile; fileRef = 63418F4C1CC9116F0046AAD4 /* Textile.m */; };
 		636090471CDA3577002E678B /* CDASyncServiceMangerTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 636090461CDA3577002E678B /* CDASyncServiceMangerTest.m */; };
+		6360905E1CDA404A002E678B /* Language+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = 6360904F1CDA404A002E678B /* Language+CoreDataProperties.m */; };
+		6360905F1CDA404A002E678B /* Language+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = 6360904F1CDA404A002E678B /* Language+CoreDataProperties.m */; };
+		636090601CDA404A002E678B /* Language.m in Sources */ = {isa = PBXBuildFile; fileRef = 636090511CDA404A002E678B /* Language.m */; };
+		636090611CDA404A002E678B /* Language.m in Sources */ = {isa = PBXBuildFile; fileRef = 636090511CDA404A002E678B /* Language.m */; };
+		636090621CDA404A002E678B /* Media+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = 636090531CDA404A002E678B /* Media+CoreDataProperties.m */; };
+		636090631CDA404A002E678B /* Media+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = 636090531CDA404A002E678B /* Media+CoreDataProperties.m */; };
+		636090641CDA404A002E678B /* Media.m in Sources */ = {isa = PBXBuildFile; fileRef = 636090551CDA404A002E678B /* Media.m */; };
+		636090651CDA404A002E678B /* Media.m in Sources */ = {isa = PBXBuildFile; fileRef = 636090551CDA404A002E678B /* Media.m */; };
+		636090661CDA404A002E678B /* MediaPage+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = 636090571CDA404A002E678B /* MediaPage+CoreDataProperties.m */; };
+		636090671CDA404A002E678B /* MediaPage+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = 636090571CDA404A002E678B /* MediaPage+CoreDataProperties.m */; };
+		636090681CDA404A002E678B /* MediaPage.m in Sources */ = {isa = PBXBuildFile; fileRef = 636090591CDA404A002E678B /* MediaPage.m */; };
+		636090691CDA404A002E678B /* MediaPage.m in Sources */ = {isa = PBXBuildFile; fileRef = 636090591CDA404A002E678B /* MediaPage.m */; };
+		6360906A1CDA404A002E678B /* ContentItem+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = 6360905B1CDA404A002E678B /* ContentItem+CoreDataProperties.m */; };
+		6360906B1CDA404A002E678B /* ContentItem+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = 6360905B1CDA404A002E678B /* ContentItem+CoreDataProperties.m */; };
+		6360906C1CDA404A002E678B /* ContentItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 6360905D1CDA404A002E678B /* ContentItem.m */; };
+		6360906D1CDA404A002E678B /* ContentItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 6360905D1CDA404A002E678B /* ContentItem.m */; };
 		63C53FAB1CC6595F0099E562 /* CDANetworkSyncModuleTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 63C53FAA1CC6595F0099E562 /* CDANetworkSyncModuleTest.m */; };
 		63CDC1531CC654000070E38D /* test.json in Resources */ = {isa = PBXBuildFile; fileRef = 63CDC1521CC654000070E38D /* test.json */; };
 		63CDC1541CC654000070E38D /* test.json in Resources */ = {isa = PBXBuildFile; fileRef = 63CDC1521CC654000070E38D /* test.json */; };
@@ -99,6 +115,22 @@
 		63418F4B1CC9116F0046AAD4 /* Textile.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Textile.h; sourceTree = "<group>"; };
 		63418F4C1CC9116F0046AAD4 /* Textile.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Textile.m; sourceTree = "<group>"; };
 		636090461CDA3577002E678B /* CDASyncServiceMangerTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CDASyncServiceMangerTest.m; sourceTree = "<group>"; };
+		6360904E1CDA404A002E678B /* Language+CoreDataProperties.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Language+CoreDataProperties.h"; sourceTree = "<group>"; };
+		6360904F1CDA404A002E678B /* Language+CoreDataProperties.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Language+CoreDataProperties.m"; sourceTree = "<group>"; };
+		636090501CDA404A002E678B /* Language.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Language.h; sourceTree = "<group>"; };
+		636090511CDA404A002E678B /* Language.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Language.m; sourceTree = "<group>"; };
+		636090521CDA404A002E678B /* Media+CoreDataProperties.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Media+CoreDataProperties.h"; sourceTree = "<group>"; };
+		636090531CDA404A002E678B /* Media+CoreDataProperties.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Media+CoreDataProperties.m"; sourceTree = "<group>"; };
+		636090541CDA404A002E678B /* Media.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Media.h; sourceTree = "<group>"; };
+		636090551CDA404A002E678B /* Media.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Media.m; sourceTree = "<group>"; };
+		636090561CDA404A002E678B /* MediaPage+CoreDataProperties.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "MediaPage+CoreDataProperties.h"; sourceTree = "<group>"; };
+		636090571CDA404A002E678B /* MediaPage+CoreDataProperties.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "MediaPage+CoreDataProperties.m"; sourceTree = "<group>"; };
+		636090581CDA404A002E678B /* MediaPage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MediaPage.h; sourceTree = "<group>"; };
+		636090591CDA404A002E678B /* MediaPage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MediaPage.m; sourceTree = "<group>"; };
+		6360905A1CDA404A002E678B /* ContentItem+CoreDataProperties.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "ContentItem+CoreDataProperties.h"; sourceTree = "<group>"; };
+		6360905B1CDA404A002E678B /* ContentItem+CoreDataProperties.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "ContentItem+CoreDataProperties.m"; sourceTree = "<group>"; };
+		6360905C1CDA404A002E678B /* ContentItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ContentItem.h; sourceTree = "<group>"; };
+		6360905D1CDA404A002E678B /* ContentItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ContentItem.m; sourceTree = "<group>"; };
 		6380F0021CBFC0980080015E /* test.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = test.json; sourceTree = "<group>"; };
 		63C53FAA1CC6595F0099E562 /* CDANetworkSyncModuleTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CDANetworkSyncModuleTest.m; sourceTree = "<group>"; };
 		63CDC1521CC654000070E38D /* test.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = test.json; sourceTree = "<group>"; };
@@ -267,6 +299,22 @@
 		63418F321CC90B7E0046AAD4 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				6360904E1CDA404A002E678B /* Language+CoreDataProperties.h */,
+				6360904F1CDA404A002E678B /* Language+CoreDataProperties.m */,
+				636090501CDA404A002E678B /* Language.h */,
+				636090511CDA404A002E678B /* Language.m */,
+				636090521CDA404A002E678B /* Media+CoreDataProperties.h */,
+				636090531CDA404A002E678B /* Media+CoreDataProperties.m */,
+				636090541CDA404A002E678B /* Media.h */,
+				636090551CDA404A002E678B /* Media.m */,
+				636090561CDA404A002E678B /* MediaPage+CoreDataProperties.h */,
+				636090571CDA404A002E678B /* MediaPage+CoreDataProperties.m */,
+				636090581CDA404A002E678B /* MediaPage.h */,
+				636090591CDA404A002E678B /* MediaPage.m */,
+				6360905A1CDA404A002E678B /* ContentItem+CoreDataProperties.h */,
+				6360905B1CDA404A002E678B /* ContentItem+CoreDataProperties.m */,
+				6360905C1CDA404A002E678B /* ContentItem.h */,
+				6360905D1CDA404A002E678B /* ContentItem.m */,
 				63418F4B1CC9116F0046AAD4 /* Textile.h */,
 				63418F4C1CC9116F0046AAD4 /* Textile.m */,
 				63418F331CC90B7E0046AAD4 /* Color+CoreDataProperties.h */,
@@ -492,16 +540,24 @@
 			buildActionMask = 2147483647;
 			files = (
 				6003F59E195388D20070C39A /* CDAAppDelegate.m in Sources */,
+				636090661CDA404A002E678B /* MediaPage+CoreDataProperties.m in Sources */,
+				636090681CDA404A002E678B /* MediaPage.m in Sources */,
 				63418F411CC90B7E0046AAD4 /* Color.m in Sources */,
+				636090601CDA404A002E678B /* Language.m in Sources */,
 				6003F5A7195388D20070C39A /* CDAViewController.m in Sources */,
 				63418F431CC90B7E0046AAD4 /* File+CoreDataProperties.m in Sources */,
+				6360906C1CDA404A002E678B /* ContentItem.m in Sources */,
 				63FDB52B1CBC0121006FE466 /* Model.xcdatamodeld in Sources */,
+				636090641CDA404A002E678B /* Media.m in Sources */,
 				63418F451CC90B7E0046AAD4 /* File.m in Sources */,
 				63418F4D1CC9116F0046AAD4 /* Textile.m in Sources */,
+				636090621CDA404A002E678B /* Media+CoreDataProperties.m in Sources */,
 				63418F471CC90B7E0046AAD4 /* Textile+CoreDataProperties.m in Sources */,
 				6003F59A195388D20070C39A /* main.m in Sources */,
 				63FDB5271CBC0058006FE466 /* CoreDataStack.m in Sources */,
 				63418F3F1CC90B7E0046AAD4 /* Color+CoreDataProperties.m in Sources */,
+				6360906A1CDA404A002E678B /* ContentItem+CoreDataProperties.m in Sources */,
+				6360905E1CDA404A002E678B /* Language+CoreDataProperties.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -510,19 +566,27 @@
 			buildActionMask = 2147483647;
 			files = (
 				63418F461CC90B7E0046AAD4 /* File.m in Sources */,
+				636090671CDA404A002E678B /* MediaPage+CoreDataProperties.m in Sources */,
 				63FDB5281CBC0058006FE466 /* CoreDataStack.m in Sources */,
 				636090471CDA3577002E678B /* CDASyncServiceMangerTest.m in Sources */,
+				6360906B1CDA404A002E678B /* ContentItem+CoreDataProperties.m in Sources */,
 				63FDB5211CBBF83B006FE466 /* CDACoreDataSyncModuleTest.m in Sources */,
 				63418F441CC90B7E0046AAD4 /* File+CoreDataProperties.m in Sources */,
 				63FDB4AE1CBBB10A006FE466 /* CDABundleSyncModuleTest.m in Sources */,
 				63418F4E1CC9116F0046AAD4 /* Textile.m in Sources */,
+				6360905F1CDA404A002E678B /* Language+CoreDataProperties.m in Sources */,
+				636090651CDA404A002E678B /* Media.m in Sources */,
 				63C53FAB1CC6595F0099E562 /* CDANetworkSyncModuleTest.m in Sources */,
 				63418F401CC90B7E0046AAD4 /* Color+CoreDataProperties.m in Sources */,
+				636090631CDA404A002E678B /* Media+CoreDataProperties.m in Sources */,
+				636090611CDA404A002E678B /* Language.m in Sources */,
 				63418F291CC9070D0046AAD4 /* CDAArchiveProcessorTest.m in Sources */,
 				63418F421CC90B7E0046AAD4 /* Color.m in Sources */,
 				63FDB5121CBBCCD7006FE466 /* CDAAbstractSyncServiceTest.m in Sources */,
+				636090691CDA404A002E678B /* MediaPage.m in Sources */,
 				63418F481CC90B7E0046AAD4 /* Textile+CoreDataProperties.m in Sources */,
 				63FDB5091CBBC15B006FE466 /* CDAParserSyncModuleTest.m in Sources */,
+				6360906D1CDA404A002E678B /* ContentItem.m in Sources */,
 				63FDB52C1CBC0121006FE466 /* Model.xcdatamodeld in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
