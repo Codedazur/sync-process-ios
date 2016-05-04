@@ -10,7 +10,7 @@
 #import <AFNetworking/AFNetworking.h>
 
 @implementation CDAAFNetworkingConnector
-@synthesize baseUrl = _baseUrl, resource = _resource;
+@synthesize baseUrl = _baseUrl, resource = _resource, basicAuthPassword = _basicAuthPassword, basicAuthUser = _basicAuthUser;
 - (void)getObjectsWithSuccess:(void (^)(id))success failure:(void (^)(NSError *))failure{
     [self getObjectsWithParameters:nil WithSuccess:success failure:failure];
 }
@@ -19,6 +19,10 @@
     
     NSString *url = [[self baseUrl] stringByAppendingPathComponent:self.resource];
     AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
+    
+    if(self.basicAuthUser != nil && self.basicAuthPassword != nil)
+        [manager.requestSerializer setAuthorizationHeaderFieldWithUsername:self.basicAuthUser password:self.basicAuthPassword];
+        
     [manager GET:url parameters:parameters progress:nil success:^(NSURLSessionTask *task, id responseObject) {
         success(responseObject);
     } failure:^(NSURLSessionTask *operation, NSError *error) {

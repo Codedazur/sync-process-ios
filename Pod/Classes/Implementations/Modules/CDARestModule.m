@@ -39,6 +39,11 @@
     self.connector.baseUrl = [[self.model userInfo] valueForKey:@"baseUrl"];
     self.connector.resource = [[self.model userInfo] valueForKey:@"resource"];
     
+    if ([[self.model userInfo] valueForKey:@"basicAuthUser"] && [[self.model userInfo] valueForKey:@"basicAuthPassword"]) {
+        self.connector.basicAuthUser = [[self.model userInfo] valueForKey:@"basicAuthUser"];
+        self.connector.basicAuthPassword = [[self.model userInfo] valueForKey:@"basicAuthPassword"];
+    }
+    
     CDARestModule __weak *weakSelf = self;
     [self.connector getObjectsWithSuccess:^(id responseObject) {
         _result = responseObject;
