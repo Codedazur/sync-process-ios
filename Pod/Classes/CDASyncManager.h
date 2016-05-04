@@ -12,5 +12,5 @@
 @interface CDASyncManager : NSObject<CDASyncManagerProtocol>
 - (instancetype)initWithSyncModels:(NSArray<CDASyncModel> *)syncs
                     SchedulerClass:(Class<CDASyncScheduleMangerProtocol>)schedulerClass
-                 ReachabilityClass:(Class<CDAReachabilityManagerProtocol>)reachabilityClass;
+               ReachabilityManager:(id<CDAReachabilityManagerProtocol>)reachabilityManager;
 @end

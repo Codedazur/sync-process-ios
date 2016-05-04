@@ -25,7 +25,8 @@ typedef enum
 @property (readonly, nonatomic, assign, getter = isReachable) BOOL reachable;
 @property (readonly, nonatomic, assign, getter = isReachableViaWWAN) BOOL reachableViaWWAN;
 @property (readonly, nonatomic, assign, getter = isReachableViaWiFi) BOOL reachableViaWiFi;
-
++ (instancetype)sharedManger;
+- (void)startMonitoring;
 @end
 
 @protocol CDAReachabilityManagerDelegate <NSObject>

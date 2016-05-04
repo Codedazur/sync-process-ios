@@ -5,10 +5,44 @@
         <attribute name="uid" optional="YES" attributeType="String" syncable="YES"/>
         <relationship name="textile" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Textile" inverseName="colours" inverseEntity="Textile" syncable="YES"/>
     </entity>
+    <entity name="ContentItem" representedClassName=".ContentItem" syncable="YES">
+        <attribute name="canSend" optional="YES" attributeType="Boolean" defaultValueString="NO" syncable="YES"/>
+        <attribute name="id" attributeType="Integer 32" indexed="YES" syncable="YES"/>
+        <attribute name="isDefault" optional="YES" attributeType="Boolean" defaultValueString="NO" syncable="YES"/>
+        <attribute name="name" attributeType="String" syncable="YES"/>
+        <attribute name="order" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="parentId" optional="YES" attributeType="Integer 32" defaultValueString="0" indexed="YES" syncable="YES"/>
+        <attribute name="rootId" optional="YES" attributeType="Integer 32" defaultValueString="0" indexed="YES" syncable="YES"/>
+        <attribute name="thumbnailMediaId" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <attribute name="treePath" optional="YES" attributeType="String" indexed="YES" syncable="YES"/>
+        <attribute name="type" optional="YES" attributeType="String" indexed="YES" syncable="YES"/>
+        <attribute name="url" optional="YES" attributeType="String" syncable="YES"/>
+    </entity>
     <entity name="File" representedClassName="File" syncable="YES">
         <attribute name="fileHash" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="state" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
         <attribute name="uid" optional="YES" attributeType="String" syncable="YES"/>
+    </entity>
+    <entity name="Language" representedClassName=".Language" syncable="YES">
+        <attribute name="id" attributeType="Integer 32" defaultValueString="0" indexed="YES" syncable="YES"/>
+        <attribute name="name" attributeType="String" indexed="YES" syncable="YES"/>
+    </entity>
+    <entity name="Media" representedClassName=".Media" syncable="YES">
+        <attribute name="contentItemId" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <attribute name="fileHash" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="fileName" attributeType="String" syncable="YES"/>
+        <attribute name="id" attributeType="Integer 32" defaultValueString="0" indexed="YES" syncable="YES"/>
+        <attribute name="languageId" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <attribute name="pages" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <attribute name="type" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="url" attributeType="String" syncable="YES"/>
+    </entity>
+    <entity name="MediaPage" representedClassName="MediaPage" syncable="YES">
+        <attribute name="contentItemId" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <attribute name="id" attributeType="Integer 32" defaultValueString="0" indexed="YES" syncable="YES"/>
+        <attribute name="mediaId" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <attribute name="page" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <attribute name="text" optional="YES" attributeType="String" syncable="YES"/>
     </entity>
     <entity name="Textile" representedClassName="Textile" syncable="YES">
         <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
@@ -19,5 +53,9 @@
         <element name="Color" positionX="-63" positionY="-18" width="128" height="90"/>
         <element name="File" positionX="-54" positionY="18" width="128" height="90"/>
         <element name="Textile" positionX="-54" positionY="-9" width="128" height="90"/>
+        <element name="ContentItem" positionX="-63" positionY="27" width="128" height="210"/>
+        <element name="Media" positionX="-54" positionY="36" width="128" height="165"/>
+        <element name="MediaPage" positionX="-45" positionY="45" width="128" height="120"/>
+        <element name="Language" positionX="-36" positionY="54" width="128" height="75"/>
     </elements>
 </model>

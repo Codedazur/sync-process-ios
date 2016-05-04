@@ -11,7 +11,7 @@
 
 @interface CDASyncScheduler()
 @property (nonatomic, copy) NSArray<CDASyncModel> *syncModels;
-@property (nonatomic, copy) id<CDASyncScheduleMangerProtocol>manager;
+@property (nonatomic, strong) id<CDASyncScheduleMangerProtocol>manager;
 @end
 @implementation CDASyncScheduler
 @synthesize delegate = _delegate;

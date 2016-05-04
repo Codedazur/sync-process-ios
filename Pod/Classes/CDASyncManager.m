@@ -19,7 +19,6 @@
 @property (nonatomic, copy) NSArray<CDASyncModel> *syncModels;
 @property (nonatomic, strong) id<CDAReachabilityManagerProtocol> reachability;
 @property (nonatomic, strong) NSTimer *timer;
-@property (nonatomic, strong) Class<CDAReachabilityManagerProtocol> reachabilityClass;
 @property (nonatomic, strong) Class<CDASyncScheduleMangerProtocol> schedulerManagerClass;
 @end
 @implementation CDASyncManager
@@ -27,9 +26,12 @@
 #pragma mark - initializers
 - (instancetype)initWithSyncModels:(NSArray<CDASyncModel> *)syncs
                     SchedulerClass:(Class<CDASyncScheduleMangerProtocol>)schedulerClass
-                 ReachabilityClass:(Class<CDAReachabilityManagerProtocol>)reachabilityClass{
+                 ReachabilityManager:(id<CDAReachabilityManagerProtocol>)reachabilityManager{
     if(!(self = [super init]))return nil;
     self.syncModels = syncs;
+    self.reachability = reachabilityManager;
+    self.reachability.delegate = self;
+    self.schedulerManagerClass = schedulerClass;
     [self setupNotifications];
     return self;
 }
@@ -43,13 +45,6 @@
 }
 
 #pragma mark - Lazy getters
-- (id<CDAReachabilityManagerProtocol>)reachability{
-    if(!_reachability){
-        _reachability = [[(Class)self.reachabilityClass alloc] init];
-        _reachability.delegate = self;
-    }
-    return _reachability;
-}
 - (id<CDASyncSchedulerProtocol>)scheduler{
     if(!_scheduler){
         _scheduler = [[CDASyncScheduler alloc] initWithSyncModels:self.syncModels
