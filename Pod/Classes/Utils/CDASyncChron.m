@@ -7,6 +7,7 @@
 //
 
 #import "CDASyncChron.h"
+#import "CDASyncNotifications.h"
 @interface CDASyncChron()
 @property (nonatomic, strong) NSTimer *timer;
 @property (nonatomic) NSTimeInterval timeInterval;
@@ -28,7 +29,7 @@
     self.timer= [NSTimer scheduledTimerWithTimeInterval:[self timeInterval]  target:self selector:@selector(timerFired:) userInfo:nil repeats:YES];
 }
 - (void) timerFired:(NSTimer *)timer{
-    [[NSNotificationCenter defaultCenter] postNotificationName:kSyncChronPull
+    [[NSNotificationCenter defaultCenter] postNotificationName:kSyncNotificationChronPull
                                                         object:self
                                                       userInfo:nil];
 }

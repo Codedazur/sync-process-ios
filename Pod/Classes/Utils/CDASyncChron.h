@@ -7,7 +7,8 @@
 //
 
 #import <Foundation/Foundation.h>
-NSString *const kSyncChronPull = @"sync-chron";
+
 @interface CDASyncChron : NSObject
 - (instancetype)initWithInterval:(NSTimeInterval)timeInterval;
+- (void)start;
 @end
