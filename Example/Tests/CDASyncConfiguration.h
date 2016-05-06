@@ -9,6 +9,9 @@
 #import <Foundation/Foundation.h>
 #import "CDASyncModel.h"
 #import "CDACoreDataStackProtocol.h"
+#import "CDASimpleSyncModel.h"
+
 @interface CDASyncConfiguration : NSObject
 + (NSArray<CDASyncModel> *)syncConfig:(id<CDACoreDataStackProtocol>)stack;
++ (CDASimpleSyncModel *)mediaDownoadWithStack:(id<CDACoreDataStackProtocol>)stack;
 @end

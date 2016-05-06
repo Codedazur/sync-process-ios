@@ -21,6 +21,7 @@
 		6003F5B2195388D20070C39A /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6003F591195388D20070C39A /* UIKit.framework */; };
 		6003F5BA195388D20070C39A /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 6003F5B8195388D20070C39A /* InfoPlist.strings */; };
 		631407AF1CDCBED400DFDD4A /* CDASyncConfiguration.m in Sources */ = {isa = PBXBuildFile; fileRef = 636090721CDA4134002E678B /* CDASyncConfiguration.m */; };
+		631407B11CDCC75900DFDD4A /* CDASyncDownloadTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 631407B01CDCC75900DFDD4A /* CDASyncDownloadTest.m */; };
 		63418F261CC906F10046AAD4 /* archive-test.zip in Resources */ = {isa = PBXBuildFile; fileRef = 63418F251CC906F10046AAD4 /* archive-test.zip */; };
 		63418F271CC906F10046AAD4 /* archive-test.zip in Resources */ = {isa = PBXBuildFile; fileRef = 63418F251CC906F10046AAD4 /* archive-test.zip */; };
 		63418F291CC9070D0046AAD4 /* CDAArchiveProcessorTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 63418F281CC9070D0046AAD4 /* CDAArchiveProcessorTest.m */; };
@@ -102,6 +103,7 @@
 		6003F5B9195388D20070C39A /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		606FC2411953D9B200FFA9A0 /* Tests-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Tests-Prefix.pch"; sourceTree = "<group>"; };
 		60B65CA7F8FC15A7A1EEB261 /* libPods-CDASyncService_Tests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-CDASyncService_Tests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		631407B01CDCC75900DFDD4A /* CDASyncDownloadTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CDASyncDownloadTest.m; sourceTree = "<group>"; };
 		63418F251CC906F10046AAD4 /* archive-test.zip */ = {isa = PBXFileReference; lastKnownFileType = archive.zip; path = "archive-test.zip"; sourceTree = "<group>"; };
 		63418F281CC9070D0046AAD4 /* CDAArchiveProcessorTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CDAArchiveProcessorTest.m; sourceTree = "<group>"; };
 		63418F331CC90B7E0046AAD4 /* Color+CoreDataProperties.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Color+CoreDataProperties.h"; sourceTree = "<group>"; };
@@ -272,6 +274,7 @@
 				6360906E1CDA4095002E678B /* CDASyncService_Tests-Bridging-Header.h */,
 				636090711CDA4134002E678B /* CDASyncConfiguration.h */,
 				636090721CDA4134002E678B /* CDASyncConfiguration.m */,
+				631407B01CDCC75900DFDD4A /* CDASyncDownloadTest.m */,
 			);
 			path = Tests;
 			sourceTree = "<group>";
@@ -598,6 +601,7 @@
 				63FDB5091CBBC15B006FE466 /* CDAParserSyncModuleTest.m in Sources */,
 				6360906D1CDA404A002E678B /* ContentItem.m in Sources */,
 				63FDB52C1CBC0121006FE466 /* Model.xcdatamodeld in Sources */,
+				631407B11CDCC75900DFDD4A /* CDASyncDownloadTest.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

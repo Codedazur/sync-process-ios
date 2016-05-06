@@ -20,6 +20,9 @@
 #import "Language.h"
 #import "MediaPage.h"
 #import "Media.h"
+#import "CDADownloadableContentAnalyzerModule.h"
+#import "CDADownloadableContentRetrieverModule.h"
+#import "CDADownloadableContentMapper.h"
 @implementation CDASyncConfiguration
 + (NSString *)baseUrl{
     return @"http://staging.trainingbinder.kvadrat.dk/api";
@@ -96,5 +99,31 @@
 + (NSArray<CDASyncModel> *)syncConfig:(id<CDACoreDataStackProtocol>)stack{
     return @[[CDASyncConfiguration contentItemsSyncModelWithStack:stack],[CDASyncConfiguration languagesSyncModel:stack], [CDASyncConfiguration mediaPagesSyncModel:stack],[CDASyncConfiguration mediaSyncModelWithStack:stack]];
     
+}
++ (CDASimpleSyncModel *)mediaDownoadWithStack:(id<CDACoreDataStackProtocol>)stack{
+     NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+    NSString *folder = [[paths firstObject] stringByAppendingPathComponent:@"media"];
+    CDADownloadableContentMapper *m = [CDADownloadableContentMapper new];
+    
+    m.destinationClassName = NSStringFromClass([Media class]);
+    m.remoteFileNameKey = @"fileName";
+    m.remoteIdentifierKey = @"id";
+    m.remoteFileHashKey = @"fileHash";
+    m.localFileHashKey = @"fileHash";
+    m.localFileNameKey = @"fileName";
+    m.localIdentifierKey = @"id";
+    
+    NSDictionary *userInfo =@{@"baseUrl":[CDASyncConfiguration baseUrl],
+                              @"resource":@"media",
+                              @"connectorClass":[CDAAFNetworkingConnector class],
+                              @"basicAuthUser":[CDASyncConfiguration user],
+                              @"basicAuthPassword":[CDASyncConfiguration pass],
+                              @"mapping":m,
+                              @"coreDataStack":stack,
+                              @"destinationFolder":folder};
+    
+    CDASimpleSyncModel *smAnalyze = [[CDASimpleSyncModel alloc] initWithUid:@"analyze" moduleClass:[CDADownloadableContentAnalyzerModule class] userInfo:userInfo timeInterval:0];
+
+    return smAnalyze;
 }
 @end

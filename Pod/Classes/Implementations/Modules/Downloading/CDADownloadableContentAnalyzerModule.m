@@ -51,6 +51,11 @@
     }
     self.connector.baseUrl = [[self.model userInfo] valueForKey:@"baseUrl"];
     self.connector.resource = [[self.model userInfo] valueForKey:@"resource"];
+    if ([[self.model userInfo] valueForKey:@"basicAuthUser"] && [[self.model userInfo] valueForKey:@"basicAuthPassword"]) {
+        self.connector.basicAuthUser = [[self.model userInfo] valueForKey:@"basicAuthUser"];
+        self.connector.basicAuthPassword = [[self.model userInfo] valueForKey:@"basicAuthPassword"];
+    }
+
 
     NSBundle *bundle = [NSBundle bundleForClass:[self class]];
     self.downloadCoreDataStack = [[CDACoreDataStack alloc] initWithModelName:kSyncConstantBGDownloadDatabaseName AndBundle:bundle];
@@ -91,8 +96,8 @@
     NSSet *localHashes =[NSSet setWithArray:[entities valueForKeyPath:mapping.localFileHashKey]];
     [remoteHashes minusSet:localHashes];
     
-    NSString *predicateString = [NSString stringWithFormat:@"%@ == %@", mapping.remoteFileHashKey, @"%@"];
-    NSArray *dataToDownload = [(NSArray *) dataToParse filteredArrayUsingPredicate:[NSPredicate predicateWithFormat:predicateString]];
+    NSString *predicateString = [NSString stringWithFormat:@"%@ IN %@", mapping.remoteFileHashKey, @"%@"];
+    NSArray *dataToDownload = [(NSArray *) dataToParse filteredArrayUsingPredicate:[NSPredicate predicateWithFormat:predicateString,remoteHashes]];
     
     NSMutableArray *files = [NSMutableArray new];
     CDABGDRelationFile *relationFile;
@@ -101,9 +106,9 @@
         relationFile.destinationFolder = [[self.model userInfo] valueForKey:@"destinationFolder"];
         relationFile.entityClass = mapping.destinationClassName;
         relationFile.entityHashKey = mapping.localFileHashKey;
-        relationFile.entityId = [entityToDownload valueForKey:mapping.remoteIdentifierKey];
+        relationFile.entityId = [[entityToDownload valueForKey:mapping.remoteIdentifierKey] isKindOfClass:[NSString class]] ? [entityToDownload valueForKey:mapping.remoteIdentifierKey] : [[entityToDownload valueForKey:mapping.remoteIdentifierKey] stringValue] ;
         relationFile.fileName = [entityToDownload valueForKey:mapping.remoteFileNameKey];
-        relationFile.fileHash = [entityToDownload valueForKey:mapping.remoteFileHashKey];
+        relationFile.fileHash = [[entityToDownload valueForKey:mapping.remoteFileHashKey] isKindOfClass:[NSString class]] ? [entityToDownload valueForKey:mapping.remoteFileHashKey] : [[entityToDownload valueForKey:mapping.remoteFileHashKey] stringValue];
         
         [files addObject:relationFile];
     }
