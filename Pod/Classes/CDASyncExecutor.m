@@ -90,7 +90,7 @@
     [self stopSyncService:syncService];
     [self checkSyncProcessCompleted];
 }
-- (void)CDASyncServiceDidFinishWithSuccess:(NSObject<CDASyncServiceProtocol> *)syncService
+- (void)CDASyncServiceDidFinishWithSuccess:(NSObject<CDASyncServiceProtocol> *)syncService AndResult:(id)result
 {
     [self.delegate CDASyncExecutor:self succeededSyncWithId:[syncService uid]];
     [self stopSyncService:syncService];

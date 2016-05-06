@@ -1,4 +1,4 @@
-//
+///Users/tamarabernad/Documents/workspace_xcode/kvadrat-training-binder-ios/kvadrat-training-binderTests/SyncManagerTests.swift
 //  CDASyncServiceMangerTest.m
 //  CDASyncService
 //
