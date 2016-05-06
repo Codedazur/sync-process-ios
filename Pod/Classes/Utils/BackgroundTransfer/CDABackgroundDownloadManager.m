@@ -102,8 +102,9 @@
             
             CDABGDownloadingFile *file = [self getFileWithSession:session AndTask:downloadTask];
             NSLog(@"moving to path %@", file.destinationPath);
-            
             NSError *error;
+            [[NSFileManager defaultManager] createDirectoryAtPath:file.destinationPath withIntermediateDirectories:YES attributes:nil error:&error];
+            
             NSURL *dest = [NSURL fileURLWithPath:file.destinationPath];
             NSURL *orig = [NSURL fileURLWithPath:location.path];
             [[NSFileManager defaultManager] replaceItemAtURL:dest withItemAtURL:orig backupItemName:nil options:0 resultingItemURL:nil error:&error];

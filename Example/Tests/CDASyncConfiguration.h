@@ -14,4 +14,5 @@
 @interface CDASyncConfiguration : NSObject
 + (NSArray<CDASyncModel> *)syncConfig:(id<CDACoreDataStackProtocol>)stack;
 + (CDASimpleSyncModel *)mediaDownoadWithStack:(id<CDACoreDataStackProtocol>)stack;
++ (CDASimpleSyncModel *)mediaDownloaderWithStack:(id<CDACoreDataStackProtocol>)stack;
 @end

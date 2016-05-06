@@ -100,9 +100,45 @@
     return @[[CDASyncConfiguration contentItemsSyncModelWithStack:stack],[CDASyncConfiguration languagesSyncModel:stack], [CDASyncConfiguration mediaPagesSyncModel:stack],[CDASyncConfiguration mediaSyncModelWithStack:stack]];
     
 }
++ (CDASimpleSyncModel *)mediaDownloaderWithStack:(id<CDACoreDataStackProtocol>)stack{
+    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+    NSString *folder = [[paths firstObject] stringByAppendingPathComponent:@"download-temp"];
+    
+    NSDictionary *userInfo =@{@"baseUrl":[CDASyncConfiguration baseUrl],
+                              @"resource":@"downloads",
+                              @"connectorClass":[CDAAFNetworkingConnector class],
+                              @"basicAuthUser":[CDASyncConfiguration user],
+                              @"basicAuthPassword":[CDASyncConfiguration pass],
+                              @"coreDataStack":stack,
+                              @"data":@[@1,@2,@3],
+                              @"mapping":[CDASyncConfiguration downloadMapper],
+                              @"identifier":@"123456",
+                              @"destinationFolder":folder};
+    
+    CDASimpleSyncModel *smAnalyze = [[CDASimpleSyncModel alloc] initWithUid:@"analyze" moduleClass:[CDADownloadableContentAnalyzerModule class] userInfo:userInfo timeInterval:0];
+    
+    return smAnalyze;
+
+}
 + (CDASimpleSyncModel *)mediaDownoadWithStack:(id<CDACoreDataStackProtocol>)stack{
-     NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
     NSString *folder = [[paths firstObject] stringByAppendingPathComponent:@"media"];
+    
+    
+    NSDictionary *userInfo =@{@"baseUrl":[CDASyncConfiguration baseUrl],
+                              @"resource":@"media",
+                              @"connectorClass":[CDAAFNetworkingConnector class],
+                              @"basicAuthUser":[CDASyncConfiguration user],
+                              @"basicAuthPassword":[CDASyncConfiguration pass],
+                              @"mapping":[CDASyncConfiguration downloadMapper],
+                              @"coreDataStack":stack,
+                              @"destinationFolder":folder};
+    
+    CDASimpleSyncModel *smAnalyze = [[CDASimpleSyncModel alloc] initWithUid:@"analyze" moduleClass:[CDADownloadableContentAnalyzerModule class] userInfo:userInfo timeInterval:0];
+
+    return smAnalyze;
+}
++(CDADownloadableContentMapper *)downloadMapper{
     CDADownloadableContentMapper *m = [CDADownloadableContentMapper new];
     
     m.destinationClassName = NSStringFromClass([Media class]);
@@ -112,18 +148,6 @@
     m.localFileHashKey = @"fileHash";
     m.localFileNameKey = @"fileName";
     m.localIdentifierKey = @"id";
-    
-    NSDictionary *userInfo =@{@"baseUrl":[CDASyncConfiguration baseUrl],
-                              @"resource":@"media",
-                              @"connectorClass":[CDAAFNetworkingConnector class],
-                              @"basicAuthUser":[CDASyncConfiguration user],
-                              @"basicAuthPassword":[CDASyncConfiguration pass],
-                              @"mapping":m,
-                              @"coreDataStack":stack,
-                              @"destinationFolder":folder};
-    
-    CDASimpleSyncModel *smAnalyze = [[CDASimpleSyncModel alloc] initWithUid:@"analyze" moduleClass:[CDADownloadableContentAnalyzerModule class] userInfo:userInfo timeInterval:0];
-
-    return smAnalyze;
+    return m;
 }
 @end

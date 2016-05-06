@@ -8,11 +8,13 @@
 
 #import <XCTest/XCTest.h>
 #import "CDADownloadableContentAnalyzerModule.h"
+#import "CDADownloadableContentRetrieverModule.h"
 #import "CDASyncConfiguration.h"
 #import "CDACoreDataStack.h"
 @interface CDASyncDownloadTest : XCTestCase
 
-@property (nonatomic, strong)CDADownloadableContentAnalyzerModule *sut;
+@property (nonatomic, strong)CDADownloadableContentAnalyzerModule *sutAnalyzer;
+@property (nonatomic, strong)CDADownloadableContentRetrieverModule *sutDownloader;
 @property(nonatomic, strong)CDACoreDataStack *stack;
 @property (nonatomic, strong)XCTestExpectation *expectation;
 @end
@@ -31,18 +33,18 @@
     [super tearDown];
 }
 
-- (void)testExample {
-    self.sut = [[CDADownloadableContentAnalyzerModule alloc] initWithSyncModel:[CDASyncConfiguration mediaDownoadWithStack:self.stack]];
+- (void)testAnalyzer {
+    self.sutAnalyzer = [[CDADownloadableContentAnalyzerModule alloc] initWithSyncModel:[CDASyncConfiguration mediaDownoadWithStack:self.stack]];
     
     CDASyncDownloadTest __weak *weakSelf = self;
-    [self.sut setCompletionBlock:^{
-        id result = [weakSelf.sut result];
-        NSError *error = [weakSelf.sut error];
+    [self.sutAnalyzer setCompletionBlock:^{
+        id result = [weakSelf.sutAnalyzer result];
+        NSError *error = [weakSelf.sutAnalyzer error];
         XCTAssert(result != nil);
         XCTAssert(error == nil);
         [weakSelf.expectation fulfill];
     }];
-    [self.sut start];
+    [self.sutAnalyzer start];
     
     
     [self waitForExpectationsWithTimeout:30.0 handler:^(NSError *error) {
@@ -52,5 +54,26 @@
     }];
 
 }
+- (void)testDownloader{
+    self.sutDownloader = [[CDADownloadableContentRetrieverModule alloc] initWithSyncModel:[CDASyncConfiguration mediaDownloaderWithStack:self.stack]];
+    
+    CDASyncDownloadTest __weak *weakSelf = self;
+    [self.sutDownloader setCompletionBlock:^{
+        id result = [weakSelf.sutDownloader result];
+        NSError *error = [weakSelf.sutDownloader error];
+        XCTAssert(result != nil);
+        XCTAssert(error == nil);
+        [weakSelf.expectation fulfill];
+    }];
+    [self.sutDownloader start];
+    
+    
+    [self waitForExpectationsWithTimeout:30.0 handler:^(NSError *error) {
+        if (error) {
+            NSLog(@"Timeout Error: %@", error);
+        }
+    }];
+    
 
+}
 @end

@@ -109,12 +109,13 @@
         relationFile.entityId = [[entityToDownload valueForKey:mapping.remoteIdentifierKey] isKindOfClass:[NSString class]] ? [entityToDownload valueForKey:mapping.remoteIdentifierKey] : [[entityToDownload valueForKey:mapping.remoteIdentifierKey] stringValue] ;
         relationFile.fileName = [entityToDownload valueForKey:mapping.remoteFileNameKey];
         relationFile.fileHash = [[entityToDownload valueForKey:mapping.remoteFileHashKey] isKindOfClass:[NSString class]] ? [entityToDownload valueForKey:mapping.remoteFileHashKey] : [[entityToDownload valueForKey:mapping.remoteFileHashKey] stringValue];
+        relationFile.id = [[[self.model userInfo] valueForKey:@"resource"] stringByAppendingString:relationFile.entityId];
         
         [files addObject:relationFile];
     }
     [self.downloadCoreDataStack saveMainContext];
     
-    return [files valueForKeyPath:@"objectID"];
+    return [files valueForKey:@"entityId"];
     
 }
 @end
