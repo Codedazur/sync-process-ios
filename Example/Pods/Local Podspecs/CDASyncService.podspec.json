@@ -1,6 +1,6 @@
 {
   "name": "CDASyncService",
-  "version": "0.0.5",
+  "version": "0.0.9",
   "summary": "Framework for Sync Processes",
   "description": "Base Framework to use for syncing a large amount of data into an app",
   "homepage": "https://github.com/Codedazur/sync-process-ios",
@@ -10,7 +10,7 @@
   },
   "source": {
     "git": "https://github.com/Codedazur/sync-process-ios.git",
-    "tag": "0.0.5"
+    "tag": "0.0.9"
   },
   "platforms": {
     "ios": "7.0"

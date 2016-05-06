@@ -64,7 +64,7 @@
         NSString *fileName = [downloadUrl lastPathComponent];
         
         CDABGDFile *file = [weakSelf.downloadCoreDataStack createNewEntity:NSStringFromClass([CDABGDFile class]) inContext:[weakSelf.downloadCoreDataStack managedObjectContext]];
-        [file addRelationFiles:[weakSelf createDownloadFilesObjectsForIds:idsToDownload]];
+        [file addRelationFiles:[weakSelf getDownloadFilesObjectsForIds:idsToDownload]];
         [weakSelf.downloadCoreDataStack saveMainContext];
         
         [[CDABackgroundDownloadManager sharedInstance] addDownloadTaskWithUrlString:downloadUrl AndDestinationFilePath:[downloadPath stringByAppendingPathComponent:fileName]];
@@ -76,18 +76,18 @@
     }];
     
 }
-- (NSSet *)createDownloadFilesObjectsForIds:(NSArray *)ids{
+- (NSSet *)getDownloadFilesObjectsForIds:(NSArray *)ids{
+    
     NSMutableArray *files = [NSMutableArray new];
     CDABGDRelationFile *relationFile;
-    for (NSString *entityId in ids) {
-        relationFile = [self.downloadCoreDataStack createNewEntity:NSStringFromClass([CDABGDRelationFile class]) inContext:[self.downloadCoreDataStack managedObjectContext]];
-        relationFile.destinationFolder = @"";
-        relationFile.entityClass = @"";
-        relationFile.entityHashKey = @"";
-        relationFile.entityId = entityId;
-        relationFile.fileName = @"";
-        relationFile.fileHash = @"";
-        [files addObject:relationFile];
+    for (NSManagedObjectID *entityId in ids) {
+        NSError *error;
+        NSManagedObject *file = [[self.downloadCoreDataStack managedObjectContext] existingObjectWithID:entityId error:&error];
+        if(!error){
+            [files addObject:file];
+        }else{
+            NSLog(@"%@ error retrieving object from download db", NSStringFromClass([self class]));
+        }
     }
     return [NSSet setWithArray:files];
 }

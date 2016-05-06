@@ -20,6 +20,7 @@
 		6003F5B1195388D20070C39A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6003F58D195388D20070C39A /* Foundation.framework */; };
 		6003F5B2195388D20070C39A /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6003F591195388D20070C39A /* UIKit.framework */; };
 		6003F5BA195388D20070C39A /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 6003F5B8195388D20070C39A /* InfoPlist.strings */; };
+		631407AF1CDCBED400DFDD4A /* CDASyncConfiguration.m in Sources */ = {isa = PBXBuildFile; fileRef = 636090721CDA4134002E678B /* CDASyncConfiguration.m */; };
 		63418F261CC906F10046AAD4 /* archive-test.zip in Resources */ = {isa = PBXBuildFile; fileRef = 63418F251CC906F10046AAD4 /* archive-test.zip */; };
 		63418F271CC906F10046AAD4 /* archive-test.zip in Resources */ = {isa = PBXBuildFile; fileRef = 63418F251CC906F10046AAD4 /* archive-test.zip */; };
 		63418F291CC9070D0046AAD4 /* CDAArchiveProcessorTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 63418F281CC9070D0046AAD4 /* CDAArchiveProcessorTest.m */; };
@@ -552,6 +553,7 @@
 				63418F411CC90B7E0046AAD4 /* Color.m in Sources */,
 				636090601CDA404A002E678B /* Language.m in Sources */,
 				6003F5A7195388D20070C39A /* CDAViewController.m in Sources */,
+				631407AF1CDCBED400DFDD4A /* CDASyncConfiguration.m in Sources */,
 				63418F431CC90B7E0046AAD4 /* File+CoreDataProperties.m in Sources */,
 				6360906C1CDA404A002E678B /* ContentItem.m in Sources */,
 				63FDB52B1CBC0121006FE466 /* Model.xcdatamodeld in Sources */,

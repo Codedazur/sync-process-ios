@@ -10,5 +10,7 @@
 
 @interface CDADownloadableContentMapper : CDAMapper
 @property (nonatomic, strong) NSString *localFileHashKey;
+@property (nonatomic, strong) NSString *localFileNameKey;
 @property (nonatomic, strong) NSString *remoteFileHashKey;
+@property (nonatomic, strong) NSString *remoteFileNameKey;
 @end

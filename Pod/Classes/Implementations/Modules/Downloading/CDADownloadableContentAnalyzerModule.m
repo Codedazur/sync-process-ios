@@ -11,9 +11,13 @@
 #import "CDASyncErrors.h"
 #import "CDADownloadableContentMapper.h"
 #import "CDACoreDataStackProtocol.h"
+#import "CDACoreDataStack.h"
+#import "CDASynConstants.h"
+#import "CDABGDRelationFile.h"
 
 @interface CDADownloadableContentAnalyzerModule()
 @property (nonatomic, strong)id<CDASyncConnectorProtocol> connector;
+@property (nonatomic, strong)id<CDACoreDataStackProtocol> downloadCoreDataStack;
 @end
 
 @implementation CDADownloadableContentAnalyzerModule
@@ -33,6 +37,7 @@
     NSAssert([[syncModel userInfo] valueForKey:@"resource"] != nil, @"CDADownloadableContentModule resource must be specified");
     NSAssert([[syncModel userInfo] valueForKey:@"mapping"] != nil, @"CDADownloadableContentModule mapping must be specified");
     NSAssert([[syncModel userInfo] valueForKey:@"coreDataStack"] != nil, @"CDADownloadableContentModule coreDataStack must be specified");
+    NSAssert([[syncModel userInfo] valueForKey:@"destinationFolder"] != nil, @"CDADownloadableContentModule destinationFolder must be specified");
     
     return [super initWithSyncModel:syncModel];
 }
@@ -47,6 +52,9 @@
     self.connector.baseUrl = [[self.model userInfo] valueForKey:@"baseUrl"];
     self.connector.resource = [[self.model userInfo] valueForKey:@"resource"];
 
+    NSBundle *bundle = [NSBundle bundleForClass:[self class]];
+    self.downloadCoreDataStack = [[CDACoreDataStack alloc] initWithModelName:kSyncConstantBGDownloadDatabaseName AndBundle:bundle];
+    
     CDADownloadableContentAnalyzerModule __weak *weakSelf = self;
     [self.connector getObjectsWithSuccess:^(id responseObject) {
         if(!responseObject){
@@ -86,7 +94,22 @@
     NSString *predicateString = [NSString stringWithFormat:@"%@ == %@", mapping.remoteFileHashKey, @"%@"];
     NSArray *dataToDownload = [(NSArray *) dataToParse filteredArrayUsingPredicate:[NSPredicate predicateWithFormat:predicateString]];
     
-    return [dataToDownload valueForKeyPath:mapping.remoteIdentifierKey];
+    NSMutableArray *files = [NSMutableArray new];
+    CDABGDRelationFile *relationFile;
+    for (NSDictionary *entityToDownload in dataToDownload) {
+        relationFile = [self.downloadCoreDataStack createNewEntity:NSStringFromClass([CDABGDRelationFile class]) inContext:[self.downloadCoreDataStack managedObjectContext]];
+        relationFile.destinationFolder = [[self.model userInfo] valueForKey:@"destinationFolder"];
+        relationFile.entityClass = mapping.destinationClassName;
+        relationFile.entityHashKey = mapping.localFileHashKey;
+        relationFile.entityId = [entityToDownload valueForKey:mapping.remoteIdentifierKey];
+        relationFile.fileName = [entityToDownload valueForKey:mapping.remoteFileNameKey];
+        relationFile.fileHash = [entityToDownload valueForKey:mapping.remoteFileHashKey];
+        
+        [files addObject:relationFile];
+    }
+    [self.downloadCoreDataStack saveMainContext];
+    
+    return [files valueForKeyPath:@"objectID"];
     
 }
 @end
