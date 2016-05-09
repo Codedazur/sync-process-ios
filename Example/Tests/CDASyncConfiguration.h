@@ -15,4 +15,5 @@
 + (NSArray<CDASyncModel> *)syncConfig:(id<CDACoreDataStackProtocol>)stack;
 + (CDASimpleSyncModel *)mediaDownloadAnalizerWithStack:(id<CDACoreDataStackProtocol>)stack;
 + (CDASimpleSyncModel *)mediaDownloaderWithStack:(id<CDACoreDataStackProtocol>)stack;
++ (CDASimpleSyncModel *)archiveProcessorWithStack:(id<CDACoreDataStackProtocol>)stack;
 @end

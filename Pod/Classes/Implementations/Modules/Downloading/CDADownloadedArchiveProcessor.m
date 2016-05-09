@@ -52,34 +52,49 @@
     }
     
     NSError *error;
+    NSMutableArray *processedArchiveNames = [NSMutableArray new];
     for (NSString *archive in archives) {
         CDABGDFile *mArchive = (CDABGDFile *)[self.archiveCoreDataStack fetchEntity:NSStringFromClass([CDABGDFile class]) WithPredicate:[NSPredicate predicateWithFormat:@"fileName = %@", archive] InContext:[self.archiveCoreDataStack managedObjectContext]];
-        NSString *archiveAbsolutePath = [[CDASyncFileHelper documentsFolderPath] stringByAppendingPathComponent:mArchive.path];
-        
-        [[NSFileManager defaultManager] createDirectoryAtPath:archivesProcessingFolder withIntermediateDirectories:YES attributes:nil error:&error];
-        
-        if(error){
-            continue;
-        }
-        
-        BOOL unziped = [SSZipArchive unzipFileAtPath:archiveAbsolutePath toDestination: archivesProcessingFolder];
-        if(!unziped){
-            continue;
-        }
+        NSString *archiveAbsolutePath = [[[CDASyncFileHelper documentsFolderPath] stringByAppendingPathComponent:mArchive.path] stringByAppendingPathComponent:mArchive.fileName];
         
         NSString *extractFolderName = [[archive componentsSeparatedByString:@"."] firstObject];
         NSString *extractFolderPath = [archivesProcessingFolder stringByAppendingPathComponent:extractFolderName];
+        
+        [[NSFileManager defaultManager] createDirectoryAtPath:extractFolderPath withIntermediateDirectories:YES attributes:nil error:&error];
+        
+        if(error){
+            [self setErrorToService:error];
+            continue;
+        }
+        
+        BOOL unziped = [SSZipArchive unzipFileAtPath:archiveAbsolutePath toDestination: extractFolderPath];
+        if(!unziped){
+            [self setErrorToService:[NSError errorWithDomain:kSyncServiceDomain code:CDASyncErrorUnarchiving userInfo:nil]];
+            continue;
+        }
+        
+        
         NSArray *archiveContentFiles = [[NSFileManager defaultManager] contentsOfDirectoryAtPath:extractFolderPath error:&error];
         
         if(error){
+            [self setErrorToService:error];
             continue;
         }
         
         [self processArchiveContentsWithArchiveContentFiles:archiveContentFiles AndArchiveModel:mArchive AndExtractFolderPath:extractFolderPath];
         
         [[NSFileManager defaultManager] removeItemAtPath:archiveAbsolutePath error:&error];
+        [self setErrorToService:error];
         [[NSFileManager defaultManager] removeItemAtPath:extractFolderPath error:&error];
+        [self setErrorToService:error];
+        
+        [processedArchiveNames addObject:[mArchive.fileName copy]];
     }
+    _result = [NSArray arrayWithArray:processedArchiveNames];
+}
+- (void)setErrorToService:(NSError *)error{
+    //Although the process continues we want to only show the first error
+    _error = _error == nil ? error : _error;
 }
 - (void)processArchiveContentsWithArchiveContentFiles:(NSArray *)archiveContentFiles AndArchiveModel:(CDABGDFile *)mArchive AndExtractFolderPath:(NSString *)extractFolderPath{
     
@@ -96,12 +111,16 @@
         [[NSFileManager defaultManager] replaceItemAtURL:dest withItemAtURL:orig backupItemName:nil options:0 resultingItemURL:nil error:&error];
         
         if(error){
+            [self setErrorToService:error];
             continue;
         }
-        //TODO use extract uid from here to a instance variable
+        
         NSString *predicateString = [NSString stringWithFormat:@"%@ == %@", relationFile.entityIdKey, @"%@"];
         NSManagedObject *obj = [self.appCoreDataStack fetchEntity:relationFile.entityClass WithPredicate:[NSPredicate predicateWithFormat:predicateString, relationFile.entityId] InContext:[self.appCoreDataStack managedObjectContext]];
         
+        if(obj == nil){
+            [self setErrorToService:[NSError errorWithDomain:kSyncServiceDomain code:CDASyncErrorNoRelatedObjectForDownloadedFile userInfo:@{@"message":relationFile.fileName}]];
+        }
         [obj setValue:relationFile.fileHash forKey:relationFile.entityHashKey];
         [self.appCoreDataStack saveMainContext];
         

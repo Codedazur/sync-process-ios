@@ -15,6 +15,10 @@
 #import "CDASynConstants.h"
 #import "CDABGDFile.h"
 #import "CDABGDRelationFile.h"
+#import "CDASyncNotifications.h"
+#import "CDADownloadedArchiveProcessor.h"
+#import "CDASyncFileHelper.h"
+#import "CDASynConstants.h"
 @interface CDASyncDownloadTest : XCTestCase
 
 @property (nonatomic, strong)CDADownloadableContentAnalyzerModule *sutAnalyzer;
@@ -29,16 +33,34 @@
 - (void)setUp {
     self.stack = [[CDACoreDataStack alloc] initWithModelName:@"Model"];
     self.expectation = [self expectationWithDescription:NSStringFromClass(self.class)];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(didDownload:) name:kSyncNotificationDidDownloadFile object:nil];
     [super setUp];
     // Put setup code here. This method is called before the invocation of each test method in the class.
 }
 
 - (void)tearDown {
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
     // Put teardown code here. This method is called after the invocation of each test method in the class.
     [super tearDown];
 }
+- (void)didDownload:(NSNotification *)not{
+    CDASyncDownloadTest __weak *weakSelf = self;
+    CDADownloadedArchiveProcessor *p = [[CDADownloadedArchiveProcessor alloc] initWithSyncModel:[CDASyncConfiguration archiveProcessorWithStack:self.stack]];
+    [p setCompletionBlock:^{
+        id result = [p result];
+        NSError *error = [p error];
+        XCTAssert(result != nil);
+        XCTAssert(error == nil);
+
+        [weakSelf.expectation fulfill];
+    }];
+    [p start];
+                                        
+}
 - (void)testDownloading{
     [self deleteall];
+    [[NSFileManager defaultManager] removeItemAtPath:[[CDASyncFileHelper documentsFolderPath] stringByAppendingPathComponent:@"file-processing"] error:nil];
+    
     CDASimpleSyncModel *mAnalyze = [CDASyncConfiguration mediaDownloadAnalizerWithStack:self.stack];
     CDASimpleSyncModel *mDownload = [CDASyncConfiguration mediaDownloaderWithStack:self.stack];
     CDASimpleSyncModel *m = [[CDASimpleSyncModel alloc] initWithUid:@"download" moduleClass:nil userInfo:@{} subModuleModels:@[mAnalyze, mDownload] timeInterval:10];

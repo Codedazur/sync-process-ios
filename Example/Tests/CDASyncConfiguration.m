@@ -134,6 +134,14 @@
 
     return smAnalyze;
 }
++ (CDASimpleSyncModel *)archiveProcessorWithStack:(id<CDACoreDataStackProtocol>)stack{
+
+    NSDictionary *userInfo =@{@"archivesFolder":kSyncConstantArchivePath,
+                              @"archivesProcessingFolder":kSyncConstantArchiveProcessing,
+                              @"appCoreDataStack":stack};
+    CDASimpleSyncModel *model = [[CDASimpleSyncModel alloc] initWithUid:@"archive-processor" moduleClass:nil userInfo:userInfo timeInterval:0];
+    return model;
+}
 +(CDADownloadableContentMapper *)downloadMapper{
     CDADownloadableContentMapper *m = [CDADownloadableContentMapper new];
     

@@ -12,6 +12,7 @@
 #import "CDADownloadableEntityProtocol.h"
 #import "CDASynConstants.h"
 #import "CDASyncFileHelper.h"
+#import "CDASyncNotifications.h"
 
 @interface CDABackgroundDownloadManager()<NSURLSessionDownloadDelegate>
 @property (nonatomic, strong)NSURLSession *backgroundSession;
@@ -115,8 +116,13 @@
             if(error){
                 NSLog(@"Error moving file from temp %@ to destination %@, %@", location.path, file.destinationPath, error);
             }
+            
+            NSString *fileName =[file.fileName copy];
+            
             [[self.downloadCoreDataStack managedObjectContext] deleteObject:file];
             [self.downloadCoreDataStack saveMainContext];
+            
+            [[NSNotificationCenter defaultCenter] postNotificationName:kSyncNotificationDidDownloadFile object:nil userInfo:@{@"fileName":fileName}];
         }
         
     }
