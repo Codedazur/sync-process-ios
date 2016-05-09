@@ -17,6 +17,7 @@
         <attribute name="entityClass" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="entityHashKey" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="entityId" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="entityIdKey" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="fileHash" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="fileName" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="id" optional="YES" attributeType="String" syncable="YES"/>
@@ -25,6 +26,6 @@
     <elements>
         <element name="CDABGDFile" positionX="-54" positionY="-9" width="128" height="105"/>
         <element name="CDABGDownloadingFile" positionX="-45" positionY="63" width="128" height="105"/>
-        <element name="CDABGDRelationFile" positionX="-54" positionY="18" width="128" height="165"/>
+        <element name="CDABGDRelationFile" positionX="-54" positionY="18" width="128" height="180"/>
     </elements>
 </model>

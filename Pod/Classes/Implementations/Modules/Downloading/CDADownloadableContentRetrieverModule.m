@@ -68,7 +68,7 @@
     CDADownloadableContentRetrieverModule __weak *weakSelf = self;
     
     [self.connector getObjectsWithSuccess:^(id responseObject) {
-        NSString *downloadUrl = [responseObject valueForKey:@"zipUrl"];
+        NSString *downloadUrl = [responseObject valueForKey:@"url"];
         NSString *fileName = [downloadUrl lastPathComponent];
         
         CDABGDFile *file = [weakSelf.downloadCoreDataStack createNewEntity:NSStringFromClass([CDABGDFile class]) inContext:[weakSelf.downloadCoreDataStack managedObjectContext]];

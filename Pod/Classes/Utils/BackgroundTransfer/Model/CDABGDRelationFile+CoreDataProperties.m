@@ -2,7 +2,7 @@
 //  CDABGDRelationFile+CoreDataProperties.m
 //  Pods
 //
-//  Created by Tamara Bernad on 06/05/16.
+//  Created by Tamara Bernad on 09/05/16.
 //
 //
 //  Choose "Create NSManagedObject Subclass…" from the Core Data editor menu
@@ -20,6 +20,7 @@
 @dynamic fileHash;
 @dynamic fileName;
 @dynamic id;
+@dynamic entityIdKey;
 @dynamic archive;
 
 @end

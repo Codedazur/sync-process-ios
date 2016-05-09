@@ -106,6 +106,7 @@
         relationFile.destinationFolder = [[self.model userInfo] valueForKey:@"destinationFolder"];
         relationFile.entityClass = mapping.destinationClassName;
         relationFile.entityHashKey = mapping.localFileHashKey;
+        relationFile.entityIdKey = mapping.localIdentifierKey;
         relationFile.entityId = [[entityToDownload valueForKey:mapping.remoteIdentifierKey] isKindOfClass:[NSString class]] ? [entityToDownload valueForKey:mapping.remoteIdentifierKey] : [[entityToDownload valueForKey:mapping.remoteIdentifierKey] stringValue] ;
         relationFile.fileName = [entityToDownload valueForKey:mapping.remoteFileNameKey];
         relationFile.fileHash = [[entityToDownload valueForKey:mapping.remoteFileHashKey] isKindOfClass:[NSString class]] ? [entityToDownload valueForKey:mapping.remoteFileHashKey] : [[entityToDownload valueForKey:mapping.remoteFileHashKey] stringValue];

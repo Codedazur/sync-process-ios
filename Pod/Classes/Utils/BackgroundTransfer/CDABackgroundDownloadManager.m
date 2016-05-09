@@ -11,7 +11,7 @@
 #import "CDABGDownloadingFile.h"
 #import "CDADownloadableEntityProtocol.h"
 #import "CDASynConstants.h"
-
+#import "CDASyncFileHelper.h"
 
 @interface CDABackgroundDownloadManager()<NSURLSessionDownloadDelegate>
 @property (nonatomic, strong)NSURLSession *backgroundSession;
@@ -28,7 +28,7 @@
         CDABGDownloadingFile *file = (CDABGDownloadingFile *)[self.downloadCoreDataStack createNewEntity:NSStringFromClass([CDABGDownloadingFile class]) inContext:[self.downloadCoreDataStack managedObjectContext]];
         file.sessionId = self.backgroundSession.configuration.identifier;
         file.taskId = [NSString stringWithFormat:@"%i",task.taskIdentifier];
-        file.destinationPath = destinationFilePath;
+        file.destinationPath = [destinationFilePath stringByDeletingLastPathComponent];
         file.fileName = [destinationFilePath lastPathComponent];
         
         [self.downloadCoreDataStack saveMainContext];
@@ -101,11 +101,14 @@
             NSLog(@"did finish downloading task %i on session %@ to path %@", downloadTask.taskIdentifier, session.configuration.identifier,  location.path);
             
             CDABGDownloadingFile *file = [self getFileWithSession:session AndTask:downloadTask];
+            NSString *absoluteDestinationFolder = [[CDASyncFileHelper documentsFolderPath] stringByAppendingPathComponent:file.destinationPath];
+            NSString *absoluteDestinationPath = [absoluteDestinationFolder stringByAppendingPathComponent:file.fileName];
+            
             NSLog(@"moving to path %@", file.destinationPath);
             NSError *error;
-            [[NSFileManager defaultManager] createDirectoryAtPath:file.destinationPath withIntermediateDirectories:YES attributes:nil error:&error];
+            [[NSFileManager defaultManager] createDirectoryAtPath:absoluteDestinationFolder withIntermediateDirectories:YES attributes:nil error:&error];
             
-            NSURL *dest = [NSURL fileURLWithPath:file.destinationPath];
+            NSURL *dest = [NSURL fileURLWithPath:absoluteDestinationPath];
             NSURL *orig = [NSURL fileURLWithPath:location.path];
             [[NSFileManager defaultManager] replaceItemAtURL:dest withItemAtURL:orig backupItemName:nil options:0 resultingItemURL:nil error:&error];
             

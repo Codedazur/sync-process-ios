@@ -2,7 +2,7 @@
 //  CDABGDRelationFile+CoreDataProperties.h
 //  Pods
 //
-//  Created by Tamara Bernad on 06/05/16.
+//  Created by Tamara Bernad on 09/05/16.
 //
 //
 //  Choose "Create NSManagedObject Subclass…" from the Core Data editor menu
@@ -22,6 +22,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nullable, nonatomic, retain) NSString *fileHash;
 @property (nullable, nonatomic, retain) NSString *fileName;
 @property (nullable, nonatomic, retain) NSString *id;
+@property (nullable, nonatomic, retain) NSString *entityIdKey;
 @property (nullable, nonatomic, retain) CDABGDFile *archive;
 
 @end

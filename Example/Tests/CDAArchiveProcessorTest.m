@@ -34,8 +34,8 @@
     
     self.archiveStack = [[CDACoreDataStack alloc] initWithModelName:kSyncConstantBGDownloadDatabaseName
                                                           AndBundle:nil];
-    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
-    CDASimpleSyncModel *model = [[CDASimpleSyncModel alloc] initWithUid:@"teste" moduleClass:nil userInfo:@{@"archivesFolder":[[paths firstObject] stringByAppendingPathComponent:kSyncConstantArchivePath], @"archivesProcessingFolder":[[paths firstObject] stringByAppendingPathComponent:kSyncConstantArchiveProcessing], @"appCoreDataStack":self.appstack} timeInterval:0];
+//    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+    CDASimpleSyncModel *model = [[CDASimpleSyncModel alloc] initWithUid:@"teste" moduleClass:nil userInfo:@{@"archivesFolder":kSyncConstantArchivePath, @"archivesProcessingFolder":kSyncConstantArchiveProcessing, @"appCoreDataStack":self.appstack} timeInterval:0];
     
     self.sut = [[CDADownloadedArchiveProcessor alloc] initWithSyncModel:model];
     // Put setup code here. This method is called before the invocation of each test method in the class.
@@ -79,12 +79,12 @@
 
 }
 - (void)precreateFileObjects{
-    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
-    NSString *documentsPath = [paths firstObject];
+//    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+//    NSString *documentsPath = [paths firstObject];
     
     CDABGDFile *archive = (CDABGDFile *)[self.archiveStack createNewEntity:NSStringFromClass([CDABGDFile class]) inContext:[self.archiveStack managedObjectContext]];
     archive.fileName = @"archive-test.zip";
-    archive.path = [[documentsPath stringByAppendingPathComponent:kSyncConstantArchivePath] stringByAppendingPathComponent:archive.fileName];
+    archive.path = [kSyncConstantArchivePath stringByAppendingPathComponent:archive.fileName];
     
     CDABGDRelationFile *rel;
     File *file;
@@ -93,9 +93,10 @@
         file.uid = [NSString stringWithFormat:@"%i", i];
         
         rel = (CDABGDRelationFile *)[self.archiveStack createNewEntity:NSStringFromClass([CDABGDRelationFile class]) inContext:[self.archiveStack managedObjectContext]];
-        rel.destinationFolder = [documentsPath stringByAppendingPathComponent:@"images"];
+        rel.destinationFolder = @"images";
         rel.entityClass = NSStringFromClass([File class]);
         rel.entityHashKey = @"fileHash";
+        rel.entityIdKey = @"uid";
         rel.entityId = [NSString stringWithFormat:@"%i", i];
         rel.fileHash = [NSString stringWithFormat:@"hash %i", i];
         rel.fileName = [NSString stringWithFormat:@"%i.jpg", i];
