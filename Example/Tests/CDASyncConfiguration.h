@@ -16,4 +16,5 @@
 + (CDASimpleSyncModel *)mediaDownloadAnalizerWithStack:(id<CDACoreDataStackProtocol>)stack;
 + (CDASimpleSyncModel *)mediaDownloaderWithStack:(id<CDACoreDataStackProtocol>)stack;
 + (CDASimpleSyncModel *)archiveProcessorWithStack:(id<CDACoreDataStackProtocol>)stack;
++ (CDASimpleSyncModel *)mediaDownloaderWithStackNoData:(id<CDACoreDataStackProtocol>)stack;
 @end

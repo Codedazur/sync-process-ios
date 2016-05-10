@@ -84,6 +84,31 @@
     }];
 
 }
+
+- (void)testDownloadingNoData{
+    CDASimpleSyncModel *mAnalyze = [CDASyncConfiguration mediaDownloadAnalizerWithStack:self.stack];
+    CDASimpleSyncModel *mDownload = [CDASyncConfiguration mediaDownloaderWithStackNoData:self.stack];
+    CDASimpleSyncModel *m = [[CDASimpleSyncModel alloc] initWithUid:@"download" moduleClass:nil userInfo:@{} subModuleModels:@[mAnalyze, mDownload] timeInterval:10];
+    
+    self.sut = [[CDAAbstractSyncService alloc] initWithSyncModel:m];
+    CDASyncDownloadTest __weak *weakSelf = self;
+    [self.sut setCompletionBlock:^{
+        id result = [weakSelf.sut result];
+        NSError *error = [weakSelf.sut error];
+        XCTAssert(result != nil);
+        XCTAssert(error == nil);
+        //[weakSelf.expectation fulfill];
+    }];
+    [self.sut start];
+    
+    
+    [self waitForExpectationsWithTimeout:120.0 handler:^(NSError *error) {
+        if (error) {
+            NSLog(@"Timeout Error: %@", error);
+        }
+    }];
+
+}
 - (void)deleteall{
     NSBundle *bundle = [NSBundle bundleForClass:[self class]];
     CDACoreDataStack *stack = [[CDACoreDataStack alloc] initWithModelName:kSyncConstantBGDownloadDatabaseName AndBundle:bundle];
@@ -102,47 +127,5 @@
     [stack saveMainContext];
 
 }
-//- (void)testAnalyzer {
-//    self.sutAnalyzer = [[CDADownloadableContentAnalyzerModule alloc] initWithSyncModel:[CDASyncConfiguration mediaDownoadWithStack:self.stack]];
-//    
-//    CDASyncDownloadTest __weak *weakSelf = self;
-//    [self.sutAnalyzer setCompletionBlock:^{
-//        id result = [weakSelf.sutAnalyzer result];
-//        NSError *error = [weakSelf.sutAnalyzer error];
-//        XCTAssert(result != nil);
-//        XCTAssert(error == nil);
-//        [weakSelf.expectation fulfill];
-//    }];
-//    [self.sutAnalyzer start];
-//    
-//    
-//    [self waitForExpectationsWithTimeout:30.0 handler:^(NSError *error) {
-//        if (error) {
-//            NSLog(@"Timeout Error: %@", error);
-//        }
-//    }];
-//
-//}
-//- (void)testDownloader{
-//    self.sutDownloader = [[CDADownloadableContentRetrieverModule alloc] initWithSyncModel:[CDASyncConfiguration mediaDownloaderWithStack:self.stack]];
-//    
-//    CDASyncDownloadTest __weak *weakSelf = self;
-//    [self.sutDownloader setCompletionBlock:^{
-//        id result = [weakSelf.sutDownloader result];
-//        NSError *error = [weakSelf.sutDownloader error];
-//        XCTAssert(result != nil);
-//        XCTAssert(error == nil);
-//        [weakSelf.expectation fulfill];
-//    }];
-//    [self.sutDownloader start];
-//    
-//    
-//    [self waitForExpectationsWithTimeout:30.0 handler:^(NSError *error) {
-//        if (error) {
-//            NSLog(@"Timeout Error: %@", error);
-//        }
-//    }];
-//    
-//
-//}
+
 @end

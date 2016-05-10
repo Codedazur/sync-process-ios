@@ -61,6 +61,12 @@
     NSString *downloadPath = [[self.model userInfo] valueForKey:@"destinationFolder"];
     NSArray *idsToDownload = [[self.model userInfo] valueForKey:@"data"] ? [[self.model userInfo] valueForKey:@"data"]: [((id<CDASyncModule>)[self.dependencies lastObject]) result];
     
+    if(idsToDownload.count == 0){
+        _result = @[];
+        [self completeOperation];
+        return;
+    }
+    
     self.connector.resource = [[self.connector.resource stringByAppendingPathComponent:[[self.model userInfo] valueForKey:@"identifier"]]stringByAppendingPathComponent:[idsToDownload componentsJoinedByString:@","]];
 
     

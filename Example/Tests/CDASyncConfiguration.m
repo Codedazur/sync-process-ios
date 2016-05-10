@@ -119,6 +119,24 @@
     return smAnalyze;
 
 }
++ (CDASimpleSyncModel *)mediaDownloaderWithStackNoData:(id<CDACoreDataStackProtocol>)stack{
+    
+    NSDictionary *userInfo =@{@"baseUrl":[CDASyncConfiguration baseUrl],
+                              @"resource":@"downloads",
+                              @"connectorClass":[CDAAFNetworkingConnector class],
+                              @"basicAuthUser":[CDASyncConfiguration user],
+                              @"basicAuthPassword":[CDASyncConfiguration pass],
+                              @"coreDataStack":stack,
+                              @"data":@[],
+                              @"mapping":[CDASyncConfiguration downloadMapper],
+                              @"identifier":@"123456",
+                              @"destinationFolder":kSyncConstantArchivePath};
+    
+    CDASimpleSyncModel *smAnalyze = [[CDASimpleSyncModel alloc] initWithUid:@"analyze" moduleClass:[CDADownloadableContentRetrieverModule class] userInfo:userInfo timeInterval:0];
+    
+    return smAnalyze;
+    
+}
 + (CDASimpleSyncModel *)mediaDownloadAnalizerWithStack:(id<CDACoreDataStackProtocol>)stack{
 
     NSDictionary *userInfo =@{@"baseUrl":[CDASyncConfiguration baseUrl],
