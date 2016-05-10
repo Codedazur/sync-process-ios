@@ -28,7 +28,7 @@
     if(self.backgroundSession.configuration.identifier){
         CDABGDownloadingFile *file = (CDABGDownloadingFile *)[self.downloadCoreDataStack createNewEntity:NSStringFromClass([CDABGDownloadingFile class]) inContext:[self.downloadCoreDataStack managedObjectContext]];
         file.sessionId = self.backgroundSession.configuration.identifier;
-        file.taskId = [NSString stringWithFormat:@"%i",task.taskIdentifier];
+        file.taskId = [NSString stringWithFormat:@"%lu",(unsigned long)task.taskIdentifier];
         file.destinationPath = [destinationFilePath stringByDeletingLastPathComponent];
         file.fileName = [destinationFilePath lastPathComponent];
         
@@ -99,7 +99,7 @@
     if(session.configuration.identifier){
 
         if(location.path){
-            NSLog(@"did finish downloading task %i on session %@ to path %@", downloadTask.taskIdentifier, session.configuration.identifier,  location.path);
+            NSLog(@"did finish downloading task %lu on session %@ to path %@", (unsigned long)downloadTask.taskIdentifier, session.configuration.identifier,  location.path);
             
             CDABGDownloadingFile *file = [self getFileWithSession:session AndTask:downloadTask];
             NSString *absoluteDestinationFolder = [[CDASyncFileHelper documentsFolderPath] stringByAppendingPathComponent:file.destinationPath];
@@ -140,7 +140,7 @@
 }
 - (CDABGDownloadingFile *) getFileWithSession:(NSURLSession *)session AndTask:(NSURLSessionDownloadTask *)task{
     NSString *sessionId = [session.configuration.identifier copy];
-    NSString *taskId = [NSString stringWithFormat:@"%i",task.taskIdentifier];
+    NSString *taskId = [NSString stringWithFormat:@"%lu",(unsigned long)task.taskIdentifier];
     CDABGDownloadingFile *file = (CDABGDownloadingFile *)[self.downloadCoreDataStack fetchEntity:NSStringFromClass([CDABGDownloadingFile class]) WithPredicate:[NSPredicate predicateWithFormat:@"sessionId=%@ && taskId=%@",sessionId, taskId] InContext:[self.downloadCoreDataStack managedObjectContext]];
     return file;
 }

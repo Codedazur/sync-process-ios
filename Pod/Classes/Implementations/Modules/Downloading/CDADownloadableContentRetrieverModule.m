@@ -77,7 +77,7 @@
         NSString *downloadUrl = [responseObject valueForKey:@"url"];
         NSString *fileName = [downloadUrl lastPathComponent];
         
-        CDABGDFile *file = [weakSelf.downloadCoreDataStack createNewEntity:NSStringFromClass([CDABGDFile class]) inContext:[weakSelf.downloadCoreDataStack managedObjectContext]];
+        CDABGDFile *file = (CDABGDFile *)[weakSelf.downloadCoreDataStack createNewEntity:NSStringFromClass([CDABGDFile class]) inContext:[weakSelf.downloadCoreDataStack managedObjectContext]];
         file.fileName = [downloadUrl lastPathComponent];
         file.path = downloadPath;
         

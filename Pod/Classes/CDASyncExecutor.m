@@ -86,7 +86,7 @@
 }
 #pragma mark - CDASyncServiceDelegate
 - (void)CDASyncService:(NSObject<CDASyncServiceProtocol> *)syncService DidFinishWithError:(NSError *)error{
-    [self.delegate CDASyncExecutor:self failedSyncWithId:[syncService uid] AndErrorId:error.code];
+    [self.delegate CDASyncExecutor:self failedSyncWithId:[syncService uid] AndErrorId:(int)error.code];
     [self stopSyncService:syncService];
     [self checkSyncProcessCompleted];
 }

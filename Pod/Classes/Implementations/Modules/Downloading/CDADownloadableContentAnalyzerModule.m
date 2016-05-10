@@ -102,7 +102,7 @@
     NSMutableArray *files = [NSMutableArray new];
     CDABGDRelationFile *relationFile;
     for (NSDictionary *entityToDownload in dataToDownload) {
-        relationFile = [self.downloadCoreDataStack createNewEntity:NSStringFromClass([CDABGDRelationFile class]) inContext:[self.downloadCoreDataStack managedObjectContext]];
+        relationFile = (CDABGDRelationFile *)[self.downloadCoreDataStack createNewEntity:NSStringFromClass([CDABGDRelationFile class]) inContext:[self.downloadCoreDataStack managedObjectContext]];
         relationFile.destinationFolder = [[self.model userInfo] valueForKey:@"destinationFolder"];
         relationFile.entityClass = mapping.destinationClassName;
         relationFile.entityHashKey = mapping.localFileHashKey;
@@ -114,7 +114,12 @@
         
         [files addObject:relationFile];
     }
-    [self.downloadCoreDataStack saveMainContext];
+    
+    CDADownloadableContentAnalyzerModule __weak *weakSelf = self;
+    [[self.downloadCoreDataStack managedObjectContext] performBlockAndWait:^{
+        [weakSelf.downloadCoreDataStack saveMainContext];
+    }];
+    
     
     return [files valueForKey:@"entityId"];
     

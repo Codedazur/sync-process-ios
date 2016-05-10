@@ -89,6 +89,11 @@
         [self setErrorToService:error];
         
         [processedArchiveNames addObject:[mArchive.fileName copy]];
+        
+        [[self.archiveCoreDataStack managedObjectContext] deleteObject:mArchive];
+        [[self.archiveCoreDataStack managedObjectContext] save:nil];
+        
+        
     }
     _result = [NSArray arrayWithArray:processedArchiveNames];
 }
@@ -99,8 +104,11 @@
 - (void)processArchiveContentsWithArchiveContentFiles:(NSArray *)archiveContentFiles AndArchiveModel:(CDABGDFile *)mArchive AndExtractFolderPath:(NSString *)extractFolderPath{
     
     NSString *documentsPath = [CDASyncFileHelper documentsFolderPath];
+    NSManagedObjectContext *appIndependentContext = [self.appCoreDataStack independentManagedObjectContext];
+    
     for (NSString *archiveContentFile in archiveContentFiles) {
-        CDABGDRelationFile *relationFile = [self.archiveCoreDataStack fetchEntity:NSStringFromClass([CDABGDRelationFile class]) WithPredicate:[NSPredicate predicateWithFormat:@"archive = %@ && fileName == %@", mArchive, archiveContentFile] InContext:[self.archiveCoreDataStack managedObjectContext]];
+        
+        CDABGDRelationFile *relationFile = (CDABGDRelationFile *)[self.archiveCoreDataStack fetchEntity:NSStringFromClass([CDABGDRelationFile class]) WithPredicate:[NSPredicate predicateWithFormat:@"archive = %@ && fileName == %@", mArchive, archiveContentFile] InContext:[self.archiveCoreDataStack managedObjectContext]];
         
         NSString *destinationFolder = [documentsPath stringByAppendingPathComponent:relationFile.destinationFolder];
         NSError *error;
@@ -115,16 +123,17 @@
             continue;
         }
         
-        NSString *predicateString = [NSString stringWithFormat:@"%@ == %@", relationFile.entityIdKey, @"%@"];
-        NSManagedObject *obj = [self.appCoreDataStack fetchEntity:relationFile.entityClass WithPredicate:[NSPredicate predicateWithFormat:predicateString, relationFile.entityId] InContext:[self.appCoreDataStack managedObjectContext]];
-        
-        if(obj == nil){
-            [self setErrorToService:[NSError errorWithDomain:kSyncServiceDomain code:CDASyncErrorNoRelatedObjectForDownloadedFile userInfo:@{@"message":relationFile.fileName}]];
-        }
-        [obj setValue:relationFile.fileHash forKey:relationFile.entityHashKey];
-        [self.appCoreDataStack saveMainContext];
-        
-        
+        CDADownloadedArchiveProcessor __weak *weakSelf = self;
+        [appIndependentContext performBlockAndWait:^{
+            NSString *predicateString = [NSString stringWithFormat:@"%@ == %@", relationFile.entityIdKey, @"%@"];
+            NSManagedObject *obj = [weakSelf.appCoreDataStack fetchEntity:relationFile.entityClass WithPredicate:[NSPredicate predicateWithFormat:predicateString, relationFile.entityId] InContext:appIndependentContext];
+            
+            if(obj == nil){
+                [weakSelf setErrorToService:[NSError errorWithDomain:kSyncServiceDomain code:CDASyncErrorNoRelatedObjectForDownloadedFile userInfo:@{@"message":relationFile.fileName}]];
+            }
+            [obj setValue:relationFile.fileHash forKey:relationFile.entityHashKey];
+            [appIndependentContext save:nil];
+        }];
     }
 
 }

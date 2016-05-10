@@ -27,5 +27,5 @@ NS_ASSUME_NONNULL_END
 
 @property (nullable, copy) void (^completionBlock)(void);
 
-- (instancetype)initWithSyncModel:(id<CDASyncModel>)syncModel;
+- (instancetype)initWithSyncModel:(id<CDASyncModel> _Nonnull)syncModel;
 @end

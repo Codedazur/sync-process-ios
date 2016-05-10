@@ -83,7 +83,6 @@
 		4047B22A69710B5E67F637DE50403AB9 /* TKState.m in Sources */ = {isa = PBXBuildFile; fileRef = B94790AE47046B3F83C490553938A48A /* TKState.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
 		413D6964525C2554D182633483B5CBA2 /* CDABundleSyncModule.h in Headers */ = {isa = PBXBuildFile; fileRef = 00C59B42238DC91FC0DABA3F23415D42 /* CDABundleSyncModule.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		415365D02FFF906EFDB64AE6222979BE /* CDACoreDataStackProtocol.h in Headers */ = {isa = PBXBuildFile; fileRef = 975F4895FFC9FBDF68405658AED33526 /* CDACoreDataStackProtocol.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		4190BA27D18CD6C88A651CA620424F64 /* CDABGDRelationFile+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E14284992FCF23EFCB36C2536C8DBFB /* CDABGDRelationFile+CoreDataProperties.m */; };
 		429C009980B8E4E2F102DA5FD58607FB /* RKMappingResult.h in Headers */ = {isa = PBXBuildFile; fileRef = DE53A75FB9F7480B3BADBCD47B6F695B /* RKMappingResult.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		42FACFE0A3BB6B056EA35FBB50FCF1DE /* Support.h in Headers */ = {isa = PBXBuildFile; fileRef = 0724375F1A9B7B3C91A0D794A9563AD6 /* Support.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		43098B12DF5546CB576986E68DBCAFCA /* AFNetworkReachabilityManager.m in Sources */ = {isa = PBXBuildFile; fileRef = A9119624034D5C1440239F07E2587724 /* AFNetworkReachabilityManager.m */; };
@@ -128,7 +127,6 @@
 		62CE6BDA8F2DC93C090BB281C9174A30 /* contents in Sources */ = {isa = PBXBuildFile; fileRef = FB7EA66913B62492DD02FC1CAC45EF43 /* contents */; };
 		63002F0D4E7E1DAA180D914F324D7E38 /* RKPropertyInspector.m in Sources */ = {isa = PBXBuildFile; fileRef = 86F22D4DA07B9512B0F56B4999A54715 /* RKPropertyInspector.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
 		638D8703FDCC9D53F5578F6819107153 /* RKLog.h in Headers */ = {isa = PBXBuildFile; fileRef = 9AE8950BDF82E0EC05B2E76FC81928AF /* RKLog.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		63AF3B551CE0970800E36E36 /* CDABGDRelationFile+CoreDataProperties.h in Headers */ = {isa = PBXBuildFile; fileRef = 63AF3B531CE0970800E36E36 /* CDABGDRelationFile+CoreDataProperties.h */; };
 		63AF3B561CE0970800E36E36 /* CDABGDRelationFile+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = 63AF3B541CE0970800E36E36 /* CDABGDRelationFile+CoreDataProperties.m */; };
 		63AF3B571CE0970800E36E36 /* CDABGDRelationFile+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = 63AF3B541CE0970800E36E36 /* CDABGDRelationFile+CoreDataProperties.m */; };
 		63AF3B581CE0970800E36E36 /* CDABGDRelationFile+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = 63AF3B541CE0970800E36E36 /* CDABGDRelationFile+CoreDataProperties.m */; };
@@ -1805,7 +1803,6 @@
 				DEFAE6E9914BD75146BBBC37AFCF2477 /* CDASyncExecutorProtocol.h in Headers */,
 				0E27921170DFE535CE2AB6BAC602D9BB /* CDASyncFileHelper.h in Headers */,
 				4FA359E0D64B4AFA4E1F1FA97D1792D4 /* CDASyncManager.h in Headers */,
-				63AF3B551CE0970800E36E36 /* CDABGDRelationFile+CoreDataProperties.h in Headers */,
 				D7217EF989F7A4C55A3DBF437F4F051E /* CDASyncManagerProtocol.h in Headers */,
 				07E64CDDE4F768EF02DFF767732B75C7 /* CDASyncModel.h in Headers */,
 				F527B309EDBE1D5FB2139C9BF24831B5 /* CDASyncModule.h in Headers */,
@@ -2001,7 +1998,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0700;
-				LastUpgradeCheck = 0700;
+				LastUpgradeCheck = 0730;
 			};
 			buildConfigurationList = 2D8E8EC45A3A1A1D94AE762CB5028504 /* Build configuration list for PBXProject "Pods" */;
 			compatibilityVersion = "Xcode 3.2";
@@ -2184,7 +2181,6 @@
 				CE6C3F0530FD765B0367BD239795DAE6 /* CDABGDFile.m in Sources */,
 				07CAAED6AA36AD340EC43FED6764E2ED /* CDABGDownloadingFile+CoreDataProperties.m in Sources */,
 				ECEB1908A797DBF6B4891D6590087B38 /* CDABGDownloadingFile.m in Sources */,
-				4190BA27D18CD6C88A651CA620424F64 /* CDABGDRelationFile+CoreDataProperties.m in Sources */,
 				6AE581B5A23D3F6D3E41FC35E94575DB /* CDABGDRelationFile.m in Sources */,
 				AE06C82E84801EE02727047A2D56664E /* CDABundleConnector.m in Sources */,
 				60B2518AD2CAF4B3618232D0EF8F6F48 /* CDABundleSyncModule.m in Sources */,
@@ -2436,6 +2432,7 @@
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = NO;
+				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_OPTIMIZATION_LEVEL = 0;

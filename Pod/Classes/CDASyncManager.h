@@ -10,7 +10,4 @@
 #import "CDASyncManagerProtocol.h"
 
 @interface CDASyncManager : NSObject<CDASyncManagerProtocol>
-- (instancetype)initWithSyncModels:(NSArray<CDASyncModel> *)syncs
-                    SchedulerClass:(Class<CDASyncScheduleMangerProtocol>)schedulerClass
-               ReachabilityManager:(id<CDAReachabilityManagerProtocol>)reachabilityManager;
 @end

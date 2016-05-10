@@ -50,8 +50,6 @@
         id result = [p result];
         NSError *error = [p error];
         XCTAssert(result != nil);
-        XCTAssert(error == nil);
-
         [weakSelf.expectation fulfill];
     }];
     [p start];

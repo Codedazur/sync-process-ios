@@ -9,7 +9,7 @@
 #import "CDABundleConnector.h"
 
 @implementation CDABundleConnector
-@synthesize baseUrl = _baseUrl, resource = _resource;
+@synthesize baseUrl = _baseUrl, resource = _resource, basicAuthUser = _basicAuthUser, basicAuthPassword = _basicAuthPassword;
 
 - (void)getObjectsWithSuccess:(void (^)(id))success failure:(void (^)(NSError *))failure{
     NSString * filePath =[[NSBundle mainBundle] pathForResource:self.resource ofType:@"json"];
