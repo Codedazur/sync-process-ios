@@ -16,6 +16,7 @@ NSString *const kSyncNotificationProgress = @"sync-progress";
 NSString *const kSyncNotificationAllServicesFinished = @"sync-all-service-finished";
 NSString *const kSyncNotificationServiceFinishedSuccess = @"sync-service-finished-success";
 NSString *const kSyncNotificationDidDownloadFile = @"sync-service-did-download-file";
+NSString *const kSyncNotificationIsFirstSync = @"sync-service-is-first-sync";
 
 NSString *const kSyncKeySyncId = @"sync-id";
 NSString *const kSyncKeyErrorId = @"error-id";

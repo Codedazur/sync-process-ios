@@ -10,6 +10,7 @@
 #import <RestKit/CoreData.h>
 
 #import "CDARelationMapping.h"
+#import "CDARKMappingOperationDataSource.h"
 
 typedef void(^ParseCompletionBlock)(id result);
 
@@ -18,6 +19,7 @@ typedef void(^ParseCompletionBlock)(id result);
 @property (nonatomic, copy) ParseCompletionBlock completion;
 @property (nonatomic, strong) RKEntityMapping *mapping;
 @property (nonatomic, strong) RKManagedObjectStore *store;
+@property (nonatomic, strong) CDARKMappingOperationDataSource *mappingDataSource;
 @property (nonatomic, strong) NSOperationQueue *queue;
 @property (nonatomic, strong) id data;
 @property (nonnull, strong) NSString *rootKey;
@@ -41,17 +43,24 @@ typedef void(^ParseCompletionBlock)(id result);
     self.rootKey = mapping.rootKey;
     return self;
 }
+- (void)dealloc{
+    self.mappingDataSource = nil;
+}
 - (double)progress{
-    return 0;
+    return self.mappingDataSource != nil ? [self.mappingDataSource progress] : 0;
 }
 - (void)parseData:(id)data AndCompletion:(void (^)(id))completion{
     self.completion = completion;
     self.data = data;
-    RKManagedObjectMappingOperationDataSource *mappingDataSource = [[RKManagedObjectMappingOperationDataSource alloc] initWithManagedObjectContext:self.context cache:self.store.managedObjectCache];
+    
+    NSInteger totalItems = [self.data isKindOfClass:[NSArray class]] ? ((NSArray *)self.data).count : 1;
+    
+    self.mappingDataSource = [[CDARKMappingOperationDataSource alloc] initWithManagedObjectContext:self.context cache:self.store.managedObjectCache totalItems:totalItems firstLevelClassName:NSStringFromClass(self.mapping.objectClass)];
+
     RKMapperOperation *mappingOP = [[RKMapperOperation alloc] initWithRepresentation:self.data
                                                                   mappingsDictionary:@{(self.rootKey == nil ? [NSNull null] : self.rootKey) :self.mapping}];
     mappingOP.delegate = self;
-    mappingOP.mappingOperationDataSource = mappingDataSource;
+    mappingOP.mappingOperationDataSource = self.mappingDataSource;
     
     [self.queue addOperation:mappingOP];
     [self.queue waitUntilAllOperationsAreFinished];

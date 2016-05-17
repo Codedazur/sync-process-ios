@@ -20,5 +20,5 @@
 
 - (NSManagedObjectContext *)independentManagedObjectContext;
 - (NSManagedObject *)fetchEntity:(NSString *)entity WithPredicate:(NSPredicate *)predicate InContext:(NSManagedObjectContext *)context;
-- (NSArray *)fetchEntities:(NSString *)entity WithSortKey:(NSString *)sortKey Ascending:(BOOL)ascending WithPredicate:(NSPredicate *)predicate InContext:(NSManagedObjectContext *)context;
+- (NSArray *)fetchEntities:(NSString *)entity WithSortKey:(NSString * _Nullable)sortKey Ascending:(BOOL)ascending WithPredicate:( NSPredicate * _Nullable )predicate InContext:(NSManagedObjectContext *)context;
 @end

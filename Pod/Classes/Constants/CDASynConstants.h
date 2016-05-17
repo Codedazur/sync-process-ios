@@ -11,3 +11,4 @@
 FOUNDATION_EXPORT NSString * const kSyncConstantBGDownloadDatabaseName;
 FOUNDATION_EXPORT NSString * const kSyncConstantArchiveProcessing;
 FOUNDATION_EXPORT NSString * const kSyncConstantArchivePath;
+FOUNDATION_EXPORT NSString * const kSyncFinshedFirstSyncKey;

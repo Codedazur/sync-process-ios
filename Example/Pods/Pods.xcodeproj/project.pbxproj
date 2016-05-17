@@ -126,6 +126,8 @@
 		61E01CEF8D0D2DAEF4BDB4AAD24955DD /* entropy.c in Sources */ = {isa = PBXBuildFile; fileRef = F1B9A4315CEDDE2A03AEAC43A0E34AC0 /* entropy.c */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
 		62CE6BDA8F2DC93C090BB281C9174A30 /* contents in Sources */ = {isa = PBXBuildFile; fileRef = FB7EA66913B62492DD02FC1CAC45EF43 /* contents */; };
 		63002F0D4E7E1DAA180D914F324D7E38 /* RKPropertyInspector.m in Sources */ = {isa = PBXBuildFile; fileRef = 86F22D4DA07B9512B0F56B4999A54715 /* RKPropertyInspector.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
+		63876AAB1CEB5B1400BDFC17 /* CDARKMappingOperationDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 63876AA61CEB592900BDFC17 /* CDARKMappingOperationDataSource.m */; };
+		63876AAE1CEB5B1A00BDFC17 /* CDARKMappingOperationDataSource.h in Headers */ = {isa = PBXBuildFile; fileRef = 63876AA51CEB592900BDFC17 /* CDARKMappingOperationDataSource.h */; };
 		638D8703FDCC9D53F5578F6819107153 /* RKLog.h in Headers */ = {isa = PBXBuildFile; fileRef = 9AE8950BDF82E0EC05B2E76FC81928AF /* RKLog.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		63AF3B561CE0970800E36E36 /* CDABGDRelationFile+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = 63AF3B541CE0970800E36E36 /* CDABGDRelationFile+CoreDataProperties.m */; };
 		63AF3B571CE0970800E36E36 /* CDABGDRelationFile+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = 63AF3B541CE0970800E36E36 /* CDABGDRelationFile+CoreDataProperties.m */; };
@@ -569,6 +571,8 @@
 		6279EC141D3CC73E563E7E81A6ACB62F /* lcl_RK.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = lcl_RK.m; path = Code/Support/lcl_RK.m; sourceTree = "<group>"; };
 		62A80778D7BD5CA94E560B8504C7A2BD /* RKDictionaryUtilities.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = RKDictionaryUtilities.h; path = Code/Support/RKDictionaryUtilities.h; sourceTree = "<group>"; };
 		632AAC94C696E4A735BD89D6537CD363 /* RKLog.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = RKLog.m; path = Code/Support/RKLog.m; sourceTree = "<group>"; };
+		63876AA51CEB592900BDFC17 /* CDARKMappingOperationDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CDARKMappingOperationDataSource.h; sourceTree = "<group>"; };
+		63876AA61CEB592900BDFC17 /* CDARKMappingOperationDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CDARKMappingOperationDataSource.m; sourceTree = "<group>"; };
 		63AF3B531CE0970800E36E36 /* CDABGDRelationFile+CoreDataProperties.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "CDABGDRelationFile+CoreDataProperties.h"; path = "../../Utils/BackgroundTransfer/Model/CDABGDRelationFile+CoreDataProperties.h"; sourceTree = "<group>"; };
 		63AF3B541CE0970800E36E36 /* CDABGDRelationFile+CoreDataProperties.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "CDABGDRelationFile+CoreDataProperties.m"; path = "../../Utils/BackgroundTransfer/Model/CDABGDRelationFile+CoreDataProperties.m"; sourceTree = "<group>"; };
 		649464592DADA9584D824F3C37D54DBC /* UIKit+AFNetworking.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "UIKit+AFNetworking.h"; path = "UIKit+AFNetworking/UIKit+AFNetworking.h"; sourceTree = "<group>"; };
@@ -1260,6 +1264,8 @@
 				60B3DED10F0076C4044F66001E67696E /* CDANoConversionParser.m */,
 				00494AA08705F9607F5A5CADE8C6C0B3 /* CDARestKitCoreDataParser.h */,
 				4E524657812C80578180BC2148A87E1C /* CDARestKitCoreDataParser.m */,
+				63876AA51CEB592900BDFC17 /* CDARKMappingOperationDataSource.h */,
+				63876AA61CEB592900BDFC17 /* CDARKMappingOperationDataSource.m */,
 			);
 			path = Parser;
 			sourceTree = "<group>";
@@ -1770,6 +1776,7 @@
 				1567D9A4A1DDE5AC74AC36336F2E157A /* CDABackgroundDownloadManager.h in Headers */,
 				9A8B718507C8EA4D7B8CDEAA8E0BA40C /* CDABGDFile+CoreDataProperties.h in Headers */,
 				49EDDA9480CA61B31E03A9D572FEAE0F /* CDABGDFile.h in Headers */,
+				63876AAE1CEB5B1A00BDFC17 /* CDARKMappingOperationDataSource.h in Headers */,
 				E99466268954E6F74AD456E09079B10B /* CDABGDownloadingFile+CoreDataProperties.h in Headers */,
 				ADD3670BA938460BB24F9A84FEFF12D6 /* CDABGDownloadingFile.h in Headers */,
 				E22BF9CCA10AFF5D961B903F77807BF0 /* CDABGDRelationFile+CoreDataProperties.h in Headers */,
@@ -2207,6 +2214,7 @@
 				889DE28F4857A4FB99DAC7009B1C0021 /* CDASyncNotifications.m in Sources */,
 				16BBACBDE25B099F34F0449912A78D47 /* CDASynConstants.m in Sources */,
 				E2343D469B69323C6BF58EF44ABFBD60 /* CDASyncScheduler.m in Sources */,
+				63876AAB1CEB5B1400BDFC17 /* CDARKMappingOperationDataSource.m in Sources */,
 				CBF72E6F40E6B8517D534CCFACC2AFCC /* CDASyncService-dummy.m in Sources */,
 				62CE6BDA8F2DC93C090BB281C9174A30 /* contents in Sources */,
 			);

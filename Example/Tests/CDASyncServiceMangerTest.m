@@ -17,6 +17,7 @@
 #import "Language.h"
 #import "MediaPage.h"
 #import "Media.h"
+#import "CDASynConstants.h"
 
 @interface CDASyncServiceMangerTest : XCTestCase
 @property(nonatomic, strong)CDACoreDataStack *stack;
@@ -37,9 +38,9 @@
 }
 
 - (void)testExample {
+    [[NSUserDefaults standardUserDefaults] removeObjectForKey:kSyncFinshedFirstSyncKey];
     self.stack = [[CDACoreDataStack alloc] initWithModelName:@"Model"];
     self.ex = [self expectationWithDescription:@"sync"];
-    Class c = NSClassFromString(NSStringFromClass([Language class]));
     CDASyncManager *m = [[CDASyncManager alloc] initWithSyncModels:[CDASyncConfiguration syncConfig:self.stack] SchedulerClass:CDANSUserDefaultsSyncScheduleManager.class ReachabilityManager:[CDAAFNetworkingReachabilityManager sharedManger]];
     [m sync];
     
@@ -51,6 +52,7 @@
 
 }
 - (void)fullfill{
+    XCTAssertTrue([[NSUserDefaults standardUserDefaults] boolForKey:kSyncFinshedFirstSyncKey]);
     [self.ex fulfill];
 }
 @end

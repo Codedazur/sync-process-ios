@@ -23,6 +23,7 @@
 @interface CDACoreDataSyncModuleTest : XCTestCase
 @property (nonatomic, strong)CDACoreDataParserSyncModule *sut;
 @property (nonatomic, strong)XCTestExpectation *expectation;
+@property (nonatomic, strong) NSTimer *timer;
 @end
 @implementation CDACoreDataSyncModuleTest
 
@@ -41,7 +42,8 @@
 }
 
 - (void)testMapping{
-
+    
+    
     CDAMapper *m = [self mapping];
     NSArray *dataList = [self loadData];
     CDARestKitCoreDataParser  *parser = [[CDARestKitCoreDataParser alloc] initWithMapping:m AndCoreDataStack:[CoreDataStack coreDataStack]];
@@ -51,9 +53,11 @@
         NSArray *textiles = [CoreDataStack fetchMainContextEntities:NSStringFromClass([Textile class]) WithSortKey:nil Ascending:YES WithPredicate:nil];
         XCTAssert(textiles.count == dataList.count);
         [weakSelf.expectation fulfill];
+        [weakSelf.timer invalidate];
     }];
     [self waitExpectation];
 }
+
 - (void)testMappingTwice{
     
     CDAMapper *m = [self mapping];
@@ -76,6 +80,7 @@
     [self waitExpectation];
 }
 - (void)testSyncModuleCorrect {
+    self.timer= [NSTimer scheduledTimerWithTimeInterval:1  target:self selector:@selector(timerFired:) userInfo:nil repeats:YES];
     NSArray *dataList = [self loadData];
     CDAMapper *m = [self mapping];
     
@@ -97,7 +102,9 @@
     [self waitExpectation];
     
 }
-
+- (void) timerFired:(NSTimer *)timer{
+    NSLog(@"SUT progress %f", [self.sut progress]);
+}
 - (CDAMapper *)mapping{
     CDAMapper *m = [CDAMapper new];
     m.destinationClassName = NSStringFromClass([Textile class]);
@@ -156,6 +163,7 @@
 }
 - (void)waitExpectation{
     [self waitForExpectationsWithTimeout:10.0 handler:^(NSError *error) {
+        [self.timer invalidate];
         if (error) {
             NSLog(@"Timeout Error: %@", error);
         }

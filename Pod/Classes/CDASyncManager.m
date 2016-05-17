@@ -12,6 +12,7 @@
 #import "CDANSUserDefaultsSyncScheduleManager.h"
 #import "CDASyncNotifications.h"
 #import "CDAReachabilityManagerProtocol.h"
+#import "CDASynConstants.h"
 
 @interface CDASyncManager()<CDASyncSchedulerDelegate, CDASyncExecutorDelegate, CDAReachabilityManagerDelegate>
 @property (nonatomic, strong) id<CDASyncSchedulerProtocol> scheduler;
@@ -19,6 +20,7 @@
 @property (nonatomic, copy) NSArray<CDASyncModel> *syncModels;
 @property (nonatomic, strong) id<CDAReachabilityManagerProtocol> reachability;
 @property (nonatomic, strong) NSTimer *timer;
+@property (nonnull, strong) NSMutableSet *erroredSyncs;
 @property (nonatomic, strong) Class<CDASyncScheduleMangerProtocol> schedulerManagerClass;
 @end
 @implementation CDASyncManager
@@ -45,6 +47,12 @@
 }
 
 #pragma mark - Lazy getters
+- (NSMutableSet *)erroredSyncs{
+    if(!_erroredSyncs){
+        _erroredSyncs = [NSMutableSet new];
+    }
+    return _erroredSyncs;
+}
 - (id<CDASyncSchedulerProtocol>)scheduler{
     if(!_scheduler){
         _scheduler = [[CDASyncScheduler alloc] initWithSyncModels:self.syncModels
@@ -63,6 +71,7 @@
 
 #pragma mark - CDASyncSchedulerDelegate
 - (void)CDASyncScheduler:(id<CDASyncSchedulerProtocol>)scheduler wantsToExecuteServicesWithIds:(NSArray *)serviceIds{
+    [self checkToSendFirstTimeNotification];
     [self.executor runSyncWithIds:serviceIds];
 }
 
@@ -76,6 +85,7 @@
     }else if(errorId == CDASyncErrorHttp){
         [self stopProgress];
     }
+    [self.erroredSyncs addObject:serviceId];
     [self postNotificationOnMainThreadWithName:kSyncNotificationError Object:self AndUserInfo:@{kSyncKeyErrorId:[NSNumber numberWithInt:errorId]}];
 }
 - (void)CDASyncExecutor:(id<CDASyncExecutorProtocol>)executor succeededSyncWithId:(NSString *)serviceId{
@@ -85,6 +95,9 @@
 - (void)CDASyncExecutorDidFinishAllSyncServices:(id<CDASyncExecutorProtocol>)executor{
     [self stopProgress];
     [self postNotificationOnMainThreadWithName:kSyncNotificationAllServicesFinished Object:self AndUserInfo:nil];
+    if(self.erroredSyncs.count <= self.syncModels.count/2.0){
+        [self finishFirstSync];
+    }
 }
 
 #pragma mark - CDAReachabilityManagerDelegate
@@ -113,6 +126,15 @@
 - (void)startProgress{
     if(self.timer != nil)return;
     self.timer= [NSTimer scheduledTimerWithTimeInterval:0.1  target:self selector:@selector(onTimerFired:) userInfo:nil repeats:YES];
+}
+- (void)finishFirstSync{
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    [defaults setBool:YES forKey:kSyncFinshedFirstSyncKey];
+}
+- (void)checkToSendFirstTimeNotification{
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    BOOL hasFinishedFirstSync = [defaults boolForKey:kSyncFinshedFirstSyncKey];
+    if(!hasFinishedFirstSync)[[NSNotificationCenter defaultCenter] postNotificationName:kSyncNotificationIsFirstSync object:nil userInfo:nil];
 }
 
 #pragma mark - actions
