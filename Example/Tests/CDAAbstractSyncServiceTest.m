@@ -21,16 +21,19 @@
 #import "CDARestKitCoreDataParser.h"
 #import "CoreDataStack.h"
 #import "CDAAFNetworkingConnector.h"
+#import "CDASyncConfiguration.h"
 #import "CDARestModule.h"
 
 @interface CDAAbstractSyncServiceTest : XCTestCase
 @property (nonatomic, strong)CDAAbstractSyncService *sut;
 @property (nonatomic, strong)XCTestExpectation *expectation;
+@property (nonatomic, strong) NSTimer *timer;
 @end
 
 @implementation CDAAbstractSyncServiceTest
 
 - (void)setUp {
+    self.timer= [NSTimer scheduledTimerWithTimeInterval:0.001  target:self selector:@selector(timerFired:) userInfo:nil repeats:YES];
     self.expectation = [self expectationWithDescription:NSStringFromClass(self.class)];
     [super setUp];
     // Put setup code here. This method is called before the invocation of each test method in the class.
@@ -41,6 +44,7 @@
     [super tearDown];
     self.expectation = nil;
     self.sut = nil;
+    [self.timer invalidate];
 }
 
 - (void)testAbstractCorrect {
@@ -58,12 +62,7 @@
         [weakSelf.expectation fulfill];
     }];
     [self.sut start];
-    
-    [self waitForExpectationsWithTimeout:5.0 handler:^(NSError *error) {
-        if (error) {
-            NSLog(@"Timeout Error: %@", error);
-        }
-    }];
+    [self waitExpectation];
 }
 
 - (void)testAbstractErrorOnFirstStepResourceDoesNotExist {
@@ -82,11 +81,7 @@
     }];
     [self.sut start];
     
-    [self waitForExpectationsWithTimeout:5.0 handler:^(NSError *error) {
-        if (error) {
-            NSLog(@"Timeout Error: %@", error);
-        }
-    }];
+    [self waitExpectation];
 }
 
 - (void)testAbstractCorrectWithRestKit {
@@ -111,11 +106,7 @@
     }];
     [self.sut start];
     
-    [self waitForExpectationsWithTimeout:10.0 handler:^(NSError *error) {
-        if (error) {
-            NSLog(@"Timeout Error: %@", error);
-        }
-    }];
+    [self waitExpectation];
 }
 - (void)testAbstractCorrectWithNetworkAndRestKit {
     [self deleteAllDataContent];
@@ -137,18 +128,14 @@
     }];
     [self.sut start];
     
-    [self waitForExpectationsWithTimeout:10.0 handler:^(NSError *error) {
-        if (error) {
-            NSLog(@"Timeout Error: %@", error);
-        }
-    }];
+    [self waitExpectation];
 }
 - (void)testTrainingBinderAbstractCorrectWithNetworkAndRestKit {
     [self deleteAllDataContent];
     
     CDAMapper *mapping = [self mappingSimpleTrainingBinder];
     
-    CDASimpleSyncModel *m1 = [[CDASimpleSyncModel alloc] initWithUid:@"teste" moduleClass:[CDARestModule class] userInfo:@{@"baseUrl":@"http://staging.trainingbinder.kvadrat.dk/api", @"resource":@"items",@"connectorClass":[CDAAFNetworkingConnector class]} timeInterval:0];
+    CDASimpleSyncModel *m1 = [[CDASimpleSyncModel alloc] initWithUid:@"teste" moduleClass:[CDARestModule class] userInfo:@{@"baseUrl":[CDASyncConfiguration baseUrl], @"resource":@"items",@"connectorClass":[CDAAFNetworkingConnector class],@"basicAuthUser":[CDASyncConfiguration user],@"basicAuthPassword":[CDASyncConfiguration pass],} timeInterval:0];
     
     CDASimpleSyncModel *m2 = [[CDASimpleSyncModel alloc] initWithUid:@"teste" moduleClass:[CDACoreDataParserSyncModule class] userInfo:@{@"parserClass":[CDARestKitCoreDataParser class], @"coreDataStack":[CoreDataStack coreDataStack], @"mapping":mapping} timeInterval:0];
     
@@ -162,12 +149,18 @@
         [weakSelf.expectation fulfill];
     }];
     [self.sut start];
-    
-    [self waitForExpectationsWithTimeout:10.0 handler:^(NSError *error) {
+    [self waitExpectation];
+}
+- (void)waitExpectation{
+    [self waitForExpectationsWithTimeout:60.0 handler:^(NSError *error) {
         if (error) {
             NSLog(@"Timeout Error: %@", error);
         }
     }];
+
+}
+- (void) timerFired:(NSTimer *)timer{
+    NSLog(@"SUT progress %f", [self.sut progress]);
 }
 - (CDAMapper *)mappingSimpleTrainingBinder{
     CDAMapper *m = [CDAMapper new];

@@ -23,7 +23,7 @@
 - (void)getObjectsWithParameters:(NSDictionary *)parameters
                      WithSuccess:(void (^)(id))success failure:(void (^)(NSError *))failure{
     
-
+    self._progress = 0.0;
     NSString *url = [[self baseUrl] stringByAppendingPathComponent:self.resource];
     AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
     
@@ -31,9 +31,9 @@
         [manager.requestSerializer setAuthorizationHeaderFieldWithUsername:self.basicAuthUser password:self.basicAuthPassword];
     
     CDAAFNetworkingConnector __weak *weakSelf = self;
-    [manager GET:url parameters:parameters progress:^(NSProgress * _Nonnull downloadProgress) {
-        weakSelf._progress = downloadProgress.fractionCompleted;
+    [manager GET:url parameters:parameters progress:^(NSProgress * _Nonnull downloadProgress) {;
     } success:^(NSURLSessionTask *task, id responseObject) {
+        weakSelf._progress = 1.0;
         success(responseObject);
     } failure:^(NSURLSessionTask *operation, NSError *error) {
         failure(error);

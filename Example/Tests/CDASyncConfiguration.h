@@ -12,6 +12,9 @@
 #import "CDASimpleSyncModel.h"
 
 @interface CDASyncConfiguration : NSObject
++ (NSString *)baseUrl;
++ (NSString *)user;
++ (NSString *)pass;
 + (NSArray<CDASyncModel> *)syncConfig:(id<CDACoreDataStackProtocol>)stack;
 + (CDASimpleSyncModel *)mediaDownloadAnalizerWithStack:(id<CDACoreDataStackProtocol>)stack;
 + (CDASimpleSyncModel *)mediaDownloaderWithStack:(id<CDACoreDataStackProtocol>)stack;

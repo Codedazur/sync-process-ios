@@ -11,10 +11,10 @@
 #import "CDASyncModule.h"
 
 @interface CDAAbstractSyncService()
-@property (nonatomic, strong)NSArray<CDASyncModule> *modules;
 @property (nonatomic, strong)NSObject<CDASyncModel> *syncModel;
 @property (nonatomic, strong) NSOperationQueue *queue;
 @property (nonatomic, strong) NSInvocationOperation *finishOperation;
+@property (nonatomic) NSInteger totalOperations;
 
 @property (nonatomic) NSInteger currentStep;
 @property (atomic, assign) BOOL _executing;
@@ -91,14 +91,15 @@
         index++;
     }
     [self.queue addOperation:self.finishOperation];
+    self.totalOperations = self.queue.operationCount;
     self.queue.suspended = NO;
 }
 - (double)progress{
     double total = 0;
-    for (id<CDASyncModule> module in self.modules) {
-        total += [module progress];
-    }
-    return total/(double)[self nSteps];
+    NSOperation<CDASyncModule> *current = [self.queue.operations firstObject];
+    double finishedOperations = self.totalOperations - self.queue.operationCount;    
+    double p = [current isKindOfClass:[NSInvocationOperation class]] ? 1 : [current progress];
+    return (finishedOperations + p)/(double)self.totalOperations;
 }
 
 #pragma mark - helpers
@@ -118,13 +119,6 @@
 }
 - (void)finishedQueue:(NSOperation *)operation{
     [self finish];
-}
-- (NSInteger)nSteps{
-    return self.modules.count;
-}
-- (id<CDASyncModule>)currentSyncModule{
-    if(self.modules.count == 0)return nil;
-    return [self.modules objectAtIndex:self.currentStep];
 }
 
 #pragma mark - NSOperation

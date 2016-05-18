@@ -23,6 +23,7 @@
 @property (nonatomic, strong)id<CDASyncModel> model;
 @property (nonatomic, strong)id<CDACoreDataStackProtocol> archiveCoreDataStack;
 @property (nonatomic, weak)id<CDACoreDataStackProtocol> appCoreDataStack;
+@property (nonatomic)double _progress;
 @end
 @implementation CDADownloadedArchiveProcessor
 @synthesize result = _result, error = _error;
@@ -37,22 +38,26 @@
 }
 #pragma mark - CDASyncModule
 - (double)progress{
-    return 0;
+    return self._progress;
 }
 - (void)main{
     if ([self isCancelled]) {
         return;
     }
+    self._progress = 0;
     self.appCoreDataStack =[[self.model userInfo] valueForKey:@"appCoreDataStack"];
     NSString *archivesProcessingFolder = [[CDASyncFileHelper documentsFolderPath] stringByAppendingPathComponent:[[self.model userInfo] valueForKey:@"archivesProcessingFolder"]];
     
     NSArray *archives = [self getArchivesFilesToProcess];
     if(archives.count == 0){
+        self._progress = 1.0;
         return;
     }
     
     NSError *error;
     NSMutableArray *processedArchiveNames = [NSMutableArray new];
+    double totalArchives = archives.count;
+    double processedArchives = 0.0;
     for (NSString *archive in archives) {
         CDABGDFile *mArchive = (CDABGDFile *)[self.archiveCoreDataStack fetchEntity:NSStringFromClass([CDABGDFile class]) WithPredicate:[NSPredicate predicateWithFormat:@"fileName = %@", archive] InContext:[self.archiveCoreDataStack managedObjectContext]];
         NSString *archiveAbsolutePath = [[[CDASyncFileHelper documentsFolderPath] stringByAppendingPathComponent:mArchive.path] stringByAppendingPathComponent:mArchive.fileName];
@@ -93,7 +98,8 @@
         [[self.archiveCoreDataStack managedObjectContext] deleteObject:mArchive];
         [[self.archiveCoreDataStack managedObjectContext] save:nil];
         
-        
+        processedArchives++;
+        self._progress = processedArchives / totalArchives;
     }
     _result = [NSArray arrayWithArray:processedArchiveNames];
 }
