@@ -71,9 +71,10 @@
 
 #pragma mark - CDASyncSchedulerDelegate
 - (void)CDASyncScheduler:(id<CDASyncSchedulerProtocol>)scheduler wantsToExecuteServicesWithIds:(NSArray *)serviceIds{
-    [self postNotificationOnMainThreadWithName:kSyncNotificationSyncServicesStart Object:self AndUserInfo:@{kSyncMangerId:@"data-sync"}];
     [self checkToSendFirstTimeNotification];
+    [self postNotificationOnMainThreadWithName:kSyncNotificationSyncServicesStart Object:self AndUserInfo:@{kSyncMangerId:@"data-sync"}];
     [self.executor runSyncWithIds:serviceIds];
+    [self startProgress];
 }
 
 #pragma mark - CDASyncExecutorDelegate
