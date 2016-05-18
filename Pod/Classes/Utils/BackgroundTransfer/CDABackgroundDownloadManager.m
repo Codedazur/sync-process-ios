@@ -35,7 +35,7 @@
         [self.downloadCoreDataStack saveMainContext];
     }
     [task resume];
-    [self postNotificationOnMainThreadWithName:kSyncNotificationDidBeginDownloadFile Object:nil AndUserInfo:@{@"task":@(task.taskIdentifier)}];
+    [self postNotificationOnMainThreadWithName:kSyncNotificationDidBeginDownloadFile Object:nil AndUserInfo:@{kSyncMangerId:[self identifierWithSession:self.backgroundSession andTask:task]}];
 }
 #pragma mark - NSURLSessionDownloadDelegate
 -(void)URLSessionDidFinishEventsForBackgroundURLSession:(NSURLSession *)session
@@ -123,7 +123,7 @@
             [[self.downloadCoreDataStack managedObjectContext] deleteObject:file];
             [self.downloadCoreDataStack saveMainContext];
             
-            [self postNotificationOnMainThreadWithName:kSyncNotificationDidDownloadFile Object:nil AndUserInfo:@{@"fileName":fileName, @"identifier":@(downloadTask.taskIdentifier)}];
+            [self postNotificationOnMainThreadWithName:kSyncNotificationDidDownloadFile Object:nil AndUserInfo:@{@"fileName":fileName, kSyncMangerId:[self identifierWithSession:session andTask:downloadTask]}];
         }
         
     }
@@ -135,7 +135,7 @@
     
     double progress = totalBytesExpectedToWrite > 0 ? ((double)totalBytesWritten)/((double)totalBytesExpectedToWrite) : 0;
     
-    [self postNotificationOnMainThreadWithName:kSyncNotificationDownloadFileProgress Object:nil AndUserInfo:@{@"progress":@(progress), @"identifier":@(downloadTask.taskIdentifier)}];
+    [self postNotificationOnMainThreadWithName:kSyncNotificationDownloadFileProgress Object:nil AndUserInfo:@{kSyncKeyProgress:@(progress), kSyncMangerId:[self identifierWithSession:session andTask:downloadTask]}];
 }
 
 -(void)URLSession:(NSURLSession *)session downloadTask:(NSURLSessionDownloadTask *)downloadTask didResumeAtOffset:(int64_t)fileOffset expectedTotalBytes:(int64_t)expectedTotalBytes
@@ -155,5 +155,8 @@
                                                             object:object
                                                           userInfo:userInfo];
     });
+}
+- (NSString *)identifierWithSession:(NSURLSession *) session andTask:(NSURLSessionDownloadTask *)task{
+    return [NSString stringWithFormat:@"bg-download-%i",task.taskIdentifier];
 }
 @end
