@@ -35,6 +35,7 @@
         [self.downloadCoreDataStack saveMainContext];
     }
     [task resume];
+    [self postNotificationOnMainThreadWithName:kSyncNotificationDidBeginDownloadFile Object:nil AndUserInfo:@{@"task":@(task.taskIdentifier)}];
 }
 #pragma mark - NSURLSessionDownloadDelegate
 -(void)URLSessionDidFinishEventsForBackgroundURLSession:(NSURLSession *)session
@@ -122,7 +123,7 @@
             [[self.downloadCoreDataStack managedObjectContext] deleteObject:file];
             [self.downloadCoreDataStack saveMainContext];
             
-            [[NSNotificationCenter defaultCenter] postNotificationName:kSyncNotificationDidDownloadFile object:nil userInfo:@{@"fileName":fileName}];
+            [self postNotificationOnMainThreadWithName:kSyncNotificationDidDownloadFile Object:nil AndUserInfo:@{@"fileName":fileName, @"identifier":@(downloadTask.taskIdentifier)}];
         }
         
     }
@@ -131,6 +132,10 @@
 {
     NSLog(@"Session %@ download task %@ wrote an additional %lld bytes (total %lld bytes) out of an expected %lld bytes.\n",
           session, downloadTask, bytesWritten, totalBytesWritten, totalBytesExpectedToWrite);
+    
+    double progress = totalBytesExpectedToWrite > 0 ? ((double)totalBytesWritten)/((double)totalBytesExpectedToWrite) : 0;
+    
+    [self postNotificationOnMainThreadWithName:kSyncNotificationDownloadFileProgress Object:nil AndUserInfo:@{@"progress":@(progress), @"identifier":@(downloadTask.taskIdentifier)}];
 }
 
 -(void)URLSession:(NSURLSession *)session downloadTask:(NSURLSessionDownloadTask *)downloadTask didResumeAtOffset:(int64_t)fileOffset expectedTotalBytes:(int64_t)expectedTotalBytes
@@ -143,5 +148,12 @@
     NSString *taskId = [NSString stringWithFormat:@"%lu",(unsigned long)task.taskIdentifier];
     CDABGDownloadingFile *file = (CDABGDownloadingFile *)[self.downloadCoreDataStack fetchEntity:NSStringFromClass([CDABGDownloadingFile class]) WithPredicate:[NSPredicate predicateWithFormat:@"sessionId=%@ && taskId=%@",sessionId, taskId] InContext:[self.downloadCoreDataStack managedObjectContext]];
     return file;
+}
+- (void)postNotificationOnMainThreadWithName:(NSString *)name Object:(id)object AndUserInfo:(NSDictionary *)userInfo{
+    dispatch_async(dispatch_get_main_queue(), ^{
+        [[NSNotificationCenter defaultCenter] postNotificationName:name
+                                                            object:object
+                                                          userInfo:userInfo];
+    });
 }
 @end

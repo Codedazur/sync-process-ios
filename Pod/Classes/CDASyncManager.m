@@ -71,6 +71,7 @@
 
 #pragma mark - CDASyncSchedulerDelegate
 - (void)CDASyncScheduler:(id<CDASyncSchedulerProtocol>)scheduler wantsToExecuteServicesWithIds:(NSArray *)serviceIds{
+    [self postNotificationOnMainThreadWithName:kSyncNotificationSyncServicesStart Object:self AndUserInfo:@{kSyncMangerId:@"data-sync"}];
     [self checkToSendFirstTimeNotification];
     [self.executor runSyncWithIds:serviceIds];
 }
@@ -94,7 +95,7 @@
 }
 - (void)CDASyncExecutorDidFinishAllSyncServices:(id<CDASyncExecutorProtocol>)executor{
     [self stopProgress];
-    [self postNotificationOnMainThreadWithName:kSyncNotificationAllServicesFinished Object:self AndUserInfo:nil];
+    [self postNotificationOnMainThreadWithName:kSyncNotificationAllServicesFinished Object:self AndUserInfo:@{kSyncMangerId:@"data-sync"}];
     if(self.erroredSyncs.count <= self.syncModels.count/2.0){
         [self finishFirstSync];
     }
@@ -134,7 +135,7 @@
 - (void)checkToSendFirstTimeNotification{
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     BOOL hasFinishedFirstSync = [defaults boolForKey:kSyncFinshedFirstSyncKey];
-    if(!hasFinishedFirstSync)[[NSNotificationCenter defaultCenter] postNotificationName:kSyncNotificationIsFirstSync object:nil userInfo:nil];
+    if(!hasFinishedFirstSync)[self postNotificationOnMainThreadWithName:kSyncNotificationIsFirstSync Object:self AndUserInfo:nil];
 }
 
 #pragma mark - actions
@@ -154,7 +155,7 @@
     [self sync];
 }
 - (void) onTimerFired:(NSTimer *)timer{
-    NSDictionary *userInfo = @{kSyncKeyProgress:[NSNumber numberWithDouble:[self.executor progress]]};
+    NSDictionary *userInfo = @{kSyncKeyProgress:[NSNumber numberWithDouble:[self.executor progress]],kSyncMangerId:@"data-sync"};
     [self postNotificationOnMainThreadWithName:kSyncNotificationProgress Object:self AndUserInfo:userInfo];
 }
 

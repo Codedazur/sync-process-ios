@@ -17,9 +17,15 @@ FOUNDATION_EXPORT NSString * const kSyncNotificationProgress;
 FOUNDATION_EXPORT NSString * const kSyncNotificationAllServicesFinished;
 FOUNDATION_EXPORT NSString * const kSyncNotificationServiceFinishedSuccess;
 FOUNDATION_EXPORT NSString * const kSyncNotificationDidDownloadFile;
+FOUNDATION_EXPORT NSString * const kSyncNotificationDownloadFileProgress;
+FOUNDATION_EXPORT NSString * const kSyncNotificationDidBeginDownloadFile;
 FOUNDATION_EXPORT NSString * const kSyncNotificationIsFirstSync;
+FOUNDATION_EXPORT NSString * const kSyncNotificationSyncServicesStart;
+
 
 
 FOUNDATION_EXPORT NSString * const kSyncKeySyncId;
 FOUNDATION_EXPORT NSString * const kSyncKeyProgress;
 FOUNDATION_EXPORT NSString * const kSyncKeyErrorId;
+FOUNDATION_EXPORT NSString * const kSyncMangerId;
+
