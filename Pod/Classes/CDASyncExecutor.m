@@ -12,6 +12,7 @@
 @interface CDASyncExecutor()<CDASyncServiceDelegate>
 @property (nonatomic, copy) NSArray<CDASyncModel> *syncModels;
 @property (nonatomic, strong) NSMutableDictionary *runningSyncServices;
+@property (nonatomic) NSInteger syncBatch;
 @end
 
 @implementation CDASyncExecutor
@@ -21,6 +22,7 @@
 - (instancetype)initWithSyncModels:(NSArray<CDASyncModel> *)syncs{
     if(!(self = [super init]))return nil;
     self.syncModels = syncs;
+    self.syncBatch = 0;
     return self;
 }
 
@@ -30,6 +32,7 @@
         //TODO not so sure if that is here needed? But what if no sync process is running sync service executer would never stop
         [self checkSyncProcessCompleted];
     }
+    self.syncBatch += ids.count;
     for (NSString *serviceId in ids) {
         
         if([self isSyncServiceRunningWithId:serviceId]){
@@ -53,9 +56,19 @@
         syncService = [self.runningSyncServices objectForKey:syncServiceKey];
         progress += [syncService progress];
     }
-    return progress/(double)self.runningSyncServices.count;
+    NSInteger finishedServices = self.syncBatch - self.runningSyncServices.count;
+    finishedServices = finishedServices < 0 ? 0 : finishedServices;
+    return self.syncBatch > 0 ? (finishedServices + progress)/(double)self.syncBatch : 0;
 }
-
+- (NSDictionary *)progressBySync{
+    NSObject<CDASyncServiceProtocol> *syncService;
+    NSMutableDictionary *servicesProgress = [NSMutableDictionary new];
+    for (NSString *syncServiceKey in self.runningSyncServices) {
+        syncService = [self.runningSyncServices objectForKey:syncServiceKey];
+        [servicesProgress setObject:@([syncService progress]) forKey:syncServiceKey];
+    }
+    return [NSDictionary dictionaryWithDictionary:servicesProgress];
+}
 #pragma mark - Lazy getters
 - (NSMutableDictionary *)runningSyncServices{
     if(!_runningSyncServices)
@@ -78,6 +91,7 @@
 }
 - (void)checkSyncProcessCompleted{
     if (self.runningSyncServices.count == 0) {
+        self.syncBatch = 0;
         [self.delegate CDASyncExecutorDidFinishAllSyncServices:self];
     }
 }

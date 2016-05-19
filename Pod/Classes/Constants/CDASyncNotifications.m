@@ -24,5 +24,7 @@ NSString *const kSyncNotificationIsFirstSync = @"sync-service-is-first-sync";
 NSString *const kSyncKeySyncId = @"sync-id";
 NSString *const kSyncKeyErrorId = @"error-id";
 NSString *const kSyncKeyProgress = @"progress";
+NSString *const kSyncKeyProgressBySyncId = @"progress-by-sync-id";
+NSString *const kSyncKeyBatch = @"progress-sync-batch";
 NSString *const kSyncMangerId = @"sync-manager-id";
 

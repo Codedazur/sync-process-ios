@@ -17,6 +17,8 @@
 - (instancetype)initWithSyncModels:(NSArray<CDASyncModel> *)syncs;
 - (void)runSyncWithIds:(NSArray *)ids;
 - (double)progress;
+- (NSDictionary *)progressBySync;
+- (NSInteger)syncBatch;
 @end
 
 @protocol CDASyncExecutorDelegate <NSObject>

@@ -28,7 +28,7 @@
 #pragma mark - initializers
 - (instancetype)initWithSyncModels:(NSArray<CDASyncModel> *)syncs
                     SchedulerClass:(Class<CDASyncScheduleMangerProtocol>)schedulerClass
-                 ReachabilityManager:(id<CDAReachabilityManagerProtocol>)reachabilityManager{
+               ReachabilityManager:(id<CDAReachabilityManagerProtocol>)reachabilityManager{
     if(!(self = [super init]))return nil;
     self.syncModels = syncs;
     self.reachability = reachabilityManager;
@@ -71,6 +71,7 @@
 
 #pragma mark - CDASyncSchedulerDelegate
 - (void)CDASyncScheduler:(id<CDASyncSchedulerProtocol>)scheduler wantsToExecuteServicesWithIds:(NSArray *)serviceIds{
+    if(serviceIds.count ==0)return;
     [self checkToSendFirstTimeNotification];
     [self postNotificationOnMainThreadWithName:kSyncNotificationSyncServicesStart Object:self AndUserInfo:@{kSyncMangerId:@"data-sync"}];
     [self.executor runSyncWithIds:serviceIds];
@@ -114,7 +115,7 @@
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(onPullFired:) name:kSyncNotificationChronPull object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(onSyncForceAll:) name:kSyncNotificationForceAllSyncs object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(onSyncForceWithId:) name:kSyncNotificationForceSyncWithId object:nil];
-
+    
 }
 - (void)removeNotifications{
     [[NSNotificationCenter defaultCenter] removeObserver:self forKeyPath:kSyncNotificationChronPull];
@@ -127,7 +128,7 @@
 }
 - (void)startProgress{
     if(self.timer != nil)return;
-    self.timer= [NSTimer scheduledTimerWithTimeInterval:0.1  target:self selector:@selector(onTimerFired:) userInfo:nil repeats:YES];
+    self.timer= [NSTimer scheduledTimerWithTimeInterval:0.01  target:self selector:@selector(onTimerFired:) userInfo:nil repeats:YES];
 }
 - (void)finishFirstSync{
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
@@ -156,7 +157,7 @@
     [self sync];
 }
 - (void) onTimerFired:(NSTimer *)timer{
-    NSDictionary *userInfo = @{kSyncKeyProgress:[NSNumber numberWithDouble:[self.executor progress]],kSyncMangerId:@"data-sync"};
+    NSDictionary *userInfo = @{kSyncKeyProgress: @([self.executor progress]),kSyncKeyProgressBySyncId:[self.executor progressBySync],kSyncMangerId:@"data-sync", kSyncKeyBatch:@([self.executor syncBatch])};
     [self postNotificationOnMainThreadWithName:kSyncNotificationProgress Object:self AndUserInfo:userInfo];
 }
 

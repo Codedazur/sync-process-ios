@@ -16,6 +16,7 @@ typedef void(^ParseCompletionBlock)(id result);
 
 @interface CDARestKitCoreDataParser()<RKMapperOperationDelegate>
 @property (nonatomic, strong)NSManagedObjectContext *context;
+@property (nonatomic, strong)NSManagedObjectContext *mainContext;
 @property (nonatomic, copy) ParseCompletionBlock completion;
 @property (nonatomic, strong) RKEntityMapping *mapping;
 @property (nonatomic, strong) RKManagedObjectStore *store;
@@ -38,12 +39,15 @@ typedef void(^ParseCompletionBlock)(id result);
 - (instancetype)initWithMapping:(CDAMapper *)mapping AndCoreDataStack:(id<CDACoreDataStackProtocol>)coreDataStack{
     if(!(self = [super init]))return self;
     self.context = [coreDataStack independentManagedObjectContext];
+    self.mainContext = [coreDataStack managedObjectContext];
     self.store = [[RKManagedObjectStore alloc] initWithManagedObjectModel:[coreDataStack managedObjectModel]];
     self.mapping = [self extractMapping:mapping];
     self.rootKey = mapping.rootKey;
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(onManagedObjectContextSave:) name:NSManagedObjectContextDidSaveNotification object:self.context];
     return self;
 }
 - (void)dealloc{
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
     self.mappingDataSource = nil;
 }
 - (double)progress{
@@ -56,7 +60,7 @@ typedef void(^ParseCompletionBlock)(id result);
     NSInteger totalItems = [self.data isKindOfClass:[NSArray class]] ? ((NSArray *)self.data).count : 1;
     
     self.mappingDataSource = [[CDARKMappingOperationDataSource alloc] initWithManagedObjectContext:self.context cache:self.store.managedObjectCache totalItems:totalItems firstLevelClassName:NSStringFromClass(self.mapping.objectClass)];
-
+    
     RKMapperOperation *mappingOP = [[RKMapperOperation alloc] initWithRepresentation:self.data
                                                                   mappingsDictionary:@{(self.rootKey == nil ? [NSNull null] : self.rootKey) :self.mapping}];
     mappingOP.delegate = self;
@@ -78,6 +82,11 @@ typedef void(^ParseCompletionBlock)(id result);
     else self.completion(mapper.mappingResult.array);
 }
 #pragma mark - helpers
+- (void)onManagedObjectContextSave:(NSNotification *)notification{
+    dispatch_sync(dispatch_get_main_queue(), ^{
+        [self.mainContext mergeChangesFromContextDidSaveNotification:notification];
+    });
+}
 - (RKEntityMapping *)extractMapping:(CDAMapper *)pMapping{
     RKEntityMapping *mapping =[RKEntityMapping mappingForEntityForName:pMapping.destinationClassName inManagedObjectStore:self.store];
     [mapping addAttributeMappingsFromDictionary:pMapping.attributesMapping];
@@ -86,7 +95,7 @@ typedef void(^ParseCompletionBlock)(id result);
     if ([pMapping.relationsMapping count] > 0) {
         for (CDARelationMapping *rMapping in pMapping.relationsMapping) {
             RKEntityMapping *cMapping = [self extractMapping:rMapping.mapper];
-
+            
             [mapping addPropertyMapping:[RKRelationshipMapping relationshipMappingFromKeyPath:rMapping.remoteKey toKeyPath:rMapping.localKey withMapping:cMapping]];
         }
     }

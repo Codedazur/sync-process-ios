@@ -78,13 +78,13 @@
 
 - (instancetype)init
 {
-
+    
     self = [super init];
     if (self) {
         NSBundle *bundle = [NSBundle bundleForClass:[self class]];
         
         self.downloadCoreDataStack = [[CDACoreDataStack alloc] initWithModelName:kSyncConstantBGDownloadDatabaseName AndBundle:bundle];
-    
+        
         self.completionHandlerDictionary = [NSMutableDictionary dictionaryWithCapacity:0];
         
         NSURLSessionConfiguration *backgroundConfigObject = [NSURLSessionConfiguration backgroundSessionConfigurationWithIdentifier: kBackgroundSessionIdentifier];
@@ -98,7 +98,7 @@
 #pragma mark - Delegate methods for download tasks
 - (void)URLSession:(NSURLSession *)session downloadTask:(NSURLSessionDownloadTask *)downloadTask didFinishDownloadingToURL:(NSURL *)location{
     if(session.configuration.identifier){
-
+        
         if(location.path){
             NSLog(@"did finish downloading task %lu on session %@ to path %@", (unsigned long)downloadTask.taskIdentifier, session.configuration.identifier,  location.path);
             
@@ -130,9 +130,6 @@
 }
 -(void)URLSession:(NSURLSession *)session downloadTask:(NSURLSessionDownloadTask *)downloadTask didWriteData:(int64_t)bytesWritten totalBytesWritten:(int64_t)totalBytesWritten totalBytesExpectedToWrite:(int64_t)totalBytesExpectedToWrite
 {
-    NSLog(@"Session %@ download task %@ wrote an additional %lld bytes (total %lld bytes) out of an expected %lld bytes.\n",
-          session, downloadTask, bytesWritten, totalBytesWritten, totalBytesExpectedToWrite);
-    
     double progress = totalBytesExpectedToWrite > 0 ? ((double)totalBytesWritten)/((double)totalBytesExpectedToWrite) : 0;
     
     [self postNotificationOnMainThreadWithName:kSyncNotificationDownloadFileProgress Object:nil AndUserInfo:@{kSyncKeyProgress:@(progress), kSyncMangerId:[self identifierWithSession:session andTask:downloadTask]}];
