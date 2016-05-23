@@ -52,7 +52,9 @@
     double progress = 0;
     
     NSObject<CDASyncServiceProtocol> *syncService;
-    for (NSString *syncServiceKey in self.runningSyncServices) {
+    // we want to avoid exception of "was mutated while being enumerated"
+    NSMutableDictionary *runningServices = [self.runningSyncServices copy];
+    for (NSString *syncServiceKey in runningServices) {
         syncService = [self.runningSyncServices objectForKey:syncServiceKey];
         progress += [syncService progress];
     }
@@ -63,7 +65,10 @@
 - (NSDictionary *)progressBySync{
     NSObject<CDASyncServiceProtocol> *syncService;
     NSMutableDictionary *servicesProgress = [NSMutableDictionary new];
-    for (NSString *syncServiceKey in self.runningSyncServices) {
+    
+    // we want to avoid exception of "was mutated while being enumerated"
+    NSMutableDictionary *runningServices = [self.runningSyncServices copy];
+    for (NSString *syncServiceKey in runningServices) {
         syncService = [self.runningSyncServices objectForKey:syncServiceKey];
         [servicesProgress setObject:@([syncService progress]) forKey:syncServiceKey];
     }
