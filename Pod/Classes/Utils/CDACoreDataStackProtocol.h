@@ -16,9 +16,9 @@
 
 - (instancetype)initWithModelName:(NSString *)modelName;
 - (void)saveMainContext;
-- (NSManagedObject *) createNewEntity:(NSString *)entity inContext:(NSManagedObjectContext *)context;
+- (NSManagedObject *_Nullable) createNewEntity:(NSString *)entity inContext:(NSManagedObjectContext *)context;
 
 - (NSManagedObjectContext *)independentManagedObjectContext;
-- (NSManagedObject *)fetchEntity:(NSString *)entity WithPredicate:(NSPredicate *)predicate InContext:(NSManagedObjectContext *)context;
-- (NSArray *)fetchEntities:(NSString *)entity WithSortKey:(NSString * _Nullable)sortKey Ascending:(BOOL)ascending WithPredicate:( NSPredicate * _Nullable )predicate InContext:(NSManagedObjectContext *)context;
+- (NSManagedObject *_Nullable)fetchEntity:(NSString *)entity WithPredicate:(NSPredicate *)predicate InContext:(NSManagedObjectContext *)context;
+- (NSArray * _Nullable)fetchEntities:(NSString *)entity WithSortKey:(NSString * _Nullable)sortKey Ascending:(BOOL)ascending WithPredicate:( NSPredicate * _Nullable )predicate InContext:(NSManagedObjectContext *)context;
 @end
