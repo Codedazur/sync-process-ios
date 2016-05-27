@@ -40,3 +40,46 @@ CDASyncService is available under the MIT license. See the LICENSE file for more
 
 ## Architecture
 ![Diagramm](https://github.com/Codedazur/sync-process-ios/blob/master/readme-resources/diagram.png)
+
+## How to work with it
+Best would be to have an instance of `CDASyncManager` in the AppDelegate and in `applicationDidBecomActive` call the `run` function
+```swift
+func applicationDidBecomeActive(application: UIApplication){
+	syncManager.sync()
+}
+```
+
+To run the syc process each certain time you can add an instance of `CDASyncChron` this one will send every specified time interval the `kSyncNotificationChronPull` and `CDASyncManager`is going to call the `sync` function
+
+
+## How to configure sync modules
+The library comes with several useful modules, but new ones can be create as needed (please see section "How to extend").
+The sync process is configured with several `CDASyncModel` configuration objects. Each one of those represents a step in the sync process. Each one of those steps can have sub steps needed to complete the specific step. Ideally you create a Configuration class where all those `CDASyncModel` objects are created and then passed to the `CDASynManager`'s constructor. `CDASyncModel` is a protocol, the library comes with the specific `CDASimpleSyncModel` which can be used.
+
+For example:
+We have a sync module that parses the data from a REST request into CoreData. Then your Sync Model would contain 2 steps:
+1) Reaching a resource in the API
+2) Parsing  
+
+So we would need to create 3 SyncModels 1 for each of the substeps and one to combine them in one.
+
+1) Connecting to API
+```swift
+ let smConnect = CDASimpleSyncModel(uid: "connector", moduleClass: CDARestModule.self, userInfo: ["baseUrl":"http://api.example.com","resource":"examples","connectorClass":CDAAFNetworkingConnector.self, "basicAuthUser":"user", "basicAuthPassword":"pass"] as [NSObject : AnyObject], timeInterval: 0)
+ ```
+Here we a using the `CDARestModule` class that comes with the library this one is going to connect via de Connector to the api and retrieve data and store it in `result`. In this case we are using `CDAAFNetworkingConnector` as connector. If you don't want to use AFNetworking, you can create a connector with any HTTP library you prefer.
+The CDARestModule expects in user info "baseUrl", "resource" and "connectorClass" you can provide "basicAuthUser" and "basicAuthPassword" only if you need it
+
+ 2) Parsing data
+```swift
+let smParse = CDASimpleSyncModel(uid: "parser", moduleClass: CDACoreDataParserSyncModule.self, userInfo: ["parserClass":CDARestKitCoreDataParser.self,"coreDataStack":coreDataStack,"mapping":mapper] as [NSObject : AnyObject], timeInterval: 0)
+```
+In this case we want to parse the data into Core Data and we want to use the `CDARestKitCoreDataParser`, if you don't want to use RestKit you could implement one of your own.
+`coreDataStack` is an instance of `<CDACoreDataStackProtocol>` the library comes with an implementation `CDACoreDataStack`. Ideally you create one coreDataStack to use on your whole app in the `AppDelegate` 
+`mapper` mapper is an instance of `CDAMapper` used to map attributes from your Model to the models coming from the server.
+
+
+## Available modules
+
+## How to extend
+
