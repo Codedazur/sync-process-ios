@@ -39,4 +39,4 @@ CDASyncService is available under the MIT license. See the LICENSE file for more
 
 
 ## Architecture
-![Diagramm](https://github.com/Codedazur/sync-process-ios/readme-resources/diagram.png)
+![Diagramm](https://github.com/Codedazur/sync-process-ios/blob/master/readme-resources/diagram.png)
