@@ -63,23 +63,36 @@ We have a sync module that parses the data from a REST request into CoreData. Th
 
 So we would need to create 3 SyncModels 1 for each of the substeps and one to combine them in one.
 
-1) Connecting to API
+1. Connecting to API
 ```swift
  let smConnect = CDASimpleSyncModel(uid: "connector", moduleClass: CDARestModule.self, userInfo: ["baseUrl":"http://api.example.com","resource":"examples","connectorClass":CDAAFNetworkingConnector.self, "basicAuthUser":"user", "basicAuthPassword":"pass"] as [NSObject : AnyObject], timeInterval: 0)
  ```
 Here we a using the `CDARestModule` class that comes with the library this one is going to connect via de Connector to the api and retrieve data and store it in `result`. In this case we are using `CDAAFNetworkingConnector` as connector. If you don't want to use AFNetworking, you can create a connector with any HTTP library you prefer.
 The CDARestModule expects in user info "baseUrl", "resource" and "connectorClass" you can provide "basicAuthUser" and "basicAuthPassword" only if you need it
 
- 2) Parsing data
+2. Parsing data
 ```swift
 let smParse = CDASimpleSyncModel(uid: "parser", moduleClass: CDACoreDataParserSyncModule.self, userInfo: ["parserClass":CDARestKitCoreDataParser.self,"coreDataStack":coreDataStack,"mapping":mapper] as [NSObject : AnyObject], timeInterval: 0)
 ```
 In this case we want to parse the data into Core Data and we want to use the `CDARestKitCoreDataParser`, if you don't want to use RestKit you could implement one of your own.
 `coreDataStack` is an instance of `<CDACoreDataStackProtocol>` the library comes with an implementation `CDACoreDataStack`. Ideally you create one coreDataStack to use on your whole app in the `AppDelegate` 
 `mapper` mapper is an instance of `CDAMapper` used to map attributes from your Model to the models coming from the server.
+Since the parser is going to have the connector as dependency, it is going to receive the data to parse from the connector.
+
+3. Combining
+Now that we have the submodules we need to combine them to make one.
+
+```swift
+let smSyncService = CDASimpleSyncModel(uid: "some-unique-identifier", moduleClass: CDAAbstractSyncService.self, userInfo: nil, subModuleModels: [smConnect, smParse]], timeInterval: 60*60*24)
+```
+The utility class `CDAAbstractSyncService` is responsible for running teh subModules sequencially. The parameter timeinterval is used to specify the frequency this sync process needs to run 24h in our example.
+
+
 
 
 ## Available modules
 
 ## How to extend
+
+## Mapper
 
