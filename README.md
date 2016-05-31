@@ -100,6 +100,7 @@ The utility class `CDAAbstractSyncService` is responsible for running teh subMod
 #### CDAAbstractSyncService
 
 ## Utilities
+#### CDAAFNetworkingConnector
 #### CDARestKitCoreDataParser
 #### CDABackgroundDownloadManager
 
