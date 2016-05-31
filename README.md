@@ -58,8 +58,8 @@ The sync process is configured with several `CDASyncModel` configuration objects
 
 For example:
 We have a sync module that parses the data from a REST request into CoreData. Then your Sync Model would contain 2 steps:
-1) Reaching a resource in the API
-2) Parsing  
+1. Reaching a resource in the API
+2. Parsing  
 
 So we would need to create 3 SyncModels 1 for each of the substeps and one to combine them in one.
 
