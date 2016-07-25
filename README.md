@@ -26,7 +26,7 @@ To create new versions of thsi library run:
 git add -A && git commit -m "Release 0.0.19"
 git tag '0.0.1'
 git push --tags
-pod repo push bitbucket-cda-ios-pods CDASyncService.podspec --allow-warnings
+pod repo push bitbucket-cda-ios-pods CDASyncService.podspec --allow-warnings --use-libraries
 ```
 
 ## Author
