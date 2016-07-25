@@ -1,10 +1,10 @@
 source 'https://github.com/CocoaPods/Specs.git'
 source 'git@bitbucket.org:codedazur/cda-ios-pods.git'
 
-target 'CDASyncService_Example', :exclusive => true do
+target 'CDASyncService_Example' do
   pod "CDASyncService", :path => "../"
 end
 
-target 'CDASyncService_Tests', :exclusive => true do
+target 'CDASyncService_Tests' do
   pod "CDASyncService", :path => "../"
 end
