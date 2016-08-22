@@ -78,10 +78,50 @@ typedef void(^ParseCompletionBlock)(id result);
         }
     }];
     
+    [self deleteLocalObjectsMissingFromMappingResult:mapper.mappingResult error:&error];
+    
     if(error)self.completion(error);
     else self.completion(mapper.mappingResult.array);
 }
 #pragma mark - helpers
+- (BOOL)deleteLocalObjectsMissingFromMappingResult:(RKMappingResult *)mappingResult error:(NSError **)error
+{
+    NSArray *localObjects = [self localObjects];
+    NSMutableSet *orphanedObjects = [NSMutableSet setWithArray:localObjects];
+    [orphanedObjects minusSet:mappingResult.set];
+    
+    if ([orphanedObjects count]) {
+        [self.context performBlockAndWait:^{
+            for (NSManagedObject *orphanedObject in orphanedObjects) {
+                [self.context deleteObject:orphanedObject];
+            }
+        }];
+    }
+    [self.context performBlockAndWait:^{
+        if(![self.context save:&error]){
+            NSLog(@"error saving %@", error);
+        }
+    }];
+    return  YES;
+}
+- (NSArray *)localObjects{
+    NSArray __block *array = @[];
+    [self.context performBlockAndWait:^{
+        
+        NSEntityDescription *entityDescription = self.mapping.entity;
+        
+        NSFetchRequest *request = [[NSFetchRequest alloc] init];
+        [request setEntity:entityDescription];
+        
+        NSError *error;
+        array = [self.context executeFetchRequest:request error:&error];
+        if (error != nil || array == nil)
+        {
+            NSLog(@"CDARestKitCoreDataParser::ErrorFeching::Local Objects");
+        }
+    }];
+    return array;
+}
 - (void)onManagedObjectContextSave:(NSNotification *)notification{
     dispatch_sync(dispatch_get_main_queue(), ^{
         [self.mainContext mergeChangesFromContextDidSaveNotification:notification];
