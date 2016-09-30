@@ -13,6 +13,7 @@
 @property (nonatomic, strong) NSString *resource;
 @property (nonatomic, strong) NSString *basicAuthUser;
 @property (nonatomic, strong) NSString *basicAuthPassword;
+@property (nonatomic) NSTimeInterval timeoutInterval;
 @optional
 - (double)progress;
 - (void) getObjectsWithSuccess:(void (^)(id responseObject))success failure:(void (^)(NSError *error))failure;

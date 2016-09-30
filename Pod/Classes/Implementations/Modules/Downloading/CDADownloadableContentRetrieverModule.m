@@ -70,7 +70,7 @@
     self.connector.resource = [self.connector.resource stringByAppendingPathComponent:[[self.model userInfo] valueForKey:@"identifier"]];
     
     NSString *ids = [idsToDownload componentsJoinedByString:@","];
-    
+    [self.connector setTimeoutInterval:120.0];
     
     
     CDADownloadableContentRetrieverModule __weak *weakSelf = self;

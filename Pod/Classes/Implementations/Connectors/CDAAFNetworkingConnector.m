@@ -13,7 +13,7 @@
 @property(nonatomic)double _progress;
 @end
 @implementation CDAAFNetworkingConnector
-@synthesize baseUrl = _baseUrl, resource = _resource, basicAuthPassword = _basicAuthPassword, basicAuthUser = _basicAuthUser;
+@synthesize baseUrl = _baseUrl, resource = _resource, basicAuthPassword = _basicAuthPassword, basicAuthUser = _basicAuthUser, timeoutInterval = _timeoutInterval;
 - (double)progress{
     return self._progress;
 }
@@ -26,7 +26,7 @@
     self._progress = 0.0;
     NSString *url = [[self baseUrl] stringByAppendingPathComponent:self.resource];
     AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
-    
+    if(self.timeoutInterval != 0) [manager.requestSerializer setTimeoutInterval:self.timeoutInterval];
     if(self.basicAuthUser != nil && self.basicAuthPassword != nil)
         [manager.requestSerializer setAuthorizationHeaderFieldWithUsername:self.basicAuthUser password:self.basicAuthPassword];
     
@@ -34,8 +34,10 @@
     [manager GET:url parameters:parameters progress:^(NSProgress * _Nonnull downloadProgress) {;
     } success:^(NSURLSessionTask *task, id responseObject) {
         weakSelf._progress = 1.0;
+        [[AFHTTPSessionManager manager].requestSerializer setTimeoutInterval:60];
         success(responseObject);
     } failure:^(NSURLSessionTask *operation, NSError *error) {
+        [[AFHTTPSessionManager manager].requestSerializer setTimeoutInterval:60];
         failure(error);
     }];
 }
