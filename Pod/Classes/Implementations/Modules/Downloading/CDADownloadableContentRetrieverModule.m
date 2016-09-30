@@ -67,15 +67,16 @@
         return;
     }
     
-    self.connector.resource = [self.connector.resource stringByAppendingPathComponent:[[self.model userInfo] valueForKey:@"identifier"]];
     
     NSString *ids = [idsToDownload componentsJoinedByString:@","];
-    [self.connector setTimeoutInterval:120.0];
     
-    
+    NSNumber *timeout = [[self.model userInfo] valueForKey:@"timeout"];
+    if(timeout != nil){
+        self.connector.timeoutInterval = timeout.doubleValue;
+    }
     CDADownloadableContentRetrieverModule __weak *weakSelf = self;
     
-    [self.connector getObjectsWithParameters:@{@"media":ids} WithSuccess:^(id responseObject) {
+    [self.connector createObjectWithParameters:@{@"media":ids, @"userId":[[self.model userInfo] valueForKey:@"identifier"]} WithSuccess:^(id responseObject) {
         NSString *downloadUrl = [responseObject valueForKey:@"url"];
         NSString *fileName = [downloadUrl lastPathComponent];
         

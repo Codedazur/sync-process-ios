@@ -38,6 +38,10 @@
     }
     self.connector.baseUrl = [[self.model userInfo] valueForKey:@"baseUrl"];
     self.connector.resource = [[self.model userInfo] valueForKey:@"resource"];
+    NSNumber *timeout = [[self.model userInfo] valueForKey:@"timeout"];
+    if(timeout != nil){
+        self.connector.timeoutInterval = timeout.doubleValue;
+    }
     
     if ([[self.model userInfo] valueForKey:@"basicAuthUser"] && [[self.model userInfo] valueForKey:@"basicAuthPassword"]) {
         self.connector.basicAuthUser = [[self.model userInfo] valueForKey:@"basicAuthUser"];

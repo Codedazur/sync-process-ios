@@ -9,7 +9,7 @@
 
 Pod::Spec.new do |s|
   s.name             = "CDASyncService"
-  s.version          = "0.0.23"
+  s.version          = "0.0.24"
   s.summary          = "Framework for Sync Processes"
   s.description      = <<-DESC
                        Base Framework to use for syncing a large amount of data into an app
