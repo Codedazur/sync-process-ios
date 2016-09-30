@@ -67,13 +67,15 @@
         return;
     }
     
-    self.connector.resource = [[self.connector.resource stringByAppendingPathComponent:[[self.model userInfo] valueForKey:@"identifier"]]stringByAppendingPathComponent:[idsToDownload componentsJoinedByString:@","]];
-
+    self.connector.resource = [self.connector.resource stringByAppendingPathComponent:[[self.model userInfo] valueForKey:@"identifier"]];
+    
+    NSString *ids = [idsToDownload componentsJoinedByString:@","];
+    
     
     
     CDADownloadableContentRetrieverModule __weak *weakSelf = self;
     
-    [self.connector getObjectsWithSuccess:^(id responseObject) {
+    [self.connector getObjectsWithParameters:@{@"media":ids} WithSuccess:^(id responseObject) {
         NSString *downloadUrl = [responseObject valueForKey:@"url"];
         NSString *fileName = [downloadUrl lastPathComponent];
         
