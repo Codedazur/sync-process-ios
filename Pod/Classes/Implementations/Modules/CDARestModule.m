@@ -40,7 +40,7 @@
     self.connector.resource = [[self.model userInfo] valueForKey:@"resource"];
     NSNumber *timeout = [[self.model userInfo] valueForKey:@"timeout"];
     if(timeout != nil){
-        self.connector.timeoutInterval = timeout.doubleValue;
+        self.connector.timeoutInterval = [timeout copy];
     }
     
     if ([[self.model userInfo] valueForKey:@"basicAuthUser"] && [[self.model userInfo] valueForKey:@"basicAuthPassword"]) {

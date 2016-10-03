@@ -137,7 +137,7 @@
 - (void)checkToSendFirstTimeNotification{
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     BOOL hasFinishedFirstSync = [defaults boolForKey:kSyncFinshedFirstSyncKey];
-    if(!hasFinishedFirstSync)[self postNotificationOnMainThreadWithName:kSyncNotificationIsFirstSync Object:self AndUserInfo:nil];
+    if(!hasFinishedFirstSync && ![self.executor isAnySyncServiceRunning])[self postNotificationOnMainThreadWithName:kSyncNotificationIsFirstSync Object:self AndUserInfo:nil];
 }
 
 #pragma mark - actions

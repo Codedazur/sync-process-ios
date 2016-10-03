@@ -55,8 +55,9 @@
         self.connector.basicAuthUser = [[self.model userInfo] valueForKey:@"basicAuthUser"];
         self.connector.basicAuthPassword = [[self.model userInfo] valueForKey:@"basicAuthPassword"];
     }
-
-
+    self.connector.timeoutInterval = [[self.model userInfo] valueForKey:@"timeout"];
+    
+    
     NSBundle *bundle = [NSBundle bundleForClass:[self class]];
     self.downloadCoreDataStack = [[CDACoreDataStack alloc] initWithModelName:kSyncConstantBGDownloadDatabaseName AndBundle:bundle];
     
@@ -82,7 +83,7 @@
     
 }
 - (NSArray *)dataIdsToDownloadData:(NSArray *)dataToParse{
-
+    
     CDADownloadableContentMapper *mapping = [[self.model userInfo] valueForKey:@"mapping"];
     NSMutableSet *remoteHashes = [NSMutableSet setWithArray:[dataToParse valueForKeyPath:mapping.remoteFileHashKey]];
     

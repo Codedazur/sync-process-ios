@@ -26,7 +26,7 @@
     self._progress = 0.0;
     NSString *url = [[self baseUrl] stringByAppendingPathComponent:self.resource];
     AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
-    if(self.timeoutInterval != 0) [manager.requestSerializer setTimeoutInterval:self.timeoutInterval];
+    if(self.timeoutInterval != nil) [manager.requestSerializer setTimeoutInterval:self.timeoutInterval.doubleValue];
     if(self.basicAuthUser != nil && self.basicAuthPassword != nil)
         [manager.requestSerializer setAuthorizationHeaderFieldWithUsername:self.basicAuthUser password:self.basicAuthPassword];
     
@@ -34,10 +34,8 @@
     [manager GET:url parameters:parameters progress:^(NSProgress * _Nonnull downloadProgress) {;
     } success:^(NSURLSessionTask *task, id responseObject) {
         weakSelf._progress = 1.0;
-        [[AFHTTPSessionManager manager].requestSerializer setTimeoutInterval:60];
         success(responseObject);
     } failure:^(NSURLSessionTask *operation, NSError *error) {
-        [[AFHTTPSessionManager manager].requestSerializer setTimeoutInterval:60];
         failure(error);
     }];
 }
@@ -45,7 +43,7 @@
     self._progress = 0.0;
     NSString *url = [[self baseUrl] stringByAppendingPathComponent:self.resource];
     AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
-    if(self.timeoutInterval != 0) [manager.requestSerializer setTimeoutInterval:self.timeoutInterval];
+    if(self.timeoutInterval != nil) [manager.requestSerializer setTimeoutInterval:self.timeoutInterval.doubleValue];
     if(self.basicAuthUser != nil && self.basicAuthPassword != nil)
         [manager.requestSerializer setAuthorizationHeaderFieldWithUsername:self.basicAuthUser password:self.basicAuthPassword];
     
@@ -54,10 +52,8 @@
     [manager POST:url parameters:parameters progress:^(NSProgress * _Nonnull downloadProgress) {;
     } success:^(NSURLSessionTask *task, id responseObject) {
         weakSelf._progress = 1.0;
-        [[AFHTTPSessionManager manager].requestSerializer setTimeoutInterval:60];
         success(responseObject);
     } failure:^(NSURLSessionTask *operation, NSError *error) {
-        [[AFHTTPSessionManager manager].requestSerializer setTimeoutInterval:60];
         failure(error);
     }];
 }

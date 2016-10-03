@@ -27,6 +27,9 @@
 }
 
 #pragma mark - CDASyncExecutorProtocol
+- (BOOL) isAnySyncServiceRunning{
+    return self.runningSyncServices.count > 0;
+}
 - (void)runSyncWithIds:(NSArray *)ids{
     if (ids.count == 0 ) {
         //TODO not so sure if that is here needed? But what if no sync process is running sync service executer would never stop

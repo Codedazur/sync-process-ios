@@ -16,6 +16,7 @@
 @property(nonatomic, weak) id<CDASyncExecutorDelegate> delegate;
 - (instancetype)initWithSyncModels:(NSArray<CDASyncModel> *)syncs;
 - (void)runSyncWithIds:(NSArray *)ids;
+- (BOOL) isAnySyncServiceRunning;
 - (double)progress;
 - (NSDictionary *)progressBySync;
 - (NSInteger)syncBatch;

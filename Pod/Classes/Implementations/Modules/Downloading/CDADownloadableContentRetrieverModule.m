@@ -72,7 +72,7 @@
     
     NSNumber *timeout = [[self.model userInfo] valueForKey:@"timeout"];
     if(timeout != nil){
-        self.connector.timeoutInterval = timeout.doubleValue;
+        self.connector.timeoutInterval = [timeout copy];
     }
     CDADownloadableContentRetrieverModule __weak *weakSelf = self;
     
